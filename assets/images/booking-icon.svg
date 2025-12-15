@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 120 120" role="img" aria-label="solourlul booking">
+  <rect width="120" height="120" rx="14" fill="#ffffff"/>
+  <defs>
+    <linearGradient id="b1" x1="0" x2="1"><stop offset="0" stop-color="#4aa0ff"/><stop offset="1" stop-color="#2b6fd6"/></linearGradient>
+  </defs>
+
+  <!-- Two blue S letters stylized on top-left -->
+  <g transform="translate(10,12)">
+    <text x="0" y="20" font-family="Arial Black, sans-serif" font-size="28" fill="#4aa0ff">S</text>
+    <text x="18" y="20" font-family="Arial Black, sans-serif" font-size="28" fill="#2b6fd6" opacity="0.95">S</text>
+  </g>
+
+  <!-- Center icon: calendar + doctor -->
+  <g transform="translate(28,24)">
+    <rect x="6" y="6" width="60" height="52" rx="6" fill="#f5f9ff" stroke="#e2efff"/>
+    <rect x="10" y="10" width="52" height="10" rx="3" fill="#e6f0ff"/>
+    <!-- red hospital cross -->
+    <g transform="translate(12,10) scale(0.9)">
+      <rect x="22" y="12" width="12" height="24" rx="1" fill="#e74c3c"/>
+      <rect x="16" y="18" width="24" height="12" rx="1" fill="#e74c3c"/>
+    </g>
+    <!-- stethoscope icon on right -->
+    <g transform="translate(34,22) scale(0.9)">
+      <path d="M2 2 C6 2 8 6 8 10 C8 14 6 18 2 18" stroke="#2b6fd6" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <circle cx="10" cy="18" r="2" stroke="#2b6fd6" stroke-width="1.4" fill="#ffffff"/>
+      <rect x="8" y="18" width="4" height="6" rx="2" fill="#2b6fd6"/>
+    </g>
+  </g>
+
+</svg>

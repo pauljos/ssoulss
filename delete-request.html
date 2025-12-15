@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Data Request</title>
+    <link rel="stylesheet" href="assets/index-aIQA8NSi.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Request Data Deletion</h1>
+        <form id="deleteRequestForm">
+            <label for="identifier">Email or Phone Number:</label>
+            <input type="text" id="identifier" name="identifier" required placeholder="Enter your email or phone number">
+            <button type="submit">Request Deletion</button>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+    <script>
+        document.getElementById('deleteRequestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const identifier = document.getElementById('identifier').value.trim();
+            if (!identifier) {
+                document.getElementById('responseMessage').textContent = 'Please enter your email or phone number.';
+                return;
+            }
+            // Here you would send the request to your backend or handle as needed
+            document.getElementById('responseMessage').textContent = 'Your deletion request has been submitted.';
+            document.getElementById('deleteRequestForm').reset();
+        });
+    </script>
+</body>
+</html>
