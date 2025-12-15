@@ -7,19 +7,68 @@
     {% seo %}
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
     <style>
-      body{font-family:Inter, Arial, sans-serif;background:#ffffff;color:#0b1726;margin:0;padding:36px}
-      .container{max-width:980px;margin:0 auto}
-      .home-hero{margin:36px 0}
+      :root{--accent:#1f3a56;--muted:#6b7a86}
+      body{font-family:Inter, Arial, sans-serif;background:#ffffff;color:#0b1726;margin:0;padding:0}
+      .container{max-width:1100px;margin:0 auto;padding:28px}
+      header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+      header h1{margin:0;font-size:20px}
+      header nav a{color:var(--accent);text-decoration:none;margin-left:18px}
+      .home-hero{display:flex;gap:28px;align-items:center;padding:36px 0;border-bottom:1px solid #eef2f5}
+      .hero-copy h2{margin:0 0 12px 0;font-size:28px}
+      .hero-copy p{color:var(--muted);margin:0 0 18px}
+      .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
+      .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:28px 0}
+      .card{border:1px solid #eef2f5;padding:18px;border-radius:10px;background:#fff}
+      footer{border-top:1px solid #eef2f5;padding:18px 0;margin-top:36px;color:var(--muted)}
     </style>
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>{{ site.title }}</h1>
-        <p>{{ site.description }}</p>
+        <div style="display:flex;align-items:center;gap:14px">
+          <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="logo" style="width:56px;height:56px;border-radius:10px;object-fit:cover;"/>
+          <div>
+            <h1>{{ site.title }}</h1>
+            <p style="margin:2px 0 0 0;color:var(--muted);font-size:13px">{{ site.description }}</p>
+          </div>
+        </div>
+        <nav aria-label="Main navigation">
+          {% for item in site.data.navigation.main %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          {% endfor %}
+        </nav>
       </header>
 
       <main>
+        <section class="home-hero">
+          <div class="hero-copy">
+            <h2>{{ page.title }}</h2>
+            <p>{{ page.excerpt | default: site.description }}</p>
+            <p>
+              <a class="btn" href="/contact/">Get a demo</a>
+              <a class="btn" href="/about/" style="background:#fff;color:var(--accent);border:1px solid #e6eef4;margin-left:8px">About us</a>
+            </p>
+          </div>
+          <div style="flex:0 0 320px;text-align:center">
+            <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="ssoulss emblem" style="width:260px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(31,54,86,0.06);" />
+          </div>
+        </section>
+
+        <section class="features" aria-label="Our products">
+          <div class="card">
+            <h3>Souldoc</h3>
+            <p>Healthcare & medical booking system (SaaS). Secure patient management, appointment booking, and clinic workflows.</p>
+          </div>
+          <div class="card">
+            <h3>Booking</h3>
+            <p>Lightweight booking widget and API for appointments — integrate with existing sites and workflows.</p>
+          </div>
+          <div class="card">
+            <h3>Integrations</h3>
+            <p>APIs and connectors for calendars, SMS gateways, and electronic health record systems.</p>
+          </div>
+        </section>
+
         {{ content }}
       </main>
 
