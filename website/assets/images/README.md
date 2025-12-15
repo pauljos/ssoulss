@@ -1,0 +1,1 @@
+Place generated PNGs and exported images here. `feature-graphic-white.png` and emblem PNGs will be placed here by the export step.

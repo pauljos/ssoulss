@@ -1,0 +1,12 @@
+main:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Contact
+    url: /contact/
+- title: Privacy
+  url: /privacy/
+
+- title: Delete my data
+  url: /delete-request/

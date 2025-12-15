@@ -1,0 +1,22 @@
+title: ssoulss
+email: info@ssoulss.com
+description: >
+  Software product development for healthcare and booking systems.
+baseurl: ""
+url: "https://pauljos.github.io/ssoulss" # temporary — update after repo setup
+theme: "mmistakes/minimal-mistakes"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# minimal mistakes settings (keep defaults for now)
+markdown: kramdown
+highlighter: rouge
+
+# where to place assets
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "single"
