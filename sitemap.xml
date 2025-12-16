@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://pauljos.github.io/ssoulss/about/</loc>
-</url>
-<url>
-<loc>https://pauljos.github.io/ssoulss/contact/</loc>
-</url>
-<url>
-<loc>https://pauljos.github.io/ssoulss/delete-request/</loc>
-</url>
-<url>
-<loc>https://pauljos.github.io/ssoulss/</loc>
-</url>
-<url>
-<loc>https://pauljos.github.io/ssoulss/privacy/</loc>
-</url>
-<url>
-<loc>https://pauljos.github.io/ssoulss/assets/images/</loc>
-</url>
-<url>
-<loc>https://pauljos.github.io/ssoulss/delete-request.html</loc>
-<lastmod>2025-12-15T16:45:20+00:00</lastmod>
-</url>
-<url>
-<loc>https://pauljos.github.io/ssoulss/privacy.html</loc>
-<lastmod>2025-12-15T16:45:20+00:00</lastmod>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ssoulss.com/</loc>
+  </url>
+  <url>
+    <loc>https://ssoulss.com/product-stack/</loc>
+  </url>
+  <url>
+    <loc>https://ssoulss.com/consulting/</loc>
+  </url>
+  <url>
+    <loc>https://ssoulss.com/locations/</loc>
+  </url>
+  <url>
+    <loc>https://ssoulss.com/contact/</loc>
+  </url>
+  <url>
+    <loc>https://ssoulss.com/policies/</loc>
+  </url>
 </urlset>

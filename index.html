@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ssoulss — ssoulss</title>
+    <meta name="description" content="AI Solutions for SoulS — products, consulting and engineering for ambitious organisations" />
+    <meta property="og:title" content="AI Solutions for SoulS — ssoulss" />
+    <meta property="og:description" content="AI Solutions for SoulS — products, consulting and engineering for ambitious organisations" />
+    <meta property="og:image" content="/assets/images/hero-illustration.svg" />
+    <link rel="preload" href="/assets/images/hero-illustration.svg" as="image">
+    <title>AI Solutions for SoulS — ssoulss</title>
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>ssoulss | Software product development for healthcare and booking systems.</title>
+<title>AI Solutions for SoulS | ssoulss</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="ssoulss" />
+<meta property="og:title" content="AI Solutions for SoulS" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Software product development for healthcare and booking systems." />
 <meta property="og:description" content="Software product development for healthcare and booking systems." />
@@ -16,120 +21,165 @@
 <meta property="og:site_name" content="ssoulss" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="ssoulss" />
+<meta property="twitter:title" content="AI Solutions for SoulS" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Software product development for healthcare and booking systems.","headline":"ssoulss","name":"ssoulss","url":"https://pauljos.github.io/ssoulss/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","description":"Software product development for healthcare and booking systems.","headline":"AI Solutions for SoulS","name":"ssoulss","url":"https://pauljos.github.io/ssoulss/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
     <style>
-      :root{--accent:#1f3a56;--muted:#6b7a86}
-      body{font-family:Inter, Arial, sans-serif;background:#ffffff;color:#0b1726;margin:0;padding:0}
-      .container{max-width:1100px;margin:0 auto;padding:28px}
-      header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-      header h1{margin:0;font-size:20px}
-      header nav a{color:var(--accent);text-decoration:none;margin-left:18px}
-      .home-hero{display:flex;gap:28px;align-items:center;padding:36px 0;border-bottom:1px solid #eef2f5}
-      .hero-copy h2{margin:0 0 12px 0;font-size:28px}
-      .hero-copy p{color:var(--muted);margin:0 0 18px}
+      :root{--accent:#0b6fbf;--dark:#0b1726;--muted:#6b7a86}
+      html,body{height:100%}
+      body{font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial, sans-serif;background:#f8fbfd;color:var(--dark);margin:0}
+      .wrap{max-width:1100px;margin:0 auto;padding:18px}
+
+      /* Top emblem */
+      .site-emblem{background:linear-gradient(180deg,rgba(11,103,191,0.06),transparent);text-align:center;padding:26px 12px}
+      .site-emblem img{width:110px;height:110px;border-radius:16px;object-fit:cover;box-shadow:0 16px 45px rgba(11,103,191,0.08)}
+
+      /* navigation */
+  /* navigation - responsive */
+  .nav-wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .nav-toggle{display:none;background:transparent;border:0;font-size:18px}
+  nav.main-nav{display:flex;justify-content:center;gap:18px;padding:12px 0;font-size:15px}
+  nav.main-nav a{color:var(--dark);text-decoration:none;padding:10px 14px;border-radius:10px}
+  nav.main-nav a:hover{background:rgba(11,103,191,0.06)}
+
+  /* focus and accessibility */
+  :focus{outline: none}
+  a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(11,111,191,0.18);outline-offset:3px}
+
+      /* Hero - compact, mobile-first */
+  .hero{display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center;padding:22px 14px}
+      .hero h1{font-size:28px;margin:0}
+      .hero p.lead{max-width:760px;color:var(--muted);margin:0}
+      .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px}
       .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
-      .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:28px 0}
-      .card{border:1px solid #eef2f5;padding:18px;border-radius:10px;background:#fff}
-      footer{border-top:1px solid #eef2f5;padding:18px 0;margin-top:36px;color:var(--muted)}
+      .btn.secondary{background:#fff;color:var(--accent);border:1px solid #e6eef4}
+
+      /* Features grid */
+      .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
+      .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 22px rgba(18,45,71,0.04)}
+      .card h3{margin-top:0}
+
+      footer{padding:20px 0;color:var(--muted);text-align:center;font-size:14px}
+
+      @media (max-width:880px){
+        .features{grid-template-columns:repeat(2,1fr)}
+      }
+      @media (max-width:720px){
+        .nav-toggle{display:inline-block}
+        nav.main-nav{display:none;position:absolute;left:0;right:0;top:140px;background:#fff;padding:12px 18px;box-shadow:0 8px 30px rgba(18,45,71,0.06);flex-direction:column;gap:6px}
+        .wrap{padding:12px}
+      }
+      @media (max-width:560px){
+        .features{grid-template-columns:1fr}
+        .hero h1{font-size:22px}
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <div style="display:flex;align-items:center;gap:14px">
-          <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="logo" style="width:56px;height:56px;border-radius:10px;object-fit:cover;"/>
-          <div>
-            <h1>ssoulss</h1>
-            <p style="margin:2px 0 0 0;color:var(--muted);font-size:13px">Software product development for healthcare and booking systems.
-</p>
-          </div>
-        </div>
-        <nav aria-label="Main navigation">
+    <a class="skip-link" href="#maincontent" style="position:absolute;left:-999px;top:auto;">Skip to content</a>
+    <div class="site-emblem">
+      <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="ssoulss emblem" />
+    </div>
+
+    <div class="wrap">
+      <div class="nav-wrap">
+        <div aria-hidden="true"></div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Toggle navigation">☰ Menu</button>
+        <nav id="mainnav" class="main-nav" aria-label="Main navigation">
           
             <a href="/">Home</a>
           
             <a href="/about/">About</a>
           
+            <a href="/product-stack/">Product Stack</a>
+          
+            <a href="/consulting/">Consulting</a>
+          
+            <a href="/locations/">Locations</a>
+          
             <a href="/contact/">Contact</a>
+          
+            <a href="/policies/">Policies</a>
           
             <a href="/privacy/">Privacy</a>
           
             <a href="/delete-request/">Delete my data</a>
           
         </nav>
-      </header>
+      </div>
 
       <main>
-        <section class="home-hero">
-          <div class="hero-copy">
-            <h2>ssoulss</h2>
-            <p>Software product development for healthcare and booking systems.
+        <section class="hero">
+          <h1>AI Solutions for SoulS</h1>
+          <p class="lead">Software product development for healthcare and booking systems.
 </p>
-            <p>
-              <a class="btn" href="/contact/">Get a demo</a>
-              <a class="btn" href="/about/" style="background:#fff;color:var(--accent);border:1px solid #e6eef4;margin-left:8px">About us</a>
-            </p>
+          <div style="max-width:820px;margin:18px auto">
+            <img src="/assets/images/hero-illustration.svg" alt="illustration" style="width:100%;height:auto;border-radius:12px;"/>
           </div>
-          <div style="flex:0 0 320px;text-align:center">
-            <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="ssoulss emblem" style="width:260px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(31,54,86,0.06);" />
+          <div class="ctas">
+            <a class="btn" href="/contact/">Request a demo</a>
+            <a class="btn secondary" href="/about/">Learn more</a>
           </div>
         </section>
 
         <section class="features" aria-label="Our products">
           <div class="card">
+            <img src="/assets/images/product-souldoc.svg" alt="souldoc" style="width:72px;height:72px;float:right;margin-left:12px;"/>
             <h3>Souldoc</h3>
-            <p>Healthcare & medical booking system (SaaS). Secure patient management, appointment booking, and clinic workflows.</p>
+            <p>Souldoc — secure appointment and clinic workflow platform designed for healthcare providers. Integrates with existing systems and supports compliance needs.</p>
           </div>
           <div class="card">
+            <img src="/assets/images/product-booking.svg" alt="booking" style="width:72px;height:72px;float:right;margin-left:12px;"/>
             <h3>Booking</h3>
-            <p>Lightweight booking widget and API for appointments — integrate with existing sites and workflows.</p>
+            <p>Smart booking widget & API that reduces no-shows and optimizes schedules using predictive AI.</p>
           </div>
           <div class="card">
             <h3>Integrations</h3>
-            <p>APIs and connectors for calendars, SMS gateways, and electronic health record systems.</p>
+            <p>Connect calendars, messaging gateways and EHR systems with robust, privacy-first integrations.</p>
           </div>
         </section>
 
-        <p>Welcome to ssoulss — software product development for healthcare and booking systems.</p>
+        <p>Welcome to SoulS — AI and technology engineering for ambitious organisations.</p>
 
-<section class="home-hero" style="display:flex;align-items:center;justify-content:center;padding:36px 0;">
-  <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="ssoulss emblem" style="width:280px;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(31,54,86,0.06);" />
-</section>
-<section>
+<hr />
 
-## What we do
+<p>AI Solutions for SoulS</p>
 
-We build software for healthcare, booking, and clinic management. If you'd like a demo or consultation, contact info@ssoulss.com.
+<p>We design and build AI-first products and bespoke software solutions across industries — from bookings and scheduling to enterprise automation and data platforms. One of our flagship products is Souldoc (a secure appointment &amp; clinic workflow platform), but our expertise spans retail, logistics, finance, and health — applying AI and engineering to real-world problems.</p>
 
-</section>
+<p>What we deliver:</p>
 
-<section>
-## Our products
+<ul>
+  <li>Industry-grade security and privacy practices</li>
+  <li>Predictive scheduling, optimisation and automation</li>
+  <li>Seamless integrations with cloud platforms and data systems</li>
+</ul>
 
-- **Souldoc** — Healthcare &amp; medical booking system (SaaS). Secure patient management, appointment booking, and clinic workflows. Available in India and the UK.
-- **Booking** — Lightweight booking widget and API for appointments.
-
-<div style="margin-top:18px;display:flex;gap:18px;align-items:center;">
-  <div style="width:84px;height:84px;">
-    <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="ssoulss emblem" style="width:84px;height:84px;" />
-  </div>
-  <div style="width:84px;height:84px;">
-    <img src="/assets/images/booking-icon.svg" alt="booking icon" style="width:84px;height:84px;" />
-  </div>
-</div>
-
-</section>
+<p>Contact us at info@ssoulss.com to request a demo or discuss a project.</p>
 
       </main>
 
       <footer>
-        <p>&copy; 2025 ssoulss</p>
+        &copy; 2025 — ssoulss
       </footer>
     </div>
+    <script>
+      // small mobile nav toggle
+      (function(){
+        const btn = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('mainnav');
+        if(!btn||!nav) return;
+        btn.addEventListener('click', ()=>{
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!open));
+          if(open){ nav.style.display = 'none'; } else { nav.style.display = 'flex'; }
+        });
+        // close on outside click
+        document.addEventListener('click', (e)=>{ if(nav.style.display==='flex' && !nav.contains(e.target) && !btn.contains(e.target)){ nav.style.display='none'; btn.setAttribute('aria-expanded','false'); } });
+      })();
+    </script>
   </body>
 </html>

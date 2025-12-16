@@ -1,1 +1,3 @@
-Sitemap: https://pauljos.github.io/ssoulss/sitemap.xml
+User-agent: *
+Allow: /
+Sitemap: https://ssoulss.com/sitemap.xml
