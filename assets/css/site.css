@@ -64,6 +64,13 @@ header h1{margin:0}
 	.service-box.svc-insights{grid-area:insights}
 	.service-grid .welcome-future{grid-area:welcome}
 
+	/* hide desktop welcome and show mobile welcome */
+	.welcome-desktop{display:none}
+	.welcome-mobile{display:block}
+
+	/* collapse services-wrapper to a single column on small screens */
+	.services-wrapper{grid-template-columns:1fr;gap:12px}
+
 	/* Make service boxes circular on small screens for a compact, touch-friendly UI */
 	.service-box{
 		aspect-ratio: 1 / 1;
