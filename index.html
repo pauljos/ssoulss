@@ -95,7 +95,10 @@
     <div class="wrap">
         <!-- top-bar removed to avoid duplicate Home/About links in nav -->
         <div class="nav-wrap">
-        <div aria-hidden="true"></div>
+        <div class="brand-left" style="display:flex;align-items:center;gap:10px;">
+          <img src="/assets/images/emblem-ssoulss-refined-white-48.png" alt="SoulS emblem" onerror="this.src='/assets/images/emblem-ssoulss-refined-white-96.png'" style="width:48px;height:48px;" />
+          <div class="brand-title" style="font-weight:700;color:var(--dark);font-size:16px;margin-left:8px;">AI Solutions for SoulS</div>
+        </div>
         <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Toggle navigation">☰ Menu</button>
         <nav id="mainnav" class="main-nav" aria-label="Main navigation">
           
@@ -112,18 +115,7 @@
         </nav>
       </div>
 
-      <!-- left-aligned brand in nav (AI Solutions for SoulS) -->
-      <style>
-        .brand-left{display:flex;align-items:center;gap:10px}
-        .brand-left img{width:48px;height:48px}
-        .brand-left .brand-title{font-weight:700;color:var(--dark);font-size:16px}
-      </style>
-      <div style="display:flex;justify-content:flex-start;align-items:center;padding:6px 0;">
-        <div class="brand-left">
-          <img src="/assets/images/emblem-ssoulss-refined-white-48.png" alt="SoulS emblem" onerror="this.src='/assets/images/emblem-ssoulss-refined-white-96.png'" />
-          <div class="brand-title">AI Solutions for SoulS</div>
-        </div>
-      </div>
+      
 
       <main id="maincontent">
         <section class="hero hero-bleed" aria-label="Hero section">
@@ -132,20 +124,22 @@
             <!-- overlay welcome message on top of the hero image -->
             <div class="hero-overlay">
               <div class="hero-title">
-                <img class="hero-logo" src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SoulS emblem" />
-                <div>
-                  <h1 style="margin:0">AI Solutions for SoulS</h1>
-                  <p class="lead" style="margin-top:8px;">Practical AI and engineering that respects people and privacy</p>
-                  <!-- hero CTAs removed per request (keep hero clean) -->
+                  <div style="text-align:center;">
+                    <img class="hero-logo" src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SoulS emblem" />
+                    <h1 style="margin:8px 0 0 0">AI Solutions for SoulS</h1>
+                    <p class="lead" style="margin-top:8px;">Practical AI and engineering that respects people and privacy</p>
+                    <div class="ctas" style="margin-top:12px;display:flex;gap:12px;justify-content:center;">
+                      <a class="btn" href="/contact/">Contact us</a>
+                      <a class="btn secondary" href="/about/">About</a>
+                    </div>
+                    <div style="margin-top:18px;color:#e6f2ff;max-width:760px;margin-left:auto;margin-right:auto;text-shadow:0 6px 14px rgba(2,15,36,0.35);">Welcome to SoulS — AI and technology engineering for ambitious organisations.</div>
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
         </section>
 
         <p>Welcome to SoulS — AI and technology engineering for ambitious organisations.</p>
-
-<hr />
 
 <p>Build intelligent products that transform operations and customer experiences. We design, build and scale AI-first systems — from predictive scheduling and automation to data platforms and MLOps.</p>
 
@@ -157,7 +151,7 @@
   <li>Secure, compliant deployments</li>
 </ul>
 
-<h2 id="ready-to-move-faster-with-ai-contact-our-team">Ready to move faster with AI? Contact our team.</h2>
+<p>Ready to move faster with AI? Contact our team.</p>
 
 <p>AI Solutions for SoulS</p>
 
