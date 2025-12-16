@@ -65,10 +65,12 @@
       .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
       .btn.secondary{background:#fff;color:var(--accent);border:1px solid #e6eef4}
 
-      /* Features grid */
-      .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
-      .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 22px rgba(18,45,71,0.04)}
-      .card h3{margin-top:0}
+  /* Features grid - compact small cards (like BlendB2B) */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;align-items:start}
+  .small-card{background:linear-gradient(180deg,#ffffff,#fbfdff);padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);transition:transform .18s ease,box-shadow .18s ease}
+  .small-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,23,38,0.06)}
+  .small-card-body{display:flex;align-items:flex-start}
+  .small-card h4{margin:0}
 
       footer{padding:20px 0;color:var(--muted);text-align:center;font-size:14px}
 
@@ -102,15 +104,21 @@
         <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Toggle navigation">☰ Menu</button>
         <nav id="mainnav" class="main-nav" aria-label="Main navigation">
           
-            <a href="/">Home</a>
+            
           
-            <a href="/about/">About</a>
+            
           
-            <a href="/consulting/">Consulting</a>
+            
+              <a href="/consulting/">Consulting</a>
+            
           
-            <a href="/locations/">Locations</a>
+            
+              <a href="/locations/">Locations</a>
+            
           
-            <a href="/contact/">Contact</a>
+            
+              <a href="/contact/">Contact</a>
+            
           
         </nav>
       </div>
@@ -125,7 +133,7 @@
             <div class="hero-overlay">
               <div class="hero-title">
                   <div style="text-align:center;">
-                      <p class="lead" style="margin-top:8px;color:#e6f2ff;">Practical AI and engineering that respects people and privacy</p>
+                      <!-- subtitle removed as requested -->
                     <div class="ctas" style="margin-top:12px;display:flex;gap:12px;justify-content:center;">
                       <a class="btn" href="/contact/">Contact us</a>
                       <a class="btn secondary" href="/about/">About</a>
@@ -167,19 +175,32 @@
 
 
         <section class="features" aria-label="Our products">
-          <div class="card">
-            <img src="/assets/images/booking-icon.svg" alt="souldoc" style="width:72px;height:72px;float:right;margin-left:12px;"/>
-            <h3>Souldoc</h3>
-            <p>Souldoc — secure appointment and clinic workflow platform designed for healthcare providers. Integrates with existing systems and supports compliance needs.</p>
+          <div class="small-card">
+            <div class="small-card-body">
+              <img src="/assets/images/booking-icon.svg" alt="souldoc" style="width:40px;height:40px;margin-right:12px;"/>
+              <div>
+                <h4 style="margin:0 0 6px 0;font-size:16px;">Souldoc</h4>
+                <p style="margin:0;color:var(--muted);font-size:14px;">Secure appointment & clinic workflow platform with compliance-first design.</p>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <img src="/assets/images/product-booking.svg" alt="booking" style="width:72px;height:72px;float:right;margin-left:12px;"/>
-            <h3>Booking</h3>
-            <p>Smart booking widget & API that reduces no-shows and optimizes schedules using predictive AI.</p>
+          <div class="small-card">
+            <div class="small-card-body">
+              <img src="/assets/images/product-booking.svg" alt="booking" style="width:40px;height:40px;margin-right:12px;"/>
+              <div>
+                <h4 style="margin:0 0 6px 0;font-size:16px;">Booking</h4>
+                <p style="margin:0;color:var(--muted);font-size:14px;">Smart booking widget & API that reduces no-shows using predictive AI.</p>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <h3>Integrations</h3>
-            <p>Connect calendars, messaging gateways and EHR systems with robust, privacy-first integrations.</p>
+          <div class="small-card">
+            <div class="small-card-body">
+              <img src="/assets/images/product-souldoc.svg" alt="integrations" style="width:40px;height:40px;margin-right:12px;"/>
+              <div>
+                <h4 style="margin:0 0 6px 0;font-size:16px;">Integrations</h4>
+                <p style="margin:0;color:var(--muted);font-size:14px;">Connect calendars, messaging gateways and enterprise systems securely.</p>
+              </div>
+            </div>
           </div>
         </section>
 
