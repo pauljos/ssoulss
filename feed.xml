@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://pauljos.github.io/ssoulss/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pauljos.github.io/ssoulss/" rel="alternate" type="text/html" /><updated>2025-12-16T18:21:58+00:00</updated><id>https://pauljos.github.io/ssoulss/feed.xml</id><title type="html">SSoulSS</title><subtitle>Software product development for healthcare and booking systems.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://pauljos.github.io/ssoulss/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pauljos.github.io/ssoulss/" rel="alternate" type="text/html" /><updated>2025-12-16T18:34:31+00:00</updated><id>https://pauljos.github.io/ssoulss/feed.xml</id><title type="html">SSoulSS</title><subtitle>Software product development for healthcare and booking systems.
 </subtitle><entry><title type="html">The “WTF” Moment: When India’s Brokerage Host Met a Tech Titan</title><link href="https://pauljos.github.io/ssoulss/news/podcasts/2025/12/16/wtf-musk-kamath.html" rel="alternate" type="text/html" title="The “WTF” Moment: When India’s Brokerage Host Met a Tech Titan" /><published>2025-12-16T12:00:00+00:00</published><updated>2025-12-16T12:00:00+00:00</updated><id>https://pauljos.github.io/ssoulss/news/podcasts/2025/12/16/wtf-musk-kamath</id><content type="html" xml:base="https://pauljos.github.io/ssoulss/news/podcasts/2025/12/16/wtf-musk-kamath.html"><![CDATA[<p>Nikhil Kamath’s podcast People by WTF recently released an episode that quickly circulated across Indian social feeds: a long-form conversation with Elon Musk. The episode blends casual curiosity with philosophical digressions, and it offers several memorable moments that people have been discussing online.</p>
 
 <p>This post summarises the high-level beats from the episode and frames them cautiously — where possible, I avoid verbatim claims or unverified personal details. If you have a link to the episode or a transcript, I can add time-stamped citations and exact quotes.</p>
@@ -85,52 +85,4 @@
 
 <h2 id="why-this-matters">Why this matters</h2>
 
-<p>Conversations between influential people help set agendas for investors, policymakers and technologists. Measured, transparent discussion helps surface useful ideas without amplifying confusion.</p>]]></content><author><name></name></author><category term="opinion" /><category term="interviews" /><summary type="html"><![CDATA[A recent public conversation between Elon Musk and Nikil Kamath attracted attention because it paired two people who influence technology, markets and retail investing in different ways. This post offers a careful, neutral synthesis of the high-level themes and practical takeaways. It avoids reproducing direct quotes; if you supply a transcript or a link, I can annotate verbatim citations.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://pauljos.github.io/ssoulss/assets/images/blogs/musk-ramaswamy-illustration.svg" /><media:content medium="image" url="https://pauljos.github.io/ssoulss/assets/images/blogs/musk-ramaswamy-illustration.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Musk Kamath Interview Summary</title><link href="https://pauljos.github.io/ssoulss/2025/12/16/musk-kamath-interview-summary.html" rel="alternate" type="text/html" title="Musk Kamath Interview Summary" /><published>2025-12-16T00:00:00+00:00</published><updated>2025-12-16T00:00:00+00:00</updated><id>https://pauljos.github.io/ssoulss/2025/12/16/musk-kamath-interview-summary</id><content type="html" xml:base="https://pauljos.github.io/ssoulss/2025/12/16/musk-kamath-interview-summary.html"><![CDATA[<hr />
-<!-- deleted -->
-<p>This post highlights recurring themes and pragmatic lessons for technologists, investors and policy observers. It focuses on what was discussed and the potential implications rather than on attributing specific lines to either speaker.</p>
-
-<h2 id="high-level-themes">High-level themes</h2>
-
-<ul>
-  <li>Technology and AI: the conversation weighed AI’s productive potential against governance and safety challenges.</li>
-  <li>Markets and retail investing: topics included how public commentary can shape retail sentiment, liquidity and flows of capital.</li>
-  <li>Entrepreneurship and product strategy: the talk surfaced tensions between rapid iteration and building for operational resilience.</li>
-  <li>Governance and consumer protection: cross-border coordination, disclosure expectations and adaptable policy frameworks were discussed as important areas.</li>
-  <li>Civic influence: the responsibilities of public figures when addressing complex socio-technical topics were a recurring concern.</li>
-</ul>
-
-<h2 id="topic-summaries-neutral">Topic summaries (neutral)</h2>
-
-<h3 id="technology-and-ai">Technology and AI</h3>
-
-<p>AI was framed as an engine of capability — enabling automation, new products and decision-support — while also presenting governance, interpretability and safety challenges. The practical thread in the conversation emphasised pairing experimentation with robust evaluation and investing in safety research and public education.</p>
-
-<p>Practical takeaway: engineering teams should combine rapid prototyping with strong measurement and risk controls; public-facing commentary should avoid overstating short-term certainty.</p>
-
-<h3 id="markets-and-retail-investing">Markets and retail investing</h3>
-
-<p>Discussion about markets centred on how information and high-profile commentary affect retail behaviour and liquidity. There was attention to the need for better disclosure, investor education and platform design choices that reduce impulsive trading.</p>
-
-<p>Practical takeaway: platforms and regulators can work on clearer disclosures and guardrails to help retail investors make informed decisions.</p>
-
-<h3 id="entrepreneurship-and-product-strategy">Entrepreneurship and product strategy</h3>
-
-<p>The conversation contrasted speed and iteration with the need to design reliable, maintainable systems — particularly when products have systemic or safety-sensitive impacts.</p>
-
-<p>Practical takeaway: founders should instrument features, collect feedback, and implement guardrails before wide rollouts.</p>
-
-<h3 id="governance-regulation-and-consumer-protection">Governance, regulation and consumer protection</h3>
-
-<p>Participants noted that regulation often lags innovation and that flexible, principle-based approaches may be more resilient than rigid rules. Cross-border coordination and pragmatic disclosure standards were highlighted as areas that materially shape outcomes.</p>
-
-<p>Practical takeaway: industry engagement in standards-setting, alongside regulatory experimentation, can reduce frictions while protecting consumers.</p>
-
-<h3 id="civic-influence-and-public-responsibility">Civic influence and public responsibility</h3>
-
-<p>High-profile conversations can shift public debate and investor attention. The discussion emphasised clarity about uncertainty and humility about predictive claims.</p>
-
-<p>Practical takeaway: public figures and platforms should provide context and caveats when discussing complex, emerging technologies.</p>
-
-<h2 id="why-this-matters">Why this matters</h2>
-
-<p>Conversations between influential people help set agendas for investors, policymakers and technologists. Measured, transparent discussion helps surface useful ideas without amplifying confusion.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[This post highlights recurring themes and pragmatic lessons for technologists, investors and policy observers. It focuses on what was discussed and the potential implications rather than on attributing specific lines to either speaker.]]></summary></entry></feed>
+<p>Conversations between influential people help set agendas for investors, policymakers and technologists. Measured, transparent discussion helps surface useful ideas without amplifying confusion.</p>]]></content><author><name></name></author><category term="opinion" /><category term="interviews" /><summary type="html"><![CDATA[A recent public conversation between Elon Musk and Nikil Kamath attracted attention because it paired two people who influence technology, markets and retail investing in different ways. This post offers a careful, neutral synthesis of the high-level themes and practical takeaways. It avoids reproducing direct quotes; if you supply a transcript or a link, I can annotate verbatim citations.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://pauljos.github.io/ssoulss/assets/images/blogs/musk-ramaswamy-illustration.svg" /><media:content medium="image" url="https://pauljos.github.io/ssoulss/assets/images/blogs/musk-ramaswamy-illustration.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

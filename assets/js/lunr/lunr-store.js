@@ -1,10 +1,4 @@
 var store = [{
-        "title": "Musk Kamath Interview Summary",
-        "excerpt":"This post highlights recurring themes and pragmatic lessons for technologists, investors and policy observers. It focuses on what was discussed and the potential implications rather than on attributing specific lines to either speaker. High-level themes Technology and AI: the conversation weighed AI’s productive potential against governance and safety challenges. Markets...","categories": [],
-        "tags": [],
-        "url": "/2025/12/16/musk-kamath-interview-summary.html",
-        "teaser": null
-      },{
         "title": "Musk & Ramaswamy — a quick look",
         "excerpt":"A recent public conversation between Elon Musk and Nikil Kamath attracted attention because it paired two people who influence technology, markets and retail investing in different ways. This post offers a careful, neutral synthesis of the high-level themes and practical takeaways. It avoids reproducing direct quotes; if you supply a...","categories": ["opinion","interviews"],
         "tags": [],
