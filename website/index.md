@@ -2,6 +2,7 @@
 layout: home
 title: AI Solutions for SoulS
 permalink: /
+excerpt: "Practical AI and engineering that respects people and privacy"
 ---
  
 Welcome to SoulS — AI and technology engineering for ambitious organisations.
@@ -16,7 +17,7 @@ Primary offering:
 - Consulting and transformation
 - Secure, compliant deployments
 
-Ready to move faster with AI? Request a demo or contact our team.
+Ready to move faster with AI? Contact our team.
 ---
 
 AI Solutions for SoulS

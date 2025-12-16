@@ -9,13 +9,3 @@ main:
     url: /locations/
   - title: Contact
     url: /contact/
-  - title: Request Demo
-    url: /request-demo/
-  - title: Policies
-    url: /policies/
-  - title: Privacy
-    url: /privacy/
-  - title: Delete my data
-    url: /delete-request/
-  - title: Product Stack
-    url: /product-stack/
