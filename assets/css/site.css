@@ -2,3 +2,6 @@ body{font-family:Inter, Arial, sans-serif;background:#ffffff;color:#0b1726;margi
 .container{max-width:980px;margin:0 auto}
 header h1{margin:0}
 .home-hero img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 6px 18px rgba(31,54,86,0.08);}
+/* Page card styling */
+.page-card{background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(11,23,38,0.04);padding:18px;border-radius:10px;margin:18px 0;box-shadow:0 10px 30px rgba(11,23,38,0.04)}
+.page-card h2,.page-card h3{margin-top:0}
