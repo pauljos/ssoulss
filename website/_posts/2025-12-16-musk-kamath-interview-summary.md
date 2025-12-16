@@ -1,15 +1,12 @@
 ---
 layout: post
-title: "Elon Musk & Nikil Kamath — a careful look"
+title: "Elon Musk & Nikil Kamath — removed"
 date: 2025-12-16 10:00:00 +0000
 categories: [analysis, interviews]
 image: /assets/images/blogs/musk-ramaswamy-illustration.svg
----
+published: false
 
-A recent public conversation between Elon Musk and Nikil Kamath attracted attention because it paired two people who influence technology, markets and retail investing in different ways. This post offers a careful, neutral synthesis of the high-level themes and practical takeaways. It avoids reproducing direct quotes; if you supply a transcript or a link, I can annotate verbatim citations.
-
-## What this summary does
-
+This post has been removed from public view. If you need to restore or permanently delete this post, please contact the site administrator or run a git revert/restore locally.
 This post highlights recurring themes and pragmatic lessons for technologists, investors and policy observers. It focuses on what was discussed and the potential implications rather than on attributing specific lines to either speaker.
 
 ## High-level themes
