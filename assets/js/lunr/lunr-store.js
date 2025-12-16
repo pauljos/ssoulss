@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "The \"WTF\" Moment: When India's Brokerage Host Met a Tech Titan",
-        "excerpt":"Nikhil Kamath’s podcast People by WTF recently released an episode that quickly circulated across Indian social feeds: a long-form conversation with Elon Musk. The episode blends casual curiosity with philosophical digressions, and it offers several memorable moments that people have been discussing online. This post summarises the high-level beats from...","categories": ["news","podcasts"],
+        "excerpt":"Nikhil Kamath’s podcast People by WTF recently released an episode that quickly circulated across Indian social feeds: a long-form conversation with Elon Musk. The episode blends casual curiosity with philosophical digressions, and it offers several memorable moments that people have been discussing online. 🎧 The vibe The tone of the...","categories": ["news","podcasts"],
         "tags": [],
         "url": "/news/podcasts/2025/12/16/wtf-musk-kamath.html",
         "teaser": null
