@@ -2,6 +2,8 @@
 layout: page
 title: Delete my data
 permalink: /delete-request/
+---
+
 {% capture delete_content %}
 
 # Request deletion of personal data (Data Subject Request)

@@ -2,6 +2,7 @@ title: ssoulss
 email: info@ssoulss.com
 description: >
   Software product development for healthcare and booking systems.
+tagline: "Technology with a Soul"
 baseurl: ""
 url: "https://pauljos.github.io/ssoulss" # temporary — update after repo setup
 theme: "minimal-mistakes-jekyll"

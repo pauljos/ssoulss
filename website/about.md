@@ -2,6 +2,8 @@
 layout: page
 title: About
 permalink: /about/
+---
+
 {% capture about_content %}
 
 SoulS is an AI and technology development company building products and solutions across multiple industries. We combine research-grade AI, pragmatic engineering and user-centred design to solve operational problems at scale.

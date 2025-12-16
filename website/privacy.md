@@ -2,6 +2,8 @@
 layout: page
 title: Privacy policy
 permalink: /privacy/
+---
+
 {% capture privacy_content %}
 
 # Privacy policy — ssoulss
