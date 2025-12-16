@@ -39,7 +39,7 @@ Retention
 Your rights
 
 - You may request access, correction, deletion, portability, restriction, or object to processing where permitted by law.
-- To request deletion or data export, see our Delete Request page: /delete-request/
+- To request deletion or data export, see our Privacy & Data Requests page: /delete-request/
 
 Security
 

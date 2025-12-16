@@ -23,3 +23,18 @@ header h1{margin:0}
 	body{padding:12px}
 	.container{padding:0}
 }
+
+/* Welcome line style: bold, purple, italic, centered */
+.welcome-future {
+	color: #6a1b9a;
+	font-style: italic;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 1.2;
+	text-align: center;
+	margin: 0 0 10px;
+}
+
+@media (max-width:720px){
+	.welcome-future { font-size: 15px; }
+}
