@@ -71,8 +71,9 @@
       .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
       .btn.secondary{background:#fff;color:var(--accent);border:1px solid #e6eef4}
       /* brand title and tagline */
-  .brand-title{font-weight:800;color:#2b6fd6;font-size:20px;margin-left:0;line-height:1.05;letter-spacing:0.2px}
-  .brand-tagline{font-family: Georgia, 'Times New Roman', serif;font-size:14px;color:#c62828;margin-top:4px;font-style:italic;letter-spacing:0.2px}
+  .brand-left{display:flex;align-items:center;gap:12px;justify-content:flex-start}
+  .brand-title{font-weight:800;color:#2b6fd6;font-size:20px;line-height:1.05;letter-spacing:0.2px;text-align:left}
+  .brand-tagline{font-family: Georgia, 'Times New Roman', serif;font-size:14px;color:#c62828;margin-top:4px;font-style:italic;letter-spacing:0.2px;text-align:left}
       /* hero card overlay */
       .hero-card{background:rgba(255,255,255,0.92);backdrop-filter:blur(6px);padding:26px;border-radius:14px;max-width:920px;margin:0 auto;text-align:center;color:var(--dark);box-shadow:0 18px 40px rgba(11,23,38,0.06);border:1px solid rgba(11,23,38,0.04)}
       .hero-card h1{font-size:36px;margin:0 0 8px 0}
@@ -130,9 +131,12 @@
       .svc-label{display:block;margin-top:6px;font-weight:600}
       .welcome-future{color:#6b21a8;font-weight:700;font-style:italic}
   .welcome-wrap{max-width:920px;margin:18px auto 24px;padding:0 12px;text-align:center}
-  .welcome-line{margin:0 0 6px;font-size:18px}
+  .welcome-line{margin:0 0 6px;font-size:15px}
   .welcome-sub{margin:6px 0 0 0;font-size:15px;color:var(--muted);font-weight:600}
-  .products-heading{margin:18px 0 10px 0;color:#2b6fd6;font-size:20px;text-align:center}
+  .products-heading{margin:18px 0 10px 0;color:#2b6fd6;font-size:20px;text-align:left;padding-left:12px;max-width:920px}
+  @media (max-width:720px){
+    .products-heading{padding-left:6px}
+  }
       @media (max-width:1100px){
         .service-grid{grid-template-columns:repeat(3,1fr)}
       }
@@ -228,7 +232,6 @@
           </div>
           <h2 class="products-heading">Our products</h2>
         </section>
-
         <section class="features" aria-label="Our products">
           <a class="small-card" href="/souldoc/" aria-label="Souldoc — view product" style="text-decoration:none;color:inherit;">
             <div class="small-card-body">
