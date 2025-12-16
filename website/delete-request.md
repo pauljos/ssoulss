@@ -73,6 +73,14 @@ permalink: /delete-request/
 
 {% capture delete_content %}
 
+{% endcapture %}
+
+{% include card.html content=intro %}
+{% include card.html content=guidance %}
+{% include card.html content=form %}
+
+{% capture delete_content %}
+
 # Request deletion of personal data (Data Subject Request)
 
 If you would like ssoulss to delete personal data we hold about you, please follow the steps below.
