@@ -53,6 +53,16 @@ jobs:
             exit 1
           fi
 
+      - name: Ensure CNAME present in publish dir
+        if: always()
+        run: |
+          if [ -f website/CNAME ]; then
+            cp website/CNAME ./_site/CNAME
+            echo "Copied website/CNAME to _site/CNAME"
+          else
+            echo "No website/CNAME file found"
+          fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -61,5 +71,7 @@ jobs:
           publish_branch: gh-pages
           allow_empty_commit: false
           keep_files: ''
+          cname: ssoulss.com
+          # user_name and user_email configured earlier
           user_name: 'github-actions[bot]'
           user_email: 'actions@github.com'

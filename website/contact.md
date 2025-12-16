@@ -24,3 +24,5 @@ We'd love to hear from you. Fill the form or email us at info@ssoulss.com.
 </form>
 
 Address: 123 Example Lane
+
+<!-- Success / error messages depend on the form provider. If using Formspree you can add a redirect or display a JS message on success. -->
