@@ -19,9 +19,17 @@ header h1{margin:0}
 .small-card-body{display:flex;align-items:flex-start}
 .small-card h4{margin:0}
 
+/* Services capability boxes */
+.service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:12px}
+.service-box{background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(11,23,38,0.04);padding:14px;border-radius:10px;font-weight:700;color:#0b1726}
+.service-box{display:flex;align-items:center;justify-content:center;text-align:center}
+
 @media (max-width:720px){
 	body{padding:12px}
 	.container{padding:0}
+
+	/* Stack service boxes on small screens */
+	.service-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 /* Welcome line style: bold, purple, italic, centered */
