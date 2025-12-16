@@ -7,7 +7,7 @@ image: /assets/images/blogs/musk-ramaswamy-illustration.svg
 ---
 
 
-A clear, plain-English summary of the recent changes GitHub announced for Actions pricing and platform fees.
+ Recent changes GitHub announced for Actions pricing and platform fees.
 
 ## ✅ 1. The Good News: The Free Quota Remains the Same
 
@@ -51,12 +51,4 @@ Runner Type | Repository Type | Old Pricing to GitHub | New Pricing to GitHub (M
 GitHub-Hosted | Private (Free Tier) | 2,000 Minutes Free | 2,000 Minutes Free
 GitHub-Hosted | Public | Free & Unlimited | Free & Unlimited
 Self-Hosted | Private (All Tiers) | $0 per minute | $0.002 per minute platform fee
-
-If you'd like, I can also:
-
-- Format this post with a cleaner table, linked sources and small callouts.
-- Update the post date or categories if you want it to appear elsewhere on the site.
-- Add an author, tags or an image.
-
-Let me know if you want any of those refinements.
 
