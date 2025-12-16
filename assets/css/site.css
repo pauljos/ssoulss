@@ -1,6 +1,21 @@
 :root{--accent:#2b6fd6;--accent-2:#c62828;--muted:#6b7a86;--card-bg:linear-gradient(180deg,#ffffff,#fbfdff)}
 body{font-family:Inter, Arial, sans-serif;background:linear-gradient(180deg,#f7fbff,#ffffff);color:#0b1726;margin:0;padding:24px}
 .container{max-width:1100px;margin:0 auto}
+/* Post title color to match blog illustration */
+.post-title{color:#2b6fd6}
+
+/* Post layout styles */
+.post-feature img{width:100%;height:auto;border-radius:10px;box-shadow:0 18px 40px rgba(11,23,38,0.06)}
+.post-meta{color:var(--muted);font-size:14px;margin:6px 0}
+.post-content{max-width:860px;margin:18px auto 0;line-height:1.72;font-size:18px;color:#0b1726}
+.post-content h2{color:#2b6fd6;margin-top:28px}
+.post-content p{margin:0 0 16px}
+.post-content img{max-width:100%;height:auto;border-radius:8px}
+.post-content pre{background:#0b1726;color:#fff;padding:12px;border-radius:8px;overflow:auto}
+
+@media (max-width:720px){
+	.post-content{padding:0 6px;font-size:16px}
+}
 header h1{margin:0}
 .home-hero img{max-width:100%;height:auto;border-radius:12px;box-shadow:0 12px 36px rgba(43,111,214,0.08);}
 /* Buttons */
@@ -46,29 +61,10 @@ header h1{margin:0}
 
 	/* Stack service boxes on small screens */
 	/* Default mobile stack - 2 columns */
-	.service-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto}
+	/* On mobile hide the large card grid for a cleaner reading experience */
+	.service-grid{display:none}
 
-	/* Assign explicit areas so we can rearrange order: place AI card full-width on top, welcome centered, and two cards flanking the welcome below */
-	.service-grid{grid-template-areas:
-		"ai ai"
-		"product dataeng"
-		"welcome welcome"
-		"migration insights";
-	}
-
-	/* map specific service boxes to grid areas */
-	.service-box.svc-ai{grid-area:ai}
-	.service-box.svc-product{grid-area:product}
-	.service-box.svc-data-eng{grid-area:dataeng}
-	.service-box.svc-migration{grid-area:migration}
-	.service-box.svc-insights{grid-area:insights}
-	.service-grid .welcome-future{grid-area:welcome}
-
-	/* hide desktop welcome and show mobile welcome */
-	.welcome-desktop{display:none}
-	.welcome-mobile{display:block}
-
-	/* collapse services-wrapper to a single column on small screens */
+	/* ensure services-wrapper collapses to a single column */
 	.services-wrapper{grid-template-columns:1fr;gap:12px}
 
 	/* Make service boxes circular on small screens for a compact, touch-friendly UI */
