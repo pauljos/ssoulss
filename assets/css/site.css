@@ -45,7 +45,24 @@ header h1{margin:0}
 	.container{padding:0}
 
 	/* Stack service boxes on small screens */
-	.service-grid{grid-template-columns:repeat(2,1fr)}
+	/* Default mobile stack - 2 columns */
+	.service-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto}
+
+	/* Assign explicit areas so we can rearrange order: place AI card full-width on top, welcome centered, and two cards flanking the welcome below */
+	.service-grid{grid-template-areas:
+		"ai ai"
+		"product dataeng"
+		"welcome welcome"
+		"migration insights";
+	}
+
+	/* map specific service boxes to grid areas */
+	.service-box.svc-ai{grid-area:ai}
+	.service-box.svc-product{grid-area:product}
+	.service-box.svc-data-eng{grid-area:dataeng}
+	.service-box.svc-migration{grid-area:migration}
+	.service-box.svc-insights{grid-area:insights}
+	.service-grid .welcome-future{grid-area:welcome}
 
 	/* Make service boxes circular on small screens for a compact, touch-friendly UI */
 	.service-box{
