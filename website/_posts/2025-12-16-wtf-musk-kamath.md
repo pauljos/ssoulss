@@ -10,11 +10,11 @@ Nikhil Kamath's podcast People by WTF recently released an episode that quickly 
 
 This post summarises the high-level beats from the episode and frames them cautiously — where possible, I avoid verbatim claims or unverified personal details. If you have a link to the episode or a transcript, I can add time-stamped citations and exact quotes.
 
-## The vibe
+## 🎧 The vibe
 
 The tone of the conversation felt more exploratory than combative. Kamath, who has a conversational, informal hosting style, allowed Musk space to expand on ideas, resulting in a mix of curiosity, uneven pacing and occasional philosophical asides. The setting and cadence — coffee, long-form back-and-forth — produced moments that felt more like a freewheeling conversation than a tightly scripted interview.
 
-## Three widely discussed moments
+## 🔎 Three widely discussed moments
 
 Below are the three parts of the episode that gained the most traction online. The summaries below paraphrase the discussion and avoid direct attribution of specific lines.
 
@@ -36,7 +36,7 @@ The episode also touched on immigration, visa systems and governmental efficienc
 
 Practical takeaway: better policy design, combined with transparent pathways for skilled migration, can improve economic dynamism while protecting workers and consumers.
 
-## The broader cultural moment
+## 🌐 The broader cultural moment
 
 Why did this episode gain so much attention? Partly it’s the contrast: a high-profile entrepreneur speaking openly to a widely followed Indian host, producing soundbites that are easy to clip and share. On social platforms, short clips — especially those that touch on work, national pride or immigration — tend to travel quickly.
 
