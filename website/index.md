@@ -1,11 +1,11 @@
 ---
 layout: home
-title: AI Solutions for SoulS
+title: ssoulss
 permalink: /
 excerpt: "Practical AI and engineering that respects people and privacy"
 ---
  
-Welcome to SoulS — AI and technology engineering for ambitious organisations.
+Welcome to SoulS — {{ site.tagline }}
 
 Build intelligent products that transform operations and customer experiences. We design, build and scale AI-first systems — from predictive scheduling and automation to data platforms and MLOps.
 
@@ -17,7 +17,7 @@ Primary offering:
 
 Ready to move faster with AI? Contact our team.
 
-AI Solutions for SoulS
+{{ site.title }}
 
 We design and build AI-first products and bespoke software solutions across industries — from bookings and scheduling to enterprise automation and data platforms. One of our flagship products is Souldoc (a secure appointment & clinic workflow platform), but our expertise spans retail, logistics, finance, and health — applying AI and engineering to real-world problems.
 

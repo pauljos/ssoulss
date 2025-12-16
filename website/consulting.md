@@ -2,6 +2,8 @@
 layout: page
 title: Consulting
 permalink: /consulting/
+---
+
 {% capture consulting_content %}
 
 ## Consulting Services

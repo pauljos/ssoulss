@@ -2,6 +2,8 @@
 layout: page
 title: Locations
 permalink: /locations/
+---
+
 {% capture locations_content %}
 
 ## Locations
