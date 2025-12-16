@@ -7,8 +7,6 @@ excerpt: "Practical AI and engineering that respects people and privacy"
  
 Welcome to SoulS — AI and technology engineering for ambitious organisations.
 
----
-
 Build intelligent products that transform operations and customer experiences. We design, build and scale AI-first systems — from predictive scheduling and automation to data platforms and MLOps.
 
 Primary offering:
@@ -18,7 +16,6 @@ Primary offering:
 - Secure, compliant deployments
 
 Ready to move faster with AI? Contact our team.
----
 
 AI Solutions for SoulS
 
