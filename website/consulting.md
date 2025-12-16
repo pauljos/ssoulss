@@ -2,7 +2,7 @@
 layout: page
 title: Consulting
 permalink: /consulting/
----
+{% capture consulting_content %}
 
 ## Consulting Services
 
@@ -14,3 +14,7 @@ We provide advisory and implementation services for AI and software transformati
 - Training, handover and managed services
 
 Request a consultation via the contact page.
+
+{% endcapture %}
+
+{% include card.html content=consulting_content %}

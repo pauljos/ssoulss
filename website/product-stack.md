@@ -2,7 +2,7 @@
 layout: page
 title: Product Stack
 permalink: /product-stack/
----
+{% capture stack_content %}
 
 ## Product Stack
 
@@ -25,3 +25,7 @@ Frameworks: PyTorch, TensorFlow
 ### Security & Compliance
 
 We design systems with encryption, role-based access, and audit trails to meet industry compliance requirements (including healthcare where applicable). Our architecture is suitable for regulated and non-regulated industries alike.
+
+{% endcapture %}
+
+{% include card.html content=stack_content %}

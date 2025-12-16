@@ -2,7 +2,7 @@
 layout: page
 title: Request a Demo
 permalink: /request-demo/
----
+{% capture demo_content %}
 
 ## Request a Demo
 
@@ -23,3 +23,7 @@ Please fill the form below and we'll schedule a short walk-through tailored to y
 
   <button type="submit">Request demo</button>
 </form>
+
+{% endcapture %}
+
+{% include card.html content=demo_content %}

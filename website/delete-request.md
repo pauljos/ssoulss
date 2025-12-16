@@ -2,7 +2,7 @@
 layout: page
 title: Delete my data
 permalink: /delete-request/
----
+{% capture delete_content %}
 
 # Request deletion of personal data (Data Subject Request)
 
@@ -24,3 +24,7 @@ If you would like ssoulss to delete personal data we hold about you, please foll
 If you need data portability (a machine-readable copy), request "Data export" in your email.
 
 For assistance: info@ssoulss.com
+
+{% endcapture %}
+
+{% include card.html content=delete_content %}

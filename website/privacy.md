@@ -2,7 +2,7 @@
 layout: page
 title: Privacy policy
 permalink: /privacy/
----
+{% capture privacy_content %}
 
 # Privacy policy — ssoulss
 
@@ -43,3 +43,7 @@ Legal
 - This page provides general information and does not constitute legal advice. For a tailored, jurisdiction-specific policy, consult qualified legal counsel.
 
 For privacy requests or questions contact: privacy@ssoulss.com
+
+{% endcapture %}
+
+{% include card.html content=privacy_content %}
