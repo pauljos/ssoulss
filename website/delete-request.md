@@ -41,7 +41,7 @@ permalink: /delete-request/
 {% capture form %}
 
 <div style="margin-top:12px;padding:12px;border-radius:12px;border:1px solid rgba(11,23,38,0.04);background:linear-gradient(180deg,#fff,#fbfdff);">
-  <form action="https://formspree.io/f/your-form-id" method="POST" aria-label="Privacy request form" style="display:flex;flex-direction:column;gap:10px;max-width:720px;">
+  <form action="https://formspree.io/f/xanrgpld" method="POST" aria-label="Privacy request form" style="display:flex;flex-direction:column;gap:10px;max-width:720px;">
     <label for="req-name">Full name</label>
     <input id="req-name" name="name" required style="padding:10px;border-radius:8px;border:1px solid #e6eef4;" />
 
