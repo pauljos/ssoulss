@@ -4,6 +4,23 @@ title: Contact
 permalink: /contact/
 ---
 
-Email: info@ssoulss.com
+We'd love to hear from you. Fill the form or email us at info@ssoulss.com.
+
+<form action="https://formspree.io/f/your-form-id" method="POST" aria-label="Contact form">
+	<label for="name">Name</label>
+	<input id="name" name="name" required />
+
+	<label for="email">Work email</label>
+	<input id="email" name="email" type="email" required />
+
+	<label for="company">Company</label>
+	<input id="company" name="company" />
+
+	<label for="message">Message</label>
+	<textarea id="message" name="message" rows="6" required></textarea>
+
+	<!-- Cloudflare Turnstile integration placeholder: add client-side script and site key as needed -->
+	<button type="submit">Send message</button>
+</form>
 
 Address: 123 Example Lane

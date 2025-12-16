@@ -3,8 +3,16 @@ main:
     url: /
   - title: About
     url: /about/
+  - title: Product Stack
+    url: /product-stack/
+  - title: Consulting
+    url: /consulting/
+  - title: Locations
+    url: /locations/
   - title: Contact
     url: /contact/
+  - title: Policies
+    url: /policies/
   - title: Privacy
     url: /privacy/
   - title: Delete my data

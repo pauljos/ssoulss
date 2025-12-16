@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: {}
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build-and-deploy:
@@ -16,6 +19,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
+
+      - name: Cache Ruby gems
+        uses: actions/cache@v4
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -26,12 +38,20 @@ jobs:
         run: |
           cd website
           gem install bundler
-          bundle install || true
+          bundle config set --local path 'vendor/bundle'
+          bundle install --jobs 4 --retry 3
 
       - name: Build Jekyll site
         run: |
           cd website
           bundle exec jekyll build -d ../_site
+
+      - name: Validate build output
+        run: |
+          if [ ! -d "./_site" ] || [ -z "$(ls -A ./_site)" ]; then
+            echo "_site is empty or missing" >&2
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -39,5 +59,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           publish_branch: gh-pages
-          allow_empty_commit: true
+          allow_empty_commit: false
           keep_files: ''
+          user_name: 'github-actions[bot]'
+          user_email: 'actions@github.com'
