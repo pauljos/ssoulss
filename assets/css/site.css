@@ -25,15 +25,15 @@ header h1{margin:0}
 .service-box{display:flex;align-items:center;justify-content:center;text-align:center}
 
 /* Per-service colorful styles */
-.svc-product{background:linear-gradient(135deg,#fdf7ff,#e8ddff);color:#5a2ca6}
+.svc-product{background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff}
 .svc-product::before{content:"🔧";margin-right:8px}
-.svc-ai{background:linear-gradient(135deg,#e8fbff,#d9f1ff);color:#0b6fbf}
+.svc-ai{background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff}
 .svc-ai::before{content:"🤖";margin-right:8px}
-.svc-data-eng{background:linear-gradient(135deg,#fff8e6,#fff0d9);color:#b46900}
+.svc-data-eng{background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff}
 .svc-data-eng::before{content:"🛠️";margin-right:8px}
-.svc-migration{background:linear-gradient(135deg,#f0fff6,#dfffe8);color:#007a4d}
+.svc-migration{background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff}
 .svc-migration::before{content:"🔁";margin-right:8px}
-.svc-insights{background:linear-gradient(135deg,#fff2f8,#ffe6f0);color:#c62879}
+.svc-insights{background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff}
 .svc-insights::before{content:"📊";margin-right:8px}
 
 .service-box{transition:transform .18s ease,box-shadow .18s ease}
