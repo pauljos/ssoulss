@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page.title }} — {{ site.title }}</title>
+    {% seo %}
+    {% include head.html %}
+    <link rel="stylesheet" href="/assets/css/site.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <nav style="margin-bottom:18px">
+        <a href="/">Home</a> › <a href="/blogs/">Blog</a>
+      </nav>
+
+      <article class="post page-card">
+        {% if page.image %}
+          <div class="post-feature">
+            <img src="{{ page.image }}" alt="{{ page.title }}" />
+          </div>
+        {% endif %}
+
+        <header style="margin:18px 0 6px 0">
+          <h1 class="post-title">{{ page.title }}</h1>
+          <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}</p>
+        </header>
+
+        <section class="post-content">
+          {{ content }}
+        </section>
+      </article>
+
+      <footer style="margin-top:32px;text-align:center;color:var(--muted);font-size:13px">
+        <a href="/blogs/">Back to blog</a>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -82,5 +82,5 @@
 
   <!-- titles (kept minimal) -->
   <text x="48" y="64" font-family="Georgia, serif" font-size="18" fill="#2b6fd6">SSoulSS Blog</text>
-  <text x="48" y="94" font-family="Inter, Arial" font-size="28" fill="#0b1726" font-weight="700">Musk & Ramaswamy — a quick look</text>
+  <text x="48" y="94" font-family="Inter, Arial" font-size="28" fill="#2b6fd6" font-weight="700">Musk & Ramaswamy — a quick look</text>
 </svg>
