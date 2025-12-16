@@ -81,9 +81,11 @@
   /* landing hero (CD-Baby inspired) */
   .hero-landing{display:block;width:100%;background:linear-gradient(90deg,#f6fbff,#e8f5ff);padding:28px 0;border-radius:12px;margin:6px 0}
   .hero-landing .inner{max-width:1200px;margin:0 auto;display:flex;gap:28px;align-items:center;padding:6px}
+  .hero-landing .inner{justify-content:center}
   .hero-landing .emblem{flex:0 0 auto}
   .hero-landing .emblem img{width:320px;height:auto;display:block;border-radius:12px;box-shadow:0 18px 60px rgba(43,111,214,0.12)}
   .hero-landing .hero-body{flex:1 1 560px}
+  .hero-landing .hero-body{text-align:center}
   .hero-landing h1{font-size:44px;margin:0 0 8px 0;color:var(--dark)}
   .hero-landing p.lead{font-size:18px;margin:0 0 14px 0;color:#233447}
   .hero-landing .tagline{font-family: Georgia, 'Times New Roman', serif;color:#c62828;font-style:italic;margin-bottom:10px}
@@ -120,6 +122,25 @@
       @media (max-width:420px){
         .features{grid-template-columns:1fr}
         .hero h1{font-size:22px}
+      }
+      /* Service cards: center content vertically and horizontally, responsive columns */
+      .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;max-width:920px;margin:0 auto;padding:0 12px}
+      .service-box{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;border-radius:10px;color:#fff;border:0}
+      .svc-icon{font-size:28px;display:block;margin-bottom:8px}
+      .svc-label{display:block;margin-top:6px;font-weight:600}
+      .welcome-future{color:#6b21a8;font-weight:700;font-style:italic}
+  .welcome-wrap{max-width:920px;margin:18px auto 24px;padding:0 12px;text-align:center}
+  .welcome-line{margin:0 0 6px;font-size:18px}
+  .welcome-sub{margin:6px 0 0 0;font-size:15px;color:var(--muted);font-weight:600}
+  .products-heading{margin:18px 0 10px 0;color:#2b6fd6;font-size:20px;text-align:center}
+      @media (max-width:1100px){
+        .service-grid{grid-template-columns:repeat(3,1fr)}
+      }
+      @media (max-width:720px){
+        .service-grid{grid-template-columns:repeat(2,1fr)}
+      }
+      @media (max-width:420px){
+        .service-grid{grid-template-columns:1fr}
       }
     </style>
   </head>
@@ -197,38 +218,15 @@
         <!-- Products heading -->
         <section style="max-width:1200px;margin:6px auto 0;padding:0 6px;">
           <div class="services-wrapper" style="max-width:920px;margin:6px auto 24px;display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;">
-          <!-- Services / capabilities boxes -->
-          <div class="service-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;">
-            <div class="service-box small-card svc-product" style="text-align:center;padding:12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">🔧</span>
-              <span class="svc-label">Product Development</span>
-            </div>
-            <div class="service-box small-card svc-ai" style="text-align:center;padding:12px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">🤖</span>
-              <span class="svc-label">AI</span>
-            </div>
-            <div class="service-box small-card svc-data-eng" style="text-align:center;padding:12px;background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">🛠️</span>
-              <span class="svc-label">Data Engineering</span>
-            </div>
-            <div class="service-box small-card svc-migration" style="text-align:center;padding:12px;background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">🔁</span>
-              <span class="svc-label">Data Migration</span>
-            </div>
-            <div class="service-box small-card svc-insights" style="text-align:center;padding:12px;background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">📊</span>
-              <span class="svc-label">Data Insights</span>
-            </div>
-          </div>
           </div>
           <!-- Centered welcome shown after the cards (desktop and mobile) -->
-          <div style="max-width:920px;margin:18px auto 24px;padding:0 12px;text-align:center;">
-            <div class="welcome-future" style="display:inline-block;">
-              <p style="margin:0 0 6px;">Human-centred engineering for measurable impact.</p>
-              <p style="margin:6px 0 0 0;">We design, build and scale AI and cloud products you can trust.</p>
+          <div class="welcome-wrap">
+            <div class="welcome-future">
+              <p class="welcome-line">Human-centred engineering for measurable impact.</p>
+              <p class="welcome-sub">We design, build and scale AI and cloud products you can trust.</p>
             </div>
           </div>
-          <h2 style="margin:18px 0 10px 0;color:#2b6fd6;font-size:20px;">Our products</h2>
+          <h2 class="products-heading">Our products</h2>
         </section>
 
         <section class="features" aria-label="Our products">
@@ -262,6 +260,32 @@
         </section>
 
       </main>
+
+        <!-- Services / capability cards placed just above the footer as requested -->
+        <div style="max-width:920px;margin:6px auto 12px;padding:0 12px;">
+          <div class="service-grid">
+            <div class="service-box small-card svc-product" style="text-align:center;padding:12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;border:0;">
+              <span class="svc-icon" aria-hidden="true">🔧</span>
+              <span class="svc-label">Product Development</span>
+            </div>
+            <div class="service-box small-card svc-ai" style="text-align:center;padding:12px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff;border:0;">
+              <span class="svc-icon" aria-hidden="true">🤖</span>
+              <span class="svc-label">AI</span>
+            </div>
+            <div class="service-box small-card svc-data-eng" style="text-align:center;padding:12px;background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff;border:0;">
+              <span class="svc-icon" aria-hidden="true">🛠️</span>
+              <span class="svc-label">Data Engineering</span>
+            </div>
+            <div class="service-box small-card svc-migration" style="text-align:center;padding:12px;background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;border:0;">
+              <span class="svc-icon" aria-hidden="true">🔁</span>
+              <span class="svc-label">Data Migration</span>
+            </div>
+            <div class="service-box small-card svc-insights" style="text-align:center;padding:12px;background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff;border:0;">
+              <span class="svc-icon" aria-hidden="true">📊</span>
+              <span class="svc-label">Data Insights</span>
+            </div>
+          </div>
+        </div>
 
       <footer style="padding:8px 0;margin-top:12px;font-size:13px;">
         <div style="max-width:680px;margin:0 auto;text-align:center;color:var(--muted);">
