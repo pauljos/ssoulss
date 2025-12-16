@@ -26,22 +26,19 @@ header h1{margin:0}
 
 /* Per-service colorful styles */
 .svc-product{background:linear-gradient(135deg,#6a11cb,#2575fc) !important;color:#fff !important;padding:18px !important;font-size:16px}
-.svc-product::before{content:"🔧";margin-right:10px;font-size:22px}
 .svc-ai{background:linear-gradient(135deg,#00c6ff,#0072ff) !important;color:#fff !important;padding:18px !important;font-size:16px}
-.svc-ai::before{content:"🤖";margin-right:10px;font-size:22px}
 .svc-data-eng{background:linear-gradient(135deg,#f7971e,#ffd200) !important;color:#fff !important;padding:18px !important;font-size:16px}
-.svc-data-eng::before{content:"🛠️";margin-right:10px;font-size:22px}
 .svc-migration{background:linear-gradient(135deg,#11998e,#38ef7d) !important;color:#fff !important;padding:18px !important;font-size:16px}
-.svc-migration::before{content:"🔁";margin-right:10px;font-size:22px}
 .svc-insights{background:linear-gradient(135deg,#ff416c,#ff4b2b) !important;color:#fff !important;padding:18px !important;font-size:16px}
-.svc-insights::before{content:"📊";margin-right:10px;font-size:22px}
 
-/* Ensure the pseudo-icon sits before the text and the text is readable */
-.service-box::before{display:inline-block;vertical-align:middle}
 .service-box{color:inherit}
 
 .service-box{transition:transform .18s ease,box-shadow .18s ease}
 .service-box:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(11,23,38,0.08)}
+
+/* Icon and label inside service boxes */
+.svc-icon{display:block;font-size:28px;margin-bottom:8px}
+.svc-label{display:block;font-size:15px}
 
 @media (max-width:720px){
 	body{padding:12px}
