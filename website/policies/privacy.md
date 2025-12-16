@@ -18,8 +18,7 @@ ssoulss ("we", "us", "SoulS") provides AI-driven products and consulting service
 
 Contact
 
-- Email: info@ssoulss.com
-- Data protection contact: privacy@ssoulss.com
+For privacy questions or data requests, please use the Privacy & Data Requests form: /delete-request/ — we do not accept direct email or phone requests for data actions.
 
 What this policy covers
 
@@ -39,7 +38,7 @@ Retention
 Your rights
 
 - You may request access, correction, deletion, portability, restriction, or object to processing where permitted by law.
-- To request deletion or data export, see our Privacy & Data Requests page: /delete-request/
+	- To request deletion or data export, see our <a href="/delete-request/">Privacy & Data Requests</a> page.
 
 Security
 
@@ -47,7 +46,7 @@ Security
 
 Children
 
-- Our services are not intended for use by children under 16. If you believe a child's data has been shared with us, contact privacy@ssoulss.com.
+	Our services are not intended for use by children under 16. If you believe a child's data has been shared with us, please submit a request via the <a href="/delete-request/">Privacy & Data Requests</a> form.
 
 Changes
 
@@ -57,4 +56,4 @@ Legal
 
 - This page provides general information and does not constitute legal advice. For a tailored, jurisdiction-specific policy, consult qualified legal counsel.
 
-For privacy requests or questions contact: privacy@ssoulss.com
+For privacy requests or questions: use the <a href="/delete-request/">Privacy & Data Requests</a> form.

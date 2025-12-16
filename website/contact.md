@@ -14,12 +14,20 @@ We're excited to hear about your project. Use the form to share a brief outline 
 
 {% capture offices %}
 
-### Offices
+### Our locations
 
-- <strong>India — Kochi</strong><br/><span style="color:var(--muted)">InfoPark, Kakkanad<br/>Kochi — 682042</span>
-- <strong>United Kingdom — London</strong><br/><span style="color:var(--muted)">17 Example Street, London — W1 2AA</span>
+We operate with distributed teams and local delivery in key regions. Please use the contact form to reach the right team — select your region in the message and we'll respond within two business days.
 
-Email: <a href="mailto:info@ssoulss.com">info@ssoulss.com</a>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px;">
+  <div style="padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(11,23,38,0.04);text-align:center;">
+    <div style="font-size:20px;font-weight:700;color:#2b6fd6">India</div>
+    <div style="color:var(--muted);margin-top:8px;">Local delivery & engineering</div>
+  </div>
+  <div style="padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff7f6);border:1px solid rgba(11,23,38,0.04);text-align:center;">
+    <div style="font-size:20px;font-weight:700;color:#0b1726">United Kingdom</div>
+    <div style="color:var(--muted);margin-top:8px;">Client services & partnerships</div>
+  </div>
+</div>
 
 {% endcapture %}
 
@@ -49,7 +57,7 @@ Email: <a href="mailto:info@ssoulss.com">info@ssoulss.com</a>
 
 ### Hours
 
-Our teams operate Monday to Friday, 09:00 — 18:00 local time. For urgent requests email <a href="mailto:info@ssoulss.com">info@ssoulss.com</a>.
+Our teams operate Monday to Friday, 09:00 — 18:00 local time. For urgent requests, please submit the form and mark the message "Urgent" — we'll prioritise these requests.
 
 {% endcapture %}
 

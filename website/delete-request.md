@@ -77,7 +77,7 @@ permalink: /delete-request/
     <li>We assess the request and identify data we can delete vs records we must retain for legal reasons.</li>
     <li>We complete deletions or provide exported data within 30 days where possible and inform you of any exceptions.</li>
   </ol>
-  <p style="margin-top:8px;color:#6b7a86">If you have questions about privacy or need help completing the form, contact <a href="mailto:privacy@ssoulss.com">privacy@ssoulss.com</a>.</p>
+  <p style="margin-top:8px;color:#6b7a86">If you have questions about privacy or need help completing the form, please submit the form and choose the "Access" or "Delete" option — we'll respond via the channel you provide.</p>
 </div>
 
 {% endcapture %}

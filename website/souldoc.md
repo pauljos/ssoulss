@@ -48,7 +48,7 @@ permalink: /souldoc/
 
 {% capture cta %}
 
-<p style="margin-top:12px;color:#33475b">Souldoc is currently available in India. For enterprise enquiries, contact us at <a href="mailto:info@ssoulss.com">info@ssoulss.com</a>.</p>
+<p style="margin-top:12px;color:#33475b">Souldoc is currently available in India. For enterprise enquiries, please use the <a href="/contact/">Contact</a> form and select "Souldoc / Enterprise" in your message.</p>
 
 {% endcapture %}
 
