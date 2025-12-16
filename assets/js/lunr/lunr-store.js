@@ -1,6 +1,6 @@
 var store = [{
         "title": "Musk Kamath Interview Summary",
-        "excerpt":"layout: post title: “Elon Musk &amp; Nikil Kamath — removed” date: 2025-12-16 10:00:00 +0000 categories: [analysis, interviews] image: /assets/images/blogs/musk-ramaswamy-illustration.svg published: false This post has been removed from public view. If you need to restore or permanently delete this post, please contact the site administrator or run a git revert/restore locally....","categories": [],
+        "excerpt":"This post highlights recurring themes and pragmatic lessons for technologists, investors and policy observers. It focuses on what was discussed and the potential implications rather than on attributing specific lines to either speaker. High-level themes Technology and AI: the conversation weighed AI’s productive potential against governance and safety challenges. Markets...","categories": [],
         "tags": [],
         "url": "/2025/12/16/musk-kamath-interview-summary.html",
         "teaser": null
