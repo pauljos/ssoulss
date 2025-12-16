@@ -56,12 +56,3 @@ Practical takeaway: public figures and platforms should provide context and cave
 
 Conversations between influential people help set agendas for investors, policymakers and technologists. Measured, transparent discussion helps surface useful ideas without amplifying confusion.
 
-## Next steps
-
-If you'd like, I can:
-
-- Expand any of these sections into a longer analysis with references and examples.
-- Produce a short thread summarising the key takeaways for social media.
-- Annotate the post with timestamps and verbatim citations if you provide a transcript.
-
-Tell me which direction you prefer and I will extend the post accordingly.

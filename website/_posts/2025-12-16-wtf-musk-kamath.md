@@ -43,11 +43,3 @@ Why did this episode gain so much attention? Partly it’s the contrast: a high-
 ## Caveats and responsible sharing
 
 This write-up is intentionally cautious. Public conversation often gets condensed into headlines and clips that lack context. If you plan to share or republish, I recommend linking to the full episode and avoiding paraphrases that turn back-of-the-envelope remarks into firm predictions.
-
-## Want more?
-
-- I can expand any of these sections with timestamps and direct quotes if you provide a transcript or link.
-- I can produce a short social-thread summary for sharing.
-- I can create an edited 60–90 second highlight script for use as a clip.
-
-Which would you like next?
