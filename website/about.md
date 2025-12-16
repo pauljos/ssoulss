@@ -10,7 +10,7 @@ permalink: /about/
 	<div style="flex:1;min-width:220px;">
 		<h2 style="margin:0 0 8px 0;color:#0b1726;">About SSoulSS</h2>
 		<p style="margin:0;color:#33475b;font-size:16px;line-height:1.45;">We design and ship practical AI products that respect people and privacy. Our work focuses on measurable operational improvements — from predictive scheduling to secure enterprise integrations — delivered with empathy and strong engineering practices.</p>
-		<p style="margin-top:10px;"><strong style="color:#2b6fd6">Headquarters:</strong> Bangalore & London — global delivery with local presence</p>
+		<p style="margin-top:10px;"><strong style="color:#2b6fd6">Headquarters:</strong> Kochi & London — global delivery with local presence</p>
 	</div>
 	<div style="flex:0 0 180px;text-align:center;">
 		<img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" style="width:160px;height:auto;border-radius:8px;box-shadow:0 12px 40px rgba(43,111,214,0.08);" />
@@ -57,19 +57,19 @@ permalink: /about/
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
 	<div style="padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);background:#fff;">
-		<div style="font-weight:700;color:#2b6fd6">Asha Rao</div>
+		<div style="font-weight:700;color:#2b6fd6">Nimmy Mathew</div>
 		<div style="color:#6b7a86;font-size:13px;margin-top:6px;">CEO & Product</div>
-		<p style="margin-top:8px;color:#33475b;font-size:14px;">Product leader focused on human-centred healthcare and bookings UX.</p>
+		<p style="margin-top:8px;color:#33475b;font-size:14px;">Senior product leader with 20+ years of experience in data, data insight and consulting. Nimmy combines practical analytics, product strategy and delivery expertise to help organisations turn data into reliable business outcomes.</p>
 	</div>
 	<div style="padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);background:#fff;">
-		<div style="font-weight:700;color:#2b6fd6">Samir Patel</div>
-		<div style="color:#6b7a86;font-size:13px;margin-top:6px;">Head of Engineering</div>
-		<p style="margin-top:8px;color:#33475b;font-size:14px;">Systems architect and MLOps engineer — builds secure, reliable pipelines.</p>
+		<div style="font-weight:700;color:#2b6fd6">Paul Joseph</div>
+		<div style="color:#6b7a86;font-size:13px;margin-top:6px;">Head of Engineering & AI</div>
+		<p style="margin-top:8px;color:#33475b;font-size:14px;">Technology leader with 25 years of experience in modern tech solutions across AI, cloud and data engineering. Paul specialises in building scalable, secure platforms and translating analytics into operational systems.</p>
 	</div>
 	<div style="padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);background:#fff;">
-		<div style="font-weight:700;color:#2b6fd6">Maya Singh</div>
-		<div style="color:#6b7a86;font-size:13px;margin-top:6px;">Data Scientist</div>
-		<p style="margin-top:8px;color:#33475b;font-size:14px;">Applies pragmatic ML to scheduling, prediction and optimisation problems.</p>
+		<div style="font-weight:700;color:#2b6fd6">Aron Jose</div>
+		<div style="color:#6b7a86;font-size:13px;margin-top:6px;">UI, Product & Offshore Delivery Lead</div>
+		<p style="margin-top:8px;color:#33475b;font-size:14px;">Design and delivery leader specialising in user-centred product design, cross-border delivery and offshore teams. Focused on building delightful interfaces and reliable delivery models.</p>
 	</div>
 </div>
 
