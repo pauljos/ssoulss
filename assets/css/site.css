@@ -46,6 +46,21 @@ header h1{margin:0}
 
 	/* Stack service boxes on small screens */
 	.service-grid{grid-template-columns:repeat(2,1fr)}
+
+	/* Make service boxes circular on small screens for a compact, touch-friendly UI */
+	.service-box{
+		aspect-ratio: 1 / 1;
+		padding: 12px;
+		border-radius: 50%;
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		text-align:center;
+	}
+
+	.svc-icon{font-size:34px;margin-bottom:6px}
+	.svc-label{font-size:13px}
 }
 
 /* Welcome line style: bold, purple, italic, centered */
