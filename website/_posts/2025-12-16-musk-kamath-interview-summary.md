@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Musk & Ramaswamy — a quick look"
+title: "Elon Musk & Nikil Kamath — a careful look"
 date: 2025-12-16 10:00:00 +0000
-categories: [opinion, interviews]
+categories: [analysis, interviews]
 image: /assets/images/blogs/musk-ramaswamy-illustration.svg
 ---
 
@@ -65,3 +65,4 @@ If you'd like, I can:
 - Annotate the post with timestamps and verbatim citations if you provide a transcript.
 
 Tell me which direction you prefer and I will extend the post accordingly.
+
