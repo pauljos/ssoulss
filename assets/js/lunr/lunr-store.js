@@ -1,6 +1,6 @@
 var store = [{
         "title": "The New GitHub Actions Pricing: What You Need to Know",
-        "excerpt":"A clear, plain-English summary of the recent changes GitHub announced for Actions pricing and platform fees. 1. The Good News: The Free Quota Remains the Same The core free offering for individuals and small teams using the GitHub Free plan is unchanged: Scenario Free Quota Private Repositories (GitHub Free) 2,000...","categories": ["opinion","interviews"],
+        "excerpt":"A clear, plain-English summary of the recent changes GitHub announced for Actions pricing and platform fees. ✅ 1. The Good News: The Free Quota Remains the Same The core free offering for individuals and small teams using the GitHub Free plan is unchanged: Scenario Free Quota Private Repositories (GitHub Free)...","categories": ["opinion","interviews"],
         "tags": [],
         "url": "/opinion/interviews/2025/12/16/musk-ramaswamy-interview-summary.html",
         "teaser": null
