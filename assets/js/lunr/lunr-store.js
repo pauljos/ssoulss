@@ -1,8 +1,8 @@
 var store = [{
-        "title": "Elon Musk & Nikil Kamath — a careful look",
-        "excerpt":"A recent public conversation between Elon Musk and Nikil Kamath attracted attention because it paired two people who influence technology, markets and retail investing in different ways. This post offers a careful, neutral synthesis of the high-level themes and practical takeaways. It avoids reproducing direct quotes; if you supply a...","categories": ["analysis","interviews"],
+        "title": "Musk Kamath Interview Summary",
+        "excerpt":"layout: post title: “Elon Musk &amp; Nikil Kamath — removed” date: 2025-12-16 10:00:00 +0000 categories: [analysis, interviews] image: /assets/images/blogs/musk-ramaswamy-illustration.svg published: false This post has been removed from public view. If you need to restore or permanently delete this post, please contact the site administrator or run a git revert/restore locally....","categories": [],
         "tags": [],
-        "url": "/analysis/interviews/2025/12/16/musk-kamath-interview-summary.html",
+        "url": "/2025/12/16/musk-kamath-interview-summary.html",
         "teaser": null
       },{
         "title": "Musk & Ramaswamy — a quick look",
