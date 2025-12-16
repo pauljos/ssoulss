@@ -124,7 +124,8 @@
         <!-- top-bar removed to avoid duplicate Home/About links in nav -->
         <div class="nav-wrap">
         <div class="brand-left" style="display:flex;align-items:center;gap:12px;">
-          <div class="brand-title">SSoulSS
+          <div>
+            <div class="brand-title">SSoulSS</div>
             <div class="brand-tagline">Technology with a Soul</div>
           </div>
           <!-- header emblem removed (kept in hero) -->
@@ -165,8 +166,8 @@
               <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" />
             </div>
             <div class="hero-body">
-              <div class="brand-tagline">Technology with a Soul</div>
-                <h1>Home</h1>
+                <!-- show only the site title in the hero -->
+                  <h1>SSoulSS</h1>
                 <p class="lead">Practical AI and engineering that respects people and privacy</p>
               <div class="hero-ctas">
                 <a class="btn primary" href="/contact/">Contact our team</a>
@@ -186,12 +187,13 @@
 
 
         <!-- Products heading -->
-        <section style="max-width:1200px;margin:6px auto 0;padding:0 6px;">
+        <section style="max-width:1200px;margin:6px auto 0;padding:0 6px;text-align:center;">
+          <p style="margin:0 0 8px 0;color:#33475b;font-size:15px;">Welcome — explore a selection of our products and integrations below.</p>
           <h2 style="margin:6px 0 10px 0;color:#0b1726;font-size:20px;">Our products</h2>
         </section>
 
         <section class="features" aria-label="Our products">
-          <div class="small-card">
+          <a class="small-card" href="/souldoc/" aria-label="Souldoc — view product" style="text-decoration:none;color:inherit;">
             <div class="small-card-body">
               <img src="/assets/images/booking-icon.svg" alt="souldoc" style="width:40px;height:40px;margin-right:12px;"/>
               <div>
@@ -199,7 +201,7 @@
                 <p style="margin:0;color:var(--muted);font-size:14px;">Secure appointment & clinic workflow platform with compliance-first design.</p>
               </div>
             </div>
-          </div>
+          </a>
           <div class="small-card">
             <div class="small-card-body">
               <img src="/assets/images/product-booking.svg" alt="booking" style="width:40px;height:40px;margin-right:12px;"/>
