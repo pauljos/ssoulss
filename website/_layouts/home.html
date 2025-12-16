@@ -168,9 +168,10 @@
         {{ content }}
 
         <!-- Products heading -->
-        <section style="max-width:1200px;margin:6px auto 0;padding:0 6px;text-align:center;">
+        <section style="max-width:1200px;margin:6px auto 0;padding:0 6px;">
+          <div class="services-wrapper" style="max-width:920px;margin:6px auto 24px;display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;">
           <!-- Services / capabilities boxes -->
-          <div class="service-grid" style="max-width:920px;margin:6px auto 24px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;">
+          <div class="service-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;">
             <div class="service-box small-card svc-product" style="text-align:center;padding:12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;border:0;">
               <span class="svc-icon" aria-hidden="true">🔧</span>
               <span class="svc-label">Product Development</span>
@@ -191,11 +192,20 @@
               <span class="svc-icon" aria-hidden="true">📊</span>
               <span class="svc-label">Data Insights</span>
             </div>
-            <!-- Move welcome into the grid so we can position it between cards on small screens -->
-            <div class="welcome-future" style="margin:0 0 0;align-self:center;justify-self:center;">
+            <!-- Keep a mobile-only welcome inside the grid for the small-screen layout -->
+            <div class="welcome-future welcome-mobile" style="margin:0 0 0;align-self:center;justify-self:center;">
               <p style="margin:0 0 6px;">Human-centred engineering for measurable impact.</p>
               <p style="margin:6px 0 0 0;">We design, build and scale AI and cloud products you can trust.</p>
             </div>
+          </div>
+
+          <!-- Desktop sidebar welcome (shown on wider screens) -->
+          <aside class="welcome-column" style="display:block;">
+            <div class="welcome-future welcome-desktop" style="padding:18px;position:sticky;top:120px;border-radius:12px;background:linear-gradient(180deg,#fff,#f6fbff);box-shadow:0 12px 30px rgba(11,23,38,0.04);">
+              <p style="margin:0 0 6px;">Human-centred engineering for measurable impact.</p>
+              <p style="margin:6px 0 0 0;">We design, build and scale AI and cloud products you can trust.</p>
+            </div>
+          </aside>
           </div>
           <h2 style="margin:18px 0 10px 0;color:#2b6fd6;font-size:20px;">Our products</h2>
         </section>

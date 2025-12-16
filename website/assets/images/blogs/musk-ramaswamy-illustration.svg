@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-label="Abstract illustration representing future AI vision">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#eef9ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#e6f2ff" stop-opacity="0.0"/>
+    </radialGradient>
+    <linearGradient id="nodeGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#00c6ff"/>
+      <stop offset="1" stop-color="#6a11cb"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#bg)"/>
+
+  <!-- subtle grid for data plane -->
+  <g opacity="0.08" stroke="#0b1726" stroke-width="1">
+    <g transform="translate(80,120)">
+      <path d="M0 0 H1040" />
+      <path d="M0 40 H1040" />
+      <path d="M0 80 H1040" />
+      <path d="M0 120 H1040" />
+      <path d="M0 160 H1040" />
+    </g>
+  </g>
+
+  <!-- glowing central orb (future/AI core) -->
+  <g transform="translate(300,180)">
+    <circle cx="360" cy="120" r="120" fill="url(#glow)" />
+    <circle cx="360" cy="120" r="64" fill="url(#nodeGrad)" opacity="0.95"/>
+    <g fill="#fff" opacity="0.9">
+      <circle cx="360" cy="120" r="6"/>
+      <circle cx="320" cy="90" r="5"/>
+      <circle cx="400" cy="150" r="5"/>
+      <circle cx="420" cy="100" r="4"/>
+      <circle cx="300" cy="150" r="4"/>
+    </g>
+  </g>
+
+  <!-- connected nodes (abstract neural net) -->
+  <g stroke="#2b6fd6" stroke-width="2" fill="none" opacity="0.95">
+    <path d="M420 300 C480 240 560 240 640 300" stroke-linecap="round"/>
+    <path d="M480 260 L520 230"/>
+    <path d="M560 260 L620 220"/>
+  </g>
+
+  <!-- nodes with glow -->
+  <g>
+    <g transform="translate(380,215)">
+      <circle cx="0" cy="0" r="10" fill="#fff"/>
+      <circle cx="0" cy="0" r="4" fill="#6a11cb"/>
+    </g>
+    <g transform="translate(460,200)">
+      <circle cx="0" cy="0" r="10" fill="#fff"/>
+      <circle cx="0" cy="0" r="4" fill="#00c6ff"/>
+    </g>
+    <g transform="translate(540,240)">
+      <circle cx="0" cy="0" r="10" fill="#fff"/>
+      <circle cx="0" cy="0" r="4" fill="#6a11cb"/>
+    </g>
+    <g transform="translate(640,210)">
+      <circle cx="0" cy="0" r="10" fill="#fff"/>
+      <circle cx="0" cy="0" r="4" fill="#00c6ff"/>
+    </g>
+  </g>
+
+  <!-- waveforms representing conversation and signal -->
+  <g transform="translate(160,420)" fill="none" stroke="#2575fc" stroke-width="3" opacity="0.18">
+    <path d="M0 0 C40 -20 80 20 120 0 C160 -20 200 20 240 0 C280 -20 320 20 360 0"/>
+  </g>
+
+  <!-- small data blocks and icons (no people) -->
+  <g transform="translate(920,80)" opacity="0.95">
+    <rect x="0" y="0" width="200" height="120" rx="12" fill="#fff" opacity="0.9" stroke="#e6f2ff"/>
+    <rect x="16" y="18" width="36" height="36" rx="6" fill="#6a11cb"/>
+    <rect x="64" y="18" width="110" height="18" rx="6" fill="#00c6ff"/>
+    <rect x="64" y="46" width="110" height="10" rx="6" fill="#dbeeff"/>
+  </g>
+
+  <!-- titles (kept minimal) -->
+  <text x="48" y="64" font-family="Georgia, serif" font-size="18" fill="#2b6fd6">SSoulSS Blog</text>
+  <text x="48" y="94" font-family="Inter, Arial" font-size="28" fill="#0b1726" font-weight="700">Musk & Ramaswamy — a quick look</text>
+</svg>

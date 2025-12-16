@@ -9,3 +9,5 @@ main:
     url: /locations/
   - title: Contact
     url: /contact/
+  - title: Blogs
+    url: /blogs/
