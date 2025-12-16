@@ -16,7 +16,7 @@ We're excited to hear about your project. Use the form to share a brief outline 
 
 ### Offices
 
-- <strong>India — Bangalore</strong><br/><span style="color:var(--muted)">Block 5, Example Tech Park, Koramangala, Bangalore — 560095</span>
+- <strong>India — Kochi</strong><br/><span style="color:var(--muted)">InfoPark, Kakkanad<br/>Kochi — 682042</span>
 - <strong>United Kingdom — London</strong><br/><span style="color:var(--muted)">17 Example Street, London — W1 2AA</span>
 
 Email: <a href="mailto:info@ssoulss.com">info@ssoulss.com</a>
