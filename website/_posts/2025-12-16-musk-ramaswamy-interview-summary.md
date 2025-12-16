@@ -9,7 +9,7 @@ image: /assets/images/blogs/musk-ramaswamy-illustration.svg
 
  Recent changes GitHub announced for Actions pricing and platform fees.
 
-## ✅ 1. The Good News: The Free Quota Remains the Same
+✅ 1. The Good News: The Free Quota Remains the Same
 
 The core free offering for individuals and small teams using the GitHub Free plan is unchanged:
 
@@ -22,7 +22,7 @@ Free and Unlimited (using standard GitHub-hosted runners).
 
 If you are an individual developer or a small team using the minutes GitHub provides to run your CI/CD, you are not affected by the loss of your free minutes.
 
-## ⚠️ 2. The Big Change: The New Platform Fee
+⚠️ 2. The Big Change: The New Platform Fee
 
 GitHub is introducing a new fee for the underlying control plane (the service that orchestrates and manages the workflows), which previously was free for self-hosted users.
 
@@ -32,11 +32,11 @@ Who is affected? This charge applies primarily to private repositories using sel
 
 Effective Date: This new fee will begin on March 1, 2026.
 
-### Why is this a big deal?
+⚠️ Why is this a big deal?
 
 Before this change, if you used your own server or cloud account (a self-hosted runner) to run your CI/CD, you only paid for your own compute. You paid $0 to GitHub for the orchestration. Now, you will pay the new $0.002/minute fee to GitHub for simply using their platform to run the workflow, even if the actual compute is on your machine.
 
-## 💸 3. Price Reduction for Paid Users
+💸 3. Price Reduction for Paid Users
 
 To offset this change and improve the value of their product, GitHub is also reducing the cost of their standard GitHub-hosted runners by up to 39% for paid customers.
 
@@ -44,7 +44,7 @@ This price reduction goes into effect on January 1, 2026.
 
 For GitHub-hosted runners, the new $0.002 platform charge is already included in the new, lower listed price.
 
-## 📊 Summary Table of Impact
+📊 Summary Table of Impact
 
 Runner Type | Repository Type | Old Pricing to GitHub | New Pricing to GitHub (Mar 2026)
 ---|---:|---:|---:

@@ -16,7 +16,7 @@ permalink: /blogs/
         <article class="blog-card">
           <div class="accent-strip {{ a }}" aria-hidden="true"></div>
           {% if post.image %}
-            <img src="{{ post.image }}" alt="{{ post.title }}" class="thumb"/>
+            <img src="{{ post.image }}" alt="{{ post.title | xml_escape | default: 'Blog post image' }}" class="thumb"/>
           {% endif %}
           <a href="{{ post.url }}" style="text-decoration:none;color:inherit;display:block">
             <div class="title">{{ post.title }}</div>

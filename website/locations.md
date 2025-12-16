@@ -6,15 +6,15 @@ permalink: /locations/
 
 {% capture intro %}
 
-## Our locations
+📍 Our locations
 
-We operate across APAC and EMEA. Below are our regional offices — click Contact for directions or meetings.
+We operate across APAC and EMEA. Below are our regional offices  click Contact for directions or meetings.
 
 {% endcapture %}
 
 {% capture india %}
 
-### 📍 India — Kochi (APAC)
+📍 India — Kochi (APAC)
 
 Our India team supports delivery and engineering. For inquiries or to request a meeting, please use the <a href="/contact/">Contact form</a> and mention "India" in your message.
 
@@ -22,7 +22,7 @@ Our India team supports delivery and engineering. For inquiries or to request a 
 
 {% capture uk %}
 
-### 📍 United Kingdom — London (EMEA)
+📍 United Kingdom — London (EMEA)
 
 Our UK team handles partnerships and client services. For inquiries or to request a meeting, please use the <a href="/contact/">Contact form</a> and mention "United Kingdom" in your message.
 
@@ -30,7 +30,7 @@ Our UK team handles partnerships and client services. For inquiries or to reques
 
 {% capture map %}
 
-### 🗺️ Map (illustrative)
+🗺️ Map (illustrative)
 
 An illustrative map showing our approximate office locations. For interactive directions or embedded maps, use the <a href="/contact/">Contact</a> page and we will provide precise links.
 

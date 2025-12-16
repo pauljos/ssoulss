@@ -6,7 +6,7 @@ permalink: /contact/
 
 {% capture contact_intro %}
 
-## Get in touch
+✉️ Get in touch
 
 We're excited to hear about your project. Use the form to share a brief outline and we'll reply within 2 business days.
 
@@ -14,7 +14,7 @@ We're excited to hear about your project. Use the form to share a brief outline 
 
 {% capture offices %}
 
-### Our locations
+📍 Our locations
 
 We operate with distributed teams and local delivery in key regions. Please use the contact form to reach the right team — select your region in the message and we'll respond within two business days.
 
@@ -33,7 +33,7 @@ We operate with distributed teams and local delivery in key regions. Please use 
 
 {% capture form %}
 
-### Send a message
+✉️ Send a message
 
 <form action="https://formspree.io/f/xanrgpld" method="POST" aria-label="Contact form" style="display:flex;flex-direction:column;gap:8px;">
   <label for="name">Name</label>
@@ -55,7 +55,7 @@ We operate with distributed teams and local delivery in key regions. Please use 
 
 {% capture hours %}
 
-### Hours
+⏰ Hours
 
 Our teams operate Monday to Friday, 09:00 — 18:00 local time. For urgent requests, please submit the form and mark the message "Urgent" — we'll prioritise these requests.
 
