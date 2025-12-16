@@ -111,7 +111,7 @@
           <div class="brand-title">SSoulSS
             <div class="brand-tagline">{{ site.tagline }}</div>
           </div>
-          <img id="nav-emblem" src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" onerror="this.src='/assets/images/emblem-ssoulss-refined-white-96.png'" style="width:240px;height:96px;object-fit:contain;margin-left:12px;" />
+          <!-- header emblem removed (kept in hero) -->
         </div>
         <style>
           @media (max-width:980px){
@@ -141,9 +141,9 @@
               <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" />
             </div>
             <div class="hero-body">
-              <div class="brand-tagline">{{ site.tagline }}</div>
-              <h1>{{ site.title }}</h1>
-              <p class="lead">Practical AI and engineering that respects people and privacy. We design and build AI-first products that solve real operational problems.</p>
+              <div class="brand-tagline">{% if page.tagline %}{{ page.tagline }}{% else %}{{ site.tagline }}{% endif %}</div>
+                <h1>{{ page.title | default: site.title }}</h1>
+                <p class="lead">{{ page.excerpt | default: site.description }}</p>
               <div class="hero-ctas">
                 <a class="btn primary" href="/contact/">Contact our team</a>
                 <a class="btn secondary" href="/consulting/">Consulting</a>
@@ -156,14 +156,7 @@
           </div>
         </section>
 
-        <!-- Featured cards under hero -->
-        <section style="max-width:1200px;margin:6px auto 18px;padding:0 6px;">
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-            <div class="small-card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:12px;height:12px;background:#2b6fd6;border-radius:3px;margin-top:6px"></div><div><h4 style="margin:0">Souldoc</h4><p style="margin:6px 0 0;color:var(--muted)">Secure clinic workflow & appointment platform.</p></div></div></div>
-            <div class="small-card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:12px;height:12px;background:#f57c00;border-radius:3px;margin-top:6px"></div><div><h4 style="margin:0">Booking API</h4><p style="margin:6px 0 0;color:var(--muted)">Smart booking widgets and predictive no-show reduction.</p></div></div></div>
-            <div class="small-card"><div style="display:flex;gap:12px;align-items:flex-start"><div style="width:12px;height:12px;background:#43a047;border-radius:3px;margin-top:6px"></div><div><h4 style="margin:0">Integrations</h4><p style="margin:6px 0 0;color:var(--muted)">Secure connectors for calendars, messaging and EHRs.</p></div></div></div>
-          </div>
-        </section>
+        <!-- (Removed duplicate simple featured strip; keep the iconized features section below) -->
 
         {{ content }}
 
