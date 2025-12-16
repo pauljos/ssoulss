@@ -99,6 +99,14 @@
     .hero-landing .emblem img{width:220px}
     .hero-landing h1{font-size:28px}
   }
+  @media (max-width:720px){
+    /* reduce hero vertical padding and tighten search spacing on small screens */
+    .hero-landing{padding:12px 0}
+    .hero-landing .inner{padding:4px 8px}
+    .hero-landing .hero-body{text-align:left}
+    .hero-landing .hero-search{margin-top:8px;gap:8px}
+    .hero-landing .emblem img{width:180px}
+  }
 
   /* Features grid - compact small cards (like BlendB2B) */
   .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;align-items:start}
