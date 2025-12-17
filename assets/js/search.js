@@ -2,7 +2,15 @@
 // Loads /search.json and performs searches in-memory.
 
 async function loadIndex() {
-  const res = await fetch('/search.json');
+  // Try absolute path first, then relative as a fallback (works with baseurl)
+  let res = await fetch('/search.json');
+  if (!res.ok) {
+    try {
+      res = await fetch('search.json');
+    } catch (e) {
+      return [];
+    }
+  }
   if (!res.ok) return [];
   return res.json();
 }
@@ -26,7 +34,6 @@ async function initSearch() {
     });
   }
   const fuse = new Fuse(data, options);
-
   const input = document.querySelector('#site-search-input');
   const resultsEl = document.querySelector('#site-search-results');
   if (!input || !resultsEl) return;
@@ -43,12 +50,19 @@ async function initSearch() {
     resultsEl.innerHTML = html;
   }
 
-  input.addEventListener('input', (e) => {
-    const q = e.target.value.trim();
-    if (!q) return renderResults([]);
-    const results = fuse.search(q);
-    renderResults(results);
-  });
+  function performSearch(q){
+    const query = (q || '').trim();
+    if (!query) return renderResults([]);
+    try {
+      const results = fuse.search(query);
+      renderResults(results);
+    } catch (e){
+      console.error('Search error', e);
+      renderResults([]);
+    }
+  }
+
+  input.addEventListener('input', (e) => performSearch(e.target.value));
 }
 
 function escapeHtml(s){
@@ -61,8 +75,13 @@ function openSearchModal(){
   const modal = document.getElementById('site-search-modal');
   if(!modal) return;
   modal.style.display = 'block';
-  const input = document.querySelector('#site-search-input');
-  if(input) input.focus();
+  const modalInput = document.querySelector('#site-search-input');
+  // copy query from inline hero input if present
+  const inline = document.querySelector('.hero-search input[type="search"]');
+  if(inline && modalInput && inline.value && !modalInput.value){
+    modalInput.value = inline.value;
+  }
+  if(modalInput) { modalInput.focus(); modalInput.dispatchEvent(new Event('input')); }
 }
 function closeSearchModal(){
   const modal = document.getElementById('site-search-modal');
