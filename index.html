@@ -231,7 +231,7 @@
               </div>
               <div class="hero-search">
                 <input type="search" aria-label="Search placeholder" placeholder="Search services, Souldoc, integrations..." />
-                <a class="btn secondary" href="/contact/">Search</a>
+                <a class="btn secondary" href="#" data-open-search>Search</a>
               </div>
             </div>
           </div>
@@ -256,6 +256,17 @@
           <h2 class="products-heading">Our products</h2>
         </section>
         <section class="features" aria-label="Our products">
+            <!-- Search modal -->
+            <div id="site-search-modal" style="display:none;position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,0.4);z-index:9999;align-items:center;justify-content:center;padding:18px;">
+              <div style="max-width:760px;margin:40px auto;background:#fff;border-radius:10px;padding:14px;box-shadow:0 20px 60px rgba(2,10,30,0.3);">
+                <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+                  <input id="site-search-input" type="search" placeholder="Search the site..." style="flex:1;padding:10px;border-radius:8px;border:1px solid #e6eef4" />
+                  <button data-close-search class="btn secondary" style="padding:8px 12px">Close</button>
+                </div>
+                <div id="site-search-results" style="max-height:340px;overflow:auto;border-top:1px solid #eef;padding-top:8px"></div>
+              </div>
+            </div>
+            <script src="/assets/js/search.js"></script>
           <a class="small-card" href="/souldoc/" aria-label="Souldoc — view product" style="text-decoration:none;color:inherit;">
             <div class="small-card-body">
               <img src="/assets/images/booking-icon.svg" alt="souldoc" style="width:40px;height:40px;margin-right:12px;"/>
