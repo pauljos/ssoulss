@@ -40,7 +40,7 @@ async function initSearch() {
 
   function renderResults(items) {
     if (!items || items.length === 0) {
-      resultsEl.innerHTML = '<p style="color:#666">No results</p>';
+      resultsEl.innerHTML = '<p style="color:#666">No results. <a href="/contact/">Contact us</a> to request help or add the content.</p>';
       return;
     }
     const html = items.slice(0,8).map(r => {
@@ -63,6 +63,13 @@ async function initSearch() {
   }
 
   input.addEventListener('input', (e) => performSearch(e.target.value));
+  // Enter key triggers search and, if no results, keeps modal open so user can click Contact
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      performSearch(input.value);
+    }
+  });
 }
 
 function escapeHtml(s){
