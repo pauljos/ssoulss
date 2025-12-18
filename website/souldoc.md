@@ -50,6 +50,11 @@ permalink: /souldoc/
 
 <p style="margin-top:12px;color:#33475b">Souldoc is currently available in India. For enterprise enquiries, please use the <a href="/contact/">Contact</a> form and select "Souldoc / Enterprise" in your message.</p>
 
+<div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+  <a class="btn primary" href="https://docsapp-b7430.web.app/" target="_blank" rel="noopener noreferrer">Login to Souldoc</a>
+  <a class="btn secondary" href="/contact/">Request enterprise access</a>
+</div>
+
 {% endcapture %}
 
 {% include card.html content=intro %}
