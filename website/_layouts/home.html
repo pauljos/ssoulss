@@ -376,8 +376,14 @@
         /* optional: keep emblem smaller or hide on very small screens if needed */
         .hero-landing .emblem{margin-bottom:6px}
       }
-      /* Service cards: center content vertically and horizontally, responsive columns */
-      .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:center;max-width:100%;margin:0 auto;padding:0}
+      /* Service cards: circular orbit layout */
+      .service-grid{
+        position:relative;
+        width:600px;
+        height:600px;
+        margin:0 auto;
+        padding:0;
+      }
       .service-box{
         display:flex;
         flex-direction:column;
@@ -386,48 +392,81 @@
         padding:16px;
         border-radius:50%;
         color:#fff !important;
-        border:6px solid rgba(255,255,255,0.5);
-        position:relative;
+        border:5px solid rgba(255,255,255,0.5);
+        position:absolute;
         background:linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.08) 100%);
         backdrop-filter:blur(10px);
         box-shadow:0 8px 32px rgba(0,0,0,0.25),
                    inset 0 2px 8px rgba(255,255,255,0.2),
                    inset 0 -2px 8px rgba(0,0,0,0.2);
-        width:180px;
-        height:180px;
+        width:140px;
+        height:140px;
         transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        top:50%;
+        left:50%;
+      }
+      /* Position each card in a circle */
+      .service-box:nth-child(1){
+        transform:translate(-50%, -50%) translate(0, -220px);
+      }
+      .service-box:nth-child(2){
+        transform:translate(-50%, -50%) translate(209px, -68px) rotate(72deg);
+      }
+      .service-box:nth-child(3){
+        transform:translate(-50%, -50%) translate(129px, 178px) rotate(144deg);
+      }
+      .service-box:nth-child(4){
+        transform:translate(-50%, -50%) translate(-129px, 178px) rotate(216deg);
+      }
+      .service-box:nth-child(5){
+        transform:translate(-50%, -50%) translate(-209px, -68px) rotate(288deg);
       }
       .service-box::before{
         content:'';
         position:absolute;
-        top:12px;
-        left:12px;
-        right:12px;
-        bottom:12px;
+        top:10px;
+        left:10px;
+        right:10px;
+        bottom:10px;
         border-radius:50%;
-        border:3px solid rgba(255,255,255,0.3);
+        border:2px solid rgba(255,255,255,0.3);
         pointer-events:none;
       }
       .service-box::after{
         content:'';
         position:absolute;
-        top:8px;
-        left:8px;
-        right:8px;
-        bottom:8px;
+        top:6px;
+        left:6px;
+        right:6px;
+        bottom:6px;
         border-radius:50%;
         border:2px solid rgba(255,255,255,0.2);
         pointer-events:none;
       }
       .service-box:hover{
-        transform:translateY(-8px) scale(1.05);
         box-shadow:0 12px 48px rgba(0,0,0,0.3),
                    inset 0 2px 12px rgba(255,255,255,0.2),
                    inset 0 -2px 12px rgba(0,0,0,0.2);
         border-color:rgba(255,255,255,0.6);
+        z-index:10;
+      }
+      .service-box:nth-child(1):hover{
+        transform:translate(-50%, -50%) translate(0, -220px) scale(1.1);
+      }
+      .service-box:nth-child(2):hover{
+        transform:translate(-50%, -50%) translate(209px, -68px) rotate(72deg) scale(1.1);
+      }
+      .service-box:nth-child(3):hover{
+        transform:translate(-50%, -50%) translate(129px, 178px) rotate(144deg) scale(1.1);
+      }
+      .service-box:nth-child(4):hover{
+        transform:translate(-50%, -50%) translate(-129px, 178px) rotate(216deg) scale(1.1);
+      }
+      .service-box:nth-child(5):hover{
+        transform:translate(-50%, -50%) translate(-209px, -68px) rotate(288deg) scale(1.1);
       }
       .svc-icon{
-        font-size:48px !important;
+        font-size:40px !important;
         display:block !important;
         margin:0 !important;
         text-shadow:0 2px 6px rgba(0,0,0,0.3) !important;
@@ -438,45 +477,8 @@
         z-index:2;
         line-height:1;
       }
-      .svc-label{
-        display:block !important;
-        margin:0 !important;
-        font-weight:800 !important;
-        font-size:10px !important;
-        color:#fff !important;
-        text-shadow:0 2px 4px rgba(0,0,0,0.5) !important;
-        letter-spacing:2.5px !important;
-        text-transform:uppercase;
-        line-height:1.1;
-        text-align:center;
-        word-wrap:break-word;
-        position:absolute;
-        width:100%;
-        z-index:1;
-        padding:0 16px;
-        box-sizing:border-box;
-        transform:rotate(-5deg);
-      }
-      /* Position labels around the circle edge with slight rotation for curve effect */
-      .svc-product .svc-label{
-        bottom:20px;
-        transform:rotate(-3deg);
-      }
-      .svc-ai .svc-label{
-        bottom:22px;
-        transform:rotate(0deg);
-      }
-      .svc-data-eng .svc-label{
-        bottom:20px;
-        transform:rotate(2deg);
-      }
-      .svc-migration .svc-label{
-        bottom:20px;
-        transform:rotate(-2deg);
-      }
-      .svc-insights .svc-label{
-        bottom:20px;
-        transform:rotate(1deg);
+      .svc-label-svg{
+        pointer-events:none;
       }
       .welcome-future{color:#6b21a8;font-weight:700;font-style:italic}
   .welcome-wrap{max-width:920px;margin:8px auto 12px;padding:0 12px;text-align:center}
@@ -490,26 +492,47 @@
     .products-heading{padding-left:6px}
   }
       @media (max-width:1100px){
-        .service-grid{grid-template-columns:repeat(3,1fr);gap:14px}
+        .service-grid{width:500px;height:500px}
+        .service-box{width:120px;height:120px}
+        .service-box:nth-child(1){transform:translate(-50%, -50%) translate(0, -180px);}
+        .service-box:nth-child(2){transform:translate(-50%, -50%) translate(171px, -56px) rotate(72deg);}
+        .service-box:nth-child(3){transform:translate(-50%, -50%) translate(106px, 145px) rotate(144deg);}
+        .service-box:nth-child(4){transform:translate(-50%, -50%) translate(-106px, 145px) rotate(216deg);}
+        .service-box:nth-child(5){transform:translate(-50%, -50%) translate(-171px, -56px) rotate(288deg);}
+        .svc-icon{font-size:32px !important}
       }
       @media (max-width:720px){
         .service-cards-container{padding:0 16px !important;margin:30px auto 20px !important}
-        .service-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-        .service-box{padding:24px 18px;min-height:120px}
+        .service-grid{width:400px;height:400px}
+        .service-box{width:100px;height:100px;border:4px solid rgba(255,255,255,0.5)}
+        .service-box:nth-child(1){transform:translate(-50%, -50%) translate(0, -140px);}
+        .service-box:nth-child(2){transform:translate(-50%, -50%) translate(133px, -43px) rotate(72deg);}
+        .service-box:nth-child(3){transform:translate(-50%, -50%) translate(82px, 114px) rotate(144deg);}
+        .service-box:nth-child(4){transform:translate(-50%, -50%) translate(-82px, 114px) rotate(216deg);}
+        .service-box:nth-child(5){transform:translate(-50%, -50%) translate(-133px, -43px) rotate(288deg);}
+        .svc-icon{font-size:28px !important}
       }
       @media (max-width:480px){
         .service-cards-container{padding:0 12px !important;margin:24px auto 16px !important}
-        .service-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-        .service-box{padding:22px 16px;min-height:115px}
-        .service-box div[style*="font-size:15px"]{font-size:13px !important}
-        .service-box div[style*="font-size:40px"]{font-size:36px !important}
+        .service-grid{width:320px;height:320px}
+        .service-box{width:80px;height:80px;border:3px solid rgba(255,255,255,0.5)}
+        .service-box:nth-child(1){transform:translate(-50%, -50%) translate(0, -110px);}
+        .service-box:nth-child(2){transform:translate(-50%, -50%) translate(105px, -34px) rotate(72deg);}
+        .service-box:nth-child(3){transform:translate(-50%, -50%) translate(65px, 90px) rotate(144deg);}
+        .service-box:nth-child(4){transform:translate(-50%, -50%) translate(-65px, 90px) rotate(216deg);}
+        .service-box:nth-child(5){transform:translate(-50%, -50%) translate(-105px, -34px) rotate(288deg);}
+        .svc-icon{font-size:24px !important}
       }
       @media (max-width:360px){
         .service-cards-container{padding:0 10px !important}
-        .service-grid{gap:8px}
-        .service-box{padding:20px 14px;min-height:110px}
-        .service-box div[style*="font-size:15px"]{font-size:12px !important}
-        .service-box div[style*="font-size:40px"]{font-size:32px !important}
+        .service-grid{width:280px;height:280px}
+        .service-box{width:70px;height:70px}
+        .service-box:nth-child(1){transform:translate(-50%, -50%) translate(0, -95px);}
+        .service-box:nth-child(2){transform:translate(-50%, -50%) translate(90px, -30px) rotate(72deg);}
+        .service-box:nth-child(3){transform:translate(-50%, -50%) translate(56px, 78px) rotate(144deg);}
+        .service-box:nth-child(4){transform:translate(-50%, -50%) translate(-56px, 78px) rotate(216deg);}
+        .service-box:nth-child(5){transform:translate(-50%, -50%) translate(-90px, -30px) rotate(288deg);}
+        .svc-icon{font-size:20px !important}
       }
       
       /* Floating bubble animation for all cards */
@@ -557,30 +580,34 @@
         animation: floatHover 2s ease-in-out infinite;
       }
       
-      /* Apply floating to service cards with staggered delays */
-      .service-box:nth-child(1) {
-        animation: float 5.5s ease-in-out infinite;
-        animation-delay: 0.2s;
-      }
-      .service-box:nth-child(2) {
-        animation: float 6s ease-in-out infinite;
-        animation-delay: 0.4s;
-      }
-      .service-box:nth-child(3) {
-        animation: float 5s ease-in-out infinite;
-        animation-delay: 0.6s;
-      }
-      .service-box:nth-child(4) {
-        animation: float 6.5s ease-in-out infinite;
-        animation-delay: 0.8s;
-      }
-      .service-box:nth-child(5) {
-        animation: float 5.5s ease-in-out infinite;
-        animation-delay: 1s;
+      /* Rotating orbit animation for service cards */
+      @keyframes orbit {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg) translateX(230px) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg) translateX(230px) rotate(-360deg);
+        }
       }
       
-      .service-box:hover {
-        animation: floatHover 2s ease-in-out infinite;
+      .service-grid.rotating .service-box {
+        animation: orbit 20s linear infinite;
+      }
+      
+      .service-grid.rotating .service-box:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .service-grid.rotating .service-box:nth-child(2) {
+        animation-delay: -4s;
+      }
+      .service-grid.rotating .service-box:nth-child(3) {
+        animation-delay: -8s;
+      }
+      .service-grid.rotating .service-box:nth-child(4) {
+        animation-delay: -12s;
+      }
+      .service-grid.rotating .service-box:nth-child(5) {
+        animation-delay: -16s;
       }
     </style>
   </head>
@@ -738,23 +765,68 @@
           <div class="service-grid">
             <div class="service-box svc-product" style="background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));">
               <div class="svc-icon">🔧</div>
-              <div class="svc-label" style="font-size:10px;letter-spacing:2px;">PRODUCT<br>DEVELOPMENT</div>
+              <svg class="svc-label-svg" viewBox="0 0 140 140" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;">
+                <defs>
+                  <path id="circlePath1" d="M 70,128 A 58,58 0 1,1 69.9,128" fill="none"/>
+                </defs>
+                <text style="fill:#fff;font-size:7px;font-weight:800;letter-spacing:2px;text-shadow:0 2px 4px rgba(0,0,0,0.5);">
+                  <textPath href="#circlePath1" startOffset="50%" text-anchor="middle">
+                    PRODUCT DEV
+                  </textPath>
+                </text>
+              </svg>
             </div>
             <div class="service-box svc-ai" style="background:linear-gradient(135deg,rgba(0,198,255,0.85),rgba(0,114,255,0.85));">
               <div class="svc-icon">🤖</div>
-              <div class="svc-label" style="font-size:12px;letter-spacing:4px;">A I</div>
+              <svg class="svc-label-svg" viewBox="0 0 140 140" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;">
+                <defs>
+                  <path id="circlePath2" d="M 70,128 A 58,58 0 1,1 69.9,128" fill="none"/>
+                </defs>
+                <text style="fill:#fff;font-size:9px;font-weight:800;letter-spacing:6px;text-shadow:0 2px 4px rgba(0,0,0,0.5);">
+                  <textPath href="#circlePath2" startOffset="50%" text-anchor="middle">
+                    A I
+                  </textPath>
+                </text>
+              </svg>
             </div>
             <div class="service-box svc-data-eng" style="background:linear-gradient(135deg,rgba(247,151,30,0.85),rgba(255,210,0,0.85));">
               <div class="svc-icon">🛠️</div>
-              <div class="svc-label" style="font-size:10px;letter-spacing:2px;">DATA<br>ENGINEERING</div>
+              <svg class="svc-label-svg" viewBox="0 0 140 140" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;">
+                <defs>
+                  <path id="circlePath3" d="M 70,128 A 58,58 0 1,1 69.9,128" fill="none"/>
+                </defs>
+                <text style="fill:#fff;font-size:7px;font-weight:800;letter-spacing:2px;text-shadow:0 2px 4px rgba(0,0,0,0.5);">
+                  <textPath href="#circlePath3" startOffset="50%" text-anchor="middle">
+                    DATA ENG
+                  </textPath>
+                </text>
+              </svg>
             </div>
             <div class="service-box svc-migration" style="background:linear-gradient(135deg,rgba(17,153,142,0.85),rgba(56,239,125,0.85));">
               <div class="svc-icon">🔁</div>
-              <div class="svc-label" style="font-size:10px;letter-spacing:2px;">DATA<br>MIGRATION</div>
+              <svg class="svc-label-svg" viewBox="0 0 140 140" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;">
+                <defs>
+                  <path id="circlePath4" d="M 70,128 A 58,58 0 1,1 69.9,128" fill="none"/>
+                </defs>
+                <text style="fill:#fff;font-size:7px;font-weight:800;letter-spacing:2px;text-shadow:0 2px 4px rgba(0,0,0,0.5);">
+                  <textPath href="#circlePath4" startOffset="50%" text-anchor="middle">
+                    MIGRATION
+                  </textPath>
+                </text>
+              </svg>
             </div>
             <div class="service-box svc-insights" style="background:linear-gradient(135deg,rgba(255,65,108,0.85),rgba(255,75,43,0.85));">
               <div class="svc-icon">📊</div>
-              <div class="svc-label" style="font-size:10px;letter-spacing:2px;">DATA<br>INSIGHTS</div>
+              <svg class="svc-label-svg" viewBox="0 0 140 140" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;">
+                <defs>
+                  <path id="circlePath5" d="M 70,128 A 58,58 0 1,1 69.9,128" fill="none"/>
+                </defs>
+                <text style="fill:#fff;font-size:7px;font-weight:800;letter-spacing:2px;text-shadow:0 2px 4px rgba(0,0,0,0.5);">
+                  <textPath href="#circlePath5" startOffset="50%" text-anchor="middle">
+                    INSIGHTS
+                  </textPath>
+                </text>
+              </svg>
             </div>
           </div>
         </div>
