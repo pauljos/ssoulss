@@ -140,25 +140,27 @@
     background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(251,253,255,0.95));
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
-    border:3px solid rgba(80,80,80,0.25);
+    border:3px solid rgba(80,80,80,0.4);
     border-radius:40% 60% 55% 45% / 50% 50% 50% 50%;
     padding:24px;
     margin-bottom:20px;
     box-shadow:0 8px 32px rgba(0,0,0,0.15),
-                inset 0 2px 0 rgba(255,255,255,0.5);
+                inset 0 2px 0 rgba(255,255,255,0.5),
+                2px 2px 0 rgba(0,0,0,0.08);
     position:relative;
     z-index:10;
   }
   .hero-landing::before{
     content:'';
     position:absolute;
-    top:-4px;
-    left:-4px;
-    right:-4px;
-    bottom:-4px;
+    top:-5px;
+    left:-5px;
+    right:-5px;
+    bottom:-5px;
     border-radius:45% 55% 60% 40% / 45% 55% 45% 55%;
-    border:2px dotted rgba(100,100,100,0.2);
+    border:2.5px dotted rgba(100,100,100,0.35);
     pointer-events:none;
+    z-index:-1;
   }
   .hero-landing::after{
     content:'';
@@ -168,7 +170,7 @@
     right:4px;
     bottom:4px;
     border-radius:35% 65% 50% 50% / 55% 45% 55% 45%;
-    border:1px solid rgba(200,200,200,0.15);
+    border:1.5px solid rgba(150,150,150,0.25);
     pointer-events:none;
   }
   .hero-landing .inner{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
@@ -182,35 +184,28 @@
     flex:1;
     padding:9px 12px;
     border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-    border:2.5px solid rgba(100,100,100,0.3);
-    background:rgba(250,250,250,0.7);
+    border:2.5px solid rgba(100,100,100,0.35);
+    background:rgba(250,250,250,0.8);
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
     font-size:14px;
     color:#262626;
-    position:relative;
     box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
-                1px 1px 0 rgba(0,0,0,0.05);
+                1px 1px 0 rgba(0,0,0,0.08),
+                -1px -1px 0 rgba(255,255,255,0.5);
     transition:all 0.3s ease;
-  }
-  .hero-landing input[type="search"]::before{
-    content:'';
-    position:absolute;
-    top:-3px;
-    left:-3px;
-    right:-3px;
-    bottom:-3px;
-    border-radius:55% 45% 55% 45% / 65% 55% 45% 35%;
-    border:1.5px dashed rgba(80,80,80,0.2);
-    pointer-events:none;
+    outline:2px dashed rgba(80,80,80,0.15);
+    outline-offset:3px;
   }
   .hero-landing input[type="search"]:focus{
-    outline:none;
     border-color:rgba(0,149,246,0.6);
-    background:rgba(255,255,255,0.9);
+    background:rgba(255,255,255,0.95);
     border-radius:45% 55% 45% 55% / 55% 65% 35% 45%;
     box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
-                2px 2px 0 rgba(0,149,246,0.1);
+                2px 2px 0 rgba(0,149,246,0.15),
+                -1px -1px 0 rgba(255,255,255,0.7);
+    outline:2px dashed rgba(0,149,246,0.3);
+    outline-offset:4px;
   }
 
   @media (max-width:735px){
@@ -247,24 +242,24 @@
     -webkit-backdrop-filter:blur(12px);
     padding:16px;
     border-radius:25% 75% 70% 30% / 55% 40% 60% 45%;
-    border:2.5px solid rgba(100,100,100,0.3);
+    border:3px solid rgba(100,100,100,0.45);
     box-shadow:0 8px 32px rgba(0,0,0,0.15), 
                 inset 0 1px 0 rgba(255,255,255,0.6),
-                2px 2px 0 rgba(0,0,0,0.05);
+                3px 3px 0 rgba(0,0,0,0.08);
     transition:all .3s ease;
     position:relative;
-    filter:url(#pencil-texture);
   }
   .small-card::before{
     content:'';
     position:absolute;
-    top:-2px;
-    left:-2px;
-    right:-2px;
-    bottom:-2px;
+    top:-4px;
+    left:-4px;
+    right:-4px;
+    bottom:-4px;
     border-radius:20% 80% 75% 25% / 60% 35% 65% 40%;
-    border:1.5px dashed rgba(80,80,80,0.2);
+    border:2px dashed rgba(80,80,80,0.35);
     pointer-events:none;
+    z-index:-1;
   }
   .small-card::after{
     content:'';
@@ -274,17 +269,17 @@
     right:0;
     bottom:0;
     background:
-      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.01) 2px, rgba(0,0,0,0.01) 4px),
-      repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(0,0,0,0.01) 2px, rgba(0,0,0,0.01) 4px);
+      repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,0.02) 3px, rgba(0,0,0,0.02) 5px),
+      repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.02) 3px, rgba(0,0,0,0.02) 5px);
     border-radius:inherit;
     pointer-events:none;
-    opacity:0.3;
+    opacity:0.5;
   }
   .small-card:hover{
     transform:translateY(-8px) scale(1.02) rotate(-0.5deg);
     box-shadow:0 16px 48px rgba(0,0,0,0.25),
                 inset 0 1px 0 rgba(255,255,255,0.8),
-                3px 3px 0 rgba(0,0,0,0.08);
+                4px 4px 0 rgba(0,0,0,0.12);
     border-radius:30% 70% 65% 35% / 50% 45% 55% 50%;
   }
   .small-card-body{display:flex;align-items:flex-start}
