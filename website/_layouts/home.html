@@ -119,49 +119,106 @@
   .brand-title{font-weight:700;color:#262626;font-size:24px;letter-spacing:-0.5px}
   .brand-tagline{
     font-size:12px;
-    color:#dc2626;
     margin-top:2px;
     font-weight:600;
     position:relative;
     display:inline-block;
-    animation:write 3s ease-in-out forwards;
-    background:linear-gradient(to right, #dc2626 50%, transparent 50%);
-    background-size:200% 100%;
-    background-position:100% 0;
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
+    min-height:16px;
   }
   
-  @keyframes write {
+  .typewriter-text {
+    position:relative;
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    animation:
+      typing 4.5s steps(22) 1s infinite,
+      erase 2s steps(22) 18s infinite,
+      color-change 25s linear infinite;
+    border-right:2px solid;
+    padding-right:2px;
+    width:0;
+    color:#dc2626;
+  }
+  
+  @keyframes typing {
     0% {
-      background-position:100% 0;
+      width:0;
     }
     100% {
-      background-position:0 0;
-      -webkit-text-fill-color:#dc2626;
+      width:100%;
     }
   }
   
-  /* Pen cursor effect */
+  @keyframes erase {
+    0% {
+      width:100%;
+    }
+    100% {
+      width:0;
+    }
+  }
+  
+  @keyframes color-change {
+    0%, 20% {
+      color:#dc2626;
+      border-color:#dc2626;
+    }
+    20%, 40% {
+      color:#2563eb;
+      border-color:#2563eb;
+    }
+    40%, 60% {
+      color:#16a34a;
+      border-color:#16a34a;
+    }
+    60%, 80% {
+      color:#9333ea;
+      border-color:#9333ea;
+    }
+    80%, 100% {
+      color:#ea580c;
+      border-color:#ea580c;
+    }
+  }
+  
+  /* Pen cursor moving with text */
   .brand-tagline::after {
     content:'✒️';
     position:absolute;
     font-size:10px;
-    animation:pen-move 3s ease-in-out forwards;
-    opacity:1;
+    left:0;
+    animation:pen-move-typing 25s ease infinite;
+    opacity:0;
+    pointer-events:none;
   }
   
-  @keyframes pen-move {
-    0% {
-      left:-5px;
+  @keyframes pen-move-typing {
+    0%, 3% {
+      left:-15px;
+      opacity:0;
+    }
+    4% {
+      left:0;
       opacity:1;
     }
-    95% {
+    22% {
+      left:100%;
       opacity:1;
     }
-    100% {
-      left:calc(100% + 5px);
+    23%, 79% {
+      opacity:0;
+    }
+    80% {
+      left:100%;
+      opacity:1;
+    }
+    88% {
+      left:0;
+      opacity:1;
+    }
+    89%, 100% {
+      left:-15px;
       opacity:0;
     }
   }
@@ -492,7 +549,7 @@
         <div class="brand-left" style="display:flex;align-items:center;gap:12px;">
           <div>
             <div class="brand-title">SSoulSS</div>
-            <div class="brand-tagline">{{ site.tagline }}</div>
+            <div class="brand-tagline"><span class="typewriter-text">{{ site.tagline }}</span></div>
           </div>
           <!-- header emblem removed (kept in hero) -->
         </div>
