@@ -269,7 +269,41 @@
   .hero-landing h1{font-size:28px;margin:0 0 8px 0;color:#262626;font-weight:700;letter-spacing:-0.5px}
   .hero-landing p.lead{font-size:16px;margin:0 0 16px 0;color:#8e8e8e;line-height:1.5}
   .hero-landing .hero-ctas{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-  .hero-landing .hero-search{display:flex;gap:8px;align-items:stretch}
+  .hero-landing .hero-search{display:flex;gap:8px;align-items:stretch;position:relative}
+  .hero-landing .hero-search::before{
+    content:'';
+    position:absolute;
+    inset:-3px;
+    border-radius:10px;
+    padding:3px;
+    background:linear-gradient(45deg, #ff6b00, #ff9500, #ffb700, #ff6b00, #ff3d00, #ff6b00);
+    background-size:400% 400%;
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite:exclude;
+    animation:fire-glow 3s ease infinite;
+    pointer-events:none;
+    z-index:-1;
+  }
+  @keyframes fire-glow {
+    0%, 100% {
+      background-position:0% 50%;
+      filter:brightness(1) hue-rotate(0deg);
+    }
+    25% {
+      background-position:50% 100%;
+      filter:brightness(1.2) hue-rotate(10deg);
+    }
+    50% {
+      background-position:100% 50%;
+      filter:brightness(1.3) hue-rotate(-10deg);
+    }
+    75% {
+      background-position:50% 0%;
+      filter:brightness(1.1) hue-rotate(5deg);
+    }
+  }
   .hero-landing input[type="search"]{
     flex:1;
     padding:9px 12px;
@@ -381,7 +415,7 @@
         .hero-logo{width:84px;height:84px}
         .hero h1{font-size:26px}
         .features{gap:12px;margin:4px 12px 6px}
-        .small-card{padding:12px;font-size:14px;max-width:280px;margin:0 auto}
+        .small-card{padding:12px;font-size:14px;max-width:240px;margin:0 auto}
         .small-card-body img{width:32px !important;height:32px !important;margin-right:10px !important}
         .small-card h4{font-size:14px !important}
         .small-card p{font-size:12px !important}
@@ -398,7 +432,7 @@
         .hero-landing .hero-body{flex:1 1 auto}
         /* optional: keep emblem smaller or hide on very small screens if needed */
         .hero-landing .emblem{margin-bottom:6px}
-        .small-card{padding:10px;max-width:320px;margin:0 auto}
+        .small-card{padding:10px;max-width:260px;margin:0 auto}
         .small-card-body{flex-direction:row;align-items:center}
         .small-card-body img{width:28px !important;height:28px !important;margin-right:8px !important}
         .small-card h4{font-size:13px !important;margin-bottom:4px !important}
@@ -691,10 +725,10 @@
           <div class="services-wrapper" style="max-width:920px;margin:0 auto 2px;display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;">
           </div>
           <div style="text-align:center;margin:4px auto 8px;max-width:920px;">
-            <h2 style="display:inline-block;margin:0;padding:12px 32px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:50px;font-size:22px;font-weight:700;box-shadow:0 4px 15px rgba(102,126,234,0.4);text-shadow:0 2px 4px rgba(0,0,0,0.2);letter-spacing:0.5px;">Our Products</h2>
+            <h2 style="display:inline-block;margin:0;padding:12px 32px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:50px;font-size:22px;font-weight:700;box-shadow:0 4px 15px rgba(102,126,234,0.4);text-shadow:0 2px 4px rgba(0,0,0,0.2);letter-spacing:0.5px;">Products & Services</h2>
           </div>
         </section>
-        <section class="features" aria-label="Our products">
+        <section class="features" aria-label="Products and services">
             <!-- Search modal -->
             <div id="site-search-modal" style="display:none;position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,0.4);z-index:9999;align-items:center;justify-content:center;padding:18px;">
               <div style="max-width:760px;margin:40px auto;background:#fff;border-radius:10px;padding:14px;box-shadow:0 20px 60px rgba(2,10,30,0.3);">
