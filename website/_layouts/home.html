@@ -229,9 +229,34 @@
         .hero-landing .emblem{margin-bottom:6px}
       }
       /* Service cards: center content vertically and horizontally, responsive columns */
-      .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;align-items:stretch;max-width:100%;margin:0 auto;padding:0}
-      .service-box{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 28px;border-radius:10px;color:#fff !important;border:0}
-      .service-box:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 12px 48px rgba(0,0,0,0.4) !important;}
+      .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;align-items:stretch;max-width:100%;margin:0 auto;padding:0}
+      .service-box{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:36px 32px;
+        border-radius:30% 70% 70% 30% / 60% 40% 60% 40%;
+        color:#fff !important;
+        border:3px solid rgba(255,255,255,0.4);
+        position:relative;
+      }
+      .service-box::before{
+        content:'';
+        position:absolute;
+        top:-3px;
+        left:-3px;
+        right:-3px;
+        bottom:-3px;
+        border-radius:25% 75% 75% 25% / 65% 35% 65% 35%;
+        border:2px dashed rgba(255,255,255,0.2);
+        pointer-events:none;
+      }
+      .service-box:hover{
+        transform:translateY(-8px) scale(1.02) rotate(1deg);
+        box-shadow:0 12px 48px rgba(0,0,0,0.4) !important;
+        border-radius:35% 65% 65% 35% / 55% 45% 55% 45%;
+      }
       .svc-icon{font-size:32px !important;display:block !important;margin-bottom:8px !important;text-shadow:0 2px 4px rgba(0,0,0,0.3) !important;}
       .svc-label{display:block !important;margin-top:6px;font-weight:700 !important;font-size:14px !important;color:#fff !important;text-shadow:0 1px 3px rgba(0,0,0,0.3) !important;}
       .welcome-future{color:#6b21a8;font-weight:700;font-style:italic}
@@ -483,27 +508,27 @@
       </main>
 
         <!-- Services / capability cards placed just above the footer as requested -->
-        <div class="service-cards-container" style="max-width:1400px;margin:40px auto 24px;padding:0 40px;position:relative;z-index:10;">
+        <div class="service-cards-container" style="max-width:1600px;margin:40px auto 24px;padding:0 50px;position:relative;z-index:10;">
           <div class="service-grid">
-            <div class="service-box svc-product" style="text-align:center;padding:32px 28px;background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:130px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font-size:16px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:16px;">Product Development</div>
-              <div style="font-size:44px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔧</div>
+            <div class="service-box svc-product" style="text-align:center;padding:36px 32px;background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:3px solid rgba(255,255,255,0.4);border-radius:30% 70% 70% 30% / 60% 40% 60% 40%;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:all 0.3s ease;min-height:140px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:17px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:18px;">Product Development</div>
+              <div style="font-size:48px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔧</div>
             </div>
-            <div class="service-box svc-ai" style="text-align:center;padding:32px 28px;background:linear-gradient(135deg,rgba(0,198,255,0.85),rgba(0,114,255,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:130px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font-size:16px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:16px;">AI</div>
-              <div style="font-size:44px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🤖</div>
+            <div class="service-box svc-ai" style="text-align:center;padding:36px 32px;background:linear-gradient(135deg,rgba(0,198,255,0.85),rgba(0,114,255,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:3px solid rgba(255,255,255,0.4);border-radius:30% 70% 70% 30% / 60% 40% 60% 40%;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:all 0.3s ease;min-height:140px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:17px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:18px;">AI</div>
+              <div style="font-size:48px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🤖</div>
             </div>
-            <div class="service-box svc-data-eng" style="text-align:center;padding:32px 28px;background:linear-gradient(135deg,rgba(247,151,30,0.85),rgba(255,210,0,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:130px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font-size:16px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:16px;">Data Engineering</div>
-              <div style="font-size:44px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🛠️</div>
+            <div class="service-box svc-data-eng" style="text-align:center;padding:36px 32px;background:linear-gradient(135deg,rgba(247,151,30,0.85),rgba(255,210,0,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:3px solid rgba(255,255,255,0.4);border-radius:30% 70% 70% 30% / 60% 40% 60% 40%;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:all 0.3s ease;min-height:140px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:17px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:18px;">Data Engineering</div>
+              <div style="font-size:48px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🛠️</div>
             </div>
-            <div class="service-box svc-migration" style="text-align:center;padding:32px 28px;background:linear-gradient(135deg,rgba(17,153,142,0.85),rgba(56,239,125,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:130px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font-size:16px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:16px;">Data Migration</div>
-              <div style="font-size:44px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔁</div>
+            <div class="service-box svc-migration" style="text-align:center;padding:36px 32px;background:linear-gradient(135deg,rgba(17,153,142,0.85),rgba(56,239,125,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:3px solid rgba(255,255,255,0.4);border-radius:30% 70% 70% 30% / 60% 40% 60% 40%;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:all 0.3s ease;min-height:140px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:17px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:18px;">Data Migration</div>
+              <div style="font-size:48px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔁</div>
             </div>
-            <div class="service-box svc-insights" style="text-align:center;padding:32px 28px;background:linear-gradient(135deg,rgba(255,65,108,0.85),rgba(255,75,43,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:130px;display:flex;flex-direction:column;justify-content:center;">
-              <div style="font-size:16px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:16px;">Data Insights</div>
-              <div style="font-size:44px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">📊</div>
+            <div class="service-box svc-insights" style="text-align:center;padding:36px 32px;background:linear-gradient(135deg,rgba(255,65,108,0.85),rgba(255,75,43,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:3px solid rgba(255,255,255,0.4);border-radius:30% 70% 70% 30% / 60% 40% 60% 40%;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:all 0.3s ease;min-height:140px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:17px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:18px;">Data Insights</div>
+              <div style="font-size:48px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">📊</div>
             </div>
           </div>
         </div>
