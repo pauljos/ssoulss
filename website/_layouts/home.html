@@ -119,18 +119,41 @@
   .brand-title{font-weight:700;color:#262626;font-size:24px;letter-spacing:-0.5px}
   .brand-tagline{font-size:12px;color:#dc2626;margin-top:2px;font-weight:600}
 
-  /* Hero - clean card style with glassmorphism */
+  /* Hero - clean card style with glassmorphism and wavy doodle border */
   .hero-landing{
     background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(251,253,255,0.95));
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.3);
-    border-radius:12px;
+    border:3px solid rgba(80,80,80,0.25);
+    border-radius:40% 60% 55% 45% / 50% 50% 50% 50%;
     padding:24px;
     margin-bottom:20px;
-    box-shadow:0 8px 32px rgba(0,0,0,0.15);
+    box-shadow:0 8px 32px rgba(0,0,0,0.15),
+                inset 0 2px 0 rgba(255,255,255,0.5);
     position:relative;
     z-index:10;
+  }
+  .hero-landing::before{
+    content:'';
+    position:absolute;
+    top:-4px;
+    left:-4px;
+    right:-4px;
+    bottom:-4px;
+    border-radius:45% 55% 60% 40% / 45% 55% 45% 55%;
+    border:2px dotted rgba(100,100,100,0.2);
+    pointer-events:none;
+  }
+  .hero-landing::after{
+    content:'';
+    position:absolute;
+    top:4px;
+    left:4px;
+    right:4px;
+    bottom:4px;
+    border-radius:35% 65% 50% 50% / 55% 45% 55% 45%;
+    border:1px solid rgba(200,200,200,0.15);
+    pointer-events:none;
   }
   .hero-landing .inner{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
   .hero-landing .emblem{flex:0 0 auto;display:none} /* Hide emblem for cleaner look */
@@ -138,22 +161,40 @@
   .hero-landing h1{font-size:28px;margin:0 0 8px 0;color:#262626;font-weight:700;letter-spacing:-0.5px}
   .hero-landing p.lead{font-size:16px;margin:0 0 16px 0;color:#8e8e8e;line-height:1.5}
   .hero-landing .hero-ctas{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-  .hero-landing .hero-search{display:flex;gap:8px;align-items:stretch}
+  .hero-landing .hero-search{display:flex;gap:8px;align-items:stretch;position:relative}
   .hero-landing input[type="search"]{
     flex:1;
     padding:9px 12px;
-    border-radius:8px;
-    border:1px solid rgba(255,255,255,0.5);
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    border:2.5px solid rgba(100,100,100,0.3);
     background:rgba(250,250,250,0.7);
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
     font-size:14px;
     color:#262626;
+    position:relative;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
+                1px 1px 0 rgba(0,0,0,0.05);
+    transition:all 0.3s ease;
+  }
+  .hero-landing input[type="search"]::before{
+    content:'';
+    position:absolute;
+    top:-3px;
+    left:-3px;
+    right:-3px;
+    bottom:-3px;
+    border-radius:55% 45% 55% 45% / 65% 55% 45% 35%;
+    border:1.5px dashed rgba(80,80,80,0.2);
+    pointer-events:none;
   }
   .hero-landing input[type="search"]:focus{
     outline:none;
     border-color:rgba(0,149,246,0.6);
     background:rgba(255,255,255,0.9);
+    border-radius:45% 55% 45% 55% / 55% 65% 35% 45%;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,0.1),
+                2px 2px 0 rgba(0,149,246,0.1);
   }
 
   @media (max-width:735px){
@@ -189,14 +230,46 @@
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
     padding:16px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,0.3);
-    box-shadow:0 8px 32px rgba(0,0,0,0.15);
-    transition:transform .3s ease,box-shadow .3s ease;
+    border-radius:25% 75% 70% 30% / 55% 40% 60% 45%;
+    border:2.5px solid rgba(100,100,100,0.3);
+    box-shadow:0 8px 32px rgba(0,0,0,0.15), 
+                inset 0 1px 0 rgba(255,255,255,0.6),
+                2px 2px 0 rgba(0,0,0,0.05);
+    transition:all .3s ease;
+    position:relative;
+    filter:url(#pencil-texture);
+  }
+  .small-card::before{
+    content:'';
+    position:absolute;
+    top:-2px;
+    left:-2px;
+    right:-2px;
+    bottom:-2px;
+    border-radius:20% 80% 75% 25% / 60% 35% 65% 40%;
+    border:1.5px dashed rgba(80,80,80,0.2);
+    pointer-events:none;
+  }
+  .small-card::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.01) 2px, rgba(0,0,0,0.01) 4px),
+      repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(0,0,0,0.01) 2px, rgba(0,0,0,0.01) 4px);
+    border-radius:inherit;
+    pointer-events:none;
+    opacity:0.3;
   }
   .small-card:hover{
-    transform:translateY(-8px) scale(1.02);
-    box-shadow:0 16px 48px rgba(0,0,0,0.25);
+    transform:translateY(-8px) scale(1.02) rotate(-0.5deg);
+    box-shadow:0 16px 48px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.8),
+                3px 3px 0 rgba(0,0,0,0.08);
+    border-radius:30% 70% 65% 35% / 50% 45% 55% 50%;
   }
   .small-card-body{display:flex;align-items:flex-start}
   .small-card h4{margin:0;color:#262626;font-weight:700}
@@ -369,6 +442,16 @@
     </style>
   </head>
   <body>
+    <!-- SVG filters for pencil texture effect -->
+    <svg style="position:absolute;width:0;height:0;opacity:0" aria-hidden="true">
+      <defs>
+        <filter id="pencil-texture">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+    </svg>
+    
     <!-- Animated background container -->
     <div class="bg-video-container">
       <!-- Tech evolution background videos - will play sequentially -->
