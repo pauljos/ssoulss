@@ -49,106 +49,170 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/emblem-ssoulss-refined-white.svg">
 <meta name="theme-color" content="#4aa0ff">
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
     <style>
-      /* small subset of styles to ensure pages render nicely when using layout: page */
-      :root{--accent:#0b6fbf;--dark:#0b1726;--muted:#6b7a86}
-      body{font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial, sans-serif;background:#f8fbfd;color:var(--dark);margin:0}
-      .wrap{max-width:960px;margin:18px auto;padding:18px}
-      nav.main-nav{display:flex;gap:12px;padding:12px 0}
-      nav.main-nav a{color:var(--dark);text-decoration:none;padding:6px 10px;border-radius:8px}
-      footer{padding:20px 0;color:var(--muted);text-align:center;font-size:14px}
-      .page-card{background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(11,23,38,0.04);box-shadow:0 8px 30px rgba(11,23,38,0.04)}
+      /* Page layout - Instagram-inspired */
+      body{background:#fafafa;margin:0;padding:0}
+      .wrap{max-width:935px;margin:0 auto;padding:20px}
+      
+      /* Header navigation */
+      header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:16px 0;
+        border-bottom:1px solid #dbdbdb;
+        margin-bottom:20px;
+      }
+      
+      .brand{display:flex;align-items:center;gap:12px}
+      .brand-title{font-weight:700;color:#262626;font-size:20px;letter-spacing:-0.5px}
+      .brand-tagline{font-size:11px;color:#8e8e8e;margin-top:2px}
+      
+      .nav-toggle{
+        display:none;
+        background:transparent;
+        border:0;
+        font-size:24px;
+        color:#262626;
+        cursor:pointer;
+        padding:8px;
+      }
+      
+      nav.main-nav{display:flex;gap:16px;align-items:center}
+      nav.main-nav a{
+        color:#262626;
+        text-decoration:none;
+        padding:8px;
+        font-size:14px;
+        font-weight:600;
+        transition:color 0.2s;
+      }
+      nav.main-nav a:hover{color:#8e8e8e}
+      
+      footer{
+        padding:24px 0;
+        text-align:center;
+        border-top:1px solid #dbdbdb;
+        margin-top:40px;
+      }
+      footer nav{display:flex;gap:16px;justify-content:center;margin-bottom:12px}
+      footer a{color:#8e8e8e;text-decoration:none;font-size:12px}
+      footer a:hover{color:#262626}
+      
+      @media (max-width:735px){
+        .wrap{padding:12px 16px}
+        header{padding:12px 0;margin-bottom:16px}
+        .brand-title{font-size:18px}
+        .brand-tagline{font-size:10px}
+        
+        .nav-toggle{display:block}
+        nav.main-nav{
+          display:none;
+          position:absolute;
+          left:16px;
+          right:16px;
+          top:60px;
+          background:#fff;
+          border:1px solid #dbdbdb;
+          border-radius:8px;
+          padding:8px 0;
+          box-shadow:0 4px 12px rgba(0,0,0,0.15);
+          flex-direction:column;
+          gap:0;
+          z-index:1000;
+        }
+        nav.main-nav.active{display:flex}
+        nav.main-nav a{
+          padding:12px 16px;
+          border-bottom:1px solid #dbdbdb;
+        }
+        nav.main-nav a:last-child{border-bottom:none}
+        
+        footer nav{flex-wrap:wrap}
+      }
     </style>
   </head>
   <body>
     <div class="wrap">
-      <header style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;">
-        <div style="display:flex;align-items:center;gap:12px;">
+      <header>
+        <div class="brand">
           <div>
-            <div style="font-weight:800;color:#2b6fd6;font-size:18px">SSoulSS</div>
-            <div style="font-size:13px;color:#c62828;font-style:italic">Technology with a Soul</div>
+            <div class="brand-title">SSoulSS</div>
+            <div class="brand-tagline">Technology with a Soul</div>
           </div>
         </div>
+        <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('active')" aria-label="Toggle menu">☰</button>
         <nav class="main-nav" aria-label="Main navigation">
           <a href="/">Home</a><a href="/about/">About</a><a href="/consulting/">Consulting</a><a href="/locations/">Locations</a><a href="/contact/">Contact</a><a href="/blogs/">Blogs</a>
         </nav>
       </header>
 
       <main id="maincontent">
-        
-<div class="page-card">
-  
-
-✉️ Get in touch
-
-We're excited to hear about your project. Use the form to share a brief outline and we'll reply within 2 business days.
-
-
+        <div class="page-card">
+  <h2 style="margin-top:0;">✉️ Get in touch</h2>
+  <p style="color:var(--text-secondary);">We're excited to hear about your project. Use the form to share a brief outline and we'll reply within 2 business days.</p>
 </div>
 
 <div class="page-card">
-  
+  <h3 style="margin-top:0;">📍 Our locations</h3>
+  <p style="color:var(--text-secondary);">We operate with distributed teams and local delivery in key regions. Please use the contact form to reach the right team — select your region in the message and we'll respond within two business days.</p>
 
-📍 Our locations
-
-We operate with distributed teams and local delivery in key regions. Please use the contact form to reach the right team — select your region in the message and we'll respond within two business days.
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px;">
-  <div style="padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(11,23,38,0.04);text-align:center;">
-    <div style="font-size:20px;font-weight:700;color:#2b6fd6">India</div>
-    <div style="color:var(--muted);margin-top:8px;">Local delivery &amp; engineering</div>
-  </div>
-  <div style="padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff7f6);border:1px solid rgba(11,23,38,0.04);text-align:center;">
-    <div style="font-size:20px;font-weight:700;color:#0b1726">United Kingdom</div>
-    <div style="color:var(--muted);margin-top:8px;">Client services &amp; partnerships</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:20px;">
+    <div style="padding:20px;border-radius:12px;background:var(--card-bg);border:1px solid var(--border);text-align:center;">
+      <div style="font-size:20px;font-weight:700;color:var(--accent);">India</div>
+      <div style="color:var(--text-secondary);margin-top:8px;">Local delivery &amp; engineering</div>
+    </div>
+    <div style="padding:20px;border-radius:12px;background:var(--card-bg);border:1px solid var(--border);text-align:center;">
+      <div style="font-size:20px;font-weight:700;color:var(--text-primary);">United Kingdom</div>
+      <div style="color:var(--text-secondary);margin-top:8px;">Client services &amp; partnerships</div>
+    </div>
   </div>
 </div>
 
+<div class="page-card">
+  <h3 style="margin-top:0;">✉️ Send a message</h3>
 
+  <form action="https://formspree.io/f/xanrgpld" method="POST" aria-label="Contact form" style="display:flex;flex-direction:column;gap:12px;">
+    <div>
+      <label for="name" style="display:block;margin-bottom:4px;color:var(--text-primary);font-weight:600;font-size:14px;">Name</label>
+      <input id="name" name="name" required="" style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;background:var(--card-bg);" />
+    </div>
+
+    <div>
+      <label for="email" style="display:block;margin-bottom:4px;color:var(--text-primary);font-weight:600;font-size:14px;">Work email</label>
+      <input id="email" name="email" type="email" required="" style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;background:var(--card-bg);" />
+    </div>
+
+    <div>
+      <label for="company" style="display:block;margin-bottom:4px;color:var(--text-primary);font-weight:600;font-size:14px;">Company</label>
+      <input id="company" name="company" style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;background:var(--card-bg);" />
+    </div>
+
+    <div>
+      <label for="message" style="display:block;margin-bottom:4px;color:var(--text-primary);font-weight:600;font-size:14px;">Message</label>
+      <textarea id="message" name="message" rows="6" required="" style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;background:var(--card-bg);resize:vertical;"></textarea>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;">
+      <button type="submit" class="btn primary" style="padding:10px 24px;font-size:14px;">Send message</button>
+    </div>
+  </form>
 </div>
 
 <div class="page-card">
-  
-
-✉️ Send a message
-
-<form action="https://formspree.io/f/xanrgpld" method="POST" aria-label="Contact form" style="display:flex;flex-direction:column;gap:8px;">
-  <label for="name">Name</label>
-  <input id="name" name="name" required="" style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
-
-  <label for="email">Work email</label>
-  <input id="email" name="email" type="email" required="" style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
-
-  <label for="company">Company</label>
-  <input id="company" name="company" style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message" rows="6" required="" style="padding:10px;border-radius:8px;border:1px solid #e6eef4"></textarea>
-
-  <div style="display:flex;justify-content:flex-end"><button type="submit" style="background:#2b6fd6;color:#fff;padding:10px 16px;border-radius:8px;border:0;">Send message</button></div>
-</form>
-
-
+  <h3 style="margin-top:0;">⏰ Hours</h3>
+  <p style="color:var(--text-secondary);">Our teams operate Monday to Friday, 09:00 — 18:00 local time. For urgent requests, please submit the form and mark the message "Urgent" — we'll prioritise these requests.</p>
 </div>
-
-<div class="page-card">
-  
-
-⏰ Hours
-
-Our teams operate Monday to Friday, 09:00 — 18:00 local time. For urgent requests, please submit the form and mark the message "Urgent" — we'll prioritise these requests.
-
-
-</div>
-
 
       </main>
 
-      <footer style="margin-top:14px;font-size:13px;color:var(--muted);text-align:center;">
+      <footer>
         <nav aria-label="Footer navigation">
-          <a href="/policies/" style="color:var(--muted);text-decoration:none;margin-right:12px;">Policies</a>
-          <a href="/delete-request/" style="color:var(--muted);text-decoration:none;">Privacy & Data Requests</a>
+          <a href="/policies/">Policies</a>
+          <a href="/delete-request/">Privacy & Data Requests</a>
         </nav>
+        <div style="color:#8e8e8e;font-size:12px">© 2025 SSoulSS</div>
       </footer>
     </div>
   </body>

@@ -54,22 +54,56 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/emblem-ssoulss-refined-white.svg">
 <meta name="theme-color" content="#4aa0ff">
+    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
     <link rel="stylesheet" href="/assets/css/site.css">
+    <style>
+      body{background:#fafafa}
+      .wrap{max-width:680px;margin:0 auto;padding:20px}
+      nav{margin-bottom:20px;font-size:14px}
+      nav a{color:#0095f6;text-decoration:none}
+      nav a:hover{text-decoration:underline}
+      
+      .post{
+        background:#fff;
+        border:1px solid #dbdbdb;
+        border-radius:12px;
+        padding:24px;
+        box-shadow:0 1px 3px rgba(0,0,0,0.12);
+      }
+      
+      footer{
+        margin-top:24px;
+        text-align:center;
+        padding:16px 0;
+      }
+      footer a{
+        color:#0095f6;
+        text-decoration:none;
+        font-size:14px;
+        font-weight:600;
+      }
+      
+      @media (max-width:735px){
+        .wrap{padding:12px 16px}
+        .post{padding:16px;border-radius:0;border-left:none;border-right:none}
+        nav{margin-bottom:12px;font-size:13px}
+      }
+    </style>
   </head>
   <body>
     <div class="wrap">
-      <nav style="margin-bottom:18px">
+      <nav>
         <a href="/">Home</a> › <a href="/blogs/">Blog</a>
       </nav>
 
-      <article class="post page-card">
+      <article class="post">
         
           <div class="post-feature">
             <img src="/assets/images/blogs/wtf-musk-kamath-illustration.svg" alt="The "WTF" Moment: When India's Brokerage Host Met a Tech Titan" />
           </div>
         
 
-        <header style="margin:18px 0 6px 0">
+        <header style="margin:16px 0 8px 0">
           <h1 class="post-title">The "WTF" Moment: When India's Brokerage Host Met a Tech Titan</h1>
           <p class="post-meta">Dec 16, 2025</p>
         </header>
@@ -114,8 +148,8 @@
         </section>
       </article>
 
-      <footer style="margin-top:32px;text-align:center;color:var(--muted);font-size:13px">
-        <a href="/blogs/">Back to blog</a>
+      <footer>
+        <a href="/blogs/">← Back to blog</a>
       </footer>
     </div>
   </body>

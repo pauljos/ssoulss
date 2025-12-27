@@ -49,26 +49,100 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/emblem-ssoulss-refined-white.svg">
 <meta name="theme-color" content="#4aa0ff">
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
     <style>
-      /* small subset of styles to ensure pages render nicely when using layout: page */
-      :root{--accent:#0b6fbf;--dark:#0b1726;--muted:#6b7a86}
-      body{font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial, sans-serif;background:#f8fbfd;color:var(--dark);margin:0}
-      .wrap{max-width:960px;margin:18px auto;padding:18px}
-      nav.main-nav{display:flex;gap:12px;padding:12px 0}
-      nav.main-nav a{color:var(--dark);text-decoration:none;padding:6px 10px;border-radius:8px}
-      footer{padding:20px 0;color:var(--muted);text-align:center;font-size:14px}
-      .page-card{background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(11,23,38,0.04);box-shadow:0 8px 30px rgba(11,23,38,0.04)}
+      /* Page layout - Instagram-inspired */
+      body{background:#fafafa;margin:0;padding:0}
+      .wrap{max-width:935px;margin:0 auto;padding:20px}
+      
+      /* Header navigation */
+      header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:16px 0;
+        border-bottom:1px solid #dbdbdb;
+        margin-bottom:20px;
+      }
+      
+      .brand{display:flex;align-items:center;gap:12px}
+      .brand-title{font-weight:700;color:#262626;font-size:20px;letter-spacing:-0.5px}
+      .brand-tagline{font-size:11px;color:#8e8e8e;margin-top:2px}
+      
+      .nav-toggle{
+        display:none;
+        background:transparent;
+        border:0;
+        font-size:24px;
+        color:#262626;
+        cursor:pointer;
+        padding:8px;
+      }
+      
+      nav.main-nav{display:flex;gap:16px;align-items:center}
+      nav.main-nav a{
+        color:#262626;
+        text-decoration:none;
+        padding:8px;
+        font-size:14px;
+        font-weight:600;
+        transition:color 0.2s;
+      }
+      nav.main-nav a:hover{color:#8e8e8e}
+      
+      footer{
+        padding:24px 0;
+        text-align:center;
+        border-top:1px solid #dbdbdb;
+        margin-top:40px;
+      }
+      footer nav{display:flex;gap:16px;justify-content:center;margin-bottom:12px}
+      footer a{color:#8e8e8e;text-decoration:none;font-size:12px}
+      footer a:hover{color:#262626}
+      
+      @media (max-width:735px){
+        .wrap{padding:12px 16px}
+        header{padding:12px 0;margin-bottom:16px}
+        .brand-title{font-size:18px}
+        .brand-tagline{font-size:10px}
+        
+        .nav-toggle{display:block}
+        nav.main-nav{
+          display:none;
+          position:absolute;
+          left:16px;
+          right:16px;
+          top:60px;
+          background:#fff;
+          border:1px solid #dbdbdb;
+          border-radius:8px;
+          padding:8px 0;
+          box-shadow:0 4px 12px rgba(0,0,0,0.15);
+          flex-direction:column;
+          gap:0;
+          z-index:1000;
+        }
+        nav.main-nav.active{display:flex}
+        nav.main-nav a{
+          padding:12px 16px;
+          border-bottom:1px solid #dbdbdb;
+        }
+        nav.main-nav a:last-child{border-bottom:none}
+        
+        footer nav{flex-wrap:wrap}
+      }
     </style>
   </head>
   <body>
     <div class="wrap">
-      <header style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;">
-        <div style="display:flex;align-items:center;gap:12px;">
+      <header>
+        <div class="brand">
           <div>
-            <div style="font-weight:800;color:#2b6fd6;font-size:18px">SSoulSS</div>
-            <div style="font-size:13px;color:#c62828;font-style:italic">Technology with a Soul</div>
+            <div class="brand-title">SSoulSS</div>
+            <div class="brand-tagline">Technology with a Soul</div>
           </div>
         </div>
+        <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('active')" aria-label="Toggle menu">☰</button>
         <nav class="main-nav" aria-label="Main navigation">
           <a href="/">Home</a><a href="/about/">About</a><a href="/consulting/">Consulting</a><a href="/locations/">Locations</a><a href="/contact/">Contact</a><a href="/blogs/">Blogs</a>
         </nav>
@@ -79,52 +153,17 @@
 <div class="page-card">
   
 
-<div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
-	<div style="flex:1;min-width:220px;">
-		<h2 style="margin:0 0 8px 0;color:#0b1726;">About SSoulSS</h2>
-		<p style="margin:0;color:#33475b;font-size:16px;line-height:1.45;">We design and ship practical AI products that respect people and privacy. Our work focuses on measurable operational improvements — from predictive scheduling to secure enterprise integrations — delivered with empathy and strong engineering practices.</p>
-		<p style="margin-top:10px;"><strong style="color:#2b6fd6">Headquarters:</strong> Kochi &amp; London — global delivery with local presence</p>
+<div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+	<div style="flex:1;min-width:240px;">
+		<h2 style="margin:0 0 12px 0;color:#262626;font-size:24px;font-weight:700;">About SSoulSS</h2>
+		<p style="margin:0 0 12px 0;color:#262626;font-size:15px;line-height:1.5;">We design and ship practical AI products that respect people and privacy. Our work focuses on measurable operational improvements — from predictive scheduling to secure enterprise integrations — delivered with empathy and strong engineering practices.</p>
+		<div style="display:inline-flex;align-items:center;gap:8px;background:#fafafa;border:1px solid #dbdbdb;padding:8px 12px;border-radius:8px;font-size:14px;">
+			<span style="font-weight:600;color:#262626;">📍 Global:</span>
+			<span style="color:#8e8e8e;">Kochi &amp; London</span>
+		</div>
 	</div>
-	<div style="flex:0 0 180px;text-align:center;">
-		<img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" style="width:160px;height:auto;border-radius:8px;box-shadow:0 12px 40px rgba(43,111,214,0.08);" />
-	</div>
-</div>
-
-
-</div>
-
-<div class="page-card">
-  
-
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:4px;">
-	<span style="background:#e8f5ff;color:#0b6fbf;padding:8px 12px;border-radius:18px;font-weight:600;">Human-centred</span>
-	<span style="background:#fff3e0;color:#f57c00;padding:8px 12px;border-radius:18px;font-weight:600;">Practicality</span>
-	<span style="background:#e8fbee;color:#2e7d32;padding:8px 12px;border-radius:18px;font-weight:600;">Security &amp; compliance</span>
-	<span style="background:#f3e5f5;color:#6a1b9a;padding:8px 12px;border-radius:18px;font-weight:600;">Partnership</span>
-</div>
-<p style="margin:8px 0 0;color:#6b7a86;">We prioritise human-centred design, incremental delivery, and strong governance so delivered systems are useful, secure and adopted.</p>
-
-
-</div>
-
-<div class="page-card">
-  
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
-	<div style="background:linear-gradient(180deg,#fff,#fbfdff);padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);">
-		<div style="font-size:20px">🩺</div>
-		<h4 style="margin:6px 0 6px 0;color:#0b1726;">Souldoc</h4>
-		<p style="margin:0;color:#6b7a86">Secure appointment &amp; clinic workflow platform with compliance-first UX.</p>
-	</div>
-	<div style="background:linear-gradient(180deg,#fff,#fbfdff);padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);">
-		<div style="font-size:20px">📅</div>
-		<h4 style="margin:6px 0 6px 0;color:#0b1726;">Booking &amp; APIs</h4>
-		<p style="margin:0;color:#6b7a86">Smart booking widgets, predictive no-show reduction and developer-friendly APIs.</p>
-	</div>
-	<div style="background:linear-gradient(180deg,#fff,#fbfdff);padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);">
-		<div style="font-size:20px">🔌</div>
-		<h4 style="margin:6px 0 6px 0;color:#0b1726;">Integrations</h4>
-		<p style="margin:0;color:#6b7a86">Secure connectors for calendars, messaging gateways and enterprise systems.</p>
+	<div style="flex:0 0 120px;text-align:center;">
+		<img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" style="width:120px;height:auto;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" />
 	</div>
 </div>
 
@@ -134,21 +173,35 @@
 <div class="page-card">
   
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
-	<div style="padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);background:#fff;">
-		<div style="font-weight:700;color:#2b6fd6">Nimmy Mathew</div>
-		<div style="color:#6b7a86;font-size:13px;margin-top:6px;">CEO &amp; Product</div>
-		<p style="margin-top:8px;color:#33475b;font-size:14px;">Senior product leader with 20+ years of experience in data, data insight and consulting. Nimmy combines practical analytics, product strategy and delivery expertise to help organisations turn data into reliable business outcomes.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+	<span style="background:#fff;border:1px solid #dbdbdb;color:#262626;padding:8px 14px;border-radius:20px;font-weight:600;font-size:13px;">Human-centred</span>
+	<span style="background:#fff;border:1px solid #dbdbdb;color:#262626;padding:8px 14px;border-radius:20px;font-weight:600;font-size:13px;">Practicality</span>
+	<span style="background:#fff;border:1px solid #dbdbdb;color:#262626;padding:8px 14px;border-radius:20px;font-weight:600;font-size:13px;">Security &amp; compliance</span>
+	<span style="background:#fff;border:1px solid #dbdbdb;color:#262626;padding:8px 14px;border-radius:20px;font-weight:600;font-size:13px;">Partnership</span>
+</div>
+<p style="margin:0;color:#8e8e8e;font-size:14px;line-height:1.5;">We prioritise human-centred design, incremental delivery, and strong governance so delivered systems are useful, secure and adopted.</p>
+
+
+</div>
+
+<div class="page-card">
+  
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+	<div style="background:#fff;border:1px solid #dbdbdb;padding:20px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+		<div style="font-size:28px;margin-bottom:12px;">🩺</div>
+		<h4 style="margin:0 0 8px 0;color:#262626;font-size:16px;font-weight:700;">Souldoc</h4>
+		<p style="margin:0;color:#8e8e8e;font-size:14px;line-height:1.4;">Secure appointment &amp; clinic workflow platform with compliance-first UX.</p>
 	</div>
-	<div style="padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);background:#fff;">
-		<div style="font-weight:700;color:#2b6fd6">Paul Joseph</div>
-		<div style="color:#6b7a86;font-size:13px;margin-top:6px;">Head of Engineering &amp; AI</div>
-		<p style="margin-top:8px;color:#33475b;font-size:14px;">Technology leader with 25 years of experience in modern tech solutions across AI, cloud and data engineering. Paul specialises in building scalable, secure platforms and translating analytics into operational systems.</p>
+	<div style="background:#fff;border:1px solid #dbdbdb;padding:20px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+		<div style="font-size:28px;margin-bottom:12px;">📅</div>
+		<h4 style="margin:0 0 8px 0;color:#262626;font-size:16px;font-weight:700;">Booking &amp; APIs</h4>
+		<p style="margin:0;color:#8e8e8e;font-size:14px;line-height:1.4;">Smart booking widgets, predictive no-show reduction and developer-friendly APIs.</p>
 	</div>
-	<div style="padding:12px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);background:#fff;">
-		<div style="font-weight:700;color:#2b6fd6">Aron Jose</div>
-		<div style="color:#6b7a86;font-size:13px;margin-top:6px;">UI, Product &amp; Offshore Delivery Lead</div>
-		<p style="margin-top:8px;color:#33475b;font-size:14px;">Design and delivery leader specialising in user-centred product design, cross-border delivery and offshore teams. Focused on building delightful interfaces and reliable delivery models.</p>
+	<div style="background:#fff;border:1px solid #dbdbdb;padding:20px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+		<div style="font-size:28px;margin-bottom:12px;">🔌</div>
+		<h4 style="margin:0 0 8px 0;color:#262626;font-size:16px;font-weight:700;">Integrations</h4>
+		<p style="margin:0;color:#8e8e8e;font-size:14px;line-height:1.4;">Secure connectors for calendars, messaging gateways and enterprise systems.</p>
 	</div>
 </div>
 
@@ -158,10 +211,34 @@
 <div class="page-card">
   
 
-<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-	<div style="flex:1;min-width:200px;color:#33475b">Want to bring empathetic AI into your operations? We’ll help you prioritise, pilot and scale.</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+	<div style="padding:20px;border-radius:12px;border:1px solid #dbdbdb;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+		<div style="font-weight:700;color:#262626;font-size:16px;">Nimmy Mathew</div>
+		<div style="color:#8e8e8e;font-size:13px;margin-top:4px;">CEO &amp; Product</div>
+		<p style="margin-top:12px;color:#262626;font-size:14px;line-height:1.5;">Senior product leader with 20+ years of experience in data, data insight and consulting. Nimmy combines practical analytics, product strategy and delivery expertise to help organisations turn data into reliable business outcomes.</p>
+	</div>
+	<div style="padding:20px;border-radius:12px;border:1px solid #dbdbdb;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+		<div style="font-weight:700;color:#262626;font-size:16px;">Paul Joseph</div>
+		<div style="color:#8e8e8e;font-size:13px;margin-top:4px;">Head of Engineering &amp; AI</div>
+		<p style="margin-top:12px;color:#262626;font-size:14px;line-height:1.5;">Technology leader with 25 years of experience in modern tech solutions across AI, cloud and data engineering. Paul specialises in building scalable, secure platforms and translating analytics into operational systems.</p>
+	</div>
+	<div style="padding:20px;border-radius:12px;border:1px solid #dbdbdb;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+		<div style="font-weight:700;color:#262626;font-size:16px;">Aron Jose</div>
+		<div style="color:#8e8e8e;font-size:13px;margin-top:4px;">UI, Product &amp; Offshore Delivery Lead</div>
+		<p style="margin-top:12px;color:#262626;font-size:14px;line-height:1.5;">Design and delivery leader specialising in user-centred product design, cross-border delivery and offshore teams. Focused on building delightful interfaces and reliable delivery models.</p>
+	</div>
+</div>
+
+
+</div>
+
+<div class="page-card">
+  
+
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+	<div style="flex:1;min-width:200px;color:#262626;font-size:15px;line-height:1.5;">Want to bring empathetic AI into your operations? We'll help you prioritise, pilot and scale.</div>
 	<div style="flex:0 0 auto">
-		<a href="/contact/" style="display:inline-block;background:#2b6fd6;color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;">Contact our team</a>
+		<a href="/contact/" style="display:inline-block;background:#0095f6;color:#fff;padding:9px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;">Contact our team</a>
 	</div>
 </div>
 
@@ -170,11 +247,12 @@
 
       </main>
 
-      <footer style="margin-top:14px;font-size:13px;color:var(--muted);text-align:center;">
+      <footer>
         <nav aria-label="Footer navigation">
-          <a href="/policies/" style="color:var(--muted);text-decoration:none;margin-right:12px;">Policies</a>
-          <a href="/delete-request/" style="color:var(--muted);text-decoration:none;">Privacy & Data Requests</a>
+          <a href="/policies/">Policies</a>
+          <a href="/delete-request/">Privacy & Data Requests</a>
         </nav>
+        <div style="color:#8e8e8e;font-size:12px">© 2025 SSoulSS</div>
       </footer>
     </div>
   </body>
