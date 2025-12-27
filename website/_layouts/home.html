@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
     <link rel="stylesheet" href="/assets/css/site.css">
     <style>
-      /* Premium animated gradient background - Audemars Piguet style */
+      /* Premium tech evolution background - Audemars Piguet inspired */
       html{
         height:100%;
         min-height:100vh;
@@ -27,23 +27,14 @@
       body{
         height:100%;
         min-height:100vh;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%) !important;
-        background-size: 400% 400% !important;
-        background-attachment: fixed !important;
-        animation: gradientShift 15s ease infinite;
+        background: #0a0e27 !important;
         position: relative;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
       }
       
-      /* Subtle animated gradient background */
-      @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      
-      /* Optional: Add a subtle overlay pattern for depth */
+      /* Animated tech timeline background */
       body::before {
         content: '';
         position: fixed;
@@ -52,10 +43,76 @@
         right: 0;
         bottom: 0;
         background: 
-          radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
-          radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+          linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #2a3154 50%, #1a1f3a 75%, #0a0e27 100%);
+        background-size: 400% 400%;
+        animation: techFlow 20s ease infinite;
+        z-index: 0;
+      }
+      
+      @keyframes techFlow {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      
+      /* Floating tech elements - representing progression of technologies */
+      body::after {
+        content: '';
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: 
+          /* Data nodes - representing evolution */
+          radial-gradient(circle at 15% 20%, rgba(102,126,234,0.15) 0%, transparent 3%),
+          radial-gradient(circle at 85% 30%, rgba(118,75,162,0.15) 0%, transparent 3%),
+          radial-gradient(circle at 25% 60%, rgba(79,172,254,0.15) 0%, transparent 3%),
+          radial-gradient(circle at 75% 70%, rgba(240,147,251,0.15) 0%, transparent 3%),
+          radial-gradient(circle at 45% 40%, rgba(0,242,254,0.15) 0%, transparent 3%),
+          radial-gradient(circle at 60% 80%, rgba(102,126,234,0.12) 0%, transparent 3%),
+          /* Connection lines - representing data flow */
+          linear-gradient(45deg, transparent 45%, rgba(102,126,234,0.05) 50%, transparent 55%),
+          linear-gradient(-45deg, transparent 45%, rgba(118,75,162,0.05) 50%, transparent 55%);
+        background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 200% 200%, 200% 200%;
+        animation: techEvolution 30s linear infinite;
         pointer-events: none;
         z-index: 0;
+      }
+      
+      @keyframes techEvolution {
+        0% { 
+          transform: translateY(0);
+          opacity: 0.3;
+        }
+        50% { 
+          opacity: 0.6;
+        }
+        100% { 
+          transform: translateY(-20px);
+          opacity: 0.3;
+        }
+      }
+      
+      /* Subtle grid overlay - representing data infrastructure */
+      .wrap::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+          linear-gradient(rgba(102,126,234,0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(102,126,234,0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+        z-index: 0;
+        animation: gridFlow 60s linear infinite;
+      }
+      
+      @keyframes gridFlow {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
       }
       
       .wrap{max-width:935px;margin:0 auto;padding:20px 20px 30px;position:relative;z-index:1}
@@ -70,7 +127,7 @@
   /* Brand */
   .brand-left{display:flex;align-items:center;gap:12px}
   .brand-title{font-weight:700;color:#262626;font-size:24px;letter-spacing:-0.5px}
-  .brand-tagline{font-size:12px;color:#8e8e8e;margin-top:2px}
+  .brand-tagline{font-size:12px;color:#dc2626;margin-top:2px;font-weight:600}
 
   /* Hero - clean card style */
   .hero-landing{
@@ -248,17 +305,12 @@
         {{ content }}
 
         <!-- Products heading -->
-        <section style="max-width:1200px;margin:2px auto 0;padding:0 6px;">
+        <section style="max-width:1200px;margin:20px auto 0;padding:0 6px;">
           <div class="services-wrapper" style="max-width:920px;margin:2px auto 12px;display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;">
           </div>
-          <!-- Centered welcome shown after the cards (desktop and mobile) -->
-          <div class="welcome-wrap">
-            <div class="welcome-future">
-              <p class="welcome-line">Human-centred engineering for measurable impact.</p>
-              <p class="welcome-sub">We design, build and scale AI and cloud products you can trust.</p>
-            </div>
+          <div style="text-align:center;margin:24px auto 20px;max-width:920px;">
+            <h2 style="display:inline-block;margin:0;padding:12px 32px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:50px;font-size:22px;font-weight:700;box-shadow:0 4px 15px rgba(102,126,234,0.4);text-shadow:0 2px 4px rgba(0,0,0,0.2);letter-spacing:0.5px;">Our Products</h2>
           </div>
-          <h2 class="products-heading">Our products</h2>
         </section>
         <section class="features" aria-label="Our products">
             <!-- Search modal -->
@@ -306,25 +358,25 @@
         <!-- Services / capability cards placed just above the footer as requested -->
         <div style="max-width:920px;margin:6px auto 12px;padding:0 12px;">
           <div class="service-grid">
-            <div class="service-box svc-product" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">🔧</span>
-              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">Product Development</span>
+            <div class="service-box svc-product" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;text-shadow:0 2px 4px rgba(0,0,0,0.2);" aria-hidden="true">🔧</span>
+              <span class="svc-label" style="display:block;font-size:14px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.3);">Product Development</span>
             </div>
-            <div class="service-box svc-ai" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">🤖</span>
-              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">AI</span>
+            <div class="service-box svc-ai" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;text-shadow:0 2px 4px rgba(0,0,0,0.2);" aria-hidden="true">🤖</span>
+              <span class="svc-label" style="display:block;font-size:14px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.3);">AI</span>
             </div>
-            <div class="service-box svc-data-eng" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">🛠️</span>
-              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">Data Engineering</span>
+            <div class="service-box svc-data-eng" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;text-shadow:0 2px 4px rgba(0,0,0,0.2);" aria-hidden="true">🛠️</span>
+              <span class="svc-label" style="display:block;font-size:14px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.3);">Data Engineering</span>
             </div>
-            <div class="service-box svc-migration" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">🔁</span>
-              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">Data Migration</span>
+            <div class="service-box svc-migration" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;text-shadow:0 2px 4px rgba(0,0,0,0.2);" aria-hidden="true">🔁</span>
+              <span class="svc-label" style="display:block;font-size:14px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.3);">Data Migration</span>
             </div>
-            <div class="service-box svc-insights" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
-              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">📊</span>
-              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">Data Insights</span>
+            <div class="service-box svc-insights" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;text-shadow:0 2px 4px rgba(0,0,0,0.2);" aria-hidden="true">📊</span>
+              <span class="svc-label" style="display:block;font-size:14px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.3);">Data Insights</span>
             </div>
           </div>
         </div>
