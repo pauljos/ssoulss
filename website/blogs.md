@@ -29,7 +29,7 @@ permalink: /blogs/
       {% endfor %}
     </div>
   {% else %}
-    <p style="margin-top:18px;color:#8e8e8e;">No posts yet — create a post under <code>_posts/</code> using Jekyll's conventions.</p>
+    <p style="margin-top:18px;color:#262626;font-size:15px;font-weight:500;text-align:center;padding:40px 20px;background:#f8f9fa;border-radius:8px;">No posts yet — create a post under <code style="background:#e9ecef;padding:2px 8px;border-radius:4px;color:#495057;">_posts/</code> using Jekyll's conventions.</p>
   {% endif %}
 </div>
 
