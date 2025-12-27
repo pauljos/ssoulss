@@ -355,7 +355,7 @@
 
 
       @media (max-width:980px){
-        .features{grid-template-columns:repeat(2,1fr)}
+        .features{grid-template-columns:repeat(2,1fr);gap:14px}
       }
       @media (max-width:720px){
         .nav-toggle{display:inline-block}
@@ -364,9 +364,16 @@
         .hero-bg{height:300px}
         .hero-logo{width:84px;height:84px}
         .hero h1{font-size:26px}
+        .features{gap:12px;margin:4px 12px 6px}
+        .small-card{padding:12px;font-size:14px}
+        .small-card-body img{width:32px !important;height:32px !important;margin-right:10px !important}
+        .small-card h4{font-size:14px !important}
+        .small-card p{font-size:12px !important}
+        section[style*="padding:0 6px"]{padding:0 12px !important}
+        section[style*="padding:0 6px"] h2{font-size:18px !important;padding:10px 24px !important}
       }
       @media (max-width:420px){
-        .features{grid-template-columns:1fr}
+        .features{grid-template-columns:1fr;gap:10px;margin:4px 8px 6px}
         .hero h1{font-size:20px}
         /* further tighten hero spacing on very small screens */
         .hero-landing{padding:6px 0}
@@ -375,6 +382,13 @@
         .hero-landing .hero-body{flex:1 1 auto}
         /* optional: keep emblem smaller or hide on very small screens if needed */
         .hero-landing .emblem{margin-bottom:6px}
+        .small-card{padding:10px}
+        .small-card-body{flex-direction:row;align-items:center}
+        .small-card-body img{width:28px !important;height:28px !important;margin-right:8px !important}
+        .small-card h4{font-size:13px !important;margin-bottom:4px !important}
+        .small-card p{font-size:11px !important;line-height:1.4}
+        section[style*="padding:0 6px"]{padding:0 8px !important}
+        section[style*="padding:0 6px"] h2{font-size:16px !important;padding:8px 20px !important}
       }
       /* Service cards: center content vertically and horizontally, responsive columns */
       .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:center;max-width:100%;margin:0 auto;padding:0}
