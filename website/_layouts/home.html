@@ -237,6 +237,80 @@
       @media (max-width:420px){
         .service-grid{grid-template-columns:1fr}
       }
+      
+      /* Floating bubble animation for all cards */
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) translateX(0px);
+        }
+        25% {
+          transform: translateY(-10px) translateX(5px);
+        }
+        50% {
+          transform: translateY(-5px) translateX(-5px);
+        }
+        75% {
+          transform: translateY(-15px) translateX(3px);
+        }
+      }
+      
+      @keyframes floatHover {
+        0%, 100% {
+          transform: translateY(-8px) scale(1.02) translateX(0px);
+        }
+        50% {
+          transform: translateY(-12px) scale(1.02) translateX(5px);
+        }
+      }
+      
+      /* Apply floating to hero card */
+      .hero-landing {
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      /* Apply floating to feature cards with staggered delays */
+      .small-card:nth-child(1) {
+        animation: float 5s ease-in-out infinite;
+        animation-delay: 0s;
+      }
+      .small-card:nth-child(2) {
+        animation: float 5.5s ease-in-out infinite;
+        animation-delay: 0.5s;
+      }
+      .small-card:nth-child(3) {
+        animation: float 6s ease-in-out infinite;
+        animation-delay: 1s;
+      }
+      
+      .small-card:hover {
+        animation: floatHover 2s ease-in-out infinite;
+      }
+      
+      /* Apply floating to service cards with staggered delays */
+      .service-box:nth-child(1) {
+        animation: float 5.5s ease-in-out infinite;
+        animation-delay: 0.2s;
+      }
+      .service-box:nth-child(2) {
+        animation: float 6s ease-in-out infinite;
+        animation-delay: 0.4s;
+      }
+      .service-box:nth-child(3) {
+        animation: float 5s ease-in-out infinite;
+        animation-delay: 0.6s;
+      }
+      .service-box:nth-child(4) {
+        animation: float 6.5s ease-in-out infinite;
+        animation-delay: 0.8s;
+      }
+      .service-box:nth-child(5) {
+        animation: float 5.5s ease-in-out infinite;
+        animation-delay: 1s;
+      }
+      
+      .service-box:hover {
+        animation: floatHover 2s ease-in-out infinite;
+      }
     </style>
   </head>
   <body>
@@ -381,25 +455,25 @@
         <!-- Services / capability cards placed just above the footer as requested -->
         <div style="max-width:920px;margin:40px auto 24px;padding:0 12px;position:relative;z-index:10;">
           <div class="service-grid">
-            <div class="service-box svc-product" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
-              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:12px;">Product Development</div>
-              <div style="font-size:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔧</div>
+            <div class="service-box svc-product" style="text-align:center;padding:24px 20px;background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:110px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:14px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:14px;">Product Development</div>
+              <div style="font-size:38px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔧</div>
             </div>
-            <div class="service-box svc-ai" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(0,198,255,0.85),rgba(0,114,255,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
-              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:12px;">AI</div>
-              <div style="font-size:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🤖</div>
+            <div class="service-box svc-ai" style="text-align:center;padding:24px 20px;background:linear-gradient(135deg,rgba(0,198,255,0.85),rgba(0,114,255,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:110px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:14px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:14px;">AI</div>
+              <div style="font-size:38px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🤖</div>
             </div>
-            <div class="service-box svc-data-eng" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(247,151,30,0.85),rgba(255,210,0,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
-              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:12px;">Data Engineering</div>
-              <div style="font-size:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🛠️</div>
+            <div class="service-box svc-data-eng" style="text-align:center;padding:24px 20px;background:linear-gradient(135deg,rgba(247,151,30,0.85),rgba(255,210,0,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:110px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:14px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:14px;">Data Engineering</div>
+              <div style="font-size:38px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🛠️</div>
             </div>
-            <div class="service-box svc-migration" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(17,153,142,0.85),rgba(56,239,125,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
-              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:12px;">Data Migration</div>
-              <div style="font-size:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔁</div>
+            <div class="service-box svc-migration" style="text-align:center;padding:24px 20px;background:linear-gradient(135deg,rgba(17,153,142,0.85),rgba(56,239,125,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:110px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:14px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:14px;">Data Migration</div>
+              <div style="font-size:38px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔁</div>
             </div>
-            <div class="service-box svc-insights" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(255,65,108,0.85),rgba(255,75,43,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
-              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:12px;">Data Insights</div>
-              <div style="font-size:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">📊</div>
+            <div class="service-box svc-insights" style="text-align:center;padding:24px 20px;background:linear-gradient(135deg,rgba(255,65,108,0.85),rgba(255,75,43,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:110px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:14px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:14px;">Data Insights</div>
+              <div style="font-size:38px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">📊</div>
             </div>
           </div>
         </div>
