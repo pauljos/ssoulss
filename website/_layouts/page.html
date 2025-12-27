@@ -7,26 +7,100 @@
     {% seo %}
     {% include head.html %}
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
     <style>
-      /* small subset of styles to ensure pages render nicely when using layout: page */
-      :root{--accent:#0b6fbf;--dark:#0b1726;--muted:#6b7a86}
-      body{font-family:Inter, system-ui, -apple-system, Roboto, 'Segoe UI', Arial, sans-serif;background:#f8fbfd;color:var(--dark);margin:0}
-      .wrap{max-width:960px;margin:18px auto;padding:18px}
-      nav.main-nav{display:flex;gap:12px;padding:12px 0}
-      nav.main-nav a{color:var(--dark);text-decoration:none;padding:6px 10px;border-radius:8px}
-      footer{padding:20px 0;color:var(--muted);text-align:center;font-size:14px}
-      .page-card{background:#fff;padding:18px;border-radius:12px;border:1px solid rgba(11,23,38,0.04);box-shadow:0 8px 30px rgba(11,23,38,0.04)}
+      /* Page layout - Instagram-inspired */
+      body{background:#fafafa;margin:0;padding:0}
+      .wrap{max-width:935px;margin:0 auto;padding:20px}
+      
+      /* Header navigation */
+      header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:16px 0;
+        border-bottom:1px solid #dbdbdb;
+        margin-bottom:20px;
+      }
+      
+      .brand{display:flex;align-items:center;gap:12px}
+      .brand-title{font-weight:700;color:#262626;font-size:20px;letter-spacing:-0.5px}
+      .brand-tagline{font-size:11px;color:#8e8e8e;margin-top:2px}
+      
+      .nav-toggle{
+        display:none;
+        background:transparent;
+        border:0;
+        font-size:24px;
+        color:#262626;
+        cursor:pointer;
+        padding:8px;
+      }
+      
+      nav.main-nav{display:flex;gap:16px;align-items:center}
+      nav.main-nav a{
+        color:#262626;
+        text-decoration:none;
+        padding:8px;
+        font-size:14px;
+        font-weight:600;
+        transition:color 0.2s;
+      }
+      nav.main-nav a:hover{color:#8e8e8e}
+      
+      footer{
+        padding:24px 0;
+        text-align:center;
+        border-top:1px solid #dbdbdb;
+        margin-top:40px;
+      }
+      footer nav{display:flex;gap:16px;justify-content:center;margin-bottom:12px}
+      footer a{color:#8e8e8e;text-decoration:none;font-size:12px}
+      footer a:hover{color:#262626}
+      
+      @media (max-width:735px){
+        .wrap{padding:12px 16px}
+        header{padding:12px 0;margin-bottom:16px}
+        .brand-title{font-size:18px}
+        .brand-tagline{font-size:10px}
+        
+        .nav-toggle{display:block}
+        nav.main-nav{
+          display:none;
+          position:absolute;
+          left:16px;
+          right:16px;
+          top:60px;
+          background:#fff;
+          border:1px solid #dbdbdb;
+          border-radius:8px;
+          padding:8px 0;
+          box-shadow:0 4px 12px rgba(0,0,0,0.15);
+          flex-direction:column;
+          gap:0;
+          z-index:1000;
+        }
+        nav.main-nav.active{display:flex}
+        nav.main-nav a{
+          padding:12px 16px;
+          border-bottom:1px solid #dbdbdb;
+        }
+        nav.main-nav a:last-child{border-bottom:none}
+        
+        footer nav{flex-wrap:wrap}
+      }
     </style>
   </head>
   <body>
     <div class="wrap">
-      <header style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;">
-        <div style="display:flex;align-items:center;gap:12px;">
+      <header>
+        <div class="brand">
           <div>
-            <div style="font-weight:800;color:#2b6fd6;font-size:18px">SSoulSS</div>
-            <div style="font-size:13px;color:#c62828;font-style:italic">{{ site.tagline }}</div>
+            <div class="brand-title">SSoulSS</div>
+            <div class="brand-tagline">{{ site.tagline }}</div>
           </div>
         </div>
+        <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('active')" aria-label="Toggle menu">☰</button>
         <nav class="main-nav" aria-label="Main navigation">
           {% for item in site.data.navigation.main %}<a href="{{ item.url }}">{{ item.title }}</a>{% endfor %}
         </nav>
@@ -36,11 +110,12 @@
         {{ content }}
       </main>
 
-      <footer style="margin-top:14px;font-size:13px;color:var(--muted);text-align:center;">
+      <footer>
         <nav aria-label="Footer navigation">
-          <a href="/policies/" style="color:var(--muted);text-decoration:none;margin-right:12px;">Policies</a>
-          <a href="/delete-request/" style="color:var(--muted);text-decoration:none;">Privacy & Data Requests</a>
+          <a href="/policies/">Policies</a>
+          <a href="/delete-request/">Privacy & Data Requests</a>
         </nav>
+        <div style="color:#8e8e8e;font-size:12px">© {{ 'now' | date: "%Y" }} {{ site.title }}</div>
       </footer>
     </div>
   </body>

@@ -5,29 +5,56 @@ permalink: /blogs/
 ---
 
 <div class="page-card">
-  <h2>Our blog</h2>
-  <p style="color:var(--muted);">Thoughts, case studies and notes from the team. Subscribe for updates.</p>
+  <h2 style="margin:0 0 8px 0;font-size:20px;font-weight:700;color:#262626;">Our blog</h2>
+  <p style="color:#8e8e8e;margin:0 0 20px 0;">Thoughts, case studies and insights from our team.</p>
 
   {% if site.posts and site.posts != empty %}
     <div class="blog-grid">
-      {% assign accents = "accent-1,accent-2,accent-3,accent-4" | split:',' %}
       {% for post in site.posts %}
-        {% assign a = accents[forloop.index0 | modulo: accents.size ] %}
-        <article class="blog-card">
-          <div class="accent-strip {{ a }}" aria-hidden="true"></div>
-          {% if post.image %}
-            <img src="{{ post.image }}" alt="{{ post.title | xml_escape | default: 'Blog post image' }}" class="thumb"/>
-          {% endif %}
-          <a href="{{ post.url }}" style="text-decoration:none;color:inherit;display:block">
-            <div class="title">{{ post.title }}</div>
-            <div class="meta">{{ post.date | date: "%b %-d, %Y" }}</div>
-            <div class="excerpt">{{ post.excerpt | strip_html | truncate:140 }}</div>
-            <div style="margin-top:8px;"><span class="read-btn">Read</span></div>
-          </a>
-        </article>
+        <a href="{{ post.url }}" style="text-decoration:none;color:inherit;display:block;position:relative;">
+          <article class="blog-card">
+            {% if post.image %}
+              <img src="{{ post.image }}" alt="{{ post.title | xml_escape }}" class="thumb"/>
+              <div class="overlay">
+                <div class="title">{{ post.title }}</div>
+                <div class="meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+              </div>
+            {% else %}
+              <div style="background:linear-gradient(135deg,#667eea,#764ba2);width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;text-align:center;padding:12px;">
+                {{ post.title }}
+              </div>
+            {% endif %}
+          </article>
+        </a>
       {% endfor %}
     </div>
   {% else %}
-    <p style="margin-top:18px;color:var(--muted);">No posts yet — create a post under <code>_posts/</code> using Jekyll's conventions. Example filename: <code>_posts/2025-12-16-my-first-post.md</code>.</p>
+    <p style="margin-top:18px;color:#8e8e8e;">No posts yet — create a post under <code>_posts/</code> using Jekyll's conventions.</p>
   {% endif %}
 </div>
+
+<style>
+  /* Mobile-optimized blog grid */
+  @media (max-width:735px){
+    .blog-grid{
+      grid-template-columns:repeat(2,1fr) !important;
+      gap:3px !important;
+    }
+    .blog-card .title{
+      font-size:12px !important;
+    }
+    .blog-card .meta{
+      font-size:10px !important;
+    }
+  }
+  
+  @media (max-width:480px){
+    .blog-grid{
+      grid-template-columns:1fr !important;
+      gap:12px !important;
+    }
+    .blog-card{
+      aspect-ratio:16/9 !important;
+    }
+  }
+</style>

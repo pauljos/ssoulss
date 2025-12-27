@@ -4,64 +4,58 @@ title: Contact
 permalink: /contact/
 ---
 
-{% capture contact_intro %}
+<div class="page-card">
+  <h2 style="margin-top:0;">✉️ Get in touch</h2>
+  <p style="color:var(--text-secondary);">We're excited to hear about your project. Use the form to share a brief outline and we'll reply within 2 business days.</p>
+</div>
 
-✉️ Get in touch
+<div class="page-card">
+  <h3 style="margin-top:0;">📍 Our locations</h3>
+  <p style="color:var(--text-secondary);">We operate with distributed teams and local delivery in key regions. Please use the contact form to reach the right team — select your region in the message and we'll respond within two business days.</p>
 
-We're excited to hear about your project. Use the form to share a brief outline and we'll reply within 2 business days.
-
-{% endcapture %}
-
-{% capture offices %}
-
-📍 Our locations
-
-We operate with distributed teams and local delivery in key regions. Please use the contact form to reach the right team — select your region in the message and we'll respond within two business days.
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px;">
-  <div style="padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(11,23,38,0.04);text-align:center;">
-    <div style="font-size:20px;font-weight:700;color:#2b6fd6">India</div>
-    <div style="color:var(--muted);margin-top:8px;">Local delivery & engineering</div>
-  </div>
-  <div style="padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff7f6);border:1px solid rgba(11,23,38,0.04);text-align:center;">
-    <div style="font-size:20px;font-weight:700;color:#0b1726">United Kingdom</div>
-    <div style="color:var(--muted);margin-top:8px;">Client services & partnerships</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:20px;">
+    <div style="padding:20px;border-radius:12px;background:var(--card-bg);border:1px solid var(--border);text-align:center;">
+      <div style="font-size:20px;font-weight:700;color:var(--accent);">India</div>
+      <div style="color:var(--text-secondary);margin-top:8px;">Local delivery & engineering</div>
+    </div>
+    <div style="padding:20px;border-radius:12px;background:var(--card-bg);border:1px solid var(--border);text-align:center;">
+      <div style="font-size:20px;font-weight:700;color:var(--text-primary);">United Kingdom</div>
+      <div style="color:var(--text-secondary);margin-top:8px;">Client services & partnerships</div>
+    </div>
   </div>
 </div>
 
-{% endcapture %}
+<div class="page-card">
+  <h3 style="margin-top:0;">✉️ Send a message</h3>
 
-{% capture form %}
+  <form action="https://formspree.io/f/xanrgpld" method="POST" aria-label="Contact form" style="display:flex;flex-direction:column;gap:12px;">
+    <div>
+      <label for="name" style="display:block;margin-bottom:4px;color:var(--text-primary);font-weight:600;font-size:14px;">Name</label>
+      <input id="name" name="name" required style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;background:var(--card-bg);" />
+    </div>
 
-✉️ Send a message
+    <div>
+      <label for="email" style="display:block;margin-bottom:4px;color:var(--text-primary);font-weight:600;font-size:14px;">Work email</label>
+      <input id="email" name="email" type="email" required style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;background:var(--card-bg);" />
+    </div>
 
-<form action="https://formspree.io/f/xanrgpld" method="POST" aria-label="Contact form" style="display:flex;flex-direction:column;gap:8px;">
-  <label for="name">Name</label>
-  <input id="name" name="name" required style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
+    <div>
+      <label for="company" style="display:block;margin-bottom:4px;color:var(--text-primary);font-weight:600;font-size:14px;">Company</label>
+      <input id="company" name="company" style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;background:var(--card-bg);" />
+    </div>
 
-  <label for="email">Work email</label>
-  <input id="email" name="email" type="email" required style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
+    <div>
+      <label for="message" style="display:block;margin-bottom:4px;color:var(--text-primary);font-weight:600;font-size:14px;">Message</label>
+      <textarea id="message" name="message" rows="6" required style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;background:var(--card-bg);resize:vertical;"></textarea>
+    </div>
 
-  <label for="company">Company</label>
-  <input id="company" name="company" style="padding:10px;border-radius:8px;border:1px solid #e6eef4" />
+    <div style="display:flex;justify-content:flex-end;">
+      <button type="submit" class="btn primary" style="padding:10px 24px;font-size:14px;">Send message</button>
+    </div>
+  </form>
+</div>
 
-  <label for="message">Message</label>
-  <textarea id="message" name="message" rows="6" required style="padding:10px;border-radius:8px;border:1px solid #e6eef4"></textarea>
-
-  <div style="display:flex;justify-content:flex-end"><button type="submit" style="background:#2b6fd6;color:#fff;padding:10px 16px;border-radius:8px;border:0;">Send message</button></div>
-</form>
-
-{% endcapture %}
-
-{% capture hours %}
-
-⏰ Hours
-
-Our teams operate Monday to Friday, 09:00 — 18:00 local time. For urgent requests, please submit the form and mark the message "Urgent" — we'll prioritise these requests.
-
-{% endcapture %}
-
-{% include card.html content=contact_intro %}
-{% include card.html content=offices %}
-{% include card.html content=form %}
-{% include card.html content=hours %}
+<div class="page-card">
+  <h3 style="margin-top:0;">⏰ Hours</h3>
+  <p style="color:var(--text-secondary);">Our teams operate Monday to Friday, 09:00 — 18:00 local time. For urgent requests, please submit the form and mark the message "Urgent" — we'll prioritise these requests.</p>
+</div>

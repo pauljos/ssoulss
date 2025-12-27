@@ -5,75 +5,80 @@ permalink: /souldoc/
 ---
 
 {% capture intro %}
-<div style="background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;border-radius:12px;padding:20px;box-shadow:0 18px 60px rgba(37,55,100,0.18);margin-bottom:12px;">
-  <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
-    <div style="flex:1;min-width:240px;">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="Souldoc emblem" style="width:84px;height:84px;border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,0.12);background:rgba(255,255,255,0.06);padding:8px;" />
+
+<div style="background:#fff;border:1px solid #dbdbdb;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+  <div style="display:flex;gap:20px;align-items:start;flex-wrap:wrap;">
+    <div style="flex:1;min-width:280px;">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+        <img src="/assets/images/booking-icon.svg" alt="Souldoc" style="width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" />
         <div>
-          <h1 style="margin:0;font-size:28px;line-height:1;color:#fff">Souldoc</h1>
-          <div style="margin-top:6px;color:rgba(255,255,255,0.9);font-size:15px;">Secure appointment & clinic workflow — bookings, prescriptions and patient management for clinics.</div>
+          <h1 style="margin:0;font-size:24px;font-weight:700;color:#262626;">Souldoc</h1>
+          <p style="margin:4px 0 0 0;color:#8e8e8e;font-size:14px;">Healthcare workflow platform</p>
         </div>
       </div>
-      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <a class="btn" href="https://docsapp-b7430.web.app/" target="_blank" rel="noopener noreferrer" style="background:#fff;color:#2575fc;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none">Open Souldoc</a>
-        <a class="btn secondary" href="/contact/" style="padding:10px 14px;border-radius:10px">Request enterprise access</a>
-        <span style="background:rgba(255,255,255,0.12);padding:8px 10px;border-radius:10px;font-size:13px;color:rgba(255,255,255,0.95)">HIPAA-ready options</span>
+      <p style="margin:0 0 16px 0;color:#262626;font-size:15px;line-height:1.5;">Secure appointment booking, electronic prescriptions, and patient management built for modern clinics with enterprise-grade security.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+        <a class="btn primary" href="https://docsapp-b7430.web.app/" target="_blank" rel="noopener noreferrer" style="padding:9px 16px;">Open App</a>
+        <a class="btn secondary" href="/contact/" style="padding:9px 16px;">Contact Sales</a>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="background:#fafafa;border:1px solid #dbdbdb;padding:6px 12px;border-radius:6px;font-size:13px;color:#8e8e8e;">☁️ Cloud Hosted</span>
+        <span style="background:#fafafa;border:1px solid #dbdbdb;padding:6px 12px;border-radius:6px;font-size:13px;color:#8e8e8e;">🇮🇳 Available in India</span>
       </div>
     </div>
-    <div style="flex:0 0 280px;text-align:center;">
+    <div style="flex:0 0 240px;text-align:center;">
       <picture>
         <source srcset="/assets/souldoc/wider_tablet.png" type="image/png">
-        <img src="/assets/souldoc/wider_tablet.png" alt="Souldoc screenshot" style="width:240px;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.18);border:4px solid rgba(255,255,255,0.06);background:#fff;padding:8px;"/>
+        <img src="/assets/souldoc/wider_tablet.png" alt="Souldoc app" style="width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);border:1px solid #dbdbdb;"/>
       </picture>
     </div>
   </div>
 </div>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:10px;">
-  <div style="background:linear-gradient(180deg,#fff,#f6fbff);padding:14px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);">
-    <h3 style="margin:0 0 8px 0;color:#0b1726">Booking & Scheduling</h3>
-    <p style="margin:0;color:#33475b">Smart booking widget with calendar sync, reminders and no-show reduction tools.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px;">
+  <div style="background:#fff;border:1px solid #dbdbdb;padding:20px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+    <div style="font-size:32px;margin-bottom:12px;">📅</div>
+    <h3 style="margin:0 0 8px 0;color:#262626;font-size:16px;font-weight:700;">Smart Booking</h3>
+    <p style="margin:0;color:#8e8e8e;font-size:14px;line-height:1.4;">Online appointment scheduling with calendar sync and automated reminders</p>
   </div>
-  <div style="background:linear-gradient(180deg,#fff,#fff7f3);padding:14px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);">
-    <h3 style="margin:0 0 8px 0;color:#b85a00">Clinical Records</h3>
-    <p style="margin:0;color:#33475b">Structured prescriptions, clinical notes and secure patient records with role-based access.</p>
+  <div style="background:#fff;border:1px solid #dbdbdb;padding:20px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+    <div style="font-size:32px;margin-bottom:12px;">📋</div>
+    <h3 style="margin:0 0 8px 0;color:#262626;font-size:16px;font-weight:700;">Digital Prescriptions</h3>
+    <p style="margin:0;color:#8e8e8e;font-size:14px;line-height:1.4;">Electronic prescriptions with templates and secure digital signatures</p>
   </div>
-  <div style="background:linear-gradient(180deg,#ffffff,#f0fff7);padding:14px;border-radius:10px;border:1px solid rgba(11,23,38,0.04);">
-    <h3 style="margin:0 0 8px 0;color:#0b7a3a">Patient Management</h3>
-    <p style="margin:0;color:#33475b">Patient profiles, visit history and simple workflows for front-desk staff and clinicians.</p>
+  <div style="background:#fff;border:1px solid #dbdbdb;padding:20px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+    <div style="font-size:32px;margin-bottom:12px;">👥</div>
+    <h3 style="margin:0 0 8px 0;color:#262626;font-size:16px;font-weight:700;">Patient Records</h3>
+    <p style="margin:0;color:#8e8e8e;font-size:14px;line-height:1.4;">Comprehensive patient profiles with visit history and medical records</p>
   </div>
 </div>
+
 {% endcapture %}
 
 {% capture gallery %}
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;">
-  <div style="border-radius:8px;overflow:hidden;background:#fff;border:1px solid rgba(11,23,38,0.04);">
-    <img src="/assets/souldoc/phone.png" alt="Souldoc - bookings" style="width:100%;display:block;" />
-    <div style="padding:10px"><strong>Booking</strong><div style="color:#666;font-size:13px;margin-top:6px">User-friendly booking flow and calendar sync.</div></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:20px 0;">
+  <div style="background:#fff;border:1px solid #dbdbdb;border-radius:8px;overflow:hidden;">
+    <img src="/assets/souldoc/phone.png" alt="Booking interface" style="width:100%;display:block;aspect-ratio:3/4;object-fit:cover;" />
   </div>
-  <div style="border-radius:8px;overflow:hidden;background:#fff;border:1px solid rgba(11,23,38,0.04);">
-    <img src="/assets/souldoc/phone_register.png" alt="Souldoc - prescriptions" style="width:100%;display:block;" />
-    <div style="padding:10px"><strong>Prescriptions</strong><div style="color:#666;font-size:13px;margin-top:6px">Structured prescriptions and clinical note templates.</div></div>
+  <div style="background:#fff;border:1px solid #dbdbdb;border-radius:8px;overflow:hidden;">
+    <img src="/assets/souldoc/phone_register.png" alt="Prescription management" style="width:100%;display:block;aspect-ratio:3/4;object-fit:cover;" />
   </div>
-  <div style="border-radius:8px;overflow:hidden;background:#fff;border:1px solid rgba(11,23,38,0.04);">
-    <img src="/assets/souldoc/wider_tablet.png" alt="Souldoc - patient management" style="width:100%;display:block;" />
-    <div style="padding:10px"><strong>Patient Management</strong><div style="color:#666;font-size:13px;margin-top:6px">Profiles, visit history and secure records.</div></div>
+  <div style="background:#fff;border:1px solid #dbdbdb;border-radius:8px;overflow:hidden;">
+    <img src="/assets/souldoc/wider_tablet.png" alt="Patient dashboard" style="width:100%;display:block;aspect-ratio:3/4;object-fit:cover;" />
   </div>
 </div>
 {% endcapture %}
 
 {% capture cta %}
 
-
-<div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
-  <p style="margin:0;color:#33475b">Souldoc is currently available in India. For enterprise enquiries, please use the <a href="/contact/">Contact</a> form and select "Souldoc / Enterprise" in your message.</p>
-  <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap">
-    <a class="btn primary" href="https://docsapp-b7430.web.app/" target="_blank" rel="noopener noreferrer">Login to Souldoc</a>
-    <a class="btn secondary" href="/contact/">Request enterprise access</a>
-    <a class="btn" href="/souldoc/" style="background:#fff;color:#2575fc;padding:8px 12px;border-radius:8px;">Demo videos</a>
+<div style="background:#fff;border:1px solid #dbdbdb;border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,0.12);text-align:center;">
+  <h2 style="margin:0 0 8px 0;font-size:18px;font-weight:700;color:#262626;">Ready to get started?</h2>
+  <p style="margin:0 0 16px 0;color:#8e8e8e;font-size:14px;">Souldoc is currently available in India with regional deployments.</p>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
+    <a class="btn primary" href="https://docsapp-b7430.web.app/" target="_blank" rel="noopener noreferrer">Open Souldoc</a>
+    <a class="btn secondary" href="/contact/">Request Enterprise Demo</a>
   </div>
-  <small style="color:#6b7a86;margin-top:6px">Need a trial account? Use the contact form to request demo credentials.</small>
+  <p style="margin:0;color:#8e8e8e;font-size:12px;">Need trial credentials? <a href="/contact/" style="color:#0095f6;text-decoration:none;">Contact us</a></p>
 </div>
 
 {% endcapture %}
