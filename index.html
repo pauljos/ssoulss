@@ -35,9 +35,38 @@
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
     <link rel="stylesheet" href="/assets/css/site.css">
     <style>
-      /* Instagram-inspired clean layout */
-      html,body{height:100%;background:#fafafa}
-      .wrap{max-width:935px;margin:0 auto;padding:20px 20px 30px}
+      /* Instagram-inspired clean layout with premium background */
+      html,body{
+        height:100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        position: relative;
+      }
+      
+      /* Subtle animated gradient background */
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      /* Optional: Add a subtle overlay pattern */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+      }
+      
+      .wrap{max-width:935px;margin:0 auto;padding:20px 20px 30px;position:relative;z-index:1}
 
   /* Navigation - Instagram style */
   .nav-wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid #dbdbdb;margin-bottom:20px}
@@ -296,25 +325,25 @@
         <!-- Services / capability cards placed just above the footer as requested -->
         <div style="max-width:920px;margin:6px auto 12px;padding:0 12px;">
           <div class="service-grid">
-            <div class="service-box small-card svc-product" style="text-align:center;padding:12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">🔧</span>
-              <span class="svc-label">Product Development</span>
+            <div class="service-box svc-product" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">🔧</span>
+              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">Product Development</span>
             </div>
-            <div class="service-box small-card svc-ai" style="text-align:center;padding:12px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">🤖</span>
-              <span class="svc-label">AI</span>
+            <div class="service-box svc-ai" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">🤖</span>
+              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">AI</span>
             </div>
-            <div class="service-box small-card svc-data-eng" style="text-align:center;padding:12px;background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">🛠️</span>
-              <span class="svc-label">Data Engineering</span>
+            <div class="service-box svc-data-eng" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">🛠️</span>
+              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">Data Engineering</span>
             </div>
-            <div class="service-box small-card svc-migration" style="text-align:center;padding:12px;background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">🔁</span>
-              <span class="svc-label">Data Migration</span>
+            <div class="service-box svc-migration" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">🔁</span>
+              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">Data Migration</span>
             </div>
-            <div class="service-box small-card svc-insights" style="text-align:center;padding:12px;background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff;border:0;">
-              <span class="svc-icon" aria-hidden="true">📊</span>
-              <span class="svc-label">Data Insights</span>
+            <div class="service-box svc-insights" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff;border:0;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+              <span class="svc-icon" style="display:block;font-size:32px;margin-bottom:8px;" aria-hidden="true">📊</span>
+              <span class="svc-label" style="display:block;font-size:13px;font-weight:600;color:#fff;">Data Insights</span>
             </div>
           </div>
         </div>
