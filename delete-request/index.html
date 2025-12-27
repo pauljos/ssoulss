@@ -52,8 +52,8 @@
     <link rel="stylesheet" href="/assets/css/site.css">
     <style>
       /* Page layout - Instagram-inspired */
-      body{background:#fafafa;margin:0;padding:0}
-      .wrap{max-width:935px;margin:0 auto;padding:20px}
+      body{background:#fafafa;margin:0;padding:0;position:relative;z-index:1}
+      .wrap{max-width:935px;margin:0 auto;padding:20px;position:relative;z-index:1}
       
       /* Header navigation */
       header{
@@ -63,6 +63,9 @@
         padding:16px 0;
         border-bottom:1px solid #dbdbdb;
         margin-bottom:20px;
+        background:#fff;
+        position:relative;
+        z-index:10;
       }
       
       .brand{display:flex;align-items:center;gap:12px}
@@ -90,11 +93,19 @@
       }
       nav.main-nav a:hover{color:#8e8e8e}
       
+      main#maincontent{
+        position:relative;
+        z-index:1;
+      }
+      
       footer{
         padding:24px 0;
         text-align:center;
         border-top:1px solid #dbdbdb;
         margin-top:40px;
+        background:#fff;
+        position:relative;
+        z-index:10;
       }
       footer nav{display:flex;gap:16px;justify-content:center;margin-bottom:12px}
       footer a{color:#8e8e8e;text-decoration:none;font-size:12px}

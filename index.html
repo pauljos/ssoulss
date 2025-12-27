@@ -228,7 +228,7 @@
         .hero-landing .emblem{margin-bottom:6px}
       }
       /* Service cards: center content vertically and horizontally, responsive columns */
-      .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;max-width:920px;margin:0 auto;padding:0 12px}
+      .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:stretch;max-width:100%;margin:0 auto;padding:0}
       .service-box{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;border-radius:10px;color:#fff !important;border:0}
       .service-box:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 12px 48px rgba(0,0,0,0.4) !important;}
       .svc-icon{font-size:32px !important;display:block !important;margin-bottom:8px !important;text-shadow:0 2px 4px rgba(0,0,0,0.3) !important;}
@@ -284,16 +284,16 @@
         animation: float 6s ease-in-out infinite;
       }
       
-      /* Apply floating to feature cards with staggered delays */
-      .small-card:nth-child(1) {
+      /* Apply floating to feature cards (Souldoc, Booking, Integrations) with staggered delays */
+      .features a.small-card {
         animation: float 5s ease-in-out infinite;
         animation-delay: 0s;
       }
-      .small-card:nth-child(2) {
+      .features div.small-card:nth-of-type(2) {
         animation: float 5.5s ease-in-out infinite;
         animation-delay: 0.5s;
       }
-      .small-card:nth-child(3) {
+      .features div.small-card:nth-of-type(3) {
         animation: float 6s ease-in-out infinite;
         animation-delay: 1s;
       }
@@ -480,7 +480,7 @@
       </main>
 
         <!-- Services / capability cards placed just above the footer as requested -->
-        <div style="max-width:920px;margin:40px auto 24px;padding:0 12px;position:relative;z-index:10;">
+        <div style="max-width:1100px;margin:40px auto 24px;padding:0 20px;position:relative;z-index:10;">
           <div class="service-grid">
             <div class="service-box svc-product" style="text-align:center;padding:24px 20px;background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;min-height:110px;display:flex;flex-direction:column;justify-content:center;">
               <div style="font-size:14px;font-weight:700;color:#ffffff;line-height:1.5;text-shadow:0 2px 4px rgba(0,0,0,0.2);margin-bottom:14px;">Product Development</div>
