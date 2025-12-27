@@ -214,6 +214,7 @@
       /* Service cards: center content vertically and horizontally, responsive columns */
       .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;max-width:920px;margin:0 auto;padding:0 12px}
       .service-box{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;border-radius:10px;color:#fff !important;border:0}
+      .service-box:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 12px 48px rgba(0,0,0,0.4) !important;}
       .svc-icon{font-size:32px !important;display:block !important;margin-bottom:8px !important;text-shadow:0 2px 4px rgba(0,0,0,0.3) !important;}
       .svc-label{display:block !important;margin-top:6px;font-weight:700 !important;font-size:14px !important;color:#fff !important;text-shadow:0 1px 3px rgba(0,0,0,0.3) !important;}
       .welcome-future{color:#6b21a8;font-weight:700;font-style:italic}
@@ -360,25 +361,25 @@
         <!-- Services / capability cards placed just above the footer as requested -->
         <div style="max-width:920px;margin:40px auto 24px;padding:0 12px;position:relative;z-index:10;">
           <div class="service-grid">
-            <div class="service-box svc-product" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff !important;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);position:relative;z-index:10;">
-              <span class="svc-icon" style="display:block !important;font-size:32px !important;margin-bottom:8px !important;text-shadow:0 2px 4px rgba(0,0,0,0.2) !important;" aria-hidden="true">🔧</span>
-              <span class="svc-label" style="display:block !important;font-size:14px !important;font-weight:700 !important;color:#fff !important;text-shadow:0 1px 3px rgba(0,0,0,0.3) !important;">Product Development</span>
+            <div class="service-box svc-product" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="font-size:36px;margin-bottom:12px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔧</div>
+              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);">Product Development</div>
             </div>
-            <div class="service-box svc-ai" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff !important;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);position:relative;z-index:10;">
-              <span class="svc-icon" style="display:block !important;font-size:32px !important;margin-bottom:8px !important;text-shadow:0 2px 4px rgba(0,0,0,0.2) !important;" aria-hidden="true">🤖</span>
-              <span class="svc-label" style="display:block !important;font-size:14px !important;font-weight:700 !important;color:#fff !important;text-shadow:0 1px 3px rgba(0,0,0,0.3) !important;">AI</span>
+            <div class="service-box svc-ai" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(0,198,255,0.85),rgba(0,114,255,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="font-size:36px;margin-bottom:12px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🤖</div>
+              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);">AI</div>
             </div>
-            <div class="service-box svc-data-eng" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff !important;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);position:relative;z-index:10;">
-              <span class="svc-icon" style="display:block !important;font-size:32px !important;margin-bottom:8px !important;text-shadow:0 2px 4px rgba(0,0,0,0.2) !important;" aria-hidden="true">🛠️</span>
-              <span class="svc-label" style="display:block !important;font-size:14px !important;font-weight:700 !important;color:#fff !important;text-shadow:0 1px 3px rgba(0,0,0,0.3) !important;">Data Engineering</span>
+            <div class="service-box svc-data-eng" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(247,151,30,0.85),rgba(255,210,0,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="font-size:36px;margin-bottom:12px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🛠️</div>
+              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);">Data Engineering</div>
             </div>
-            <div class="service-box svc-migration" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff !important;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);position:relative;z-index:10;">
-              <span class="svc-icon" style="display:block !important;font-size:32px !important;margin-bottom:8px !important;text-shadow:0 2px 4px rgba(0,0,0,0.2) !important;" aria-hidden="true">🔁</span>
-              <span class="svc-label" style="display:block !important;font-size:14px !important;font-weight:700 !important;color:#fff !important;text-shadow:0 1px 3px rgba(0,0,0,0.3) !important;">Data Migration</span>
+            <div class="service-box svc-migration" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(17,153,142,0.85),rgba(56,239,125,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="font-size:36px;margin-bottom:12px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">🔁</div>
+              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);">Data Migration</div>
             </div>
-            <div class="service-box svc-insights" style="text-align:center;padding:16px 12px;background:linear-gradient(135deg,#ff416c,#ff4b2b);color:#fff !important;border:0;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.2);position:relative;z-index:10;">
-              <span class="svc-icon" style="display:block !important;font-size:32px !important;margin-bottom:8px !important;text-shadow:0 2px 4px rgba(0,0,0,0.2) !important;" aria-hidden="true">📊</span>
-              <span class="svc-label" style="display:block !important;font-size:14px !important;font-weight:700 !important;color:#fff !important;text-shadow:0 1px 3px rgba(0,0,0,0.3) !important;">Data Insights</span>
+            <div class="service-box svc-insights" style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,rgba(255,65,108,0.85),rgba(255,75,43,0.85));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.18);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);position:relative;z-index:10;transition:transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="font-size:36px;margin-bottom:12px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">📊</div>
+              <div style="font-size:13px;font-weight:700;color:#ffffff;line-height:1.4;text-shadow:0 2px 4px rgba(0,0,0,0.2);">Data Insights</div>
             </div>
           </div>
         </div>
