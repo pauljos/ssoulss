@@ -544,13 +544,13 @@
         .service-box{width:130px;height:130px}
       }
       @media (max-width:720px){
-        .service-cards-container{padding:0 16px !important;margin:8px auto 20px !important}
+        .service-cards-container{padding:0 16px !important;margin:16px auto 20px !important}
         .service-grid{grid-template-columns:repeat(2,1fr);gap:12px}
         .service-box{width:110px;height:110px;padding:12px}
         .svc-icon{font-size:32px !important}
       }
       @media (max-width:480px){
-        .service-cards-container{padding:0 12px !important;margin:6px auto 16px !important}
+        .service-cards-container{padding:0 12px !important;margin:12px auto 16px !important}
         .service-grid{grid-template-columns:repeat(2,1fr);gap:10px}
         .service-box{width:90px;height:90px;padding:10px;border:4px solid rgba(255,255,255,0.5)}
         .svc-icon{font-size:28px !important}
@@ -729,6 +729,8 @@
           
             <a href="/">Home</a>
           
+            <a href="/souldoc/">Souldoc</a>
+          
             <a href="/about/">About</a>
           
             <a href="/consulting/">Consulting</a>
@@ -736,8 +738,6 @@
             <a href="/locations/">Locations</a>
           
             <a href="/contact/">Contact</a>
-          
-            <a href="/blogs/">Blogs</a>
           
         </nav>
       </div>
@@ -824,7 +824,7 @@
       </main>
 
         <!-- Services / capability cards placed just above the footer as requested -->
-        <div class="service-cards-container" style="max-width:1200px;margin:2px auto 24px;padding:0 30px;position:relative;z-index:10;">
+        <div class="service-cards-container" style="max-width:1200px;margin:20px auto 24px;padding:0 30px;position:relative;z-index:10;">
           <div class="service-grid">
             <div class="service-box svc-product" style="background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));">
               <div class="svc-icon">🔧</div>
@@ -897,6 +897,7 @@
       <footer style="padding:8px 0;margin-top:12px;font-size:13px;">
         <div style="max-width:680px;margin:0 auto;text-align:center;color:var(--muted);">
           <nav aria-label="Footer navigation" style="display:inline-block;">
+            <a href="/blogs/" style="color:var(--muted);text-decoration:none;margin-right:12px;">Blogs</a>
             <a href="/policies/" style="color:var(--muted);text-decoration:none;margin-right:12px;">Policies</a>
             <a href="/delete-request/" style="color:var(--muted);text-decoration:none;">Privacy & Data Requests</a>
           </nav>
