@@ -6,11 +6,12 @@ permalink: /locations/
 
 {% capture intro %}
 
-<div style="margin-bottom:12px;">
-	<span style="font-size:24px;margin-right:8px;">📍</span><span style="font-size:20px;font-weight:700;color:#262626;">Our locations</span>
+<div style="background:linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);border:2px solid rgba(255,255,255,0.4);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(102,126,234,0.3);">
+  <div style="margin-bottom:12px;">
+    <span style="font-size:24px;margin-right:8px;">📍</span><span style="font-size:20px;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.2);">Our locations</span>
+  </div>
+  <p style="color:rgba(255,255,255,0.95);font-size:15px;line-height:1.5;margin:0;text-shadow:0 1px 4px rgba(0,0,0,0.15);">We operate across APAC and EMEA. Below are our regional offices — click Contact for directions or meetings.</p>
 </div>
-
-<p style="color:#262626;font-size:15px;line-height:1.5;margin:0;">We operate across APAC and EMEA. Below are our regional offices — click Contact for directions or meetings.</p>
 
 {% endcapture %}
 

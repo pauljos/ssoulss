@@ -6,15 +6,17 @@ permalink: /consulting/
 
 {% capture intro %}
 
-<div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-	<div style="flex:1;min-width:240px;">
-		<h2 style="margin:0 0 12px 0;color:#262626;font-size:24px;font-weight:700;">Consulting — Data, AI & Cloud Engineering</h2>
-		<p style="margin:0;color:#262626;font-size:15px;line-height:1.5;">We help organisations turn data into measurable outcomes. Our consulting covers data strategy, analytics, AI/ML, and cloud data engineering — supporting discovery, pilots and production rollouts.</p>
-		<p style="margin-top:12px;color:#8e8e8e;font-size:14px;">Our team brings over <strong style="color:#262626;">20+ years</strong> of combined industry experience across healthcare, logistics, finance and enterprise platforms.</p>
-	</div>
-	<div style="flex:0 0 220px;text-align:center;">
-		<img src="/assets/souldoc/wider_tablet.png" alt="Consulting visual" style="width:180px;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.12);" />
-	</div>
+<div style="background:linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);border:2px solid rgba(255,255,255,0.4);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(102,126,234,0.3);">
+  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+    <div style="flex:1;min-width:240px;">
+      <h2 style="margin:0 0 12px 0;color:#fff;font-size:24px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,0.2);">Consulting — Data, AI & Cloud Engineering</h2>
+      <p style="margin:0;color:rgba(255,255,255,0.95);font-size:15px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,0.15);">We help organisations turn data into measurable outcomes. Our consulting covers data strategy, analytics, AI/ML, and cloud data engineering — supporting discovery, pilots and production rollouts.</p>
+      <p style="margin-top:12px;color:rgba(255,255,255,0.9);font-size:14px;text-shadow:0 1px 4px rgba(0,0,0,0.15);">Our team brings over <strong style="color:#fff;">20+ years</strong> of combined industry experience across healthcare, logistics, finance and enterprise platforms.</p>
+    </div>
+    <div style="flex:0 0 220px;text-align:center;">
+      <img src="/assets/souldoc/wider_tablet.png" alt="Consulting visual" style="width:180px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);border:2px solid rgba(255,255,255,0.3);" />
+    </div>
+  </div>
 </div>
 
 {% endcapture %}

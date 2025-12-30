@@ -4,9 +4,9 @@ title: Contact
 permalink: /contact/
 ---
 
-<div class="page-card">
-  <h2 style="margin-top:0;">✉️ Get in touch</h2>
-  <p style="color:var(--text-secondary);">We're excited to hear about your project. Use the form to share a brief outline and we'll reply within 2 business days.</p>
+<div style="background:linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);border:2px solid rgba(255,255,255,0.4);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(102,126,234,0.3);">
+  <h2 style="margin-top:0;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.2);">✉️ Get in touch</h2>
+  <p style="color:rgba(255,255,255,0.95);text-shadow:0 1px 4px rgba(0,0,0,0.15);">We're excited to hear about your project. Use the form to share a brief outline and we'll reply within 2 business days.</p>
 </div>
 
 <div class="page-card">

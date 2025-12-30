@@ -4,10 +4,12 @@ title: Blogs
 permalink: /blogs/
 ---
 
-<div class="page-card">
-  <h2 style="margin:0 0 8px 0;font-size:20px;font-weight:700;color:#262626;">Our blog</h2>
-  <p style="color:#8e8e8e;margin:0 0 20px 0;">Thoughts, case studies and insights from our team.</p>
+<div style="background:linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);border:2px solid rgba(255,255,255,0.4);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(102,126,234,0.3);">
+  <h2 style="margin:0 0 8px 0;font-size:20px;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.2);">Our blog</h2>
+  <p style="color:rgba(255,255,255,0.95);margin:0;text-shadow:0 1px 4px rgba(0,0,0,0.15);">Thoughts, case studies and insights from our team.</p>
+</div>
 
+<div class="page-card">
   {% if site.posts and site.posts != empty %}
     <div class="blog-grid">
       {% for post in site.posts %}

@@ -6,18 +6,20 @@ permalink: /about/
 
 {% capture intro %}
 
-<div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-	<div style="flex:1;min-width:240px;">
-		<h2 style="margin:0 0 12px 0;color:#262626;font-size:24px;font-weight:700;">About SSoulSS</h2>
-		<p style="margin:0 0 12px 0;color:#262626;font-size:15px;line-height:1.5;">We design and ship practical AI products that respect people and privacy. Our work focuses on measurable operational improvements — from predictive scheduling to secure enterprise integrations — delivered with empathy and strong engineering practices.</p>
-		<div style="display:inline-flex;align-items:center;gap:8px;background:#fafafa;border:1px solid #dbdbdb;padding:8px 12px;border-radius:8px;font-size:14px;">
-			<span style="font-weight:600;color:#262626;">📍 Global:</span>
-			<span style="color:#8e8e8e;">Kochi & London</span>
-		</div>
-	</div>
-	<div style="flex:0 0 120px;text-align:center;">
-		<img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" style="width:120px;height:auto;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);" />
-	</div>
+<div style="background:linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);border:2px solid rgba(255,255,255,0.4);border-radius:16px;padding:24px;margin-bottom:20px;box-shadow:0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(102,126,234,0.3);">
+  <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+    <div style="flex:1;min-width:240px;">
+      <h2 style="margin:0 0 12px 0;color:#fff;font-size:24px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,0.2);">About SSoulSS</h2>
+      <p style="margin:0 0 12px 0;color:rgba(255,255,255,0.95);font-size:15px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,0.15);">We design and ship practical AI products that respect people and privacy. Our work focuses on measurable operational improvements — from predictive scheduling to secure enterprise integrations — delivered with empathy and strong engineering practices.</p>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.25);border:2px solid rgba(255,255,255,0.5);padding:8px 12px;border-radius:8px;font-size:14px;backdrop-filter:blur(8px);">
+        <span style="font-weight:600;color:#fff;">📍 Global:</span>
+        <span style="color:rgba(255,255,255,0.95);">Kochi & London</span>
+      </div>
+    </div>
+    <div style="flex:0 0 120px;text-align:center;">
+      <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" style="width:120px;height:auto;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);" />
+    </div>
+  </div>
 </div>
 
 {% endcapture %}

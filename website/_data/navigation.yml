@@ -1,6 +1,8 @@
 main:
   - title: Home
     url: /
+  - title: Souldoc
+    url: /souldoc/
   - title: About
     url: /about/
   - title: Consulting
@@ -9,5 +11,3 @@ main:
     url: /locations/
   - title: Contact
     url: /contact/
-  - title: Blogs
-    url: /blogs/
