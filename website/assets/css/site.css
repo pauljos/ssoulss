@@ -47,56 +47,17 @@ body{
 }
 
 .page-card{
-  background:linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ffd876 100%);
-  border:2px solid rgba(255,255,255,0.4);
+  background:var(--card-bg);
+  border:1px solid var(--border);
   padding:24px;
-  border-radius:16px;
+  border-radius:var(--border-radius);
   margin:20px 0;
-  box-shadow:0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(245,87,108,0.3);
+  box-shadow:var(--card-shadow);
 }
 
 .page-card h2,.page-card h3{
   margin-top:0;
-  color:#fff;
-  text-shadow:0 2px 4px rgba(0,0,0,0.2);
-}
-
-.page-card p{
-  color:rgba(255,255,255,0.95);
-  text-shadow:0 1px 3px rgba(0,0,0,0.15);
-}
-
-.page-card label{
-  color:#fff !important;
-  text-shadow:0 1px 2px rgba(0,0,0,0.15);
-}
-
-.page-card input,
-.page-card textarea{
-  background:rgba(255,255,255,0.25) !important;
-  border:2px solid rgba(255,255,255,0.5) !important;
-  color:#fff !important;
-}
-
-.page-card input::placeholder,
-.page-card textarea::placeholder{
-  color:rgba(255,255,255,0.7);
-}
-
-.page-card a:not(.btn){
-  color:#fff;
-  text-decoration:underline;
-}
-
-.page-card code{
-  background:rgba(255,255,255,0.2);
-  color:#fff;
-  padding:2px 8px;
-  border-radius:4px;
-}
-
-.page-card strong{
-  color:#fff;
+  color:var(--text-primary);
 }
 
 /* Buttons - Instagram style */
