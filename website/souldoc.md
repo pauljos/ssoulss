@@ -69,6 +69,118 @@ permalink: /souldoc/
 </div>
 {% endcapture %}
 
+{% capture faq %}
+
+<div style="background:#fff;border:1px solid #dbdbdb;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,0.12);">
+  <h2 style="margin:0 0 20px 0;font-size:20px;font-weight:700;color:#262626;text-align:center;">Frequently Asked Questions</h2>
+  
+  <div class="faq-container">
+    <div class="faq-item" style="border-bottom:1px solid #efefef;padding:16px 0;">
+      <button class="faq-question" style="width:100%;text-align:left;background:none;border:none;padding:0;font-size:15px;font-weight:600;color:#262626;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+        <span>What is Souldoc and who is it for?</span>
+        <span class="faq-icon" style="font-size:20px;transition:transform 0.3s ease;">+</span>
+      </button>
+      <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding-top:0;">
+        <p style="margin:12px 0 0 0;color:#8e8e8e;font-size:14px;line-height:1.6;">Souldoc is a comprehensive healthcare workflow platform designed for modern clinics, hospitals, and healthcare providers. It streamlines appointment booking, patient management, electronic prescriptions, and medical records with enterprise-grade security and compliance.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item" style="border-bottom:1px solid #efefef;padding:16px 0;">
+      <button class="faq-question" style="width:100%;text-align:left;background:none;border:none;padding:0;font-size:15px;font-weight:600;color:#262626;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+        <span>Is Souldoc secure and HIPAA compliant?</span>
+        <span class="faq-icon" style="font-size:20px;transition:transform 0.3s ease;">+</span>
+      </button>
+      <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding-top:0;">
+        <p style="margin:12px 0 0 0;color:#8e8e8e;font-size:14px;line-height:1.6;">Yes, Souldoc is built with security-first architecture featuring end-to-end encryption, secure authentication, role-based access control, and regular security audits. We comply with healthcare data protection regulations including HIPAA and local Indian healthcare standards.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item" style="border-bottom:1px solid #efefef;padding:16px 0;">
+      <button class="faq-question" style="width:100%;text-align:left;background:none;border:none;padding:0;font-size:15px;font-weight:600;color:#262626;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+        <span>Can I integrate Souldoc with my existing systems?</span>
+        <span class="faq-icon" style="font-size:20px;transition:transform 0.3s ease;">+</span>
+      </button>
+      <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding-top:0;">
+        <p style="margin:12px 0 0 0;color:#8e8e8e;font-size:14px;line-height:1.6;">Absolutely! Souldoc offers seamless integrations with popular calendar systems (Google Calendar, Outlook), messaging platforms, payment gateways, and enterprise systems through our API. We also provide custom integration support for enterprise clients.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item" style="border-bottom:1px solid #efefef;padding:16px 0;">
+      <button class="faq-question" style="width:100%;text-align:left;background:none;border:none;padding:0;font-size:15px;font-weight:600;color:#262626;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+        <span>What are the pricing plans?</span>
+        <span class="faq-icon" style="font-size:20px;transition:transform 0.3s ease;">+</span>
+      </button>
+      <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding-top:0;">
+        <p style="margin:12px 0 0 0;color:#8e8e8e;font-size:14px;line-height:1.6;">Souldoc offers flexible pricing based on your clinic size and needs. We have plans for solo practitioners, small clinics, and large healthcare organizations. Contact our sales team for a customized quote and demo tailored to your requirements.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item" style="border-bottom:1px solid #efefef;padding:16px 0;">
+      <button class="faq-question" style="width:100%;text-align:left;background:none;border:none;padding:0;font-size:15px;font-weight:600;color:#262626;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+        <span>Do you offer training and support?</span>
+        <span class="faq-icon" style="font-size:20px;transition:transform 0.3s ease;">+</span>
+      </button>
+      <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding-top:0;">
+        <p style="margin:12px 0 0 0;color:#8e8e8e;font-size:14px;line-height:1.6;">Yes! We provide comprehensive onboarding training for your team, detailed documentation, video tutorials, and 24/7 customer support. Our dedicated support team is always ready to help you make the most of Souldoc.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item" style="padding:16px 0;">
+      <button class="faq-question" style="width:100%;text-align:left;background:none;border:none;padding:0;font-size:15px;font-weight:600;color:#262626;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+        <span>Can I try Souldoc before committing?</span>
+        <span class="faq-icon" style="font-size:20px;transition:transform 0.3s ease;">+</span>
+      </button>
+      <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding-top:0;">
+        <p style="margin:12px 0 0 0;color:#8e8e8e;font-size:14px;line-height:1.6;">Yes, we offer a free trial period and personalized demos. You can explore the platform with demo data or request trial credentials to test with your own clinic workflow. Contact us to schedule a demo or start your free trial.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .faq-question:hover {
+    color: #0095f6;
+  }
+  .faq-item.active .faq-answer {
+    max-height: 500px !important;
+    padding-top: 4px;
+  }
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+    color: #0095f6;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove('active');
+        } else {
+          item.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+{% endcapture %}
+
 {% capture cta %}
 
 <div style="background:#fff;border:1px solid #dbdbdb;border-radius:12px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,0.12);text-align:center;">
@@ -85,4 +197,5 @@ permalink: /souldoc/
 
 {% include card.html content=intro %}
 {% include card.html content=gallery %}
+{% include card.html content=faq %}
 {% include card.html content=cta %}
