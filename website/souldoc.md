@@ -91,8 +91,9 @@ permalink: /souldoc/
         <span class="faq-icon" style="font-size:20px;transition:transform 0.3s ease;color:#262626;">+</span>
       </button>
       <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding-top:0;">
-        <p style="margin:12px 0 0 0;color:#8e8e8e;font-size:14px;line-height:1.6;">Yes, Souldoc is built with security-first architecture featuring end-to-end encryption, secure authentication, role-based access control, and regular security audits. We comply with healthcare data protection regulations including HIPAA and local Indian healthcare standards.</p>
+        <p style="margin:12px 0 0 0;color:#8e8e8e;font-size:14px;line-height:1.6;">Souldoc is built with security-first architecture featuring end-to-end encryption, secure authentication, role-based access control, and regular security audits. We comply with local Indian healthcare data protection standards. <strong>Please note: HIPAA compliance certification is currently in progress and not yet achieved.</strong> For enterprise deployments requiring HIPAA compliance, please contact our team to discuss timelines and requirements.</p>
       </div>
+    </div>
     </div>
     
     <div class="faq-item" style="border-bottom:1px solid #efefef;padding:16px 0;">
