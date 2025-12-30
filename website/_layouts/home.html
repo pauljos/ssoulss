@@ -377,7 +377,7 @@
   .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:4px 0 6px;align-items:stretch}
   .small-card{
     background:#fff;
-    padding:20px;
+    padding:16px;
     border-radius:12px;
     border:1px solid #dbdbdb;
     box-shadow:0 1px 3px rgba(0,0,0,0.12);
@@ -397,9 +397,9 @@
     box-shadow:0 4px 12px rgba(0,0,0,0.15);
   }
   .small-card-body{display:flex;align-items:flex-start;flex:1;flex-direction:column;}
-  .small-card-body img{margin:0 0 12px 0 !important;width:48px !important;height:48px !important;}
-  .small-card h4{margin:0 0 8px 0;color:#262626;font-weight:700;font-size:18px;letter-spacing:0.5px;}
-  .small-card p{margin:0;color:#8e8e8e;font-size:16px;line-height:1.5;}
+  .small-card-body img{margin:0 0 10px 0 !important;width:40px !important;height:40px !important;}
+  .small-card h4{margin:0 0 6px 0;color:#262626;font-weight:700;font-size:16px;letter-spacing:0.5px;}
+  .small-card p{margin:0;color:#8e8e8e;font-size:14px;line-height:1.5;}
 
       footer{padding:20px 16px;color:#262626;text-align:center;font-size:14px;position:relative;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:12px;margin-top:20px;}
       footer a{color:#262626 !important;}
@@ -573,22 +573,19 @@
       
       /* No floating for hero card - keep it stable */
       
-      /* Apply floating to feature cards (Souldoc, Booking, Integrations) with staggered delays */
+      /* Floating animations disabled for product cards */
       .features a.small-card {
-        animation: float 5s ease-in-out infinite;
-        animation-delay: 0s;
+        animation: none;
       }
       .features div.small-card:nth-of-type(2) {
-        animation: float 5.5s ease-in-out infinite;
-        animation-delay: 0.5s;
+        animation: none;
       }
       .features div.small-card:nth-of-type(3) {
-        animation: float 6s ease-in-out infinite;
-        animation-delay: 1s;
+        animation: none;
       }
       
       .small-card:hover {
-        animation: floatHover 2s ease-in-out infinite;
+        animation: none;
       }
       
       /* Apply floating to service cards with staggered delays */
