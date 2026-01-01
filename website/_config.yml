@@ -3,7 +3,7 @@ description: >
   Software product development for healthcare and booking systems.
 tagline: "Technology with a Soul"
 baseurl: ""
-url: "https://pauljos.github.io/ssoulss" # temporary — update after repo setup
+url: "https://ssoulss.com"
 theme: "minimal-mistakes-jekyll"
 plugins:
   - jekyll-feed
