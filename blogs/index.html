@@ -354,8 +354,9 @@
     /* Blog Grid */
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 32px;
+      margin-top: 32px;
     }
     
     .blog-card {
@@ -363,26 +364,32 @@
       border: 1px solid #e2e8f0;
       border-radius: 16px;
       overflow: hidden;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     
     .blog-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-      border-color: #cbd5e1;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      border-color: #2563eb;
     }
     
     .blog-card img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
+      display: block;
     }
     
     .blog-card-content {
       padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     
     .blog-card h3 {
@@ -390,12 +397,18 @@
       font-weight: 700;
       color: #0f172a;
       margin: 0 0 12px 0;
+      line-height: 1.4;
     }
     
     .blog-card .meta {
       font-size: 14px;
       color: #64748b;
-      margin: 0;
+      margin: 0 0 12px 0;
+      font-weight: 500;
+    }
+    
+    .blog-card-content > p:last-child {
+      margin-bottom: 0;
     }
     
     /* Contact Form */
@@ -584,6 +597,19 @@
         gap: 20px;
       }
       
+      .blog-card img,
+      .blog-card > div:first-child {
+        height: 180px;
+      }
+      
+      .blog-card-content {
+        padding: 20px;
+      }
+      
+      .blog-card h3 {
+        font-size: 18px;
+      }
+      
       .contact-form {
         padding: 0;
       }
@@ -600,6 +626,11 @@
       .footer-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 32px;
+      }
+      
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
     }
     
@@ -694,39 +725,41 @@
 
 <!-- Main Content -->
 <div class="page-content">
-  
-    <div class="blog-grid">
-      
-        <a href="/news/podcasts/2025/12/16/wtf-musk-kamath.html" class="blog-card">
-          
-            <img src="/assets/images/blogs/wtf-musk-kamath-illustration.svg" alt="The &quot;WTF&quot; Moment: When India&apos;s Brokerage Host Met a Tech Titan" />
-          
-          <div class="blog-card-content">
-            <h3>The "WTF" Moment: When India's Brokerage Host Met a Tech Titan</h3>
-            <p class="meta">December 16, 2025</p>
+  <div class="content-section">
+    
+      <div class="blog-grid">
+        
+          <a href="/news/podcasts/2025/12/16/wtf-musk-kamath.html" class="blog-card">
             
-              <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin-top: 12px;">Nikhil Kamath’s podcast People by WTF recently released an episode that quickly circulated across Indian social feeds: a long-form conversation with Elon Musk. The episode...</p>
+              <img src="/assets/images/blogs/wtf-musk-kamath-illustration.svg" alt="The &quot;WTF&quot; Moment: When India&apos;s Brokerage Host Met a Tech Titan" />
             
-          </div>
-        </a>
-      
-        <a href="/opinion/interviews/2025/12/16/musk-ramaswamy-interview-summary.html" class="blog-card">
-          
-            <img src="/assets/images/blogs/musk-ramaswamy-illustration.svg" alt="The New GitHub Actions Pricing: What You Need to Know" />
-          
-          <div class="blog-card-content">
-            <h3>The New GitHub Actions Pricing: What You Need to Know</h3>
-            <p class="meta">December 16, 2025</p>
+            <div class="blog-card-content">
+              <h3>The "WTF" Moment: When India's Brokerage Host Met a Tech Titan</h3>
+              <p class="meta">December 16, 2025</p>
+              
+                <p style="color: #64748b; font-size: 15px; line-height: 1.6;">Nikhil Kamath’s podcast People by WTF recently released an episode that quickly circulated across Indian social feeds: a long-form conversation with Elon Musk. The episode...</p>
+              
+            </div>
+          </a>
+        
+          <a href="/opinion/interviews/2025/12/16/musk-ramaswamy-interview-summary.html" class="blog-card">
             
-              <p style="color: #64748b; font-size: 15px; line-height: 1.6; margin-top: 12px;">Recent changes GitHub announced for Actions pricing and platform fees.
+              <img src="/assets/images/blogs/musk-ramaswamy-illustration.svg" alt="The New GitHub Actions Pricing: What You Need to Know" />
+            
+            <div class="blog-card-content">
+              <h3>The New GitHub Actions Pricing: What You Need to Know</h3>
+              <p class="meta">December 16, 2025</p>
+              
+                <p style="color: #64748b; font-size: 15px; line-height: 1.6;">Recent changes GitHub announced for Actions pricing and platform fees.
 
 </p>
-            
-          </div>
-        </a>
-      
-    </div>
-  
+              
+            </div>
+          </a>
+        
+      </div>
+    
+  </div>
 </div>
 
   </main>
