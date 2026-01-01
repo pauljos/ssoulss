@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{ site.tagline }} — products, consulting and engineering for ambitious organisations" />
+  <meta property="og:title" content="{{ page.title }} — {{ site.title }}" />
+  <meta property="og:description" content="{{ site.tagline }} — products, consulting and engineering for ambitious organisations" />
+  <meta property="og:image" content="/assets/images/hero-illustration.svg" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/emblem-ssoulss-refined-white.svg">
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <meta name="theme-color" content="#0f172a">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* Modern Sauce Labs-inspired design */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header/Navigation */
+    .modern-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .modern-nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: #475569;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover {
+      color: #0f172a;
+    }
+    
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .btn-modern {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    
+    .btn-primary-modern {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+    }
+    
+    .btn-primary-modern:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-secondary-modern {
+      background: transparent;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .btn-secondary-modern:hover {
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+    
+    /* Hero Section */
+    .hero-modern {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 24px;
+      padding: 8px 16px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .hero-badge .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    
+    .hero-title {
+      font-size: 56px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+    
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-description {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin: 0 0 32px 0;
+      line-height: 1.6;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-hero {
+      padding: 14px 32px;
+      font-size: 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-hero-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+    
+    .btn-hero-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+    }
+    
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 48px 24px;
+    }
+    
+    .stats-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+      text-align: center;
+    }
+    
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .stat-number {
+      font-size: 48px;
+      font-weight: 900;
+      color: #2563eb;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 16px;
+      color: #64748b;
+      font-weight: 500;
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 80px 24px;
+      background: #f8fafc;
+    }
+    
+    .section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 16px 0;
+      line-height: 1.2;
+    }
+    
+    .section-description {
+      font-size: 18px;
+      color: #64748b;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      border-color: #cbd5e1;
+    }
+    
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 12px 0;
+    }
+    
+    .feature-description {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    /* Products Section */
+    .products-section {
+      padding: 80px 24px;
+      background: #ffffff;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .product-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+      padding: 32px;
+      color: #ffffff;
+      transition: all 0.3s;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(102, 126, 234, 0.3);
+    }
+    
+    .product-card.souldoc {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .product-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+    }
+    
+    .product-card p {
+      font-size: 15px;
+      opacity: 0.95;
+      margin: 0 0 20px 0;
+      line-height: 1.6;
+    }
+    
+    .product-card .btn-product {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.2s;
+    }
+    
+    .product-card .btn-product:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 80px 24px;
+      background: #0f172a;
+      color: #ffffff;
+    }
+    
+    .testimonials-section .section-title {
+      color: #ffffff;
+    }
+    
+    .testimonials-section .section-description {
+      color: #cbd5e1;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #e2e8f0;
+      margin: 0 0 24px 0;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    .author-info h4 {
+      margin: 0 0 4px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    
+    .author-info p {
+      margin: 0;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 24px;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      text-align: center;
+    }
+    
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-size: 48px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 20px 0;
+      line-height: 1.2;
+    }
+    
+    .cta-description {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 32px 0;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-cta {
+      padding: 14px 32px;
+      font-size: 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .btn-cta-primary {
+      background: #ffffff;
+      color: #2563eb;
+    }
+    
+    .btn-cta-primary:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-cta-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-cta-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Footer */
+    .modern-footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 48px 24px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+    
+    .footer-section h4 {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-section ul li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    
+    .footer-section ul li a:hover {
+      color: #ffffff;
+    }
+    
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .hero-description {
+        font-size: 18px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .cta-title {
+        font-size: 32px;
+      }
+      
+      .stats-container {
+        gap: 32px;
+      }
+      
+      .stat-number {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="modern-header">
+    <nav class="modern-nav">
+      <div class="logo-section">
+        <a href="/" class="logo-text">{{ site.title }}</a>
+      </div>
+      <div class="nav-links">
+        <a href="/product-stack/">Products</a>
+        <a href="/consulting/">Consulting</a>
+        <a href="/blogs/">Blog</a>
+        <a href="/about/">About</a>
+      </div>
+      <div class="nav-cta">
+        <a href="/contact/" class="btn-modern btn-secondary-modern">Contact</a>
+        <a href="/request-demo/" class="btn-modern btn-primary-modern">Get Started</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-modern">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Trusted by ambitious organizations</span>
+      </div>
+      <h1 class="hero-title">
+        Build the future with <span class="gradient-text">{{ site.tagline }}</span>
+      </h1>
+      <p class="hero-description">
+        Transform your business with cutting-edge products, expert consulting, and engineering excellence. We help ambitious organizations innovate faster and scale smarter.
+      </p>
+      <div class="hero-buttons">
+        <a href="/request-demo/" class="btn-hero btn-hero-primary">
+          Get Started →
+        </a>
+        <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+          Explore Products
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Enterprise Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Support Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Integrations</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Platform</span>
+        <h2 class="section-title">Everything you need to succeed</h2>
+        <p class="section-description">
+          Comprehensive solutions designed for modern businesses. From products to consulting, we've got you covered.
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3 class="feature-title">Enterprise Products</h3>
+          <p class="feature-description">
+            Production-ready applications built with cutting-edge technology stacks. Scale from startup to enterprise.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3 class="feature-title">Expert Consulting</h3>
+          <p class="feature-description">
+            Strategic guidance from experienced engineers. Architecture, migration, and digital transformation services.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3 class="feature-title">Custom Engineering</h3>
+          <p class="feature-description">
+            Bespoke solutions tailored to your unique requirements. From MVPs to full-scale enterprise applications.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">Security First</h3>
+          <p class="feature-description">
+            Enterprise-grade security and compliance. HIPAA-ready, SOC 2 compliant, and regular security audits.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">High Performance</h3>
+          <p class="feature-description">
+            Optimized for speed and reliability. 99.9% uptime SLA with global CDN and distributed architecture.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3 class="feature-title">Seamless Integration</h3>
+          <p class="feature-description">
+            Connect with your existing tools. RESTful APIs, webhooks, and pre-built integrations with popular platforms.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Products</span>
+        <h2 class="section-title">Ready-to-use solutions</h2>
+        <p class="section-description">
+          Production-ready applications that solve real business problems. Deploy in minutes, scale to millions.
+        </p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card souldoc">
+          <h3>📋 Souldoc</h3>
+          <p>Healthcare workflow platform with appointment booking, electronic prescriptions, and patient management. HIPAA-ready with enterprise security.</p>
+          <a href="/souldoc/" class="btn-product">Learn More →</a>
+        </div>
+        <div class="product-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+          <h3>🎯 Custom Solutions</h3>
+          <p>Need something specific? We build custom applications tailored to your business needs with modern tech stacks and best practices.</p>
+          <a href="/consulting/" class="btn-product">Get Started →</a>
+        </div>
+        <div class="product-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+          <h3>☁️ Cloud Migration</h3>
+          <p>Migrate your legacy systems to modern cloud infrastructure. AWS, Azure, and GCP expertise with zero-downtime migration strategies.</p>
+          <a href="/consulting/" class="btn-product">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge" style="background: rgba(255, 255, 255, 0.1); color: #ffffff;">Testimonials</span>
+        <h2 class="section-title">Trusted by industry leaders</h2>
+        <p class="section-description">
+          See what our clients say about working with us.
+        </p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Working with ssoulss transformed our healthcare practice. Souldoc streamlined our entire workflow and improved patient satisfaction significantly."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">DK</div>
+            <div class="author-info">
+              <h4>Dr. Kumar</h4>
+              <p>Medical Director</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Their consulting services helped us migrate our legacy systems to the cloud with zero downtime. The expertise and professionalism were outstanding."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SP</div>
+            <div class="author-info">
+              <h4>Sarah Patel</h4>
+              <p>CTO, TechCorp</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "The custom solution they built for us exceeded all expectations. Delivered on time, within budget, and with exceptional quality."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MR</div>
+            <div class="author-info">
+              <h4>Michael Rodriguez</h4>
+              <p>CEO, StartupXYZ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to get started?</h2>
+      <p class="cta-description">
+        Join ambitious organizations building the future. Start your journey today with our products and expertise.
+      </p>
+      <div class="cta-buttons">
+        <a href="/request-demo/" class="btn-cta btn-cta-primary">Request a Demo</a>
+        <a href="/contact/" class="btn-cta btn-cta-secondary">Talk to Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="modern-footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/souldoc/">Souldoc</a></li>
+          <li><a href="/product-stack/">All Products</a></li>
+          <li><a href="/request-demo/">Request Demo</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/consulting/">Consulting</a></li>
+          <li><a href="/consulting/">Custom Development</a></li>
+          <li><a href="/consulting/">Cloud Migration</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/blogs/">Blog</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/policies/terms/">Terms of Service</a></li>
+          <li><a href="/policies/cookies/">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

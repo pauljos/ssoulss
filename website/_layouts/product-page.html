@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{ page.title }} — {{ site.title }}" />
+  <meta property="og:title" content="{{ page.title }} — {{ site.title }}" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/emblem-ssoulss-refined-white.svg">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    .product-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .product-nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+      text-decoration: none;
+    }
+    
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+    
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .btn-secondary:hover {
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+    
+    /* Hero Section */
+    .product-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 80px 24px;
+      color: #ffffff;
+    }
+    
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    
+    .hero-content h1 {
+      font-size: 56px;
+      font-weight: 900;
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+    }
+    
+    .hero-content p {
+      font-size: 20px;
+      margin: 0 0 32px 0;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .btn-hero {
+      padding: 14px 32px;
+      font-size: 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .btn-hero-white {
+      background: #ffffff;
+      color: #667eea;
+    }
+    
+    .btn-hero-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-hero-outline {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-hero-outline:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 80px 24px;
+      background: #f8fafc;
+    }
+    
+    .section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 16px 0;
+      text-align: center;
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #64748b;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 64px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    
+    .feature-box {
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s;
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+    
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    
+    .feature-box h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 12px 0;
+    }
+    
+    .feature-box p {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+      padding: 80px 24px;
+      background: #ffffff;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 24px;
+      background: #f8fafc;
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 48px auto 0;
+    }
+    
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    
+    .faq-item:hover {
+      border-color: #cbd5e1;
+    }
+    
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #0f172a;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    
+    .faq-question:hover {
+      color: #2563eb;
+    }
+    
+    .faq-icon {
+      font-size: 24px;
+      font-weight: 300;
+      transition: transform 0.3s;
+      color: #64748b;
+    }
+    
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      color: #2563eb;
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+    
+    .faq-answer-content {
+      padding: 0 24px 20px;
+      color: #64748b;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 24px;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-container h2 {
+      font-size: 48px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 20px 0;
+    }
+    
+    .cta-container p {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 32px 0;
+    }
+    
+    /* Footer */
+    .product-footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 48px 24px 24px;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      
+      .hero-content h1 {
+        font-size: 36px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .cta-container h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="product-header">
+    <nav class="product-nav">
+      <a href="/" class="logo-text">{{ site.title }}</a>
+      <div class="nav-actions">
+        <a href="/contact/" class="btn btn-secondary">Contact</a>
+        <a href="/request-demo/" class="btn btn-primary">Get Demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="product-footer">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/product-stack/">Products</a>
+      <a href="/consulting/">Services</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <p style="font-size: 14px;">&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // FAQ Toggle
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+          faqItem.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
