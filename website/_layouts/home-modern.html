@@ -489,6 +489,7 @@
       color: #ffffff;
       transition: all 0.3s;
       border: 2px solid rgba(255, 255, 255, 0.2);
+      position: relative;
     }
     
     .product-card:hover {
@@ -523,11 +524,15 @@
       display: inline-block;
       border: 1px solid rgba(255, 255, 255, 0.3);
       transition: all 0.2s;
+      position: relative;
+      z-index: 10;
+      cursor: pointer;
     }
     
     .product-card .btn-product:hover {
       background: rgba(255, 255, 255, 0.3);
       border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-1px);
     }
     
     /* Testimonials Section */

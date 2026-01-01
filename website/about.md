@@ -94,4 +94,14 @@ permalink: /about/
       </div>
     </div>
   </div>
+
+  <!-- CTA Section -->
+  <div class="content-section" style="text-align: center; padding: 64px 0;">
+    <h2 class="section-title">Ready to work together?</h2>
+    <p style="font-size: 18px; color: #64748b; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">Let's discuss how we can help transform your data and AI initiatives into measurable business outcomes.</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="/contact/" class="btn-modern btn-primary-modern" style="padding: 14px 32px; font-size: 16px;">Get in Touch</a>
+      <a href="/consulting/" class="btn-modern btn-secondary-modern" style="padding: 14px 32px; font-size: 16px;">Our Services</a>
+    </div>
+  </div>
 </div>

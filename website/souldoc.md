@@ -15,7 +15,7 @@ permalink: /souldoc/
       <h1>Healthcare workflow platform that works</h1>
       <p>Secure appointment booking, electronic prescriptions, and patient management built for modern clinics with enterprise-grade security.</p>
       <div class="hero-buttons">
-        <a href="https://docsapp-b7430.web.app/" target="_blank" class="btn-hero btn-hero-white">Open App →</a>
+        <a href="https://docsapp-b7430.web.app/" target="_blank" class="btn-hero btn-hero-white">🚀 Open App Now →</a>
         <a href="/contact/" class="btn-hero btn-hero-outline">Contact Sales</a>
       </div>
     </div>
@@ -170,7 +170,7 @@ permalink: /souldoc/
     <h2>Ready to transform your practice?</h2>
     <p>Join healthcare providers already using Souldoc to deliver better patient care.</p>
     <div class="hero-buttons">
-      <a href="/request-demo/" class="btn-hero btn-hero-white">Request a Demo</a>
+      <a href="https://docsapp-b7430.web.app/" target="_blank" class="btn-hero btn-hero-white">🚀 Open App Now →</a>
       <a href="/contact/" class="btn-hero btn-hero-outline">Talk to Sales</a>
     </div>
   </div>
