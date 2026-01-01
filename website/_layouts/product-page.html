@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="{{ page.title }} — {{ site.title }}" />
   <meta property="og:title" content="{{ page.title }} — {{ site.title }}" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="icon" type="image/svg+xml" href="/assets/images/emblem-ssoulss-refined-white.svg">
   <title>{{ page.title }} — {{ site.title }}</title>
   {% seo %}
@@ -12,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v={{ site.time | date: '%s' }}">
   <style>
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -669,34 +671,13 @@
       <a href="/product-stack/">Products</a>
       <a href="/consulting/">Consulting</a>
       <a href="/blogs/">Blog</a>
-  <script>
-    function toggleMobileMenu() {
-      document.querySelector('.mobile-menu').classList.add('active');
-      document.querySelector('.mobile-overlay').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    
-    function closeMobileMenu() {
-      document.querySelector('.mobile-menu').classList.remove('active');
-      document.querySelector('.mobile-overlay').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    
-    // Close menu when clicking a link
-    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
-    
-    // FAQ Toggle
-    document.querySelectorAll('.faq-question').forEach(button => {
+      <a href="/contact/">Contact</a>
+    </div>
+    <div class="mobile-menu-cta">
       <a href="/contact/" class="btn btn-secondary" style="padding: 12px 24px;">Contact</a>
       <a href="/request-demo/" class="btn btn-primary" style="padding: 12px 24px;">Get Demo</a>
     </div>
-  </div>href="/contact/" class="btn btn-secondary">Contact</a>
-        <a href="/request-demo/" class="btn btn-primary">Get Demo</a>
-      </div>
-    </nav>
-  </header>
+  </div>
 
   <!-- Main Content -->
   <main>
@@ -717,6 +698,23 @@
   </footer>
 
   <script>
+    function toggleMobileMenu() {
+      document.querySelector('.mobile-menu').classList.add('active');
+      document.querySelector('.mobile-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenu() {
+      document.querySelector('.mobile-menu').classList.remove('active');
+      document.querySelector('.mobile-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    
     // FAQ Toggle
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
