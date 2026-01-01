@@ -1,27 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Technology with a Soul — products, consulting and engineering for ambitious organisations" />
   <meta property="og:title" content="Home — SSoulSS" />
   <meta property="og:description" content="Technology with a Soul — products, consulting and engineering for ambitious organisations" />
-    <meta property="og:image" content="/assets/images/hero-illustration.svg" />
-    <link rel="preload" href="/assets/images/hero-illustration.svg" as="image">
-  <!-- favicon / site icon -->
+  <meta property="og:image" content="/assets/images/hero-illustration.svg" />
   <link rel="icon" type="image/svg+xml" href="/assets/images/emblem-ssoulss-refined-white.svg">
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/emblem-ssoulss-refined-white.svg">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <meta name="theme-color" content="#2b6fd6">
-    <title>Home — SSoulSS</title>
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
+  <meta name="theme-color" content="#0f172a">
+  <title>Home — SSoulSS</title>
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Home | SSoulSS</title>
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="Home" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Practical AI and engineering that respects people and privacy" />
-<meta property="og:description" content="Practical AI and engineering that respects people and privacy" />
+<meta name="description" content="Build products users love with AI-driven engineering" />
+<meta property="og:description" content="Build products users love with AI-driven engineering" />
 <link rel="canonical" href="https://pauljos.github.io/ssoulss/" />
 <meta property="og:url" content="https://pauljos.github.io/ssoulss/" />
 <meta property="og:site_name" content="SSoulSS" />
@@ -29,939 +25,908 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Home" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Practical AI and engineering that respects people and privacy","headline":"Home","name":"SSoulSS","url":"https://pauljos.github.io/ssoulss/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","description":"Build products users love with AI-driven engineering","headline":"Home","name":"SSoulSS","url":"https://pauljos.github.io/ssoulss/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-    <link rel="stylesheet" href="/assets/css/site.css">
-    <style>
-      /* Animated tech background with moving particles */
-      html, body {
-        height: 100%;
-        min-height: 100vh;
-        margin: 0;
-        padding: 0;
-      }
-      
-      body {
-        position: relative;
-        background: #0f172a;
-        overflow-x: hidden;
-      }
-      
-      /* Background video/gif container */
-      .bg-video-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        overflow: hidden;
-      }
-      
-      /* Fallback animated gradient background */
-      .bg-video-container::before {
-        content: '';
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        top: -50%;
-        left: -50%;
-        background: 
-          radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.4) 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.4) 0%, transparent 50%),
-          radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
-        animation: bgRotate 20s linear infinite;
-      }
-      
-      @keyframes bgRotate {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      
-      /* Moving particles */
-      .bg-video-container::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-image: 
-          radial-gradient(2px 2px at 20% 30%, white, transparent),
-          radial-gradient(2px 2px at 60% 70%, white, transparent),
-          radial-gradient(1px 1px at 50% 50%, white, transparent),
-          radial-gradient(1px 1px at 80% 10%, white, transparent),
-          radial-gradient(2px 2px at 90% 60%, white, transparent),
-          radial-gradient(1px 1px at 33% 70%, white, transparent),
-          radial-gradient(1px 1px at 75% 40%, white, transparent);
-        background-size: 200% 200%;
-        background-position: 0% 0%;
-        animation: particleMove 30s linear infinite;
-        opacity: 0.4;
-      }
-      
-      @keyframes particleMove {
-        0% { background-position: 0% 0%; }
-        100% { background-position: 100% 100%; }
-      }
-      
-      /* Optional: Add your custom GIF/video here */
-      .bg-video-container img,
-      .bg-video-container video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-        opacity: 0.6;
-        filter: brightness(0.7);
-      }
-      
-      .wrap{max-width:935px;margin:0 auto;padding:20px 20px 30px;position:relative;z-index:1}
-
-  /* Navigation - Instagram style */
-  .nav-wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid #dbdbdb;margin-bottom:20px;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:12px;padding-left:20px;padding-right:20px;position:sticky;top:0;z-index:1000;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
-  .nav-wrap.scrolled{
-    padding:12px 20px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.15);
-    background:rgba(255,255,255,0.98);
-  }
-  .nav-toggle{display:none;background:transparent;border:0;font-size:24px;color:#262626;cursor:pointer}
-  nav.main-nav{display:flex;gap:20px;align-items:center;position:relative;z-index:100;}
-  nav.main-nav a{color:#262626;text-decoration:none;padding:8px;font-size:14px;font-weight:600;transition:color 0.2s}
-  nav.main-nav a:hover{color:#8e8e8e}
-
-  /* Brand */
-  .brand-left{display:flex;align-items:center;gap:12px}
-  .brand-title{font-weight:700;color:#262626;font-size:24px;letter-spacing:-0.5px}
-  .brand-tagline{
-    font-size:12px;
-    margin-top:2px;
-    font-weight:600;
-    position:relative;
-    display:inline-block;
-    min-height:16px;
-  }
-  
-  .typewriter-text {
-    position:relative;
-    display:inline-block;
-    background:linear-gradient(90deg, currentColor 0%, currentColor 100%);
-    background-clip:text;
-    -webkit-background-clip:text;
-    background-size:0% 100%;
-    background-repeat:no-repeat;
-    animation:
-      draw-text 3s ease-in-out 0.5s infinite,
-      erase-text 2s ease-in-out 13.5s infinite,
-      color-change 25s linear infinite;
-    color:#dc2626;
-  }
-  
-  @keyframes draw-text {
-    0% {
-      background-size:0% 100%;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    /* Modern Sauce Labs-inspired design */
+    * {
+      box-sizing: border-box;
     }
-    100% {
-      background-size:100% 100%;
-    }
-  }
-  
-  @keyframes erase-text {
-    0% {
-      background-size:100% 100%;
-    }
-    100% {
-      background-size:0% 100%;
-    }
-  }
-  
-  @keyframes color-change {
-    0%, 20% {
-      color:#dc2626;
-    }
-    20%, 40% {
-      color:#2563eb;
-    }
-    40%, 60% {
-      color:#16a34a;
-    }
-    60%, 80% {
-      color:#9333ea;
-    }
-    80%, 100% {
-      color:#ea580c;
-    }
-  }
-  
-  /* Pen cursor painting the text */
-  .brand-tagline::after {
-    content:'🖌️';
-    position:absolute;
-    font-size:12px;
-    left:-15px;
-    top:-2px;
-    animation:pen-paint 25s ease-in-out infinite;
-    opacity:0;
-    pointer-events:none;
-    filter:drop-shadow(0 1px 2px rgba(0,0,0,0.2));
-  }
-  
-  @keyframes pen-paint {
-    0%, 2% {
-      left:-15px;
-      opacity:0;
-    }
-    2.5% {
-      opacity:1;
-    }
-    3%, 14% {
-      left:0%;
-      opacity:1;
-    }
-    16% {
-      left:100%;
-      opacity:1;
-    }
-    17% {
-      opacity:0;
-    }
-    53%, 54% {
-      left:100%;
-      opacity:0;
-    }
-    55% {
-      opacity:1;
-    }
-    56%, 62% {
-      left:100%;
-      opacity:1;
-    }
-    63% {
-      left:0%;
-      opacity:1;
-    }
-    64% {
-      opacity:0;
-      left:-15px;
-    }
-    100% {
-      left:-15px;
-      opacity:0;
-    }
-  }
-
-  /* Hero - Instagram-style gradient card */
-  .hero-landing{
-    background:linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border:2px solid rgba(255,255,255,0.4) !important;
-    border-radius:16px !important;
-    padding:24px;
-    margin-bottom:8px;
-    box-shadow:0 8px 32px rgba(0,0,0,0.2), 0 4px 16px rgba(102,126,234,0.3) !important;
-    position:relative;
-    z-index:10;
-  }
-  .hero-landing .inner{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
-  .hero-landing .emblem{flex:0 0 auto;display:none} /* Hide emblem for cleaner look */
-  .hero-landing .hero-body{flex:1;min-width:280px}
-  .hero-landing h1{font-size:28px;margin:0 0 8px 0;color:#fff !important;font-weight:700;letter-spacing:-0.5px;text-shadow:0 2px 8px rgba(0,0,0,0.2) !important;}
-  .hero-landing p.lead{font-size:16px;margin:0 0 16px 0;color:rgba(255,255,255,0.95) !important;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,0.15) !important;}
-  .hero-landing .hero-ctas{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-  .hero-landing .hero-search{display:flex;gap:8px;align-items:stretch;position:relative}
-  .hero-landing .hero-search::before{
-    content:'';
-    position:absolute;
-    inset:-3px;
-    border-radius:10px;
-    padding:3px;
-    background:linear-gradient(45deg, #ff6b00, #ff9500, #ffb700, #ff6b00, #ff3d00, #ff6b00);
-    background-size:400% 400%;
-    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor;
-    mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite:exclude;
-    animation:fire-glow 3s ease infinite;
-    pointer-events:none;
-    z-index:-1;
-  }
-  @keyframes fire-glow {
-    0%, 100% {
-      background-position:0% 50%;
-      filter:brightness(1) hue-rotate(0deg);
-    }
-    25% {
-      background-position:50% 100%;
-      filter:brightness(1.2) hue-rotate(10deg);
-    }
-    50% {
-      background-position:100% 50%;
-      filter:brightness(1.3) hue-rotate(-10deg);
-    }
-    75% {
-      background-position:50% 0%;
-      filter:brightness(1.1) hue-rotate(5deg);
-    }
-  }
-  .hero-landing input[type="search"]{
-    flex:1;
-    padding:9px 12px;
-    border-radius:8px;
-    border:2px solid rgba(255,255,255,0.5) !important;
-    background:rgba(255,255,255,0.25) !important;
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-    font-size:14px;
-    color:#fff !important;
-    transition:all 0.3s ease;
-  }
-  .hero-landing input[type="search"]::placeholder{
-    color:rgba(255,255,255,0.8) !important;
-  }
-  .hero-landing input[type="search"]:focus{
-    outline:none;
-    border-color:rgba(255,255,255,0.9) !important;
-    background:rgba(255,255,255,0.35) !important;
-  }
-  
-  /* Hero buttons with contrasting colors */
-  .hero-landing .btn.primary{
-    background:#fff !important;
-    color:#667eea !important;
-    border:2px solid #fff !important;
-    font-weight:700;
-  }
-  .hero-landing .btn.primary:hover{
-    background:rgba(255,255,255,0.9) !important;
-    transform:translateY(-2px);
-    box-shadow:0 4px 12px rgba(0,0,0,0.2) !important;
-  }
-  .hero-landing .btn.secondary{
-    background:rgba(255,255,255,0.2) !important;
-    color:#fff !important;
-    border:2px solid rgba(255,255,255,0.6) !important;
-    backdrop-filter:blur(8px);
-  }
-  .hero-landing .btn.secondary:hover{
-    background:rgba(255,255,255,0.3) !important;
-    border-color:rgba(255,255,255,0.9) !important;
-    transform:translateY(-2px);
-  }
-
-  @media (max-width:735px){
-    .wrap{padding:16px;max-width:100%;}
-    .nav-wrap{padding:12px 16px;margin:0 -16px 16px -16px;border-radius:0;}
-    .nav-toggle{display:block}
-    nav.main-nav{
-      display:none;
-      position:absolute;
-      left:16px;
-      right:16px;
-      top:60px;
-      background:#fff;
-      border:1px solid #dbdbdb;
-      border-radius:8px;
-      padding:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
-      flex-direction:column;
-      gap:0;
-      z-index:1000;
-    }
-    nav.main-nav a{padding:12px;border-bottom:1px solid #dbdbdb}
-    nav.main-nav a:last-child{border-bottom:none}
-    .hero-landing{padding:20px;margin:0 -4px 16px -4px;}
-    .hero-landing h1{font-size:22px;line-height:1.3;}
-    .hero-landing p.lead{font-size:15px;line-height:1.5;margin-bottom:20px;}
-    .hero-landing .hero-search{flex-direction:column;gap:10px;}
-    .hero-landing .hero-ctas{gap:10px;margin-bottom:16px;}
-    .hero-landing .hero-ctas .btn{width:100%;text-align:center;justify-content:center;}
     
-    /* Product cards section heading */
-    section[style*="padding:0 6px"]{padding:0 16px !important;margin:0 -4px;}
-    section[style*="padding:0 6px"] h2{font-size:18px !important;padding:10px 24px !important;}
-  }
-
-  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:4px 0 6px;align-items:stretch}
-  .small-card{
-    background:#fff;
-    padding:16px;
-    border-radius:12px;
-    border:1px solid #dbdbdb;
-    box-shadow:0 1px 3px rgba(0,0,0,0.12);
-    transition:all .3s ease;
-    position:relative;
-    display:flex;
-    flex-direction:column;
-  }
-  .small-card::before{
-    display:none;
-  }
-  .small-card::after{
-    display:none;
-  }
-  .small-card:hover{
-    transform:translateY(-2px);
-    box-shadow:0 4px 12px rgba(0,0,0,0.15);
-  }
-  .small-card-body{display:flex;align-items:flex-start;flex:1;flex-direction:column;}
-  .small-card-body img{margin:0 0 10px 0 !important;width:40px !important;height:40px !important;}
-  .small-card h4{margin:0 0 6px 0;color:#262626;font-weight:700;font-size:16px;letter-spacing:0.5px;}
-  .small-card p{margin:0;color:#8e8e8e;font-size:14px;line-height:1.5;}
-
-      footer{padding:20px 16px;color:#262626;text-align:center;font-size:14px;position:relative;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:12px;margin-top:20px;}
-      footer a{color:#262626 !important;}
-      
-      @media (max-width:720px){
-        footer{padding:16px;margin:16px -16px 0 -16px;border-radius:0;font-size:13px;}
-        footer nav{flex-wrap:wrap;gap:12px;}
-      }
-
-
-      @media (max-width:980px){
-        .features{grid-template-columns:repeat(2,1fr);gap:14px}
-      }
-      @media (max-width:720px){
-        .nav-toggle{display:inline-block}
-        nav.main-nav{display:none;position:absolute;left:16px;right:16px;top:70px;background:#fff;padding:12px;box-shadow:0 8px 30px rgba(18,45,71,0.06);flex-direction:column;gap:6px;border-radius:8px;}
-        .wrap{padding:16px;}
-        .hero-bg{height:300px}
-        .hero-logo{width:84px;height:84px}
-        .hero h1{font-size:26px}
-        .hero-landing{padding:20px;margin:0;}
-        .hero-landing h1{font-size:22px;}
-        .hero-landing p.lead{font-size:15px;line-height:1.5;}
-        .features{gap:12px;margin:16px 0;}
-        .small-card{padding:20px;font-size:14px;max-width:100%;margin:0;}
-        .small-card-body{flex-direction:column;}
-        .small-card-body img{width:40px !important;height:40px !important;margin:0 0 10px 0 !important;}
-        .small-card h4{font-size:17px !important;margin:0 0 8px 0;}
-        .small-card p{font-size:15px !important;line-height:1.5;}
-      }
-      @media (max-width:420px){
-        .wrap{padding:12px;}
-        .features{grid-template-columns:1fr;gap:12px;margin:16px 0;}
-        .hero h1{font-size:20px}
-        .hero-landing{padding:16px;margin:0;}
-        .hero-landing h1{font-size:20px;line-height:1.3;}
-        .hero-landing p.lead{font-size:14px;line-height:1.5;}
-        .hero-landing .inner{padding:0;}
-        .hero-landing .emblem img{width:140px}
-        .hero-landing .hero-body{flex:1 1 auto}
-        .hero-landing .emblem{margin-bottom:6px}
-        .small-card{padding:16px;max-width:100%;margin:0;}
-        .small-card-body{flex-direction:column;align-items:flex-start;}
-        .small-card-body img{width:36px !important;height:36px !important;margin:0 0 8px 0 !important;}
-        .small-card h4{font-size:16px !important;margin:0 0 6px 0;}
-        .small-card p{font-size:14px !important;line-height:1.5;}
-      }
-      /* Service cards: center content vertically and horizontally, responsive columns */
-      .service-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:center;max-width:100%;margin:0 auto;padding:0}
-      .service-box{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        padding:14px;
-        border-radius:50%;
-        color:#fff !important;
-        border:5px solid rgba(255,255,255,0.5);
-        position:relative;
-        background:linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.08) 100%);
-        backdrop-filter:blur(10px);
-        box-shadow:0 8px 32px rgba(0,0,0,0.25),
-                   inset 0 2px 8px rgba(255,255,255,0.2),
-                   inset 0 -2px 8px rgba(0,0,0,0.2);
-        width:150px;
-        height:150px;
-        transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .service-box::before{
-        content:'';
-        position:absolute;
-        top:10px;
-        left:10px;
-        right:10px;
-        bottom:10px;
-        border-radius:50%;
-        border:3px solid rgba(255,255,255,0.3);
-        pointer-events:none;
-      }
-      .service-box::after{
-        content:'';
-        position:absolute;
-        top:6px;
-        left:6px;
-        right:6px;
-        bottom:6px;
-        border-radius:50%;
-        border:2px solid rgba(255,255,255,0.2);
-        pointer-events:none;
-      }
-      .service-box:hover{
-        transform:translateY(-8px) scale(1.05);
-        box-shadow:0 12px 48px rgba(0,0,0,0.3),
-                   inset 0 2px 12px rgba(255,255,255,0.2),
-                   inset 0 -2px 12px rgba(0,0,0,0.2);
-        border-color:rgba(255,255,255,0.6);
-      }
-      .svc-icon{
-        font-size:40px !important;
-        display:block !important;
-        margin:0 !important;
-        text-shadow:0 2px 6px rgba(0,0,0,0.3) !important;
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-        z-index:2;
-        line-height:1;
-      }
-      .svc-label-svg{
-        pointer-events:none;
-      }
-      .welcome-future{color:#6b21a8;font-weight:700;font-style:italic}
-  .welcome-wrap{max-width:920px;margin:8px auto 12px;padding:0 12px;text-align:center}
-  @media (max-width:720px){
-    .welcome-wrap{max-width:100%;padding:0 8px}
-  }
-  .welcome-line{margin:0 0 6px;font-size:15px}
-  .welcome-sub{margin:6px 0 0 0;font-size:15px;color:var(--muted);font-weight:600}
-  .products-heading{margin:18px 0 10px 0;color:#2b6fd6;font-size:20px;text-align:left;padding-left:12px;max-width:920px}
-  @media (max-width:720px){
-    .products-heading{padding-left:6px}
-  }
-      @media (max-width:1100px){
-        .service-grid{grid-template-columns:repeat(3,1fr);gap:14px}
-        .service-box{width:130px;height:130px}
-      }
-      @media (max-width:720px){
-        .service-cards-container{padding:0 16px !important;margin:16px auto 20px !important}
-        .service-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-        .service-box{width:110px;height:110px;padding:12px}
-        .svc-icon{font-size:32px !important}
-      }
-      @media (max-width:480px){
-        .service-cards-container{padding:0 12px !important;margin:12px auto 16px !important}
-        .service-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-        .service-box{width:90px;height:90px;padding:10px;border:4px solid rgba(255,255,255,0.5)}
-        .svc-icon{font-size:28px !important}
-      }
-      @media (max-width:360px){
-        .service-cards-container{padding:0 10px !important}
-        .service-grid{gap:8px}
-        .service-box{width:75px;height:75px;padding:8px;border:3px solid rgba(255,255,255,0.5)}
-        .svc-icon{font-size:24px !important}
-      }
-      
-      /* Floating bubble animation for all cards */
-      @keyframes float {
-        0%, 100% {
-          transform: translateY(0px) translateX(0px);
-        }
-        25% {
-          transform: translateY(-10px) translateX(5px);
-        }
-        50% {
-          transform: translateY(-5px) translateX(-5px);
-        }
-        75% {
-          transform: translateY(-15px) translateX(3px);
-        }
-      }
-      
-      @keyframes floatHover {
-        0%, 100% {
-          transform: translateY(-8px) scale(1.02) translateX(0px);
-        }
-        50% {
-          transform: translateY(-12px) scale(1.02) translateX(5px);
-        }
-      }
-      
-      /* No floating for hero card - keep it stable */
-      
-      /* Floating animations disabled for product cards */
-      .features a.small-card {
-        animation: none;
-      }
-      .features div.small-card:nth-of-type(2) {
-        animation: none;
-      }
-      .features div.small-card:nth-of-type(3) {
-        animation: none;
-      }
-      
-      .small-card:hover {
-        animation: none;
-      }
-      
-      /* Apply floating to service cards with staggered delays */
-      .service-box:nth-child(1) {
-        animation: float 5.5s ease-in-out infinite;
-        animation-delay: 0.2s;
-      }
-      .service-box:nth-child(2) {
-        animation: float 6s ease-in-out infinite;
-        animation-delay: 0.4s;
-      }
-      .service-box:nth-child(3) {
-        animation: float 5s ease-in-out infinite;
-        animation-delay: 0.6s;
-      }
-      .service-box:nth-child(4) {
-        animation: float 6.5s ease-in-out infinite;
-        animation-delay: 0.8s;
-      }
-      .service-box:nth-child(5) {
-        animation: float 5.5s ease-in-out infinite;
-        animation-delay: 1s;
-      }
-      
-      .service-box:hover {
-        animation: floatHover 2s ease-in-out infinite;
-      }
-      
-      /* Scroll animations */
-      .scroll-fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      .scroll-fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .scroll-slide-left {
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-      .scroll-slide-left.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .scroll-slide-right {
-        opacity: 0;
-        transform: translateX(50px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-      .scroll-slide-right.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    </style>
-  </head>
-  <body>
-    <!-- SVG filters for pencil texture effect -->
-    <svg style="position:absolute;width:0;height:0;opacity:0" aria-hidden="true">
-      <defs>
-        <filter id="pencil-texture">
-          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-      </defs>
-    </svg>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
     
-    <!-- Animated background container -->
-    <div class="bg-video-container">
-      <!-- Tech evolution background videos - will play sequentially -->
-      <video id="bg-video" autoplay muted playsinline>
-        <source src="/assets/images/3129576-uhd_3840_2160_30fps.mp4" type="video/mp4">
-      </video>
-    </div>
+    /* Header/Navigation */
+    .modern-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
     
-    <script>
-      // Sequential video playlist for background
-      const videoPlaylist = [
-        '/assets/images/3129576-uhd_3840_2160_30fps.mp4',
-        '/assets/images/7529-201118756_small.mp4',
-        '/assets/images/241-135866013_small.mp4',
-        '/assets/images/6973-197914400_small.mp4'
-      ];
-      
-      let currentVideoIndex = 0;
-      const bgVideo = document.getElementById('bg-video');
-      
-      // Play next video when current one ends
-      bgVideo.addEventListener('ended', function() {
-        currentVideoIndex = (currentVideoIndex + 1) % videoPlaylist.length; // Loop back to start
-        bgVideo.src = videoPlaylist[currentVideoIndex];
-        bgVideo.play();
-      });
-    </script>
+    .modern-nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
     
-    <a class="skip-link" href="#maincontent" style="position:absolute;left:-999px;top:auto;">Skip to content</a>
-
-    <div class="wrap">
-        <!-- top-bar removed to avoid duplicate Home/About links in nav -->
-        <div class="nav-wrap">
-        <div class="brand-left" style="display:flex;align-items:center;gap:12px;">
-          <div>
-            <div class="brand-title">SSoulSS</div>
-            <div class="brand-tagline"><span class="typewriter-text">Technology with a Soul</span></div>
-          </div>
-          <!-- header emblem removed (kept in hero) -->
-        </div>
-        <style>
-          @media (max-width:980px){
-            #nav-emblem{width:180px;height:72px}
-            .brand-title{font-size:18px}
-          }
-          @media (max-width:720px){
-            #nav-emblem{width:140px;height:56px}
-            .brand-title{font-size:16px}
-          }
-        </style>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Toggle navigation">☰ Menu</button>
-        <nav id="mainnav" class="main-nav" aria-label="Main navigation">
-          
-            <a href="/">Home</a>
-          
-            <a href="/souldoc/">Souldoc</a>
-          
-            <a href="/about/">About</a>
-          
-            <a href="/consulting/">Consulting</a>
-          
-            <a href="/locations/">Locations</a>
-          
-            <a href="/contact/">Contact</a>
-          
-        </nav>
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: #475569;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover {
+      color: #0f172a;
+    }
+    
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .btn-modern {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    
+    .btn-primary-modern {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+    }
+    
+    .btn-primary-modern:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-secondary-modern {
+      background: transparent;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .btn-secondary-modern:hover {
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+    
+    /* Hero Section */
+    .hero-modern {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 24px;
+      padding: 8px 16px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .hero-badge .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    
+    .hero-title {
+      font-size: 56px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+    
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-description {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin: 0 0 32px 0;
+      line-height: 1.6;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-hero {
+      padding: 14px 32px;
+      font-size: 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-hero-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+    
+    .btn-hero-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+    }
+    
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 48px 24px;
+    }
+    
+    .stats-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+      text-align: center;
+    }
+    
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .stat-number {
+      font-size: 48px;
+      font-weight: 900;
+      color: #2563eb;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 16px;
+      color: #64748b;
+      font-weight: 500;
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 80px 24px;
+      background: #f8fafc;
+    }
+    
+    .section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 16px 0;
+      line-height: 1.2;
+    }
+    
+    .section-description {
+      font-size: 18px;
+      color: #64748b;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      border-color: #cbd5e1;
+    }
+    
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 12px 0;
+    }
+    
+    .feature-description {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    /* Products Section */
+    .products-section {
+      padding: 80px 24px;
+      background: #ffffff;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .product-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+      padding: 32px;
+      color: #ffffff;
+      transition: all 0.3s;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(102, 126, 234, 0.3);
+    }
+    
+    .product-card.souldoc {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .product-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+    }
+    
+    .product-card p {
+      font-size: 15px;
+      opacity: 0.95;
+      margin: 0 0 20px 0;
+      line-height: 1.6;
+    }
+    
+    .product-card .btn-product {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.2s;
+    }
+    
+    .product-card .btn-product:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 80px 24px;
+      background: #0f172a;
+      color: #ffffff;
+    }
+    
+    .testimonials-section .section-title {
+      color: #ffffff;
+    }
+    
+    .testimonials-section .section-description {
+      color: #cbd5e1;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #e2e8f0;
+      margin: 0 0 24px 0;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    .author-info h4 {
+      margin: 0 0 4px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    
+    .author-info p {
+      margin: 0;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 24px;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      text-align: center;
+    }
+    
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-size: 48px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 20px 0;
+      line-height: 1.2;
+    }
+    
+    .cta-description {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 32px 0;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-cta {
+      padding: 14px 32px;
+      font-size: 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .btn-cta-primary {
+      background: #ffffff;
+      color: #2563eb;
+    }
+    
+    .btn-cta-primary:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-cta-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-cta-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Footer */
+    .modern-footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 48px 24px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+    
+    .footer-section h4 {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-section ul li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    
+    .footer-section ul li a:hover {
+      color: #ffffff;
+    }
+    
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .hero-description {
+        font-size: 18px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .cta-title {
+        font-size: 32px;
+      }
+      
+      .stats-container {
+        gap: 32px;
+      }
+      
+      .stat-number {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="modern-header">
+    <nav class="modern-nav">
+      <div class="logo-section">
+        <a href="/" class="logo-text">SSoulSS</a>
       </div>
+      <div class="nav-links">
+        <a href="/product-stack/">Products</a>
+        <a href="/consulting/">Consulting</a>
+        <a href="/blogs/">Blog</a>
+        <a href="/about/">About</a>
+      </div>
+      <div class="nav-cta">
+        <a href="/contact/" class="btn-modern btn-secondary-modern">Contact</a>
+        <a href="/request-demo/" class="btn-modern btn-primary-modern">Get Started</a>
+      </div>
+    </nav>
+  </header>
 
-      
-
-      <main id="maincontent">
-        <!-- New landing hero -->
-        <section class="hero-landing" aria-label="Site hero">
-          <div class="inner">
-            <div class="emblem" aria-hidden="true">
-              <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS emblem" />
-            </div>
-            <div class="hero-body">
-                <!-- show only the site title in the hero -->
-                  <h1>SSoulSS</h1>
-                <p class="lead">Practical AI and engineering that respects people and privacy</p>
-              <div class="hero-ctas">
-                <a class="btn primary" href="/contact/">Contact our team</a>
-                <a class="btn secondary" href="/consulting/">Consulting</a>
-              </div>
-              <div class="hero-search">
-                <input type="search" aria-label="Search placeholder" placeholder="Search services, Souldoc, integrations..." />
-                <a class="btn secondary" href="#" data-open-search>Search</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- (Removed duplicate simple featured strip; keep the iconized features section below) -->
-
-        <!-- Landing content is provided by the `home` layout. Keep this page minimal so the hero and featured cards show without legacy copy. -->
-
-
-        <!-- Products heading -->
-        <section style="max-width:1200px;margin:8px auto 0 auto;padding:0 6px;">
-          <div class="services-wrapper" style="max-width:920px;margin:0 auto 2px;display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;">
-          </div>
-          <div style="text-align:center;margin:0 auto 2px;max-width:920px;">
-            <h2 style="display:inline-block;margin:0;padding:16px 40px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;font-size:22px;font-weight:700;box-shadow:0 8px 24px rgba(102,126,234,0.35), 0 4px 12px rgba(118,75,162,0.25);text-shadow:0 2px 4px rgba(0,0,0,0.2);letter-spacing:0.5px;border:2px solid rgba(255,255,255,0.2);transition:all 0.3s ease;">Products & Services</h2>
-          </div>
-        </section>
-        <section class="features" aria-label="Products and services">
-            <!-- Search modal -->
-            <div id="site-search-modal" style="display:none;position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,0.4);z-index:9999;align-items:center;justify-content:center;padding:18px;">
-              <div style="max-width:760px;margin:40px auto;background:#fff;border-radius:10px;padding:14px;box-shadow:0 20px 60px rgba(2,10,30,0.3);">
-                <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
-                  <input id="site-search-input" type="search" placeholder="Search the site..." style="flex:1;padding:10px;border-radius:8px;border:1px solid #e6eef4" />
-                  <button data-close-search class="btn secondary" style="padding:8px 12px">Close</button>
-                </div>
-                <div id="site-search-results" style="max-height:340px;overflow:auto;border-top:1px solid #eef;padding-top:8px"></div>
-              </div>
-            </div>
-            <script src="/assets/js/search.js"></script>
-          <a class="small-card" href="/souldoc/" aria-label="Souldoc — view product" style="text-decoration:none;color:inherit;">
-            <div class="small-card-body">
-              <img src="/assets/images/booking-icon.svg" alt="souldoc" style="width:40px;height:40px;margin-right:12px;"/>
-              <div>
-                <h4 style="margin:0 0 6px 0;font-size:16px;">Souldoc</h4>
-                <p style="margin:0;color:var(--muted);font-size:14px;">Secure appointment & clinic workflow platform with compliance-first design.</p>
-              </div>
-            </div>
-          </a>
-          <div class="small-card">
-            <div class="small-card-body">
-              <img src="/assets/images/product-booking.svg" alt="booking" style="width:40px;height:40px;margin-right:12px;"/>
-              <div>
-                <h4 style="margin:0 0 6px 0;font-size:16px;">Booking</h4>
-                <p style="margin:0;color:var(--muted);font-size:14px;">Smart booking widget & API that reduces no-shows using predictive AI.</p>
-              </div>
-            </div>
-          </div>
-          <div class="small-card">
-            <div class="small-card-body">
-              <img src="/assets/images/product-souldoc.svg" alt="integrations" style="width:40px;height:40px;margin-right:12px;"/>
-              <div>
-                <h4 style="margin:0 0 6px 0;font-size:16px;">Integrations</h4>
-                <p style="margin:0;color:var(--muted);font-size:14px;">Connect calendars, messaging gateways and enterprise systems securely.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </main>
-
-        <!-- Services / capability cards placed just above the footer as requested -->
-        <div class="service-cards-container" style="max-width:1200px;margin:20px auto 24px;padding:0 30px;position:relative;z-index:10;">
-          <div class="service-grid">
-            <div class="service-box svc-product" style="background:linear-gradient(135deg,rgba(106,17,203,0.85),rgba(37,117,252,0.85));">
-              <div class="svc-icon">🔧</div>
-              <svg class="svc-label-svg" viewBox="-10 -10 170 170" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;pointer-events:none;overflow:visible;">
-                <defs>
-                  <path id="circlePath1" d="M 20,75 A 55,55 0 1,1 130,75" fill="none"/>
-                </defs>
-                <text style="fill:#fff;font-size:9px;font-weight:800;letter-spacing:3px;text-shadow:0 2px 4px rgba(0,0,0,0.5);text-transform:uppercase;">
-                  <textPath href="#circlePath1" startOffset="50%" text-anchor="middle">
-                    PRODUCT DEV
-                  </textPath>
-                </text>
-              </svg>
-            </div>
-            <div class="service-box svc-ai" style="background:linear-gradient(135deg,rgba(0,198,255,0.85),rgba(0,114,255,0.85));">
-              <div class="svc-icon">🤖</div>
-              <svg class="svc-label-svg" viewBox="-10 -10 170 170" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;pointer-events:none;overflow:visible;">
-                <defs>
-                  <path id="circlePath2" d="M 20,75 A 55,55 0 1,1 130,75" fill="none"/>
-                </defs>
-                <text style="fill:#fff;font-size:12px;font-weight:800;letter-spacing:10px;text-shadow:0 2px 4px rgba(0,0,0,0.5);text-transform:uppercase;">
-                  <textPath href="#circlePath2" startOffset="50%" text-anchor="middle">
-                    A I
-                  </textPath>
-                </text>
-              </svg>
-            </div>
-            <div class="service-box svc-data-eng" style="background:linear-gradient(135deg,rgba(247,151,30,0.85),rgba(255,210,0,0.85));">
-              <div class="svc-icon">🛠️</div>
-              <svg class="svc-label-svg" viewBox="-10 -10 170 170" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;pointer-events:none;overflow:visible;">
-                <defs>
-                  <path id="circlePath3" d="M 20,75 A 55,55 0 1,1 130,75" fill="none"/>
-                </defs>
-                <text style="fill:#fff;font-size:9px;font-weight:800;letter-spacing:3px;text-shadow:0 2px 4px rgba(0,0,0,0.5);text-transform:uppercase;">
-                  <textPath href="#circlePath3" startOffset="50%" text-anchor="middle">
-                    DATA ENG
-                  </textPath>
-                </text>
-              </svg>
-            </div>
-            <div class="service-box svc-migration" style="background:linear-gradient(135deg,rgba(17,153,142,0.85),rgba(56,239,125,0.85));">
-              <div class="svc-icon">🔁</div>
-              <svg class="svc-label-svg" viewBox="-10 -10 170 170" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;pointer-events:none;overflow:visible;">
-                <defs>
-                  <path id="circlePath4" d="M 20,75 A 55,55 0 1,1 130,75" fill="none"/>
-                </defs>
-                <text style="fill:#fff;font-size:9px;font-weight:800;letter-spacing:3px;text-shadow:0 2px 4px rgba(0,0,0,0.5);text-transform:uppercase;">
-                  <textPath href="#circlePath4" startOffset="50%" text-anchor="middle">
-                    MIGRATION
-                  </textPath>
-                </text>
-              </svg>
-            </div>
-            <div class="service-box svc-insights" style="background:linear-gradient(135deg,rgba(255,65,108,0.85),rgba(255,75,43,0.85));">
-              <div class="svc-icon">📊</div>
-              <svg class="svc-label-svg" viewBox="-10 -10 170 170" style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;pointer-events:none;overflow:visible;">
-                <defs>
-                  <path id="circlePath5" d="M 20,75 A 55,55 0 1,1 130,75" fill="none"/>
-                </defs>
-                <text style="fill:#fff;font-size:9px;font-weight:800;letter-spacing:3px;text-shadow:0 2px 4px rgba(0,0,0,0.5);text-transform:uppercase;">
-                  <textPath href="#circlePath5" startOffset="50%" text-anchor="middle">
-                    INSIGHTS
-                  </textPath>
-                </text>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-      <footer style="padding:8px 0;margin-top:12px;font-size:13px;">
-        <div style="max-width:680px;margin:0 auto;text-align:center;color:var(--muted);">
-          <nav aria-label="Footer navigation" style="display:inline-block;">
-            <a href="/blogs/" style="color:var(--muted);text-decoration:none;margin-right:12px;">Blogs</a>
-            <a href="/policies/" style="color:var(--muted);text-decoration:none;margin-right:12px;">Policies</a>
-            <a href="/delete-request/" style="color:var(--muted);text-decoration:none;">Privacy & Data Requests</a>
-          </nav>
-        </div>
-      </footer>
+  <!-- Hero Section -->
+  <section class="hero-modern">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Trusted by ambitious organizations</span>
+      </div>
+      <h1 class="hero-title">
+        Build the future with <span class="gradient-text">Technology with a Soul</span>
+      </h1>
+      <p class="hero-description">
+        Transform your business with cutting-edge products, expert consulting, and engineering excellence. We help ambitious organizations innovate faster and scale smarter.
+      </p>
+      <div class="hero-buttons">
+        <a href="/request-demo/" class="btn-hero btn-hero-primary">
+          Get Started →
+        </a>
+        <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+          Explore Products
+        </a>
+      </div>
     </div>
-    <script>
-      // small mobile nav toggle
-      (function(){
-        const btn = document.querySelector('.nav-toggle');
-        const nav = document.getElementById('mainnav');
-        if(!btn||!nav) return;
-        btn.addEventListener('click', ()=>{
-          const open = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!open));
-          if(open){ nav.style.display = 'none'; } else { nav.style.display = 'flex'; }
-        });
-        // close on outside click
-        document.addEventListener('click', (e)=>{ if(nav.style.display==='flex' && !nav.contains(e.target) && !btn.contains(e.target)){ nav.style.display='none'; btn.setAttribute('aria-expanded','false'); } });
-      })();
-      
-      // Sticky navigation with scroll effect
-      (function(){
-        const navWrap = document.querySelector('.nav-wrap');
-        if(!navWrap) return;
-        
-        let lastScroll = 0;
-        window.addEventListener('scroll', ()=>{
-          const currentScroll = window.pageYOffset;
-          
-          if(currentScroll > 100){
-            navWrap.classList.add('scrolled');
-          } else {
-            navWrap.classList.remove('scrolled');
-          }
-          
-          lastScroll = currentScroll;
-        });
-      })();
-      
-      // Scroll animations
-      (function(){
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if(entry.isIntersecting){
-              entry.target.classList.add('visible');
-            }
-          });
-        }, observerOptions);
-        
-        // Observe elements with scroll animation classes
-        document.querySelectorAll('.scroll-fade-in, .scroll-slide-left, .scroll-slide-right').forEach(el => {
-          observer.observe(el);
-        });
-        
-        // Auto-add animation classes to main sections
-        document.querySelectorAll('.features, .service-cards-container, .hero-landing').forEach((el, index) => {
-          if(index === 0) return; // Skip hero
-          el.classList.add('scroll-fade-in');
-          observer.observe(el);
-        });
-      })();
-    </script>
-  </body>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Enterprise Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Support Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Integrations</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Platform</span>
+        <h2 class="section-title">Everything you need to succeed</h2>
+        <p class="section-description">
+          Comprehensive solutions designed for modern businesses. From products to consulting, we've got you covered.
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3 class="feature-title">Enterprise Products</h3>
+          <p class="feature-description">
+            Production-ready applications built with cutting-edge technology stacks. Scale from startup to enterprise.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3 class="feature-title">Expert Consulting</h3>
+          <p class="feature-description">
+            Strategic guidance from experienced engineers. Architecture, migration, and digital transformation services.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔧</div>
+          <h3 class="feature-title">Custom Engineering</h3>
+          <p class="feature-description">
+            Bespoke solutions tailored to your unique requirements. From MVPs to full-scale enterprise applications.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">Security First</h3>
+          <p class="feature-description">
+            Enterprise-grade security and compliance. HIPAA-ready, SOC 2 compliant, and regular security audits.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">High Performance</h3>
+          <p class="feature-description">
+            Optimized for speed and reliability. 99.9% uptime SLA with global CDN and distributed architecture.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3 class="feature-title">Seamless Integration</h3>
+          <p class="feature-description">
+            Connect with your existing tools. RESTful APIs, webhooks, and pre-built integrations with popular platforms.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Products</span>
+        <h2 class="section-title">Ready-to-use solutions</h2>
+        <p class="section-description">
+          Production-ready applications that solve real business problems. Deploy in minutes, scale to millions.
+        </p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card souldoc">
+          <h3>📋 Souldoc</h3>
+          <p>Healthcare workflow platform with appointment booking, electronic prescriptions, and patient management. HIPAA-ready with enterprise security.</p>
+          <a href="/souldoc/" class="btn-product">Learn More →</a>
+        </div>
+        <div class="product-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+          <h3>🎯 Custom Solutions</h3>
+          <p>Need something specific? We build custom applications tailored to your business needs with modern tech stacks and best practices.</p>
+          <a href="/consulting/" class="btn-product">Get Started →</a>
+        </div>
+        <div class="product-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+          <h3>☁️ Cloud Migration</h3>
+          <p>Migrate your legacy systems to modern cloud infrastructure. AWS, Azure, and GCP expertise with zero-downtime migration strategies.</p>
+          <a href="/consulting/" class="btn-product">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge" style="background: rgba(255, 255, 255, 0.1); color: #ffffff;">Testimonials</span>
+        <h2 class="section-title">Trusted by industry leaders</h2>
+        <p class="section-description">
+          See what our clients say about working with us.
+        </p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Working with ssoulss transformed our healthcare practice. Souldoc streamlined our entire workflow and improved patient satisfaction significantly."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">DK</div>
+            <div class="author-info">
+              <h4>Dr. Kumar</h4>
+              <p>Medical Director</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Their consulting services helped us migrate our legacy systems to the cloud with zero downtime. The expertise and professionalism were outstanding."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SP</div>
+            <div class="author-info">
+              <h4>Sarah Patel</h4>
+              <p>CTO, TechCorp</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "The custom solution they built for us exceeded all expectations. Delivered on time, within budget, and with exceptional quality."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MR</div>
+            <div class="author-info">
+              <h4>Michael Rodriguez</h4>
+              <p>CEO, StartupXYZ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to get started?</h2>
+      <p class="cta-description">
+        Join ambitious organizations building the future. Start your journey today with our products and expertise.
+      </p>
+      <div class="cta-buttons">
+        <a href="/request-demo/" class="btn-cta btn-cta-primary">Request a Demo</a>
+        <a href="/contact/" class="btn-cta btn-cta-secondary">Talk to Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="modern-footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/souldoc/">Souldoc</a></li>
+          <li><a href="/product-stack/">All Products</a></li>
+          <li><a href="/request-demo/">Request Demo</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/consulting/">Consulting</a></li>
+          <li><a href="/consulting/">Custom Development</a></li>
+          <li><a href="/consulting/">Cloud Migration</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/blogs/">Blog</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/policies/terms/">Terms of Service</a></li>
+          <li><a href="/policies/cookies/">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SSoulSS. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
 </html>

@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Souldoc — SSoulSS</title>
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Souldoc — SSoulSS" />
+  <meta property="og:title" content="Souldoc — SSoulSS" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/emblem-ssoulss-refined-white.svg">
+  <title>Souldoc — SSoulSS</title>
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Souldoc | SSoulSS</title>
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="Souldoc" />
@@ -21,208 +24,605 @@
 {"@context":"https://schema.org","@type":"WebPage","description":"Software product development for healthcare and booking systems.","headline":"Souldoc","url":"https://pauljos.github.io/ssoulss/souldoc/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Souldoc | SSoulSS</title>
-<meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="Souldoc" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Software product development for healthcare and booking systems." />
-<meta property="og:description" content="Software product development for healthcare and booking systems." />
-<link rel="canonical" href="https://pauljos.github.io/ssoulss/souldoc/" />
-<meta property="og:url" content="https://pauljos.github.io/ssoulss/souldoc/" />
-<meta property="og:site_name" content="SSoulSS" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Souldoc" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Software product development for healthcare and booking systems.","headline":"Souldoc","url":"https://pauljos.github.io/ssoulss/souldoc/"}</script>
-<!-- End Jekyll SEO tag -->
-
-<link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-<link rel="stylesheet" href="/assets/css/site.css">
-<!-- site icons -->
-<link rel="icon" type="image/svg+xml" href="/assets/images/emblem-ssoulss-refined-white.svg">
-<link rel="shortcut icon" href="/assets/images/favicon.ico">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/emblem-ssoulss-refined-white.svg">
-<meta name="theme-color" content="#4aa0ff">
-    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-    <link rel="stylesheet" href="/assets/css/site.css">
-    <style>
-      /* Page layout - Instagram-inspired */
-      body{background:#0f172a;margin:0;padding:0;position:relative;z-index:1;overflow-x:hidden}
-      
-      /* Animated background container */
-      .bg-video-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        overflow: hidden;
-      }
-      
-      .bg-video-container::before {
-        content: '';
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        top: -50%;
-        left: -50%;
-        background: 
-          radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.4) 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.4) 0%, transparent 50%),
-          radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
-        animation: bgRotate 20s linear infinite;
-      }
-      
-      @keyframes bgRotate {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      
-      .bg-video-container video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-        opacity: 0.5;
-      }
-      
-      .wrap{max-width:935px;margin:0 auto;padding:20px;position:relative;z-index:1}
-      
-      /* Header navigation */
-      header{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:16px 20px;
-        border-bottom:1px solid #dbdbdb;
-        margin-bottom:20px;
-        background:rgba(255,255,255,0.95);
-        backdrop-filter:blur(10px);
-        border-radius:12px;
-        position:sticky;
-        top:0;
-        z-index:1000;
-        transition:all 0.3s ease;
-        box-shadow:0 2px 8px rgba(0,0,0,0.05);
-      }
-      
-      header.scrolled{
-        padding:12px 20px;
-        box-shadow:0 4px 20px rgba(0,0,0,0.15);
-        background:rgba(255,255,255,0.98);
-      }
-      
-      .brand{display:flex;align-items:center;gap:12px}
-      .brand-title{font-weight:700;color:#262626;font-size:20px;letter-spacing:-0.5px}
-      .brand-tagline{font-size:11px;color:#8e8e8e;margin-top:2px}
-      
-      .nav-toggle{
-        display:none;
-        background:transparent;
-        border:0;
-        font-size:24px;
-        color:#262626;
-        cursor:pointer;
-        padding:8px;
-      }
-      
-      nav.main-nav{display:flex;gap:16px;align-items:center}
-      nav.main-nav a{
-        color:#262626;
-        text-decoration:none;
-        padding:8px;
-        font-size:14px;
-        font-weight:600;
-        transition:color 0.2s;
-      }
-      nav.main-nav a:hover{color:#8e8e8e}
-      
-      main#maincontent{
-        position:relative;
-        z-index:1;
-      }
-      
-      footer{
-        padding:24px 0;
-        text-align:center;
-        border-top:1px solid #dbdbdb;
-        margin-top:40px;
-        background:#fff;
-        position:relative;
-        z-index:10;
-      }
-      footer nav{display:flex;gap:16px;justify-content:center;margin-bottom:12px}
-      footer a{color:#8e8e8e;text-decoration:none;font-size:12px}
-      footer a:hover{color:#262626}
-      
-      @media (max-width:735px){
-        .wrap{padding:12px 16px}
-        header{padding:12px 0;margin-bottom:16px}
-        .brand-title{font-size:18px}
-        .brand-tagline{font-size:10px}
-        
-        .nav-toggle{display:block}
-        nav.main-nav{
-          display:none;
-          position:absolute;
-          left:16px;
-          right:16px;
-          top:60px;
-          background:#fff;
-          border:1px solid #dbdbdb;
-          border-radius:8px;
-          padding:8px 0;
-          box-shadow:0 4px 12px rgba(0,0,0,0.15);
-          flex-direction:column;
-          gap:0;
-          z-index:1000;
-        }
-        nav.main-nav.active{display:flex}
-        nav.main-nav a{
-          padding:12px 16px;
-          border-bottom:1px solid #dbdbdb;
-        }
-        nav.main-nav a:last-child{border-bottom:none}
-        
-        footer nav{flex-wrap:wrap}
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Animated background container -->
-    <div class="bg-video-container">
-      <video id="bg-video" autoplay muted loop playsinline>
-        <source src="/assets/images/3129576-uhd_3840_2160_30fps.mp4" type="video/mp4">
-      </video>
-    </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
     
-    <div class="wrap">
-      <header>
-        <div class="brand">
-          <div>
-            <div class="brand-title">SSoulSS</div>
-            <div class="brand-tagline">Technology with a Soul</div>
+    /* Header */
+    .product-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .product-nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+      text-decoration: none;
+    }
+    
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+    
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .btn-secondary:hover {
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+    
+    /* Hero Section */
+    .product-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 80px 24px;
+      color: #ffffff;
+    }
+    
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    
+    .hero-content h1 {
+      font-size: 56px;
+      font-weight: 900;
+      margin: 0 0 24px 0;
+      line-height: 1.1;
+    }
+    
+    .hero-content p {
+      font-size: 20px;
+      margin: 0 0 32px 0;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .btn-hero {
+      padding: 14px 32px;
+      font-size: 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .btn-hero-white {
+      background: #ffffff;
+      color: #667eea;
+    }
+    
+    .btn-hero-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-hero-outline {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-hero-outline:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Features Section */
+    .features-section {
+      padding: 80px 24px;
+      background: #f8fafc;
+    }
+    
+    .section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 16px 0;
+      text-align: center;
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #64748b;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 64px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    
+    .feature-box {
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s;
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+    
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    
+    .feature-box h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 12px 0;
+    }
+    
+    .feature-box p {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+      padding: 80px 24px;
+      background: #ffffff;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 24px;
+      background: #f8fafc;
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 48px auto 0;
+    }
+    
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    
+    .faq-item:hover {
+      border-color: #cbd5e1;
+    }
+    
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #0f172a;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    
+    .faq-question:hover {
+      color: #2563eb;
+    }
+    
+    .faq-icon {
+      font-size: 24px;
+      font-weight: 300;
+      transition: transform 0.3s;
+      color: #64748b;
+    }
+    
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      color: #2563eb;
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+    
+    .faq-answer-content {
+      padding: 0 24px 20px;
+      color: #64748b;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 24px;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-container h2 {
+      font-size: 48px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 20px 0;
+    }
+    
+    .cta-container p {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 32px 0;
+    }
+    
+    /* Footer */
+    .product-footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 48px 24px 24px;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      
+      .hero-content h1 {
+        font-size: 36px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+      }
+      
+      .cta-container h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="product-header">
+    <nav class="product-nav">
+      <a href="/" class="logo-text">SSoulSS</a>
+      <div class="nav-actions">
+        <a href="/contact/" class="btn btn-secondary">Contact</a>
+        <a href="/request-demo/" class="btn btn-primary">Get Demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+<section class="product-hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badges">
+        <span class="hero-badge">☁️ Cloud Hosted</span>
+        <span class="hero-badge">🇮🇳 Available in India</span>
+      </div>
+      <h1>Healthcare workflow platform that works</h1>
+      <p>Secure appointment booking, electronic prescriptions, and patient management built for modern clinics with enterprise-grade security.</p>
+      <div class="hero-buttons">
+        <a href="https://docsapp-b7430.web.app/" target="_blank" class="btn-hero btn-hero-white">Open App →</a>
+        <a href="/contact/" class="btn-hero btn-hero-outline">Contact Sales</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/assets/souldoc/wider_tablet.png" alt="Souldoc Dashboard" />
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+  <div class="section-container">
+    <h2 class="section-title">Everything you need in one platform</h2>
+    <p class="section-subtitle">Streamline your healthcare practice with our comprehensive suite of tools designed for efficiency and security.</p>
+    <div class="features-grid">
+      <div class="feature-box">
+        <div class="feature-icon">📅</div>
+        <h3>Smart Booking</h3>
+        <p>Online appointment scheduling with calendar sync and automated reminders. Reduce no-shows and optimize your schedule.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">📋</div>
+        <h3>Digital Prescriptions</h3>
+        <p>Electronic prescriptions with templates and secure digital signatures. Comply with regulations while saving time.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">👥</div>
+        <h3>Patient Records</h3>
+        <p>Comprehensive patient profiles with visit history and medical records. Access patient information securely from anywhere.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">🔒</div>
+        <h3>Enterprise Security</h3>
+        <p>HIPAA-ready architecture with end-to-end encryption and role-based access control. Your data is always protected.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">📱</div>
+        <h3>Mobile Ready</h3>
+        <p>Access from any device - desktop, tablet, or mobile. Responsive design ensures optimal experience everywhere.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">🔄</div>
+        <h3>Seamless Integration</h3>
+        <p>Connect with calendar systems, messaging platforms, and payment gateways. Integrate with your existing workflow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+  <div class="section-container">
+    <h2 class="section-title">See it in action</h2>
+    <p class="section-subtitle">Intuitive interface designed for healthcare professionals</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="/assets/souldoc/phone.png" alt="Mobile booking interface" />
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/souldoc/phone_register.png" alt="Patient registration" />
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/souldoc/wider_tablet.png" alt="Dashboard view" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="section-container">
+    <h2 class="section-title">Frequently asked questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What is Souldoc and who is it for?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p>Souldoc is a comprehensive healthcare workflow platform designed for modern clinics, hospitals, and healthcare providers. It streamlines appointment booking, patient management, electronic prescriptions, and medical records with enterprise-grade security and compliance.</p>
           </div>
         </div>
-        <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('active')" aria-label="Toggle menu">☰</button>
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="/">Home</a><a href="/souldoc/">Souldoc</a><a href="/about/">About</a><a href="/consulting/">Consulting</a><a href="/locations/">Locations</a><a href="/contact/">Contact</a>
-        </nav>
-      </header>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Is Souldoc secure and HIPAA compliant?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p>Souldoc is built with security-first architecture featuring end-to-end encryption, secure authentication, role-based access control, and regular security audits. We comply with local Indian healthcare data protection standards. <strong>Please note: HIPAA compliance certification is currently in progress and not yet achieved.</strong> For enterprise deployments requiring HIPAA compliance, please contact our team to discuss timelines and requirements.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can I integrate Souldoc with my existing systems?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p>Absolutely! Souldoc offers seamless integrations with popular calendar systems (Google Calendar, Outlook), messaging platforms, payment gateways, and enterprise systems through our API. We also provide custom integration support for enterprise clients.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What are the pricing plans?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p>Souldoc offers flexible pricing based on your clinic size and needs. We have plans for solo practitioners, small clinics, and large healthcare organizations. Contact our sales team for a customized quote and demo tailored to your requirements.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Do you offer training and support?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p>Yes! We provide comprehensive onboarding training for your team, detailed documentation, video tutorials, and 24/7 customer support. Our dedicated support team is always ready to help you make the most of Souldoc.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can I try Souldoc before committing?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p>Yes, we offer a free trial period and personalized demos. You can explore the platform with demo data or request trial credentials to test with your own clinic workflow. Contact us to schedule a demo or start your free trial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <main id="maincontent">
-        
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="cta-container">
+    <h2>Ready to transform your practice?</h2>
+    <p>Join healthcare providers already using Souldoc to deliver better patient care.</p>
+    <div class="hero-buttons">
+      <a href="/request-demo/" class="btn-hero btn-hero-white">Request a Demo</a>
+      <a href="/contact/" class="btn-hero btn-hero-outline">Talk to Sales</a>
+    </div>
+  </div>
+</section>
+
 <div class="page-card">
   
 
@@ -423,32 +823,39 @@
 </div>
 
 
-      </main>
+  </main>
 
-      <footer>
-        <nav aria-label="Footer navigation">
-          <a href="/blogs/">Blogs</a>
-          <a href="/policies/">Policies</a>
-          <a href="/delete-request/">Privacy & Data Requests</a>
-        </nav>
-        <div style="color:#8e8e8e;font-size:12px">© 2025 SSoulSS</div>
-      </footer>
+  <!-- Footer -->
+  <footer class="product-footer">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/product-stack/">Products</a>
+      <a href="/consulting/">Services</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/contact/">Contact</a>
     </div>
-    
-    <script>
-      // Sticky navigation with scroll effect
-      (function(){
-        const header = document.querySelector('header');
-        if(!header) return;
+    <p style="font-size: 14px;">&copy; 2026 SSoulSS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // FAQ Toggle
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains('active');
         
-        window.addEventListener('scroll', ()=>{
-          if(window.pageYOffset > 100){
-            header.classList.add('scrolled');
-          } else {
-            header.classList.remove('scrolled');
-          }
+        // Close all FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
         });
-      })();
-    </script>
-  </body>
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+          faqItem.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
 </html>
