@@ -34,11 +34,6 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      transition: box-shadow 0.3s;
-    }
-    
-    .modern-header.scrolled {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
     
     .modern-nav {
@@ -71,93 +66,16 @@
       align-items: center;
     }
     
-    .nav-item {
-      position: relative;
-    }
-    
     .nav-links a {
       color: #475569;
       text-decoration: none;
       font-weight: 500;
       font-size: 15px;
       transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 4px;
     }
     
     .nav-links a:hover {
       color: #0f172a;
-    }
-    
-    .dropdown-arrow {
-      font-size: 12px;
-      transition: transform 0.2s;
-    }
-    
-    .nav-item:hover .dropdown-arrow {
-      transform: rotate(180deg);
-    }
-    
-    /* Dropdown Menu */
-    .dropdown-menu {
-      position: absolute;
-      top: calc(100% + 12px);
-      left: -24px;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-      padding: 16px;
-      min-width: 280px;
-      display: none;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    
-    .nav-item:hover .dropdown-menu {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .dropdown-item {
-      display: flex;
-      align-items: start;
-      gap: 12px;
-      padding: 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    
-    .dropdown-item:hover {
-      background: #f8fafc;
-    }
-    
-    .dropdown-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    
-    .dropdown-content h4 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #0f172a;
-      margin: 0 0 4px 0;
-    }
-    
-    .dropdown-content p {
-      font-size: 13px;
-      color: #64748b;
-      margin: 0;
-      line-height: 1.4;
     }
     
     .nav-cta {
@@ -422,129 +340,61 @@
     /* Blog Grid */
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 40px;
-      margin-top: 48px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
     }
     
     .blog-card {
       background: #ffffff;
-      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
       height: 100%;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(226, 232, 240, 0.8);
     }
     
     .blog-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(59, 130, 246, 0.25);
-      border-color: #3B82F6;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      border-color: #2563eb;
     }
     
-    .blog-card > div:first-child,
     .blog-card img {
       width: 100%;
-      height: 240px;
+      height: 220px;
       object-fit: cover;
       display: block;
-      position: relative;
-    }
-    
-    .blog-card > div:first-child {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-    }
-    
-    .blog-card > div:first-child::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .blog-card:hover > div:first-child::after {
-      opacity: 1;
     }
     
     .blog-card-content {
-      padding: 32px;
+      padding: 24px;
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 12px;
     }
     
     .blog-card h3 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       color: #0f172a;
-      margin: 0;
+      margin: 0 0 12px 0;
       line-height: 1.4;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    
-    .blog-card:hover h3 {
-      color: #3B82F6;
     }
     
     .blog-card .meta {
-      font-size: 13px;
-      color: #94a3b8;
-      margin: 0;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .blog-card .meta::before {
-      content: '📅';
       font-size: 14px;
+      color: #64748b;
+      margin: 0 0 12px 0;
+      font-weight: 500;
     }
     
     .blog-card-content > p:last-child {
-      margin: 8px 0 0 0;
-      color: #64748b;
-      font-size: 15px;
-      line-height: 1.7;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      flex: 1;
-    }
-    
-    .blog-card-content::after {
-      content: 'Read More →';
-      color: #3B82F6;
-      font-weight: 600;
-      font-size: 14px;
-      margin-top: 16px;
-      transition: all 0.3s ease;
-    }
-    
-    .blog-card:hover .blog-card-content::after {
-      color: #2563eb;
-      transform: translateX(4px);
+      margin-bottom: 0;
     }
     
     /* Contact Form */
@@ -618,7 +468,7 @@
       max-width: 1280px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 48px;
       margin-bottom: 32px;
     }
@@ -656,27 +506,8 @@
       margin: 0 auto;
       padding-top: 32px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .footer-social {
-      display: flex;
-      gap: 16px;
-    }
-    
-    .social-icon {
-      color: #94a3b8;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .social-icon:hover {
-      color: #3B82F6;
-      transform: translateY(-2px);
+      text-align: center;
+      font-size: 14px;
     }
     
     /* Mobile Responsive */
@@ -736,18 +567,6 @@
         margin-bottom: 24px;
       }
       
-      .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
-      }
-      
-      .footer-bottom {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-      }
-    }
-      
       .grid-2,
       .grid-3,
       .grid-4 {
@@ -761,25 +580,12 @@
       
       .blog-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 32px;
+        gap: 20px;
       }
       
       .blog-card img,
       .blog-card > div:first-child {
-        height: 200px;
-      }
-      
-      .blog-card-content {
-        padding: 24px;
-      }
-      
-      .blog-card h3 {
-        font-size: 18px;
-      }
-      
-      .blog-card .meta {
-        font-size: 12px;
+        height: 180px;
       }
       
       .blog-card-content {
@@ -809,8 +615,8 @@
       }
       
       .blog-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
     }
     
@@ -848,55 +654,14 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="modern-header" id="mainHeader">
+  <header class="modern-header">
     <nav class="modern-nav">
       <div class="logo-section">
         <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="{{ site.title }}" style="width: 32px; height: 32px;">
         <a href="/" class="logo-text">{{ site.title }}</a>
       </div>
       <div class="nav-links">
-        <div class="nav-item">
-          <a href="/product-stack/">
-            Products
-            <span class="dropdown-arrow">▼</span>
-          </a>
-          <div class="dropdown-menu">
-            <a href="/souldoc/" class="dropdown-item">
-              <div class="dropdown-icon" style="background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                </svg>
-              </div>
-              <div class="dropdown-content">
-                <h4>Souldoc</h4>
-                <p>Healthcare workflow platform</p>
-              </div>
-            </a>
-            <a href="/soulvault/" class="dropdown-item">
-              <div class="dropdown-icon" style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-              </div>
-              <div class="dropdown-content">
-                <h4>SoulVault</h4>
-                <p>Secure document vault</p>
-              </div>
-            </a>
-            <a href="/unsould/" class="dropdown-item">
-              <div class="dropdown-icon" style="background: linear-gradient(135deg, #fce7f3 0%, #fce7f3 100%);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                </svg>
-              </div>
-              <div class="dropdown-content">
-                <h4>Unsould</h4>
-                <p>Last-minute flight deals</p>
-              </div>
-            </a>
-          </div>
-        </div>
+        <a href="/product-stack/">Products</a>
         <a href="/consulting/">Consulting</a>
         <a href="/blogs/">Blog</a>
         <a href="/about/">About</a>
@@ -943,79 +708,14 @@
   <footer class="modern-footer">
     <div class="footer-container">
       <div class="footer-section">
-        <h4>Products</h4>
+        <h4>Product</h4>
         <ul>
           <li><a href="/souldoc/">Souldoc</a></li>
-          <li><a href="/soulvault/">SoulVault</a></li>
-          <li><a href="/unsould/">Unsould</a></li>
           <li><a href="/product-stack/">All Products</a></li>
           <li><a href="/request-demo/">Request Demo</a></li>
         </ul>
       </div>
       <div class="footer-section">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/consulting/">Consulting</a></li>
-          <li><a href="/consulting/#ai-ml">AI & Machine Learning</a></li>
-          <li><a href="/consulting/#cloud">Cloud Engineering</a></li>
-          <li><a href="/consulting/#analytics">Analytics & BI</a></li>
-          <li><a href="/consulting/">Custom Development</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="/blogs/">Blog</a></li>
-          <li><a href="/about/">Case Studies</a></li>
-          <li><a href="/product-stack/">Documentation</a></li>
-          <li><a href="/contact/">Support</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about/">About Us</a></li>
-          <li><a href="/about/#team">Team</a></li>
-          <li><a href="/about/#locations">Locations</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/policies/terms/">Terms of Service</a></li>
-          <li><a href="/policies/cookies/">Cookie Policy</a></li>
-          <li><a href="/policies/">Compliance</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>
-        <p style="margin: 0; color: #94a3b8; font-size: 14px;">&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-      </div>
-      <div class="footer-social">
-        <a href="https://twitter.com/ssoulss" class="social-icon" aria-label="Twitter">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-        </a>
-        <a href="https://facebook.com/ssoulss" class="social-icon" aria-label="Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 3.667h-3.533v7.98H9.101z"/>
-          </svg>
-        </a>
-        <a href="https://linkedin.com/company/ssoulss" class="social-icon" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href="https://github.com/ssoulss" class="social-icon" aria-label="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
-      </div>
     </div>
   </footer>
 
@@ -1035,16 +735,6 @@
     // Close menu when clicking a link
     document.querySelectorAll('.mobile-menu-links a').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
-    });
-    
-    // Sticky header shadow on scroll
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('mainHeader');
-      if (window.scrollY > 10) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
     });
   </script>
 </body>
