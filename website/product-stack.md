@@ -80,12 +80,30 @@ permalink: /product-stack/
   <!-- Coming Soon Section -->
   <div class="content-section">
     <h2 class="section-title" style="text-align: center;">More Products Coming Soon</h2>
-    <div class="grid-2">
+    <div class="grid-3">
+      <div class="card-modern" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+        <span class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#FFF"/>
+            <circle cx="12" cy="16" r="1.5" fill="#FFF"/>
+          </svg>
+        </span>
+        <h3 style="color: white;">SoulVault</h3>
+        <p style="color: rgba(255, 255, 255, 0.9);">Secure document vault eliminating insecure email and paper exchange. End-to-end encryption, biometric authentication, API integration, and complete audit trails.</p>
+        <div style="margin-top: 20px; padding: 12px 20px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; font-size: 14px; font-weight: 600;">Coming Q1 2026</div>
+      </div>
       <div class="card-modern" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border: none;">
-        <span class="card-icon">⏰</span>
-        <h3 style="color: white;">Time Booking Platform</h3>
-        <p style="color: rgba(255, 255, 255, 0.9);">Universal scheduling solution for any industry. Smart calendar management, resource booking, and team coordination.</p>
-        <div style="margin-top: 20px; padding: 12px 20px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; font-size: 14px; font-weight: 600;">Coming Q2 2026</div>
+        <span class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
+            <polyline points="7.5 4.21 12 6.81 16.5 4.21" stroke="#FFF"/>
+            <line x1="12" y1="22.08" x2="12" y2="12" stroke="#FFF"/>
+          </svg>
+        </span>
+        <h3 style="color: white;">Unsould</h3>
+        <p style="color: rgba(255, 255, 255, 0.9);">Last-minute flight deals platform with real-time browsing, community voting, multi-currency support, and mobile-first experience. Built with Next.js and Firebase.</p>
+        <div style="margin-top: 20px; padding: 12px 20px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; font-size: 14px; font-weight: 600;">Coming Q1 2026</div>
       </div>
       <div class="card-modern" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border: none;">
         <span class="card-icon">🎯</span>
