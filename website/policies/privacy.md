@@ -1,9 +1,8 @@
----
-layout: page
+
+
+layout: page-modern
 title: Privacy Policy
 permalink: /policies/privacy/
----
-
 
 ---
 layout: page-modern
