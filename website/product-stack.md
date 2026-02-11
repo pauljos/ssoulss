@@ -40,6 +40,30 @@ permalink: /product-stack/
     </div>
   </div>
 
+  <!-- Featured Product: Bookly -->
+  <div class="content-section">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+      <div>
+        <img src="/assets/images/product-booking.svg" alt="Bookly Landing" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); background: white; padding: 40px;" />
+      </div>
+      <div>
+        <span style="display: inline-block; background: #fef3c7; color: #92400e; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 16px;">NEW PRODUCT</span>
+        <h2 style="font-size: 42px; font-weight: 900; color: #0f172a; margin: 0 0 20px 0; line-height: 1.1;">Bookly</h2>
+        <p style="font-size: 18px; color: #64748b; line-height: 1.6; margin: 0 0 24px 0;">The next-generation booking experience for modern service providers. Streamlined scheduling, automated reminders, and intuitive management tools designed to scale your business.</p>
+        
+        <div style="display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap;">
+          <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; color: #475569;">⚡ High Performance</span>
+          <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; color: #475569;">📱 Mobile First</span>
+          <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; color: #475569;">🌐 Global</span>
+        </div>
+        
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="https://bookly-landing.onrender.com" target="_blank" class="btn-modern btn-primary-modern" style="padding: 12px 24px; font-size: 15px;">Explore Bookly ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Key Features Grid -->
   <div class="content-section">
     <h2 class="section-title" style="text-align: center;">Souldoc Features</h2>

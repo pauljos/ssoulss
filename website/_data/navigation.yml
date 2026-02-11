@@ -3,6 +3,8 @@ main:
     url: /
   - title: Souldoc
     url: /souldoc/
+  - title: Bookly
+    url: https://bookly-landing.onrender.com
   - title: About
     url: /about/
   - title: Consulting
