@@ -4,6 +4,12 @@ title: Texa
 permalink: /texa/
 ---
 
+<style>
+  .product-hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%) !important;
+  }
+</style>
+
 <!-- Hero Section -->
 <section class="product-hero">
   <div class="hero-container">
@@ -38,9 +44,13 @@ permalink: /texa/
     <div class="hero-image">
       <div style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); border-radius: 16px; padding: 48px 32px; text-align: center; box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3);">
         <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke-width="1.5" style="margin-bottom: 20px;">
-          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
-          <path d="M3 6h18" stroke="#FFF"/>
-          <path d="M16 10a4 4 0 0 1-8 0" stroke="#FFF"/>
+          <!-- ID Card icon -->
+          <rect x="2" y="5" width="20" height="14" rx="2" fill="rgba(255,255,255,0.25)" stroke="#FFF"/>
+          <circle cx="8" cy="11" r="2.5" fill="rgba(255,255,255,0.5)" stroke="#FFF"/>
+          <path d="M4 18c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="#FFF" stroke-linecap="round"/>
+          <path d="M15 9h4" stroke="#FFF" stroke-linecap="round"/>
+          <path d="M15 12h4" stroke="#FFF" stroke-linecap="round"/>
+          <path d="M15 15h2" stroke="#FFF" stroke-linecap="round"/>
         </svg>
         <div style="font-size: 28px; font-weight: 900; color: #fff; letter-spacing: -1px;">TEXA ERP</div>
         <div style="font-size: 14px; color: rgba(255,255,255,0.85); margin-top: 8px; font-weight: 500;">Apparel Manufacturing Platform</div>
