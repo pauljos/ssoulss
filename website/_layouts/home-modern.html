@@ -872,6 +872,31 @@
         padding: 4px 10px;
       }
     }
+
+    /* Booking Widget Styles */
+    .booking-section {
+      padding: 80px 24px;
+      background: #f8fafc;
+    }
+    
+    .booking-widget-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+    }
+    
+    @media (max-width: 768px) {
+      .booking-section {
+        padding: 48px 16px;
+      }
+      .booking-widget-container {
+        padding: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1116,6 +1141,28 @@
           <p>Need something specific? We build custom applications tailored to your business needs with modern tech stacks and best practices.</p>
           <a href="/consulting/" class="btn-product">Get Started →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="booking-section" id="book-now">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Schedule</span>
+        <h2 class="section-title">Book an Appointment</h2>
+        <p class="section-description">
+          Ready to transform your business? Schedule a consultation with our experts today.
+        </p>
+      </div>
+      <div class="booking-widget-container">
+        <!-- Bookly Widget -->
+        <script src="https://bookly-widget.onrender.com/widget.js"></script>
+        <bookly-widget
+          provider-id="4b38ca14-e28e-498d-97ba-16db819d242f"
+          primary-color="#3B82F6"
+          border-radius="8px"
+        ></bookly-widget>
       </div>
     </div>
   </section>
