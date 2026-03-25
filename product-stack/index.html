@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1774392586">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1774398969">
   <style>
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -717,27 +717,32 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Consolidated Premium Styles -->
+    <!-- Modern Premium Styles with Animations & Glassmorphism -->
 <style>
   :root {
     --primary-blue: #2563eb;
     --primary-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --card-shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
-    --card-shadow-hover: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --card-shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.10);
+    --card-shadow-hover: 0 30px 60px -12px rgba(0, 0, 0, 0.18);
   }
 
   .premium-hero {
-    background: #0f172a;
-    padding: 100px 24px;
+    background: linear-gradient(120deg, #0f172a 60%, #2563eb 100%);
+    padding: 100px 24px 80px 24px;
     text-align: center;
     position: relative;
     overflow: hidden;
     margin-bottom: 64px;
     border-radius: 0 0 40px 40px;
+    box-shadow: 0 8px 32px rgba(37,99,235,0.10);
+    animation: fadeInDown 1.2s cubic-bezier(0.4,0,0.2,1);
   }
-
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   .premium-hero::after {
     content: '';
     position: absolute;
@@ -746,27 +751,36 @@
     transform: translate(-50%, -50%);
     width: 140%;
     height: 140%;
-    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.15) 0%, transparent 60%);
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.18) 0%, transparent 60%);
     pointer-events: none;
+    z-index: 0;
   }
-
   .premium-hero h1 {
-    font-size: 56px;
+    font-size: 54px;
     font-weight: 900;
     color: white;
     margin-bottom: 24px;
     letter-spacing: -2px;
     line-height: 1;
+    text-shadow: 0 2px 16px rgba(37,99,235,0.10);
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.2s cubic-bezier(0.4,0,0.2,1);
   }
-
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   .premium-hero p {
     font-size: 22px;
-    color: #94a3b8;
+    color: #cbd5e1;
     max-width: 700px;
     margin: 0 auto;
     font-weight: 500;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.5s cubic-bezier(0.4,0,0.2,1);
   }
-
   .product-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -774,28 +788,41 @@
     align-items: center;
     margin-bottom: 120px;
     padding: 0 12px;
+    animation: fadeInUp 1.2s cubic-bezier(0.4,0,0.2,1);
   }
-
   .product-content {
     order: 1;
     text-align: left;
+    background: var(--glass-bg);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow-premium);
+    padding: 40px 32px;
+    backdrop-filter: blur(6px);
+    transition: box-shadow 0.3s, transform 0.3s;
   }
-
+  .product-content:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-6px) scale(1.02);
+  }
   .product-visual {
     order: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--glass-bg);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow-premium);
+    padding: 32px 0;
+    min-height: 220px;
+    transition: box-shadow 0.3s, transform 0.3s;
   }
-
-  .product-row.reverse .product-content {
-    order: 2;
+  .product-visual:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-6px) scale(1.02);
   }
-
-  .product-row.reverse .product-visual {
-    order: 1;
-  }
-
+  .product-row.reverse .product-content { order: 2; }
+  .product-row.reverse .product-visual { order: 1; }
   .badge-premium {
     display: inline-flex;
     align-items: center;
@@ -810,45 +837,43 @@
     letter-spacing: 1px;
     margin-bottom: 24px;
     color: #475569;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.04);
   }
-
   .product-title-row {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 20px;
   }
-
   .product-icon-small {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+    background: #f1f5f9;
+    object-fit: contain;
+    transition: box-shadow 0.3s, transform 0.3s;
   }
-
   .product-title {
-    font-size: 44px;
+    font-size: 38px;
     font-weight: 950;
     color: #0f172a;
     margin: 0;
     line-height: 1;
     letter-spacing: -1.5px;
   }
-
   .product-desc {
-    font-size: 18px;
+    font-size: 17px;
     color: #475569;
     line-height: 1.6;
-    margin: 0 0 32px 0;
+    margin: 0 0 28px 0;
   }
-
   .tags-container {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
-
   .tag-modern {
     padding: 6px 14px;
     background: #f1f5f9;
@@ -857,8 +882,8 @@
     font-size: 13px;
     font-weight: 600;
     border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 4px rgba(37,99,235,0.03);
   }
-
   .btn-premium {
     padding: 12px 24px;
     border-radius: 10px;
@@ -869,16 +894,28 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    background: var(--primary-gradient);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+    border: none;
   }
-
+  .btn-premium.secondary {
+    background: #f1f5f9;
+    color: #2563eb;
+    border: 1.5px solid #e2e8f0;
+  }
+  .btn-premium:hover {
+    box-shadow: 0 6px 18px rgba(37,99,235,0.18);
+    transform: translateY(-2px) scale(1.03);
+  }
   /* Tech Stack Grid */
   .tech-section {
     padding: 100px 0;
     background: #f8fafc;
     margin: 80px -24px -80px -24px;
     border-radius: 60px 60px 0 0;
+    box-shadow: 0 -4px 32px rgba(37,99,235,0.04);
   }
-
   .tech-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -887,7 +924,6 @@
     margin: 0 auto;
     padding: 0 24px;
   }
-
   .tech-card {
     background: white;
     padding: 40px;
@@ -898,40 +934,36 @@
     gap: 24px;
     text-align: left;
     align-items: flex-start;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.04);
   }
-
   .tech-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(37,99,235,0.10);
     border-color: #cbd5e1;
   }
-
   .tech-icon-container {
     flex-shrink: 0;
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
     background: #f1f5f9;
-    border-radius: 16px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #2563eb;
   }
-
   .tech-card h3 {
     font-size: 20px;
     font-weight: 800;
     color: #0f172a;
     margin: 0 0 10px 0;
   }
-
   .tech-card p {
     font-size: 15px;
     color: #64748b;
     line-height: 1.6;
     margin: 0;
   }
-
   @media (max-width: 1024px) {
     .product-row {
       grid-template-columns: 1fr;
@@ -951,16 +983,15 @@
       grid-template-columns: 1fr;
     }
   }
-
   @media (max-width: 640px) {
     .premium-hero {
       padding: 64px 16px;
     }
     .premium-hero h1 {
-      font-size: 36px;
+      font-size: 32px;
     }
     .product-title {
-      font-size: 32px;
+      font-size: 24px;
     }
     .tech-grid {
       grid-template-columns: 1fr;
@@ -1011,67 +1042,68 @@
       <span class="badge-premium">Global SaaS</span>
       <div class="product-title-row">
         <img src="/assets/images/product-booking.svg" class="product-icon-small" alt="Bookly Icon" />
-        <h2 class="product-title">Bookly</h2>
-      </div>
-      <p class="product-desc">A cross-industry scheduling platform that simplifies complex booking workflows for consultants, studios, and small businesses globally.</p>
-      <div class="tags-container">
-        <span class="tag-modern">Low Latency</span>
-        <span class="tag-modern">Mobile First</span>
-        <span class="tag-modern">Universal</span>
-      </div>
-      <div class="cta-group">
-        <a href="/bookly/" class="btn-premium primary">Explore Bookly <span>→</span></a>
-        <a href="https://bookly-landing.onrender.com" target="_blank" class="btn-premium secondary">Visit Landing <span>↗</span></a>
-      </div>
-    </div>
-    <div class="product-visual">
-      <div class="visual-container" style="background: white; padding: 40px;">
-        <img src="/assets/images/product-booking.svg" alt="Bookly Concept" style="max-width: 320px; box-shadow: none;" />
-      </div>
-    </div>
-  </div>
-
-  <!-- Product: Texa -->
-  <div class="product-row">
-    <div class="product-content">
-      <span class="badge-premium">Enterprise ERP</span>
-      <div class="product-title-row">
-        <div style="background: #f59e0b; width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" />
-          </svg>
+        <!-- Product: Texa -->
+        <div class="product-row reverse">
+          <div class="product-content">
+            <span class="badge-premium">Enterprise ERP</span>
+            <div class="product-title-row">
+              <div style="background: #f59e0b; width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                  <path d="M3 6h18" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+              </div>
+              <h2 class="product-title">Texa</h2>
+            </div>
+            <p class="product-desc">Modern ERP built for the apparel industry, managing everything from fiber sourcing to export documentation with real-time tracking.</p>
+            <div class="tags-container">
+              <span class="tag-modern">Apparel ERP</span>
+              <span class="tag-modern">BI Reports</span>
+              <span class="tag-modern">Factory Ops</span>
+            </div>
+            <div class="cta-group">
+              <a href="/texa/" class="btn-premium primary">View Texa <span>→</span></a>
+              <a href="https://texa-erp-web.onrender.com/landing" target="_blank" class="btn-premium secondary">Open ERP <span>↗</span></a>
+            </div>
+          </div>
+          <div class="product-visual">
+            <div class="visual-container" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); text-align: center; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 100px; border-radius: 10px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" style="margin-bottom: 8px;">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" fill="rgba(255,255,255,0.3)" stroke="#FFF" />
+                <path d="M3 6h18" stroke="#FFF" />
+                <path d="M16 10a4 4 0 0 1-8 0" stroke="#FFF" />
+              </svg>
+              <div style="font-size: 14px; font-weight: 950; color: white; letter-spacing: -1px;">TEXA ERP</div>
+            </div>
+          </div>
         </div>
-        <h2 class="product-title">Texa</h2>
-      </div>
-      <p class="product-desc">Modern ERP built for the apparel industry, managing everything from fiber sourcing to export documentation with real-time tracking.</p>
-      <div class="tags-container">
-        <span class="tag-modern">Apparel ERP</span>
-        <span class="tag-modern">BI Reports</span>
-        <span class="tag-modern">Factory Ops</span>
-      </div>
-      <div class="cta-group">
-        <a href="/texa/" class="btn-premium primary">View Texa <span>→</span></a>
-        <a href="https://texa-erp-web.onrender.com/landing" target="_blank" class="btn-premium secondary">Open ERP <span>↗</span></a>
-      </div>
-    </div>
-    <div class="product-visual">
-      <div class="visual-container" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); text-align: center; padding: 60px 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 360px;">
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="1.5" style="margin-bottom: 20px;">
-          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" fill="rgba(255,255,255,0.3)" stroke="#FFF" />
-          <path d="M3 6h18" stroke="#FFF" />
-          <path d="M16 10a4 4 0 0 1-8 0" stroke="#FFF" />
-        </svg>
-        <div style="font-size: 32px; font-weight: 950; color: white; letter-spacing: -1px;">TEXA ERP</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Tech Stack Feature Grid -->
-  <section class="tech-section">
-    <div style="text-align: center; margin-bottom: 64px; padding: 0 24px;">
-      <h2 class="section-title">Built with Precision</h2>
-      <p style="font-size: 18px; color: #64748b; max-width: 800px; margin: 0 auto;">Our engineering choices prioritize security, speed, and long-term scalability to ensure your business never hits a technical ceiling.</p>
-    </div>
+        <!-- Product: Bookly -->
+        <div class="product-row">
+          <div class="product-content">
+            <span class="badge-premium">Global SaaS</span>
+            <div class="product-title-row">
+              <img src="/assets/images/product-booking.svg" class="product-icon-small" alt="Bookly Icon" />
+              <h2 class="product-title">Bookly</h2>
+            </div>
+            <p class="product-desc">A cross-industry scheduling platform that simplifies complex booking workflows for consultants, studios, and small businesses globally.</p>
+            <div class="tags-container">
+              <span class="tag-modern">Low Latency</span>
+              <span class="tag-modern">Mobile First</span>
+              <span class="tag-modern">Universal</span>
+            </div>
+            <div class="cta-group">
+              <a href="/bookly/" class="btn-premium primary">Explore Bookly <span>→</span></a>
+              <a href="https://bookly-landing.onrender.com" target="_blank" class="btn-premium secondary">Visit Landing <span>↗</span></a>
+            </div>
+          </div>
+          <div class="product-visual">
+            <div class="visual-container" style="background: white; padding: 12px; border-radius: 10px;">
+              <img src="/assets/images/product-booking.svg" alt="Bookly Concept" style="max-width: 60px; box-shadow: none;" />
+            </div>
+          </div>
+        </div>
     
     <div class="tech-grid">
       <div class="tech-card">
@@ -1119,7 +1151,7 @@
         </div>
       </div>
     </div>
-  </section>
+  &lt;/section&gt;
 
   <!-- Final CTA -->
   <div style="text-align: center; padding: 120px 24px 40px 24px;">
@@ -1133,7 +1165,8 @@
 
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+</div></div>
 
   </main>
 
