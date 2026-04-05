@@ -9,6 +9,13 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Ensure policies and legal pages are always included
+include:
+  - policies/
+  - policies/privacy.md
+  - policies/terms.md
+  - policies/cookies.md
+
 # minimal mistakes settings (keep defaults for now)
 markdown: kramdown
 highlighter: rouge
