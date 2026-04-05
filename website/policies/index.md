@@ -6,7 +6,7 @@ permalink: /policies/
 
 This section contains our legal pages and policies.
 
-- [Privacy Policy](/privacy/)
+- [Privacy Policy](/policies/privacy/)
 - [Terms of Use](/policies/terms/)
 - [Cookie Policy](/policies/cookies/)
 

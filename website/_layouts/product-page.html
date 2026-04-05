@@ -486,32 +486,6 @@
       margin: 0 0 32px 0;
     }
     
-    /* Footer */
-    .product-footer {
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 48px 24px 24px;
-      text-align: center;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-    
-    .footer-links a {
-      color: #cbd5e1;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-    
-    .footer-links a:hover {
-      color: #ffffff;
-    }
     
     /* Mobile Responsive */
     @media (max-width: 768px) {
@@ -689,17 +663,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="product-footer">
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/product-stack/">Products</a>
-      <a href="/consulting/">Services</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/contact/">Contact</a>
-    </div>
-    <p style="font-size: 14px;">&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-  </footer>
+  {% include footer-modern.html %}
 
   <script>
     function toggleMobileMenu() {

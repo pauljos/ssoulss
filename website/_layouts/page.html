@@ -184,14 +184,8 @@
         {{ content }}
       </main>
 
-      <footer>
-        <nav aria-label="Footer navigation">
-          <a href="/blogs/">Blogs</a>
-          <a href="/policies/">Policies</a>
-          <a href="/delete-request/">Privacy & Data Requests</a>
-        </nav>
-        <div style="color:#8e8e8e;font-size:12px">© {{ 'now' | date: "%Y" }} {{ site.title }}</div>
-      </footer>
+      {% include footer-modern.html %}
+
     </div>
     
     <script>

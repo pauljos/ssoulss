@@ -462,90 +462,6 @@
         box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
       }
       
-      /* Footer */
-      footer {
-        background: var(--dark);
-        color: rgba(255, 255, 255, 0.7);
-        padding: 60px 24px 32px;
-      }
-      
-      .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 48px;
-        margin-bottom: 40px;
-      }
-      
-      .footer-brand h3 {
-        color: white;
-        font-size: 20px;
-        font-weight: 700;
-        margin: 0 0 12px 0;
-      }
-      
-      .footer-brand p {
-        font-size: 14px;
-        line-height: 1.6;
-        margin: 0;
-      }
-      
-      .footer-links h4 {
-        color: white;
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0 0 16px 0;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-      
-      .footer-links ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      .footer-links li {
-        margin-bottom: 12px;
-      }
-      
-      .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
-        font-size: 14px;
-        transition: color 0.2s;
-      }
-      
-      .footer-links a:hover {
-        color: white;
-      }
-      
-      .footer-bottom {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-top: 32px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 14px;
-      }
-      
-      .footer-bottom-links {
-        display: flex;
-        gap: 24px;
-      }
-      
-      .footer-bottom-links a {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      
-      .footer-bottom-links a:hover {
-        color: white;
-      }
       
       /* Responsive Design */
       @media (max-width: 1024px) {
@@ -787,50 +703,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-brand">
-          <h3>SSoulSS</h3>
-          <p>{{ site.tagline }}</p>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Products</h4>
-          <ul>
-            <li><a href="/souldoc/">Souldoc</a></li>
-            <li><a href="/product-stack/">Product Stack</a></li>
-            <li><a href="/consulting/">Consulting</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="/blogs/">Blog</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/locations/">Locations</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="/policies/privacy/">Privacy Policy</a></li>
-            <li><a href="/policies/terms/">Terms of Service</a></li>
-            <li><a href="/delete-request/">Data Requests</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>© 2025 SSoulSS. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="/policies/privacy/">Privacy</a>
-          <a href="/policies/terms/">Terms</a>
-          <a href="/policies/cookies/">Cookies</a>
-        </div>
-      </div>
-    </footer>
+    {% include footer-modern.html %}
 
     <script>
       // Sticky nav
