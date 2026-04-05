@@ -2,6 +2,7 @@
 layout: page-modern
 title: Terms of Use
 permalink: /policies/terms/
+---
 
 
 <!-- Page Hero -->

@@ -2,6 +2,7 @@
 layout: page-modern
 title: Cookie Policy
 permalink: /policies/cookies/
+---
 
 
 <!-- Page Hero -->

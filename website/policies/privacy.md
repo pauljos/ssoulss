@@ -1,10 +1,9 @@
-
-
 ---
 layout: page-modern
 title: Privacy Policy
 permalink: /policies/privacy/
 ---
+
 
 <!-- Page Hero -->
 <section class="page-hero">
