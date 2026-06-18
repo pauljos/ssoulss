@@ -329,69 +329,69 @@ permalink: /product-stack/
       <span class="badge-premium">Global SaaS</span>
       <div class="product-title-row">
         <img src="/assets/images/product-booking.svg" class="product-icon-small" alt="Bookly Icon" />
-        <!-- Product: Texa -->
-        <div class="product-row reverse">
-          <div class="product-content">
-            <span class="badge-premium">Enterprise ERP</span>
-            <div class="product-title-row">
-              <div style="background: #f59e0b; width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
-                  <path d="M3 6h18"/>
-                  <path d="M16 10a4 4 0 0 1-8 0"/>
-                </svg>
-              </div>
-              <h2 class="product-title">Texa</h2>
-            </div>
-            <p class="product-desc">Modern ERP built for the apparel industry, managing everything from fiber sourcing to export documentation with real-time tracking.</p>
-            <div class="tags-container">
-              <span class="tag-modern">Apparel ERP</span>
-              <span class="tag-modern">BI Reports</span>
-              <span class="tag-modern">Factory Ops</span>
-            </div>
-            <div class="cta-group">
-              <a href="/texa/" class="btn-premium primary">View Texa <span>→</span></a>
-              <a href="https://texa-erp-web.onrender.com/landing" target="_blank" class="btn-premium secondary">Open ERP <span>↗</span></a>
-            </div>
-          </div>
-          <div class="product-visual">
-            <div class="visual-container" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); text-align: center; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 100px; border-radius: 10px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" style="margin-bottom: 8px;">
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
-                <path d="M3 6h18" stroke="#FFF"/>
-                <path d="M16 10a4 4 0 0 1-8 0" stroke="#FFF"/>
-              </svg>
-              <div style="font-size: 14px; font-weight: 950; color: white; letter-spacing: -1px;">TEXA ERP</div>
-            </div>
-          </div>
-        </div>
+        <h2 class="product-title">Bookly</h2>
+      </div>
+      <p class="product-desc">A cross-industry scheduling platform that simplifies complex booking workflows for consultants, studios, and small businesses globally.</p>
+      <div class="tags-container">
+        <span class="tag-modern">Low Latency</span>
+        <span class="tag-modern">Mobile First</span>
+        <span class="tag-modern">Universal</span>
+      </div>
+      <div class="cta-group">
+        <a href="/bookly/" class="btn-premium primary">Explore Bookly <span>→</span></a>
+        <a href="https://bookly-landing.onrender.com" target="_blank" class="btn-premium secondary">Visit Landing <span>↗</span></a>
+      </div>
+    </div>
+    <div class="product-visual">
+      <div class="visual-container" style="background: white; padding: 12px; border-radius: 10px;">
+        <img src="/assets/images/product-booking.svg" alt="Bookly Concept" style="max-width: 60px; box-shadow: none;" />
+      </div>
+    </div>
+  </div>
 
-        <!-- Product: Bookly -->
-        <div class="product-row">
-          <div class="product-content">
-            <span class="badge-premium">Global SaaS</span>
-            <div class="product-title-row">
-              <img src="/assets/images/product-booking.svg" class="product-icon-small" alt="Bookly Icon" />
-              <h2 class="product-title">Bookly</h2>
-            </div>
-            <p class="product-desc">A cross-industry scheduling platform that simplifies complex booking workflows for consultants, studios, and small businesses globally.</p>
-            <div class="tags-container">
-              <span class="tag-modern">Low Latency</span>
-              <span class="tag-modern">Mobile First</span>
-              <span class="tag-modern">Universal</span>
-            </div>
-            <div class="cta-group">
-              <a href="/bookly/" class="btn-premium primary">Explore Bookly <span>→</span></a>
-              <a href="https://bookly-landing.onrender.com" target="_blank" class="btn-premium secondary">Visit Landing <span>↗</span></a>
-            </div>
-          </div>
-          <div class="product-visual">
-            <div class="visual-container" style="background: white; padding: 12px; border-radius: 10px;">
-              <img src="/assets/images/product-booking.svg" alt="Bookly Concept" style="max-width: 60px; box-shadow: none;" />
-            </div>
-          </div>
+  <!-- Product: Texa -->
+  <div class="product-row">
+    <div class="product-content">
+      <span class="badge-premium">Enterprise ERP</span>
+      <div class="product-title-row">
+        <div style="background: #f59e0b; width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+            <path d="M3 6h18"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
         </div>
-    
+        <h2 class="product-title">Texa</h2>
+      </div>
+      <p class="product-desc">Modern ERP built for the apparel industry, managing everything from fiber sourcing to export documentation with real-time tracking.</p>
+      <div class="tags-container">
+        <span class="tag-modern">Apparel ERP</span>
+        <span class="tag-modern">BI Reports</span>
+        <span class="tag-modern">Factory Ops</span>
+      </div>
+      <div class="cta-group">
+        <a href="/texa/" class="btn-premium primary">View Texa <span>→</span></a>
+        <a href="https://texa-erp-web.onrender.com/landing" target="_blank" class="btn-premium secondary">Open ERP <span>↗</span></a>
+      </div>
+    </div>
+    <div class="product-visual">
+      <div class="visual-container" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); text-align: center; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 100px; border-radius: 10px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" style="margin-bottom: 8px;">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
+          <path d="M3 6h18" stroke="#FFF"/>
+          <path d="M16 10a4 4 0 0 1-8 0" stroke="#FFF"/>
+        </svg>
+        <div style="font-size: 14px; font-weight: 950; color: white; letter-spacing: -1px;">TEXA ERP</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Stack Section -->
+  <section class="tech-section">
+    <div style="text-align: center; margin-bottom: 64px; padding: 0 24px;">
+      <h2 style="font-size: 40px; font-weight: 900; color: #0f172a; margin-bottom: 16px; letter-spacing: -1.5px;">Built on a Modern Stack</h2>
+      <p style="font-size: 18px; color: #64748b; max-width: 560px; margin: 0 auto;">Every platform is engineered for reliability, security, and scale.</p>
+    </div>
     <div class="tech-grid">
       <div class="tech-card">
         <div class="tech-icon-container">
@@ -449,7 +449,5 @@ permalink: /product-stack/
       <a href="/consulting/" class="btn-premium secondary" style="padding: 16px 40px; font-size: 16px;">Custom Solutions</a>
     </div>
   </div>
-
-</div>
 
 </div>

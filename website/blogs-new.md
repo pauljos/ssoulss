@@ -1,7 +1,8 @@
 ---
 layout: product-page
-title: Blog
-permalink: /blogs/
+title: Blog (v2)
+permalink: /blogs-v2/
+published: false
 ---
 
 <!-- Hero Section -->

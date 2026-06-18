@@ -20,18 +20,11 @@ permalink: /blogs/
         {% for post in site.posts %}
           <a href="{{ post.url }}" class="blog-card">
             {% if post.image %}
-              <img src="{{ post.image }}" alt="{{ post.title | xml_escape }}" />
-            {% else %}
-              <div style="width: 100%; height: 220px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 18px; text-align: center; padding: 32px;">
-                {{ post.title }}
-              </div>
+              <img src="{{ post.image }}" alt="{{ post.title | xml_escape }}" class="thumb" />
             {% endif %}
-            <div class="blog-card-content">
-              <h3>{{ post.title }}</h3>
+            <div class="overlay">
+              <h3 class="title">{{ post.title }}</h3>
               <p class="meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}</p>
-              {% if post.excerpt %}
-                <p style="color: #64748b; font-size: 15px; line-height: 1.6;">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-              {% endif %}
             </div>
           </a>
         {% endfor %}
