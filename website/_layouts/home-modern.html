@@ -950,51 +950,7 @@
       100% { transform: translateY(0) rotate(360deg); opacity: 0.15; }
     }
 
-    /* ── Neural Network Animation ── */
-    .neural-section {
-      padding: 80px 24px;
-      background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-    .neural-section .section-title { color: #ffffff; }
-    .neural-section .section-title::after { background: linear-gradient(90deg, #a78bfa, #ec4899, #60a5fa); }
-    .neural-section .section-description { color: #94a3b8; }
-    .neural-section .section-badge {
-      background: rgba(167, 139, 250, 0.15);
-      color: #c4b5fd;
-      border-color: rgba(167, 139, 250, 0.2);
-    }
-    .neural-canvas-wrap {
-      max-width: 800px;
-      margin: 0 auto;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 0 40px rgba(167, 139, 250, 0.1);
-      position: relative;
-    }
-    #neuralCanvas {
-      display: block;
-      width: 100%;
-      height: auto;
-      background: radial-gradient(ellipse at center, #1e1b4b 0%, #0f172a 100%);
-    }
-    .neural-overlay-text {
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
-      padding: 8px 20px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.06);
-      white-space: nowrap;
-    }
+    /* ── (neural section removed) ── */
 
     /* ── Hero split layout ── */
     .hero-split {
@@ -1132,7 +1088,9 @@
       
       .features-section,
       .products-section,
-      .testimonials-section,
+      .showcase-section,
+      .process-section,
+      .booking-section,
       .cta-section {
         padding: 48px 16px;
       }
@@ -1155,7 +1113,8 @@
       }
       
       .features-grid,
-      .products-grid {
+      .products-grid,
+      .showcase-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
@@ -1244,6 +1203,8 @@
     .showcase-card:nth-child(1)::before { background: linear-gradient(90deg, #a78bfa, #ec4899); }
     .showcase-card:nth-child(2)::before { background: linear-gradient(90deg, #60a5fa, #a78bfa); }
     .showcase-card:nth-child(3)::before { background: linear-gradient(90deg, #34d399, #10b981); }
+    .showcase-card:nth-child(4)::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .showcase-card:nth-child(5)::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
     .showcase-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 24px 56px rgba(0, 0, 0, 0.1);
@@ -1262,6 +1223,8 @@
       border-radius: 12px;
       position: relative;
       overflow: hidden;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
     }
     .showcase-visual svg {
       width: 100%;
@@ -1294,6 +1257,8 @@
     .showcase-card:nth-child(1) .showcase-tag { background: #f5f3ff; color: #7c3aed; }
     .showcase-card:nth-child(2) .showcase-tag { background: #dbeafe; color: #1d4ed8; }
     .showcase-card:nth-child(3) .showcase-tag { background: #d1fae5; color: #059669; }
+    .showcase-card:nth-child(4) .showcase-tag { background: #fef3c7; color: #d97706; }
+    .showcase-card:nth-child(5) .showcase-tag { background: #f5f3ff; color: #6d28d9; }
     .showcase-visual-bg {
       position: absolute;
       inset: 0;
@@ -1302,10 +1267,10 @@
     .showcase-card:nth-child(1) .showcase-visual-bg { background: linear-gradient(135deg, #a78bfa, #ec4899); }
     .showcase-card:nth-child(2) .showcase-visual-bg { background: linear-gradient(135deg, #60a5fa, #a78bfa); }
     .showcase-card:nth-child(3) .showcase-visual-bg { background: linear-gradient(135deg, #34d399, #10b981); }
-    .showcase-visual {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
+    .showcase-card:nth-child(4) .showcase-visual-bg { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+    .showcase-card:nth-child(5) .showcase-visual-bg { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+    .showcase-card:nth-child(4) .showcase-visual { background: #fffbeb; border-color: #fde68a; }
+    .showcase-card:nth-child(5) .showcase-visual { background: #f5f3ff; border-color: #ddd6fe; }
     @media (max-width: 1024px) {
       .showcase-grid { grid-template-columns: repeat(3, 1fr); }
     }
@@ -1720,6 +1685,7 @@
           </div>
           <h3 class="showcase-title">Souldoc</h3>
           <p class="showcase-desc">Clinic management platform — appointment booking, e-prescriptions, patient records, and HIPAA-ready security for modern healthcare.</p>
+          <a href="/souldoc/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#7c3aed;text-decoration:none;">Learn More →</a>
         </div>
 
         <!-- Card 2: Texa ERP -->
@@ -1774,6 +1740,7 @@
           </div>
           <h3 class="showcase-title">Texa</h3>
           <p class="showcase-desc">Apparel manufacturing ERP — order management, inventory tracking, production planning, supplier coordination, and quality control end to end.</p>
+          <a href="/texa/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#1d4ed8;text-decoration:none;">Learn More →</a>
         </div>
 
         <!-- Card 3: SoulsHS -->
@@ -1812,6 +1779,7 @@
           </div>
           <h3 class="showcase-title">SoulsHS</h3>
           <p class="showcase-desc">Health, Safety &amp; Environment platform — digitising compliance tracking, incident reporting, risk assessments, and safety audits.</p>
+          <a href="/product-stack/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#059669;text-decoration:none;">Learn More →</a>
         </div>
 
         <!-- Card 4: Bookly -->
@@ -1855,6 +1823,7 @@
           </div>
           <h3 class="showcase-title">Bookly</h3>
           <p class="showcase-desc">Universal scheduling platform — clinics, salons, gyms, studios, and consultants. Automated reminders, real-time availability, and seamless booking.</p>
+          <a href="/bookly/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#d97706;text-decoration:none;">Learn More →</a>
         </div>
 
         <!-- Card 5: Data & AI Consulting -->
@@ -1906,6 +1875,7 @@
           </div>
           <h3 class="showcase-title">Data &amp; AI Consulting</h3>
           <p class="showcase-desc">Expert guidance on AI integration, data infrastructure, cloud migration, and digital transformation. We help you leverage data where it matters most.</p>
+          <a href="/consulting/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#6d28d9;text-decoration:none;">Learn More →</a>
         </div>
       </div>
     </div>
@@ -2026,26 +1996,7 @@
     </div>
   </section>
 
-  <!-- Neural Network Animation Section -->
-  <section class="neural-section" id="ai-in-action">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="section-badge">AI in Action</span>
-        <h2 class="section-title">Neural intelligence at work</h2>
-        <p class="section-description">
-          Our AI engine processes millions of data points in real-time — powering intelligent decisions across every product.
-        </p>
-      </div>
-      <div class="neural-canvas-wrap reveal-scale">
-        <canvas id="neuralCanvas" width="800" height="400"></canvas>
-        <div class="neural-overlay-text">
-          <span>⚡ Live neural processing · </span>
-          <span id="neuralStat">2.4M</span>
-          <span> connections active</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- (neural section removed) -->
 
   <!-- Products Section -->
   <section class="products-section" id="products" style="position: relative; overflow: hidden;">
@@ -2506,127 +2457,7 @@
       });
     })();
 
-    // ============================================================
-    // 9. Neural Network Animation
-    // ============================================================
-    (function initNeuralNetwork() {
-      const canvas = document.getElementById('neuralCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const W = 800, H = 400;
-      canvas.width = W; canvas.height = H;
-      
-      // Create nodes in layers
-      const layers = [4, 6, 8, 6, 4];
-      const nodes = [];
-      const layerGap = W / (layers.length + 1);
-      
-      layers.forEach((count, li) => {
-        const x = layerGap * (li + 1);
-        const nodeGap = H / (count + 1);
-        for (let ni = 0; ni < count; ni++) {
-          nodes.push({
-            x: x + (Math.random() - 0.5) * 12,
-            y: nodeGap * (ni + 1) + (Math.random() - 0.5) * 12,
-            vx: (Math.random() - 0.5) * 0.2,
-            vy: (Math.random() - 0.5) * 0.2,
-            radius: 4 + Math.random() * 3,
-            layer: li,
-            hue: 220 + li * 30,
-            pulse: Math.random() * Math.PI * 2
-          });
-        }
-      });
-      
-      let time = 0;
-      const colors = ['#f472b6', '#a78bfa', '#60a5fa', '#34d399', '#fbbf24'];
-      
-      function drawNeural() {
-        ctx.clearRect(0, 0, W, H);
-        time += 0.02;
-        
-        // Draw connections (signals)
-        for (let a = 0; a < nodes.length; a++) {
-          for (let b = a + 1; b < nodes.length; b++) {
-            if (Math.abs(nodes[a].layer - nodes[b].layer) !== 1) continue;
-            const dx = nodes[a].x - nodes[b].x;
-            const dy = nodes[a].y - nodes[b].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist > 200) continue;
-            const opacity = (1 - dist / 200) * 0.3;
-            const color = colors[nodes[a].layer % colors.length];
-            ctx.beginPath();
-            ctx.moveTo(nodes[a].x, nodes[a].y);
-            ctx.lineTo(nodes[b].x, nodes[b].y);
-            ctx.strokeStyle = color;
-            ctx.globalAlpha = opacity;
-            ctx.lineWidth = 1.2;
-            ctx.stroke();
-            
-            // Animated signal pulse
-            const pulsePos = (time + a * 0.1) % 1;
-            if (pulsePos < 0.3) {
-              const px = nodes[a].x + (nodes[b].x - nodes[a].x) * (pulsePos / 0.3);
-              const py = nodes[a].y + (nodes[b].y - nodes[a].y) * (pulsePos / 0.3);
-              ctx.beginPath();
-              ctx.arc(px, py, 3, 0, Math.PI * 2);
-              ctx.fillStyle = color;
-              ctx.globalAlpha = 0.8;
-              ctx.fill();
-            }
-          }
-        }
-        ctx.globalAlpha = 1;
-        
-        // Draw nodes
-        nodes.forEach(n => {
-          // Gentle floating motion
-          n.x += n.vx;
-          n.y += n.vy;
-          if (n.x < 20 || n.x > W - 20) n.vx *= -1;
-          if (n.y < 20 || n.y > H - 20) n.vy *= -1;
-          
-          // Glow
-          const gradient = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.radius * 4);
-          gradient.addColorStop(0, colors[n.layer % colors.length] + '40');
-          gradient.addColorStop(1, colors[n.layer % colors.length] + '00');
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.radius * 4, 0, Math.PI * 2);
-          ctx.fillStyle = gradient;
-          ctx.fill();
-          
-          // Node circle
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-          ctx.fillStyle = colors[n.layer % colors.length];
-          ctx.globalAlpha = 0.7 + 0.3 * Math.sin(time + n.pulse);
-          ctx.fill();
-          ctx.globalAlpha = 1;
-          
-          // Inner bright core
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.radius * 0.4, 0, Math.PI * 2);
-          ctx.fillStyle = '#ffffff';
-          ctx.globalAlpha = 0.7;
-          ctx.fill();
-          ctx.globalAlpha = 1;
-        });
-        
-        requestAnimationFrame(drawNeural);
-      }
-      
-      drawNeural();
-      
-      // Animate the stat counter
-      const statEl = document.getElementById('neuralStat');
-      if (statEl) {
-        let val = 1.2;
-        setInterval(() => {
-          val += Math.random() * 0.3;
-          statEl.textContent = val.toFixed(1) + 'M';
-        }, 3000);
-      }
-    })();
+    // (neural network animation removed)
   </script>
 </body>
 </html>
