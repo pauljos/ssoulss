@@ -405,7 +405,7 @@ permalink: /product-stack/
         <span class="tag-modern">Real-time</span>
       </div>
       <div class="cta-group">
-        <a href="/souldoc/" class="btn-premium primary">Learn More <span>→</span></a>
+        <a href="/soulshs/" class="btn-premium primary">Learn More <span>→</span></a>
         <a href="https://soulshs-web.onrender.com/dashboard" target="_blank" class="btn-premium secondary">Open Dashboard <span>↗</span></a>
       </div>
     </div>
