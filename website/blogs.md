@@ -2,6 +2,7 @@
 layout: page-modern
 title: Blog
 permalink: /blogs/
+published: false
 ---
 
 <!-- Page Hero -->
