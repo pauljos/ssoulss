@@ -34,9 +34,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781823938">
-  <!-- Bookly Widget Script -->
-  <script src="https://bookly-widget.onrender.com/widget.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781824327">
+  <!-- Bookly Widget Script loaded lazily below -->
   <style>
     /* ============================================================
        Modern Premium Design System — Advanced Effects
@@ -1492,9 +1491,81 @@
         padding: 16px;
       }
     }
+    /* ── Skeleton Loading Screen ── */
+    #skeleton-loader {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 99999;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #skeleton-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .skeleton-logo {
+      width: 56px; height: 56px;
+      background: #0f172a;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+      animation: skeletonPulse 1.5s ease-in-out infinite;
+    }
+    .skeleton-logo img { width: 36px; height: 36px; }
+    .skeleton-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 200px;
+    }
+    .skeleton-bar {
+      height: 12px;
+      border-radius: 6px;
+      background: #e2e8f0;
+      overflow: hidden;
+      position: relative;
+    }
+    .skeleton-bar::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -40%;
+      width: 40%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+      animation: skeletonShimmer 1.5s ease-in-out infinite;
+    }
+    .skeleton-bar:nth-child(2) { width: 160px; }
+    .skeleton-bar:nth-child(3) { width: 140px; }
+    .skeleton-bar:nth-child(2)::after { animation-delay: 0.2s; }
+    .skeleton-bar:nth-child(3)::after { animation-delay: 0.4s; }
+    @keyframes skeletonPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.97); }
+    }
+    @keyframes skeletonShimmer {
+      0% { left: -40%; }
+      100% { left: 140%; }
+    }
   </style>
 </head>
 <body>
+  <!-- Skeleton Loading Screen -->
+  <div id="skeleton-loader">
+    <div class="skeleton-logo">
+      <img src="/assets/images/emblem-ssoulss-refined-white.svg" alt="SSoulSS">
+    </div>
+    <div class="skeleton-bars">
+      <div class="skeleton-bar"></div>
+      <div class="skeleton-bar"></div>
+      <div class="skeleton-bar"></div>
+    </div>
+  </div>
   <!-- Header -->
   <header class="modern-header">
     <nav class="modern-nav">
@@ -2089,19 +2160,31 @@
         <h2 class="section-title">Book time with our team</h2>
         <p class="section-description">Pick a slot and we'll walk you through how we can help build or scale your product.</p>
       </div>
-      <div class="booking-widget-container reveal-scale" style="background: white;">
-        <!-- Bookly Widget -->
-        <script src="https://bookly-widget.onrender.com/widget.js"></script>
-        <bookly-widget
-          provider-id="9350f8bb-b801-42c1-a42c-a1478694250d"
-          api-url="https://bookly-api-3c6i.onrender.com"
-          width="100%"
-          height="600px"
-          primary-color="#3B82F6"
-          border-radius="8px"
-          hide-chat="true"
-        ></bookly-widget>
+      <div class="booking-widget-container reveal-scale" style="background: white; min-height: 200px;">
+        <!-- Placeholder shown while widget loads -->
+        <div id="booking-placeholder" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;gap:16px;">
+          <div style="width:48px;height:48px;border:3px solid #e2e8f0;border-top-color:#2563eb;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+          <div style="width:180px;height:12px;background:#e2e8f0;border-radius:6px;overflow:hidden;position:relative;">
+            <div style="position:absolute;top:0;left:-40%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);animation:skeletonShimmer 1.5s ease-in-out infinite;"></div>
+          </div>
+          <p style="font-size:14px;color:#94a3b8;margin:0;">Loading booking widget…</p>
+        </div>
+        <!-- Widget container (hidden until loaded) -->
+        <div id="booking-widget-target" style="display:none;">
+          <bookly-widget
+            provider-id="9350f8bb-b801-42c1-a42c-a1478694250d"
+            api-url="https://bookly-api-3c6i.onrender.com"
+            width="100%"
+            height="600px"
+            primary-color="#3B82F6"
+            border-radius="8px"
+            hide-chat="true"
+          ></bookly-widget>
+        </div>
       </div>
+      <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+      </style>
     </div>
   </section>
 
@@ -2270,6 +2353,29 @@
 
   <script>
     // ============================================================
+    // 0. Skeleton Loader — hide when ready
+    // ============================================================
+    (function hideSkeleton() {
+      var skeleton = document.getElementById('skeleton-loader');
+      if (!skeleton) return;
+      // Wait for fonts, images, and a minimal delay
+      var minShow = 400; // show skeleton at least 400ms
+      var start = Date.now();
+      function done() {
+        var elapsed = Date.now() - start;
+        var delay = Math.max(0, minShow - elapsed);
+        setTimeout(function() { skeleton.classList.add('hidden'); }, delay);
+      }
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(done);
+      } else {
+        window.addEventListener('load', done);
+      }
+      // Fallback: hide after 2s max
+      setTimeout(function() { skeleton.classList.add('hidden'); }, 2000);
+    })();
+
+    // ============================================================
     // 1. Mobile Menu
     // ============================================================
     function toggleMobileMenu() {
@@ -2393,9 +2499,9 @@
     })();
     
     // ============================================================
-    // 7. Particle Network Canvas (Hero Background)
+    // 7. Particle Network Canvas (Hero Background) — deferred
     // ============================================================
-    (function initParticleNetwork() {
+    function initParticleNetwork() {
       const canvas = document.getElementById('particle-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -2491,12 +2597,18 @@
         mouse.y = e.clientY - rect.top;
       });
       canvas.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
-    })();
+    }
+    // Defer particle network — start after fonts and initial render
+    if (window.requestIdleCallback) {
+      requestIdleCallback(initParticleNetwork, { timeout: 1500 });
+    } else {
+      setTimeout(initParticleNetwork, 800);
+    }
     
     // ============================================================
-    // 8. Tilt Effect on Cards
+    // 8. Tilt Effect on Cards (deferred)
     // ============================================================
-    (function initTilt() {
+    function initTilt() {
       document.querySelectorAll('.tilt-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
           const rect = card.getBoundingClientRect();
@@ -2512,9 +2624,54 @@
           card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
         });
       });
-    })();
+    }
+    // Defer tilt — start after fonts and initial render
+    if (window.requestIdleCallback) {
+      requestIdleCallback(initTilt, { timeout: 2000 });
+    } else {
+      setTimeout(initTilt, 1200);
+    }
 
-    // (neural network animation removed)
+    // ============================================================
+    // 9. Lazy Load Bookly Widget
+    // ============================================================
+    (function lazyLoadBooking() {
+      var target = document.getElementById('booking-widget-target');
+      var placeholder = document.getElementById('booking-placeholder');
+      if (!target) return;
+      
+      function loadWidget() {
+        if (target.dataset.loaded) return;
+        target.dataset.loaded = '1';
+        // Load the Bookly script dynamically
+        var script = document.createElement('script');
+        script.src = 'https://bookly-widget.onrender.com/widget.js';
+        script.onload = function() {
+          // Show widget, hide placeholder
+          target.style.display = '';
+          if (placeholder) placeholder.style.display = 'none';
+        };
+        document.body.appendChild(script);
+      }
+      
+      // Use Intersection Observer to load when section is near viewport
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) {
+            loadWidget();
+            observer.disconnect();
+          }
+        }, { rootMargin: '200px' }); // start loading 200px before visible
+        observer.observe(target);
+      } else {
+        // Fallback: load after page has been idle for a while
+        if (window.requestIdleCallback) {
+          requestIdleCallback(loadWidget, { timeout: 3000 });
+        } else {
+          setTimeout(loadWidget, 2000);
+        }
+      }
+    })();
   </script>
 </body>
 </html>
