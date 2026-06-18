@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781824327">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781824571">
   <!-- Bookly Widget Script loaded lazily below -->
   <style>
     /* ============================================================
@@ -2638,38 +2638,55 @@
     (function lazyLoadBooking() {
       var target = document.getElementById('booking-widget-target');
       var placeholder = document.getElementById('booking-placeholder');
-      if (!target) return;
+      var container = document.querySelector('.booking-widget-container');
+      if (!target || !placeholder) return;
       
+      var loaded = false;
       function loadWidget() {
-        if (target.dataset.loaded) return;
-        target.dataset.loaded = '1';
+        if (loaded) return;
+        loaded = true;
         // Load the Bookly script dynamically
         var script = document.createElement('script');
         script.src = 'https://bookly-widget.onrender.com/widget.js';
         script.onload = function() {
-          // Show widget, hide placeholder
-          target.style.display = '';
-          if (placeholder) placeholder.style.display = 'none';
+          // Custom element needs a moment to upgrade
+          var retry = 0;
+          function showWidget() {
+            // Check if the custom element is defined/upgraded
+            var widget = target.querySelector('bookly-widget');
+            if (widget && (customElements.get('bookly-widget') || retry > 20)) {
+              // Show widget, hide placeholder
+              target.style.display = '';
+              placeholder.style.display = 'none';
+            } else {
+              retry++;
+              setTimeout(showWidget, 100);
+            }
+          }
+          showWidget();
+        };
+        script.onerror = function() {
+          placeholder.innerHTML = '<p style="color:#ef4444;font-size:14px;">Could not load booking widget. <a href="/contact/" style="color:#2563eb;">Contact us directly →</a></p>';
         };
         document.body.appendChild(script);
       }
       
-      // Use Intersection Observer to load when section is near viewport
+      // Observe the placeholder (visible) instead of hidden target
       if ('IntersectionObserver' in window) {
         var observer = new IntersectionObserver(function(entries) {
           if (entries[0].isIntersecting) {
             loadWidget();
             observer.disconnect();
           }
-        }, { rootMargin: '200px' }); // start loading 200px before visible
-        observer.observe(target);
+        }, { rootMargin: '200px' });
+        observer.observe(placeholder);
+      }
+      
+      // Fallback: load after main content settles regardless of scroll
+      if (window.requestIdleCallback) {
+        requestIdleCallback(loadWidget, { timeout: 4000 });
       } else {
-        // Fallback: load after page has been idle for a while
-        if (window.requestIdleCallback) {
-          requestIdleCallback(loadWidget, { timeout: 3000 });
-        } else {
-          setTimeout(loadWidget, 2000);
-        }
+        setTimeout(loadWidget, 3000);
       }
     })();
   </script>
