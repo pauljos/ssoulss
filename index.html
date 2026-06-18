@@ -34,11 +34,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781819690">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781820248">
   <!-- Bookly Widget Script -->
   <script src="https://bookly-widget.onrender.com/widget.js" defer></script>
   <style>
-    /* Modern Sauce Labs-inspired design */
+    /* ============================================================
+       Modern Premium Design System — Advanced Effects
+       ============================================================ */
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
     * {
       box-sizing: border-box;
     }
@@ -50,6 +58,251 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
+    }
+    
+    /* ── Scroll-triggered reveal animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* Stagger children */
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .stagger-children.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.15s; }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.25s; }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.35s; }
+    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.45s; }
+    .stagger-children.visible > *:nth-child(6) { transition-delay: 0.55s; }
+    
+    /* ── Floating shapes for hero ── */
+    .floating-shapes {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      will-change: transform;
+    }
+    .floating-shape-1 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #60a5fa, transparent);
+      top: -10%;
+      right: -5%;
+      animation: floatA 12s ease-in-out infinite;
+    }
+    .floating-shape-2 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, #a78bfa, transparent);
+      bottom: -5%;
+      left: 10%;
+      animation: floatB 15s ease-in-out infinite;
+    }
+    .floating-shape-3 {
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #ec4899, transparent);
+      top: 40%;
+      left: -3%;
+      animation: floatC 10s ease-in-out infinite;
+    }
+    .floating-shape-4 {
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #f59e0b, transparent);
+      bottom: 20%;
+      right: 15%;
+      animation: floatA 18s ease-in-out infinite reverse;
+    }
+    @keyframes floatA {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -40px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+    @keyframes floatB {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-40px, -30px) scale(1.08); }
+    }
+    @keyframes floatC {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(25px, -25px); }
+      75% { transform: translate(-15px, 15px); }
+    }
+    
+    /* ── Particle canvas overlay ── */
+    #particle-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-modern .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* ── Gradient text shimmer ── */
+    .gradient-shimmer {
+      background: linear-gradient(
+        135deg,
+        #60a5fa 0%,
+        #a78bfa 25%,
+        #ec4899 50%,
+        #a78bfa 75%,
+        #60a5fa 100%
+      );
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 6s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    /* ── Glassmorphism base ── */
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .glass-dark {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* ── Tilt hover cards ── */
+    .tilt-card {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.4s ease;
+      will-change: transform;
+    }
+    .tilt-card:hover {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* ── Shimmer shine effect for product cards ── */
+    .shine-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+      );
+      transform: rotate(25deg);
+      animation: shine 6s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0%, 100% { left: -60%; }
+      50% { left: 120%; }
+    }
+    
+    /* ── Marquee / logo cloud ── */
+    .marquee-track {
+      display: flex;
+      gap: 64px;
+      animation: marqueeScroll 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-wrap {
+      overflow: hidden;
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+      );
+    }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    /* ── Loading bar at top on navigation ── */
+    .nav-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa, #ec4899);
+      transition: width 0.4s ease;
+      width: 0;
     }
     
     /* Header/Navigation */
@@ -307,13 +560,6 @@
       margin: 0 0 24px 0;
       line-height: 1.1;
       letter-spacing: -1px;
-    }
-    
-    .hero-title .gradient-text {
-      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #ec4899 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
     
     .hero-description {
@@ -886,9 +1132,9 @@
         <a href="/" class="logo-text">SSoulSS</a>
       </div>
       <div class="nav-links">
-        <a href="/product-stack/">Products</a>
-        <a href="/consulting/">Consulting</a>
-        <a href="/about/">About</a>
+        <a href="/product-stack/" class="nav-link">Products</a>
+        <a href="/consulting/" class="nav-link">Consulting</a>
+        <a href="/about/" class="nav-link">About</a>
       </div>
       <div class="nav-cta">
         <a href="/contact/" class="btn-modern btn-secondary-modern">Contact</a>
@@ -896,6 +1142,7 @@
       </div>
       <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
     </nav>
+    <div class="nav-progress" id="navProgress" style="position: absolute; bottom: -1px; left: 0; height: 2px; background: linear-gradient(90deg, #60a5fa, #a78bfa, #ec4899); width: 0; transition: width 0.1s linear;"></div>
   </header>
 
   <!-- Mobile Menu Overlay -->
@@ -925,23 +1172,34 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="hero-modern">
+  <section class="hero-modern" id="hero">
+    <!-- Floating background shapes -->
+    <div class="floating-shapes">
+      <div class="floating-shape floating-shape-1"></div>
+      <div class="floating-shape floating-shape-2"></div>
+      <div class="floating-shape floating-shape-3"></div>
+      <div class="floating-shape floating-shape-4"></div>
+    </div>
+    <!-- Particle network canvas -->
+    <canvas id="particle-canvas"></canvas>
     <div class="hero-content">
-      <div class="hero-badge">
+      <div class="hero-badge reveal" style="transition-delay: 0.1s;">
         <span class="badge-dot"></span>
         <span>Trusted by ambitious organizations</span>
       </div>
-      <h1 class="hero-title">
-        Build products users love with <span class="gradient-text">AI-driven engineering</span>
+      <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+        Build products users love with <span class="gradient-shimmer">AI-driven engineering</span>
       </h1>
-      <p class="hero-description">
+      <p class="hero-description reveal" style="transition-delay: 0.3s;">
         Enterprise-ready solutions that respect privacy. Transform your ideas into scalable, intelligent applications with expert engineering and cutting-edge AI.
       </p>
-      <div class="hero-buttons">
+      <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
         <a href="/request-demo/" class="btn-hero btn-hero-primary">
-          Get Started →
+          <span>Get Started</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           Explore Products
         </a>
       </div>
@@ -950,43 +1208,42 @@
 
 
   <!-- Stats Bar -->
-  <section class="stats-bar">
+  <section class="stats-bar reveal">
     <div class="stats-container">
-      <div class="stat-item">
-        <span class="stat-number">3+</span>
+      <div class="stat-item counter-item">
+        <span class="stat-number"><span class="counter" data-target="3">0</span>+</span>
         <span class="stat-label">Products in Production</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-number">50+</span>
+      <div class="stat-item counter-item">
+        <span class="stat-number"><span class="counter" data-target="50">0</span>+</span>
         <span class="stat-label">Clients Served</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-number">99.9%</span>
+      <div class="stat-item counter-item">
+        <span class="stat-number"><span class="counter" data-target="99.9">0</span>%</span>
         <span class="stat-label">Uptime SLA</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-number">5+</span>
+      <div class="stat-item counter-item">
+        <span class="stat-number"><span class="counter" data-target="5">0</span>+</span>
         <span class="stat-label">Countries Reached</span>
       </div>
     </div>
   </section>
 
   <!-- Features Section -->
-  <section class="features-section">
+  <section class="features-section" id="features">
     <div class="section-container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-badge">Why Choose Us</span>
         <h2 class="section-title">Everything you need to succeed</h2>
         <p class="section-description">
           Comprehensive solutions designed for modern businesses. From products to consulting, we've got you covered.
         </p>
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <circle cx="12" cy="12" r="10" fill="#DBEAFE" stroke="#3B82F6"/>
-              <polyline points="12 6 12 12 16 14" stroke="#3B82F6"/>
+      <div class="features-grid stagger-children">
+        <div class="feature-card tilt-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
           <h3 class="feature-title">Enterprise Products</h3>
@@ -994,11 +1251,10 @@
             Production-ready applications built with cutting-edge technology stacks. Scale from startup to enterprise.
           </p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <circle cx="12" cy="12" r="10" fill="#DCFCE7" stroke="#10B981"/>
-              <path d="m9 12 2 2 4-4" stroke="#10B981" stroke-width="2.5"/>
+        <div class="feature-card tilt-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #d1fae5 0%, #6ee7b7 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/>
             </svg>
           </div>
           <h3 class="feature-title">Expert Consulting</h3>
@@ -1006,10 +1262,10 @@
             Strategic guidance from experienced engineers. Architecture, migration, and digital transformation services.
           </p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="#FED7AA" stroke="#F97316"/>
+        <div class="feature-card tilt-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
             </svg>
           </div>
           <h3 class="feature-title">Custom Engineering</h3>
@@ -1017,11 +1273,10 @@
             Bespoke solutions tailored to your unique requirements. From MVPs to full-scale enterprise applications.
           </p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" fill="#DCFCE7" stroke="#10B981"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#10B981"/>
+        <div class="feature-card tilt-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
             </svg>
           </div>
           <h3 class="feature-title">Security First</h3>
@@ -1029,10 +1284,10 @@
             Enterprise-grade security and compliance. HIPAA-ready, SOC 2 compliant, and regular security audits.
           </p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="#FEF08A" stroke="#EAB308"/>
+        <div class="feature-card tilt-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
             </svg>
           </div>
           <h3 class="feature-title">High Performance</h3>
@@ -1040,11 +1295,10 @@
             Optimized for speed and reliability. 99.9% uptime SLA with global CDN and distributed architecture.
           </p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <path d="M21.21 15.89A10 10 0 1 1 8 2.83" stroke="#6366F1" fill="none"/>
-              <path d="M22 12A10 10 0 0 0 12 2v10z" fill="#C7D2FE" stroke="#6366F1"/>
+        <div class="feature-card tilt-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>
             </svg>
           </div>
           <h3 class="feature-title">Seamless Integration</h3>
@@ -1057,17 +1311,17 @@
   </section>
 
   <!-- Products Section -->
-  <section class="products-section">
+  <section class="products-section" id="products">
     <div class="section-container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-badge">Products</span>
         <h2 class="section-title">Ready-to-use solutions</h2>
         <p class="section-description">
           Production-ready applications that solve real business problems. Deploy in minutes, scale to millions.
         </p>
       </div>
-      <div class="products-grid">
-        <div class="product-card souldoc">
+      <div class="products-grid stagger-children">
+        <div class="product-card souldoc shine-card tilt-card">
           <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.25);">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
@@ -1077,7 +1331,7 @@
           <p>Healthcare workflow platform with appointment booking, electronic prescriptions, and patient management. HIPAA-ready with enterprise security.</p>
           <a href="/souldoc/" class="btn-product">Learn More →</a>
         </div>
-        <div class="product-card" style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);">
+        <div class="product-card shine-card tilt-card" style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);">
           <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.25);">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2">
               <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
@@ -1089,7 +1343,7 @@
           <p>Apparel manufacturing ERP covering order management, inventory, production planning, supplier coordination, and quality control — end to end.</p>
           <a href="/texa/" class="btn-product">Learn More →</a>
         </div>
-        <div class="product-card" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+        <div class="product-card shine-card tilt-card" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
           <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.25);">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2">
               <rect x="3" y="4" width="18" height="18" rx="2" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
@@ -1103,8 +1357,18 @@
           <p>Universal booking and scheduling platform for any industry — clinics, salons, gyms, studios, consultants, and more. Automated reminders and real-time availability.</p>
           <a href="/bookly/" class="btn-product">Learn More →</a>
         </div>
+        <div class="product-card shine-card tilt-card" style="background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);">
+          <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.25);">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
+            </svg>
+          </div>
+          <h3>SoulsHS</h3>
+          <p>Health, Safety &amp; Environment (HSE) platform — digitizing compliance tracking, incident reporting, risk assessments, and safety audits for modern workplaces.</p>
+          <a href="/product-stack/" class="btn-product">Learn More →</a>
+        </div>
       </div>
-      <div style="text-align: center; margin-top: 48px;">
+      <div class="reveal" style="text-align: center; margin-top: 48px;">
         <a href="/product-stack/" class="btn-modern btn-secondary-modern" style="padding: 12px 28px; font-size: 15px;">View all products →</a>
         <a href="/consulting/" class="btn-modern btn-primary-modern" style="padding: 12px 28px; font-size: 15px; margin-left: 12px;">Custom solutions</a>
       </div>
@@ -1114,12 +1378,12 @@
   <!-- Booking Section -->
   <section class="booking-section" id="book-now">
     <div class="section-container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-badge">Free Consultation</span>
         <h2 class="section-title">Book time with our team</h2>
         <p class="section-description">Pick a slot and we'll walk you through how we can help build or scale your product.</p>
       </div>
-      <div class="booking-widget-container" style="background: white;">
+      <div class="booking-widget-container reveal-scale" style="background: white;">
         <!-- Bookly Widget -->
         <script src="https://bookly-widget.onrender.com/widget.js"></script>
         <bookly-widget
@@ -1136,19 +1400,20 @@
   </section>
 
   <!-- Testimonials Section -->
-  <section class="testimonials-section">
+  <section class="testimonials-section" id="testimonials">
     <div class="section-container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-badge" style="background: rgba(255, 255, 255, 0.1); color: #ffffff;">Testimonials</span>
         <h2 class="section-title">Trusted by industry leaders</h2>
         <p class="section-description">
           See what our clients say about working with us.
         </p>
       </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
+      <div class="testimonials-grid stagger-children">
+        <div class="testimonial-card tilt-card">
+          <div style="font-size: 32px; margin-bottom: 16px; line-height: 1; opacity: 0.3;">"</div>
           <p class="testimonial-text">
-            "Working with ssoulss transformed our healthcare practice. Souldoc streamlined our entire workflow and improved patient satisfaction significantly."
+            Working with ssoulss transformed our healthcare practice. Souldoc streamlined our entire workflow and improved patient satisfaction significantly.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">DK</div>
@@ -1158,9 +1423,10 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card tilt-card">
+          <div style="font-size: 32px; margin-bottom: 16px; line-height: 1; opacity: 0.3;">"</div>
           <p class="testimonial-text">
-            "Their consulting services helped us migrate our legacy systems to the cloud with zero downtime. The expertise and professionalism were outstanding."
+            Their consulting services helped us migrate our legacy systems to the cloud with zero downtime. The expertise and professionalism were outstanding.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">SP</div>
@@ -1170,9 +1436,10 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card tilt-card">
+          <div style="font-size: 32px; margin-bottom: 16px; line-height: 1; opacity: 0.3;">"</div>
           <p class="testimonial-text">
-            "The custom solution they built for us exceeded all expectations. Delivered on time, within budget, and with exceptional quality."
+            The custom solution they built for us exceeded all expectations. Delivered on time, within budget, and with exceptional quality.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">MR</div>
@@ -1187,8 +1454,8 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="cta-content">
+  <section class="cta-section" id="cta">
+    <div class="cta-content reveal">
       <h2 class="cta-title">Ready to get started?</h2>
       <p class="cta-description">
         Join ambitious organizations building the future. Start your journey today with our products and expertise.
@@ -1200,6 +1467,21 @@
     </div>
   </section>
 
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to top" style="
+    position: fixed; bottom: 32px; right: 32px; z-index: 999;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: #0f172a; color: white; border: none;
+    cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    opacity: 0; visibility: hidden; transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+    display: flex; align-items: center; justify-content: center;
+  ">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
   <!-- Footer -->
   <footer class="modern-footer">
   <div class="footer-container">
@@ -1208,6 +1490,8 @@
       <ul>
         <li><a href="/souldoc/">Souldoc</a></li>
         <li><a href="/texa/">Texa</a></li>
+        <li><a href="/product-stack/">SoulsHS</a></li>
+        <li><a href="/bookly/">Bookly</a></li>
         <li><a href="/product-stack/">All Products</a></li>
         <li><a href="/request-demo/">Request Demo</a></li>
       </ul>
@@ -1244,6 +1528,9 @@
 
 
   <script>
+    // ============================================================
+    // 1. Mobile Menu
+    // ============================================================
     function toggleMobileMenu() {
       document.querySelector('.mobile-menu').classList.add('active');
       document.querySelector('.mobile-overlay').classList.add('active');
@@ -1256,10 +1543,235 @@
       document.body.style.overflow = '';
     }
     
-    // Close menu when clicking a link
     document.querySelectorAll('.mobile-menu-links a').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
     });
+    
+    // ============================================================
+    // 2. Active Nav Link
+    // ============================================================
+    (function setActiveNav() {
+      const path = window.location.pathname;
+      document.querySelectorAll('.nav-link').forEach(a => {
+        if (a.getAttribute('href') === path) {
+          a.style.color = '#0f172a';
+          a.style.fontWeight = '600';
+        }
+      });
+    })();
+    
+    // ============================================================
+    // 3. Scroll Progress Bar
+    // ============================================================
+    (function initScrollProgress() {
+      const bar = document.getElementById('navProgress');
+      if (!bar) return;
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = progress + '%';
+      });
+    })();
+    
+    // ============================================================
+    // 4. Back to Top Button
+    // ============================================================
+    (function initBackToTop() {
+      const btn = document.getElementById('backToTop');
+      if (!btn) return;
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+          btn.style.opacity = '1';
+          btn.style.visibility = 'visible';
+          btn.style.transform = 'translateY(0)';
+        } else {
+          btn.style.opacity = '0';
+          btn.style.visibility = 'hidden';
+          btn.style.transform = 'translateY(20px)';
+        }
+      });
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+    
+    // ============================================================
+    // 5. Intersection Observer — Scroll Reveal
+    // ============================================================
+    (function initRevealAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            if (entry.target.classList.contains('stagger-children')) {
+              entry.target.classList.add('visible');
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children').forEach(el => {
+        observer.observe(el);
+      });
+    })();
+    
+    // ============================================================
+    // 6. Counter Animation
+    // ============================================================
+    (function initCounters() {
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseFloat(el.dataset.target);
+            const duration = 1800;
+            const startTime = performance.now();
+            const isFloat = target % 1 !== 0;
+            
+            function animate(time) {
+              const elapsed = time - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const current = eased * target;
+              el.textContent = isFloat ? current.toFixed(1) : Math.floor(current);
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              } else {
+                el.textContent = isFloat ? target.toFixed(1) : Math.floor(target);
+              }
+            }
+            requestAnimationFrame(animate);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+    })();
+    
+    // ============================================================
+    // 7. Particle Network Canvas (Hero Background)
+    // ============================================================
+    (function initParticleNetwork() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let animId;
+      let mouse = { x: null, y: null, radius: 120 };
+      
+      function resize() {
+        const section = canvas.parentElement;
+        canvas.width = section.offsetWidth;
+        canvas.height = section.offsetHeight;
+      }
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 0.5;
+          this.speedX = (Math.random() - 0.5) * 0.4;
+          this.speedY = (Math.random() - 0.5) * 0.4;
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+          if (mouse.x !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              this.x -= dx * force * 0.02;
+              this.y -= dy * force * 0.02;
+            }
+          }
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+          ctx.fill();
+        }
+      }
+      
+      function initParticles() {
+        particles = [];
+        const count = Math.min(Math.floor((canvas.width * canvas.height) / 10000), 80);
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle());
+        }
+      }
+      
+      function connectParticles() {
+        for (let a = 0; a < particles.length; a++) {
+          for (let b = a + 1; b < particles.length; b++) {
+            const dx = particles[a].x - particles[b].x;
+            const dy = particles[a].y - particles[b].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const maxDist = 150;
+            if (dist < maxDist) {
+              const opacity = (1 - dist / maxDist) * 0.4;
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+              ctx.lineWidth = 0.8;
+              ctx.moveTo(particles[a].x, particles[a].y);
+              ctx.lineTo(particles[b].x, particles[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+      
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        connectParticles();
+        animId = requestAnimationFrame(animateParticles);
+      }
+      
+      resize();
+      initParticles();
+      animateParticles();
+      
+      window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+      });
+      
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      canvas.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+    })();
+    
+    // ============================================================
+    // 8. Tilt Effect on Cards
+    // ============================================================
+    (function initTilt() {
+      document.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -6;
+          const rotateY = ((x - centerX) / centerX) * 6;
+          card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+      });
+    })();
   </script>
 </body>
 </html>
