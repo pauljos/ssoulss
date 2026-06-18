@@ -386,6 +386,39 @@ permalink: /product-stack/
     </div>
   </div>
 
+  <!-- Product: SoulsHS (HSE) -->
+  <div class="product-row reverse">
+    <div class="product-content">
+      <span class="badge-premium">HSE Platform</span>
+      <div class="product-title-row">
+        <div style="background: #10b981; width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h2 class="product-title">SoulsHS</h2>
+      </div>
+      <p class="product-desc">Comprehensive Health, Safety &amp; Environment (HSE) management platform — digitizing compliance tracking, incident reporting, risk assessments, and safety audits for modern workplaces.</p>
+      <div class="tags-container">
+        <span class="tag-modern">HSE</span>
+        <span class="tag-modern">Compliance</span>
+        <span class="tag-modern">Real-time</span>
+      </div>
+      <div class="cta-group">
+        <a href="/souldoc/" class="btn-premium primary">Learn More <span>→</span></a>
+        <a href="https://soulshs-web.onrender.com/dashboard" target="_blank" class="btn-premium secondary">Open Dashboard <span>↗</span></a>
+      </div>
+    </div>
+    <div class="product-visual">
+      <div class="visual-container" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); text-align: center; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 100px; border-radius: 10px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" style="margin-bottom: 8px;">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
+        </svg>
+        <div style="font-size: 14px; font-weight: 950; color: white; letter-spacing: -1px;">SOULSHS</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Tech Stack Section -->
   <section class="tech-section">
     <div style="text-align: center; margin-bottom: 64px; padding: 0 24px;">
