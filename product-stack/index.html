@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781886595">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781888022">
   <style>
 /* ── Theme CSS Variables (shared across all layouts) ── */
 :root {
@@ -856,6 +856,7 @@ function applyTheme(t) {
   .ps-row:nth-of-type(3) .ps-content::before { background: linear-gradient(90deg, #3b82f6, #2563eb); }
   .ps-row:nth-of-type(4) .ps-content::before { background: linear-gradient(90deg, #10b981, #34d399); }
   .ps-row:nth-of-type(5) .ps-content::before { background: linear-gradient(90deg, #6366f1, #4338ca); }
+  .ps-row:nth-of-type(6) .ps-content::before { background: linear-gradient(90deg, #0ea5e9, #0284c7); }
   .ps-content:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.1); border-color: transparent; }
 
   .ps-visual {
@@ -877,6 +878,7 @@ function applyTheme(t) {
   .ps-row:nth-of-type(3) .ps-badge { background: #dbeafe; color: #1d4ed8; }
   .ps-row:nth-of-type(4) .ps-badge { background: #d1fae5; color: #059669; }
   .ps-row:nth-of-type(5) .ps-badge { background: #eef2ff; color: #4338ca; }
+  .ps-row:nth-of-type(6) .ps-badge { background: #e0f2fe; color: #0284c7; }
 
   .ps-title { font-size: 34px; font-weight: 900; color: #0f172a; margin: 0 0 6px; letter-spacing: -1.2px; }
   .ps-desc { font-size: 16px; color: #475569; line-height: 1.6; margin: 0 0 24px; }
@@ -894,6 +896,7 @@ function applyTheme(t) {
   .ps-visual-texa { background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1px solid #bfdbfe; }
   .ps-visual-soulshs { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #a7f3d0; }
   .ps-visual-soulmodel { background: linear-gradient(135deg, #eef2ff, #e0e7ff); border: 1px solid #c7d2fe; }
+  .ps-visual-soulvault { background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: 1px solid #bae6fd; }
 
   .ps-tech { padding: 100px 0; background: #f8fafc; margin: 40px -24px -80px; border-radius: 60px 60px 0 0; position: relative; }
   .ps-tech::before { content: ''; position: absolute; top: 0; left: 24px; right: 24px; height: 4px; background: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24); border-radius: 2px; }
@@ -1076,6 +1079,50 @@ function applyTheme(t) {
 
   <div class="ps-row reverse">
     <div class="ps-content">
+      <span class="ps-badge">Data Exchange</span>
+      <h2 class="ps-title">SoulVault</h2>
+      <p class="ps-desc">Enterprise-grade secure data exchange platform for modern organisations. AI-powered insights, real-time delivery tracking, and bank-grade security — all in one.</p>
+      <div class="ps-tags">
+        <span class="ps-tag">256-bit Encryption</span>
+        <span class="ps-tag">GDPR Compliant</span>
+        <span class="ps-tag">AI-Powered</span>
+      </div>
+      <div class="ps-actions">
+        <a href="/soulvault/" class="ps-btn ps-btn-primary">Learn More →</a>
+        <a href="https://soulvault-u246.onrender.com/" target="_blank" class="ps-btn ps-btn-secondary">Open Platform ↗</a>
+      </div>
+    </div>
+    <div class="ps-visual ps-visual-soulvault">
+      <div style="text-align:center;padding:20px;width:100%;">
+        <svg viewBox="0 0 300 200" fill="none" style="width:100%;max-width:300px;">
+          <rect x="30" y="40" width="240" height="36" rx="8" fill="white" stroke="#38bdf8" stroke-width="1.5" />
+          <text x="40" y="62" fill="#0284c7" font-size="8" font-weight="700" font-family="Inter" opacity="0.8">🔐 256-bit Encrypted Vault</text>
+          <rect x="30" y="88" width="72" height="28" rx="6" fill="#f0f9ff" stroke="#38bdf8" stroke-width="0.8" />
+          <text x="38" y="106" fill="#0284c7" font-size="8" font-weight="600" font-family="Inter">📄 Docs</text>
+          <rect x="114" y="88" width="72" height="28" rx="6" fill="#f0f9ff" stroke="#38bdf8" stroke-width="0.8" />
+          <text x="122" y="106" fill="#0284c7" font-size="8" font-weight="600" font-family="Inter">🤖 AI</text>
+          <rect x="198" y="88" width="72" height="28" rx="6" fill="#f0f9ff" stroke="#38bdf8" stroke-width="0.8" />
+          <text x="206" y="106" fill="#0284c7" font-size="8" font-weight="600" font-family="Inter">📊 Insights</text>
+          <!-- Stats -->
+          <rect x="30" y="130" width="72" height="40" rx="6" fill="white" stroke="#e2e8f0" stroke-width="0.5" />
+          <text x="38" y="146" fill="#64748b" font-size="7" font-weight="600" font-family="Inter">USERS</text>
+          <text x="38" y="164" fill="#0ea5e9" font-size="12" font-weight="900" font-family="Inter">10K</text>
+          <rect x="114" y="130" width="72" height="40" rx="6" fill="white" stroke="#e2e8f0" stroke-width="0.5" />
+          <text x="122" y="146" fill="#64748b" font-size="7" font-weight="600" font-family="Inter">UPTIME</text>
+          <text x="122" y="164" fill="#22c55e" font-size="12" font-weight="900" font-family="Inter">99.9%</text>
+          <rect x="198" y="130" width="72" height="40" rx="6" fill="white" stroke="#e2e8f0" stroke-width="0.5" />
+          <text x="206" y="146" fill="#64748b" font-size="7" font-weight="600" font-family="Inter">GDPR</text>
+          <text x="206" y="164" fill="#fbbf24" font-size="12" font-weight="900" font-family="Inter">✓</text>
+          <rect x="30" y="180" width="240" height="16" rx="4" fill="#f0f9ff" />
+          <text x="40" y="192" fill="#0ea5e9" font-size="8" font-weight="600" font-family="Inter">● All systems secure · 256-bit encryption active</text>
+        </svg>
+        <div style="margin-top:8px;font-size:13px;font-weight:600;color:#0284c7;">soulvault</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ps-row reverse">
+    <div class="ps-content">
       <span class="ps-badge">HSE Platform</span>
       <h2 class="ps-title">SoulsHS</h2>
       <p class="ps-desc">Comprehensive Health, Safety &amp; Environment management platform — digitising compliance tracking, incident reporting, risk assessments, and safety audits.</p>
@@ -1176,6 +1223,7 @@ function applyTheme(t) {
         <li><a href="/texa/">Texa</a></li>
         <li><a href="/soulshs/">SoulsHS</a></li>
         <li><a href="/soulmodel/">SoulModel</a></li>
+        <li><a href="/soulvault/">SoulVault</a></li>
         <li><a href="/bookly/">Bookly</a></li>
         <li><a href="/product-stack/">All Products</a></li>
         <li><a href="/request-demo/">Request Demo</a></li>

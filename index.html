@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="SSoulSS builds enterprise software products and provides expert data &amp; AI consulting. Healthcare (Souldoc), Apparel ERP (Texa), HSE (SoulsHS), Scheduling (Bookly), Data Modelling (SoulModel) — plus custom engineering and digital transformation." />
+  <meta name="description" content="SSoulSS builds enterprise software products and provides expert data &amp; AI consulting. Healthcare (Souldoc), Apparel ERP (Texa), HSE (SoulsHS), Scheduling (Bookly), Data Modelling (SoulModel), Data Exchange (SoulVault) — plus custom engineering and digital transformation." />
   <meta property="og:title" content="Home — SSoulSS" />
   <meta property="og:description" content="Enterprise software products and data &amp; AI consulting. Healthcare platforms, apparel ERP, HSE management, scheduling solutions, and expert technology consulting." />
   <meta property="og:image" content="/assets/images/hero-illustration.svg" />
@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781886595">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781888022">
   <style>
     /* ============================================================
        Modern Premium Design System — Advanced Effects
@@ -1971,7 +1971,8 @@
     .showcase-card:nth-child(3)::before { background: linear-gradient(90deg, #34d399, #10b981); }
     .showcase-card:nth-child(4)::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
     .showcase-card:nth-child(5)::before { background: linear-gradient(90deg, #6366f1, #4338ca); }
-    .showcase-card:nth-child(6)::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+    .showcase-card:nth-child(6)::before { background: linear-gradient(90deg, #0ea5e9, #0284c7); }
+    .showcase-card:nth-child(7)::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
     .showcase-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 24px 56px rgba(0, 0, 0, 0.1);
@@ -2026,7 +2027,8 @@
     .showcase-card:nth-child(3) .showcase-tag { background: #d1fae5; color: #059669; }
     .showcase-card:nth-child(4) .showcase-tag { background: #fef3c7; color: #d97706; }
     .showcase-card:nth-child(5) .showcase-tag { background: #eef2ff; color: #4338ca; }
-    .showcase-card:nth-child(6) .showcase-tag { background: #f5f3ff; color: #6d28d9; }
+    .showcase-card:nth-child(6) .showcase-tag { background: #e0f2fe; color: #0284c7; }
+    .showcase-card:nth-child(7) .showcase-tag { background: #f5f3ff; color: #6d28d9; }
     .showcase-visual-bg {
       position: absolute;
       inset: 0;
@@ -2037,10 +2039,12 @@
     .showcase-card:nth-child(3) .showcase-visual-bg { background: linear-gradient(135deg, #34d399, #10b981); }
     .showcase-card:nth-child(4) .showcase-visual-bg { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
     .showcase-card:nth-child(5) .showcase-visual-bg { background: linear-gradient(135deg, #6366f1, #4338ca); }
-    .showcase-card:nth-child(6) .showcase-visual-bg { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+    .showcase-card:nth-child(6) .showcase-visual-bg { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
+    .showcase-card:nth-child(7) .showcase-visual-bg { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
     .showcase-card:nth-child(4) .showcase-visual { background: #fffbeb; border-color: #fde68a; }
     .showcase-card:nth-child(5) .showcase-visual { background: #eef2ff; border-color: #c7d2fe; }
-    .showcase-card:nth-child(6) .showcase-visual { background: #f5f3ff; border-color: #ddd6fe; }
+    .showcase-card:nth-child(6) .showcase-visual { background: #f0f9ff; border-color: #bae6fd; }
+    .showcase-card:nth-child(7) .showcase-visual { background: #f5f3ff; border-color: #ddd6fe; }
     @media (max-width: 1024px) {
       .showcase-grid { grid-template-columns: repeat(3, 1fr); }
     }
@@ -3035,10 +3039,10 @@
         <span class="section-badge">Our Products</span>
         <h2 class="section-title">See our platforms in motion</h2>
         <p class="section-description">
-          From healthcare to manufacturing, scheduling to safety to data modelling — animated previews of what we build and the consulting expertise behind them.
+          From healthcare to manufacturing, scheduling to safety, data modelling to secure exchange — animated previews of what we build and the consulting expertise behind them.
         </p>
       </div>
-      <div class="showcase-grid stagger-children">
+      <div class="showcase-grid" id="showcaseGrid">
         <!-- Card 1: Souldoc -->
         <div class="showcase-card tilt-card">
           <span class="showcase-tag">Health-Tech</span>
@@ -3254,7 +3258,41 @@
           <a href="/soulmodel/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#4338ca;text-decoration:none;">Learn More →</a>
         </div>
 
-        <!-- Card 6: Data & AI Consulting -->
+        <!-- Card 6: SoulVault -->
+        <div class="showcase-card tilt-card">
+          <span class="showcase-tag" style="background:#e0f2fe;color:#0284c7;">Data Exchange</span>
+          <div class="showcase-visual" style="background:#f0f9ff;border-color:#bae6fd;">
+            <div class="showcase-visual-bg" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);"></div>
+            <svg viewBox="0 0 300 180" fill="none">
+              <rect x="30" y="30" width="240" height="30" rx="8" fill="white" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="40" y="50" fill="#0284c7" font-size="7" font-weight="700" font-family="Inter" opacity="0.8">🔐 Secure Data Exchange</text>
+              <rect x="30" y="72" width="72" height="24" rx="6" fill="#f0f9ff" stroke="#38bdf8" stroke-width="0.8"/>
+              <text x="38" y="88" fill="#0284c7" font-size="8" font-weight="600" font-family="Inter">📄 Docs</text>
+              <rect x="114" y="72" width="72" height="24" rx="6" fill="#f0f9ff" stroke="#38bdf8" stroke-width="0.8"/>
+              <text x="122" y="88" fill="#0284c7" font-size="8" font-weight="600" font-family="Inter">🤖 AI</text>
+              <rect x="198" y="72" width="72" height="24" rx="6" fill="#f0f9ff" stroke="#38bdf8" stroke-width="0.8"/>
+              <text x="206" y="88" fill="#0284c7" font-size="8" font-weight="600" font-family="Inter">📊 Insights</text>
+              <rect x="30" y="106" width="72" height="34" rx="6" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+              <text x="38" y="120" fill="#64748b" font-size="7" font-weight="600" font-family="Inter">USERS</text>
+              <text x="38" y="134" fill="#0ea5e9" font-size="11" font-weight="900" font-family="Inter">10K+</text>
+              <rect x="114" y="106" width="72" height="34" rx="6" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+              <text x="122" y="120" fill="#64748b" font-size="7" font-weight="600" font-family="Inter">UPTIME</text>
+              <text x="122" y="134" fill="#22c55e" font-size="11" font-weight="900" font-family="Inter">99.9%</text>
+              <rect x="198" y="106" width="72" height="34" rx="6" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+              <text x="206" y="120" fill="#64748b" font-size="7" font-weight="600" font-family="Inter">GDPR</text>
+              <text x="206" y="134" fill="#fbbf24" font-size="11" font-weight="900" font-family="Inter">✓</text>
+              <rect x="20" y="155" width="260" height="4" rx="2" fill="#e2e8f0"/>
+              <rect x="20" y="155" width="240" height="4" rx="2" fill="#0ea5e9">
+                <animate attributeName="width" values="100;250;100" dur="3s" repeatCount="indefinite"/>
+              </rect>
+            </svg>
+          </div>
+          <h3 class="showcase-title">SoulVault</h3>
+          <p class="showcase-desc">Enterprise-grade secure data exchange platform — AI-powered insights, real-time delivery tracking, and bank-grade security for every industry.</p>
+          <a href="/soulvault/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#0284c7;text-decoration:none;">Learn More →</a>
+        </div>
+
+        <!-- Card 7: Data & AI Consulting -->
         <div class="showcase-card tilt-card">
           <span class="showcase-tag">Consulting</span>
           <div class="showcase-visual">
@@ -3592,6 +3630,7 @@
         <li><a href="/texa/">Texa</a></li>
         <li><a href="/soulshs/">SoulsHS</a></li>
         <li><a href="/soulmodel/">SoulModel</a></li>
+        <li><a href="/soulvault/">SoulVault</a></li>
         <li><a href="/bookly/">Bookly</a></li>
         <li><a href="/product-stack/">All Products</a></li>
         <li><a href="/request-demo/">Request Demo</a></li>
