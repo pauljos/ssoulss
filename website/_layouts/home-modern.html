@@ -21,92 +21,66 @@
   <link rel="stylesheet" href="/assets/css/site.css?v={{ site.time | date: '%s' }}">
   <!-- Bookly Widget Script loaded lazily below -->
   <script>
-    // ── Theme schedule — loaded from _data/themes.yml if available,
-    //    otherwise falls back to this built-in schedule ──
-    var THEME_SCHEDULE = (function() {
-      try {
-        var fromJekyll = {{ site.data.themes | jsonify }};
-        if (fromJekyll && typeof fromJekyll === 'object' && fromJekyll.schedule) return fromJekyll;
-      } catch(e) {}
-      // Fallback schedule (works without Jekyll build)
-      return {
-        manual_override: "",
-        regional_defaults: { india: "summer", middle_east: "summer", global: "summer" },
-        schedule: [
-          { date: "2026-06-11", theme: "football", end: "2026-07-19", note: "World Cup 2026" },
-          { date: "12-27", theme: "newyear" },
-          { date: "01-01", theme: "newyear", end: "01-05" },
-          { date: "02-14", theme: "valentine", end: "02-16" },
-          { date: "03-17", theme: "st-patrick" },
-          { date: "04-14", theme: "vishu", end: "04-15" },
-          { date: "03-20", theme: "spring", end: "04-15" },
-          { date: "06-01", theme: "summer", end: "08-19" },
-          { date: "08-20", theme: "onam", end: "09-15" },
-          { date: "09-16", theme: "autumn", end: "10-14" },
-          { date: "10-15", theme: "diwali", end: "11-05" },
-          { date: "10-31", theme: "halloween" },
-          { date: "11-05", theme: "bonfire" },
-          { date: "11-11", theme: "remembrance" },
-          { date: "12-01", theme: "xmas", end: "12-26" }
-        ]
-      };
-    })();
-  </script>
-  <script>
-    // ── Resolves theme from schedule + date (Google Doodle-style) ──
+    // ── THEME: resolves which theme to show based on today's date ──
     (function() {
       try {
-        // ── URL override: ?theme=football ──
-        var p = new URLSearchParams(window.location.search);
-        if (p.get('theme')) { applyTheme(p.get('theme')); return; }
+        // URL override: ?theme=football
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('theme')) { applyTheme(params.get('theme')); return; }
         
-        // ── Manual override from config ──
-        if (THEME_SCHEDULE.manual_override) { applyTheme(THEME_SCHEDULE.manual_override); return; }
+        var now = new Date();
+        var y = now.getFullYear();
+        var m = now.getMonth() + 1;
+        var d = now.getDate();
         
-        var now = new Date(), y = now.getFullYear();
-        
-        // ── Check schedule for matching themes ──
-        function findMatch() {
-          var sched = THEME_SCHEDULE.schedule || [];
-          function matchPass(onlySpecific) {
-            for (var i = 0; i < sched.length; i++) {
-              var entry = sched[i];
-              if (!entry.date) continue;
-              var parts = entry.date.split('-');
-              var isSpecific = parts.length === 3;
-              if (onlySpecific && !isSpecific) continue;
-              if (!onlySpecific && isSpecific) continue;
-              var start, end;
-              if (isSpecific) {
-                start = new Date(+parts[0], +parts[1]-1, +parts[2]);
-                if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
-                else end = new Date(start);
-              } else {
-                start = new Date(y, +parts[0]-1, +parts[1]);
-                if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
-                else end = new Date(start);
-              }
-              if (now >= start && now <= end) return entry.theme;
-            }
-            return null;
-          }
-          return matchPass(true) || matchPass(false);
+        // Helper: check if today is within [monthS, dayS] to [monthE, dayE]
+        function between(mS, dS, mE, dE) {
+          var s = new Date(y, mS-1, dS), e = new Date(y, mE-1, dE);
+          return now >= s && now <= e;
         }
         
-        // ── Detect region for fallback ──
-        var loc = (navigator.language || '').toLowerCase();
-        var isIndia = loc.indexOf('in') >= 0;
-        var isME = loc.indexOf('ar') >= 0 || ['sa','ae','eg','iq','qa','om','kw','bh'].some(function(c) { return loc.indexOf(c) >= 0; });
-        
-        // ── Resolve ──
-        var theme = findMatch();
-        if (!theme) {
-          var defs = THEME_SCHEDULE.regional_defaults || {};
-          theme = isIndia ? defs.india : isME ? defs.middle_east : defs.global;
+        // Helper: check specific year dates
+        function betweenYear(yS, mS, dS, yE, mE, dE) {
+          var s = new Date(yS, mS-1, dS), e = new Date(yE, mE-1, dE);
+          return now >= s && now <= e;
         }
-        applyTheme(theme || 'summer');
+        
+        var theme = 'default';
+        
+        // ═══════ ONE-TIME EVENTS (specific year) ═══════
+        // FIFA World Cup 2026: June 11 - July 19
+        if (betweenYear(2026, 6, 11, 2026, 7, 19)) theme = 'football';
+        
+        // ═══════ RECURRING EVENTS (yearly) ═══════
+        // New Year
+        else if ((m === 12 && d >= 27) || (m === 1 && d <= 5)) theme = 'newyear';
+        // Valentine's
+        else if (m === 2 && d >= 10 && d <= 16) theme = 'valentine';
+        // St. Patrick's Day
+        else if (m === 3 && d === 17) theme = 'st-patrick';
+        // Vishu
+        else if (m === 4 && d >= 14 && d <= 15) theme = 'vishu';
+        // Spring
+        else if ((m === 3 && d >= 20) || (m === 4 && d <= 15)) theme = 'spring';
+        // Summer
+        else if (between(6, 1, 8, 19)) theme = 'summer';
+        // Onam
+        else if (between(8, 20, 9, 15)) theme = 'onam';
+        // Autumn
+        else if (between(9, 16, 10, 14)) theme = 'autumn';
+        // Diwali
+        else if (between(10, 15, 11, 5)) theme = 'diwali';
+        // Halloween
+        else if (m === 10 && d === 31) theme = 'halloween';
+        // Bonfire Night
+        else if (m === 11 && d === 5) theme = 'bonfire';
+        // Remembrance Day
+        else if (m === 11 && d === 11) theme = 'remembrance';
+        // Christmas
+        else if (m === 12 && d <= 26) theme = 'xmas';
+        
+        applyTheme(theme);
       } catch(e) {
-        // If anything fails, apply default theme
         applyTheme('default');
       }
     })();
