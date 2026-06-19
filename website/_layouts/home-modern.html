@@ -21,149 +21,67 @@
   <link rel="stylesheet" href="/assets/css/site.css?v={{ site.time | date: '%s' }}">
   <!-- Bookly Widget Script loaded lazily below -->
   <script>
-    // ── Seasonal theme: detects region & date to choose the right theme ──
+    // ── Theme schedule loaded from _data/themes.yml ──
+    var THEME_SCHEDULE = {{ site.data.themes | jsonify }};
+  </script>
+  <script>
+    // ── Resolves theme from schedule + date (Google Doodle-style) ──
     (function() {
-      // ── Allow URL override: ?theme=football or ?theme=onam etc. ──
-      var params = new URLSearchParams(window.location.search);
-      var forced = params.get('theme');
-      if (forced) {
-        document.documentElement.setAttribute('data-theme', forced);
-        var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.content = '#0f172a';
-        return;
-      }
+      // ── URL override: ?theme=football ──
+      var p = new URLSearchParams(window.location.search);
+      if (p.get('theme')) { applyTheme(p.get('theme')); return; }
       
-      // ── Detect region from browser locale ──
-      var locale = (navigator.language || navigator.userLanguage || 'en-GB').toLowerCase();
-      var isIndia = locale.indexOf('in') >= 0 || locale.indexOf('en-in') >= 0;
-      var isMiddleEast = locale.indexOf('ar') >= 0 || locale.indexOf('sa') >= 0 || locale.indexOf('ae') >= 0 ||
-                         locale.indexOf('eg') >= 0 || locale.indexOf('iq') >= 0 || locale.indexOf('qa') >= 0 ||
-                         locale.indexOf('om') >= 0 || locale.indexOf('kw') >= 0 || locale.indexOf('bh') >= 0;
+      // ── Manual override from config ──
+      if (THEME_SCHEDULE.manual_override) { applyTheme(THEME_SCHEDULE.manual_override); return; }
       
-      var now = new Date();
-      var y = now.getFullYear();
-      var m = now.getMonth() + 1;
-      var d = now.getDate();
+      var now = new Date(), y = now.getFullYear();
       
-      // ── FOOTBALL EVENTS (global, like Google Doodles) ──
-      function between(mS, dS, mE, dE) {
-        return now >= new Date(y, mS-1, dS) && now <= new Date(y, mE-1, dE);
-      }
-      function isFootballEvent() {
-        if (y % 4 === 2 && between(11, 14, 12, 18)) return true;  // World Cup
-        if (y % 4 === 0 && between(6, 14, 7, 14)) return true;   // Euros
-        if (y % 4 === 0 && between(6, 20, 7, 14)) return true;   // Copa America
-        if (y % 4 === 3 && between(1, 5, 2, 10)) return true;    // AFC Asian Cup
-        if (between(5, 28, 6, 5)) return true;                    // UCL Final
-        if (between(5, 18, 5, 25)) return true;                   // Europa Final
-        if (between(8, 10, 8, 22)) return true;                   // Season kickoff
-        if (between(5, 14, 5, 22)) return true;                   // FA Cup Final
-        return false;
-      }
-      
-      // ── Shared festivals (visible everywhere) ──
-      function getSharedTheme() {
-        if (isFootballEvent()) return 'football';
-        if (m === 2 && d >= 10 && d <= 16) return 'valentine';
-        if (m === 10 && d === 31) return 'halloween';
-        if (m === 12 && d <= 26) return 'xmas';
-        if ((m === 12 && d >= 27) || (m === 1 && d <= 5)) return 'newyear';
+      // ── Check schedule for matching themes ──
+      function findMatch() {
+        var sched = THEME_SCHEDULE.schedule || [];
+        for (var i = 0; i < sched.length; i++) {
+          var entry = sched[i];
+          if (!entry.date) continue;
+          var p = entry.date.split('-'), start, end;
+          if (p.length === 3) {
+            start = new Date(+p[0], +p[1]-1, +p[2]);
+            if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
+            else end = new Date(start);
+          } else {
+            start = new Date(y, +p[0]-1, +p[1]);
+            if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
+            else end = new Date(start);
+          }
+          if (now >= start && now <= end) return entry.theme;
+        }
         return null;
       }
       
-      // ── Approximate Islamic date calculator ──
-      function getIslamicDates() {
-        // Rough approximation of Ramadan & Eid based on Gregorian year
-        // Islamic year is ~11 days shorter; these shift each year
-        var ramadanStart, ramadanEnd, eidFit, eidAdha;
-        // Base: Ramadan 2026 starts ~Feb 18
-        var base = new Date(2026, 1, 18);
-        var diff = y - 2026;
-        var shift = diff * 11 + Math.floor(diff * 0.03);
-        ramadanStart = new Date(base.getTime() + shift * 86400000);
-        ramadanEnd = new Date(ramadanStart.getTime() + 28 * 86400000);
-        eidFit = new Date(ramadanEnd.getTime() + 1 * 86400000);
-        eidAdha = new Date(ramadanEnd.getTime() + 70 * 86400000);
-        return { ramadanStart: ramadanStart, ramadanEnd: ramadanEnd, eidFit: eidFit, eidAdha: eidAdha };
-      }
+      // ── Detect region for fallback ──
+      var loc = (navigator.language || '').toLowerCase();
+      var isIndia = loc.indexOf('in') >= 0;
+      var isME = loc.indexOf('ar') >= 0 || ['sa','ae','eg','iq','qa','om','kw','bh'].some(function(c) { return loc.indexOf(c) >= 0; });
       
-      // ── India-specific festivals ──
-      function getIndiaTheme() {
-        if (m === 4 && d >= 14 && d <= 15) return 'vishu';
-        if ((m >= 5 && m <= 7) || (m === 8 && d <= 19)) return 'summer';
-        if ((m === 8 && d >= 20) || (m === 9 && d <= 15)) return 'onam';
-        if ((m === 9 && d >= 16) || m === 10) return 'autumn';
-        if ((m === 10 && d >= 15) || (m === 11 && d <= 5)) return 'diwali';
-        if (m === 11 && d >= 6) return 'autumn';
-        return null;
-      }
-      
-      // ── Middle East festivals ──
-      function getMiddleEastTheme() {
-        var islamic = getIslamicDates();
-        // Ramadan month
-        if (now >= islamic.ramadanStart && now <= islamic.ramadanEnd) return 'ramadan';
-        // Eid al-Fitr (3 days)
-        if (now >= islamic.eidFit && now <= new Date(islamic.eidFit.getTime() + 3*86400000)) return 'eid';
-        // Eid al-Adha (4 days)
-        if (now >= islamic.eidAdha && now <= new Date(islamic.eidAdha.getTime() + 4*86400000)) return 'eid';
-        // UAE National Day: Dec 2
-        if (m === 12 && d === 2) return 'national-day';
-        // Saudi National Day: Sep 23
-        if (m === 9 && d === 23) return 'national-day';
-        // Generic seasons
-        if ((m === 3 && d >= 20) || (m === 4 && d <= 15)) return 'spring';
-        if (m >= 5 && m <= 8) return 'summer';
-        if (m >= 9 && m <= 11) return 'autumn';
-        return null;
-      }
-      
-      // ── UK / Global-default festivals ──
-      function getUKTheme() {
-        if (m === 3 && d === 17) return 'st-patrick';             // St. Patrick's Day
-        if ((m === 3 && d >= 20) || (m === 4 && d <= 15)) return 'spring';
-        if (m === 5 && d >= 25 && d <= 31) return 'spring';      // Spring Bank Holiday
-        if (m === 6 && d >= 1 && m <= 8) return 'summer';
-        if (m === 8 && d >= 24 && d <= 31) return 'summer';      // Summer Bank Holiday
-        if ((m === 9 || m === 10) && !(m === 10 && d >= 15)) return 'autumn';
-        if (m === 11 && d === 5) return 'bonfire';               // Bonfire Night
-        if (m === 11 && d === 11) return 'remembrance';          // Remembrance Day
-        if (m === 11 && d >= 6) return 'autumn';
-        return null;
-      }
-      
-      // ── Resolve theme ──
-      var theme = getSharedTheme();
+      // ── Resolve ──
+      var theme = findMatch();
       if (!theme) {
-        if (isIndia) theme = getIndiaTheme();
-        else if (isMiddleEast) theme = getMiddleEastTheme();
-        else theme = getUKTheme();
+        var defs = THEME_SCHEDULE.regional_defaults || {};
+        theme = isIndia ? defs.india : isME ? defs.middle_east : defs.global;
       }
-      if (!theme) theme = 'default';
-      
-      document.documentElement.setAttribute('data-theme', theme);
-      // ── Swap entire hero block per theme ──
-      document.querySelectorAll('.theme-hero').forEach(function(el) {
-        el.style.display = 'none';
-      });
-      var activeHero = document.querySelector('[data-theme-hero="' + theme + '"]') ||
-                       document.querySelector('[data-theme-hero="default"]') ||
-                       document.querySelector('[data-theme-hero="fallback"]');
-      if (activeHero) activeHero.style.display = '';
-      // Update theme-color meta tag
-      var meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) {
-        var colors = {
-          vishu: '#1a2e0a', onam: '#1a2e00', diwali: '#1a1a00',
-          ramadan: '#0a1a00', eid: '#1a2e0a', 'national-day': '#0a1a1a',
-          'st-patrick': '#0a2e0a', bonfire: '#2e1a00', remembrance: '#2e0a0a',
-          halloween: '#1a0a00', xmas: '#1a3a1a', newyear: '#1a1a2e',
-          valentine: '#3a1a2e', spring: '#1a2e1a', summer: '#1a2e3a',
-          autumn: '#2e1a0a', football: '#0a1a0a'
-        };
-        meta.content = colors[theme] || '#0f172a';
-      }
+      applyTheme(theme || 'summer');
     })();
+    
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      document.querySelectorAll('.theme-hero').forEach(function(el) { el.style.display = 'none'; });
+      var h = document.querySelector('[data-theme-hero="' + t + '"]') || document.querySelector('[data-theme-hero="default"]') || document.querySelector('[data-theme-hero="fallback"]');
+      if (h) h.style.display = '';
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) {
+        var c = { vishu:'#1a2e0a', onam:'#1a2e00', diwali:'#1a1a00', ramadan:'#0a1a00', eid:'#1a2e0a', 'national-day':'#0a1a1a', 'st-patrick':'#0a2e0a', bonfire:'#2e1a00', remembrance:'#2e0a0a', halloween:'#1a0a00', xmas:'#1a3a1a', newyear:'#1a1a2e', valentine:'#3a1a2e', spring:'#1a2e1a', summer:'#1a2e3a', autumn:'#2e1a0a', football:'#0a1a0a' };
+        m.content = c[t] || '#0f172a';
+      }
+    }
   </script>
   <style>
     /* ============================================================

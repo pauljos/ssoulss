@@ -1,0 +1,88 @@
+# ── Theme Schedule ─────────────────────────────────────────
+# Edit this file to control which theme shows on which date.
+# The JavaScript reads this at runtime to determine the theme.
+# Format: YYYY-MM-DD or MM-DD (recurring yearly)
+# ───────────────────────────────────────────────────────────
+
+# Manual override — set this to force a specific theme regardless of date.
+# Leave blank ("") to use the automatic schedule below.
+# Examples: football, xmas, onam, diwali, halloween, summer
+manual_override: ""
+
+# Regional defaults — which theme to show when no schedule matches
+regional_defaults:
+  india: summer
+  middle_east: summer
+  global: summer
+
+# Scheduled themes — list of dates and themes
+# Use YYYY-MM-DD for one-time events, MM-DD for yearly recurring
+schedule:
+  # ── New Year ──
+  - date: "12-27"
+    theme: newyear
+  - date: "01-01"
+    theme: newyear
+    end: "01-05"
+
+  # ─️ Valentine's ──
+  - date: "02-14"
+    theme: valentine
+    end: "02-16"
+
+  # ── St. Patrick's Day ──
+  - date: "03-17"
+    theme: st-patrick
+
+  # ── Vishu (Malayalam New Year) ──
+  - date: "04-14"
+    theme: vishu
+    end: "04-15"
+
+  # ─️ Spring ──
+  - date: "03-20"
+    theme: spring
+    end: "04-15"
+
+  # ── Summer ──
+  - date: "06-01"
+    theme: summer
+    end: "08-19"
+
+  # ── Onam ──
+  - date: "08-20"
+    theme: onam
+    end: "09-15"
+
+  # ── Autumn ──
+  - date: "09-16"
+    theme: autumn
+    end: "10-14"
+
+  # ── Diwali ──
+  - date: "10-15"
+    theme: diwali
+    end: "11-05"
+
+  # ⚽ Football Events (add manually per event)
+  - date: "2026-06-11"
+    theme: football
+    end: "2026-07-19"
+    note: "FIFA World Cup 2026"
+
+  # ── Halloween ──
+  - date: "10-31"
+    theme: halloween
+
+  # ── Bonfire Night ──
+  - date: "11-05"
+    theme: bonfire
+
+  # ── Remembrance Day ──
+  - date: "11-11"
+    theme: remembrance
+
+  # ── Christmas ──
+  - date: "12-01"
+    theme: xmas
+    end: "12-26"
