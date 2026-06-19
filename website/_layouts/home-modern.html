@@ -792,7 +792,6 @@
     }
     @media (max-width: 768px) {
       .hero-visual { width: 200px; height: 200px; }
-      .hero-block[data-theme-hero="onam"] .hero-visal,
       .hero-block[data-theme-hero="onam"] .hero-visual { width: 160px; height: 160px; }
     }
 
@@ -2582,8 +2581,17 @@
 
     <!-- ── FULL HERO BLOCK: ONAM (single column, centered, no robot) ── -->
     <div class="hero-block theme-hero" data-theme-hero="onam" style="display:none">
-      <div style="max-width:700px;margin:0 auto;text-align:center">
-        <div class="hero-visual" style="margin:0 auto 32px;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+      <div class="hero-split">
+        <div class="hero-content">
+          <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>🌺 Happy Onam</span></div>
+          <h1 class="hero-title reveal" style="transition-delay: 0.2s;">A harvest of <span class="gradient-shimmer">great ideas</span> awaits.</h1>
+          <p class="hero-description reveal" style="transition-delay: 0.3s;">Just as Onam brings abundance, we bring a rich harvest of enterprise solutions — from healthcare to ERP, all nurtured with care and powered by AI.</p>
+          <div class="hero-buttons reveal" style="transition-delay: 0.4s;justify-content:flex-start">
+            <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>🌾 Explore More</span></a>
+            <a href="/product-stack/" class="btn-hero btn-hero-secondary">Our Products →</a>
+          </div>
+        </div>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:280px;height:auto;aspect-ratio:1/1">
           <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
             <circle cx="250" cy="250" r="180" fill="none" stroke="#eab308" stroke-width="2" stroke-dasharray="8 8"/>
             <circle cx="250" cy="250" r="150" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="5 10"/>
@@ -2605,15 +2613,8 @@
             </g>
             <path d="M80 350l10-80h-20l10 80z" fill="#eab308" opacity="0.15"/>
             <path d="M420 350l10-80h-20l10 80z" fill="#eab308" opacity="0.15"/>
-            <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="120s" repeatCount="indefinite"/></svg>
+            <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="120s" repeatCount="indefinite"/>
           </svg>
-        </div>
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>🌺 Happy Onam</span></div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">A harvest of <span class="gradient-shimmer">great ideas</span> awaits.</h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">Just as Onam brings abundance, we bring a rich harvest of enterprise solutions — from healthcare to ERP, all nurtured with care and powered by AI.</p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;justify-content:center">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>🌾 Explore More</span></a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">Our Products →</a>
         </div>
       </div>
     </div>
