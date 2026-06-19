@@ -2547,20 +2547,40 @@
             <a href="/product-stack/" class="btn-hero btn-hero-secondary">View Products →</a>
           </div>
         </div>
-        <div class="hero-visual xmas-wrapper">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(239,68,68,0.06)"/>
-            <rect x="130" y="190" width="20" height="30" rx="3" fill="#92400e"/>
-            <polygon points="140,40 80,130 200,130" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
-            <polygon points="140,65 90,145 190,145" fill="#22c55e" stroke="#16a34a" stroke-width="2"/>
-            <polygon points="140,90 100,160 180,160" fill="#4ade80" stroke="#22c55e" stroke-width="2"/>
-            <circle cx="110" cy="110" r="5" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/></circle>
-            <circle cx="170" cy="120" r="4" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
-            <circle cx="130" cy="135" r="5" fill="#3b82f6"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" begin="1s" repeatCount="indefinite"/></circle>
-            <circle cx="160" cy="140" r="4" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></circle>
-            <circle cx="125" cy="80" r="4" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" begin="0.8s" repeatCount="indefinite"/></circle>
-            <circle cx="155" cy="75" r="3" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="2.5s" begin="1.5s" repeatCount="indefinite"/></circle>
-            <polygon points="140,30 135,45 145,45" fill="#fbbf24"/><line x1="140" y1="45" x2="140" y2="55" stroke="#fbbf24" stroke-width="1.5"/>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <!-- Night sky -->
+            <rect width="500" height="500" rx="40" fill="#0a1628"/>
+            <!-- Snow ground -->
+            <rect y="320" width="500" height="180" rx="20" fill="#f0f9ff"/>
+            <ellipse cx="250" cy="320" rx="300" ry="30" fill="#e0f2fe"/>
+            <!-- Christmas tree -->
+            <rect x="240" y="240" width="20" height="60" rx="4" fill="#92400e"/>
+            <polygon points="250,80 170,240 330,240" fill="#16a34a" stroke="#15803d" stroke-width="3"/>
+            <polygon points="250,120 180,240 320,240" fill="#22c55e" stroke="#16a34a" stroke-width="3"/>
+            <polygon points="250,160 190,240 310,240" fill="#4ade80" stroke="#22c55e" stroke-width="3"/>
+            <!-- Tree ornaments -->
+            <circle cx="220" cy="200" r="7" fill="#ef4444"><animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/></circle>
+            <circle cx="280" cy="190" r="6" fill="#fbbf24"><animate attributeName="opacity" values="1;0.4;1" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="250" cy="150" r="6" fill="#3b82f6"><animate attributeName="opacity" values="1;0.4;1" dur="1.8s" begin="1s" repeatCount="indefinite"/></circle>
+            <circle cx="240" cy="220" r="5" fill="#ef4444"><animate attributeName="opacity" values="1;0.4;1" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></circle>
+            <circle cx="270" cy="210" r="5" fill="#fbbf24"><animate attributeName="opacity" values="1;0.4;1" dur="1.6s" begin="0.8s" repeatCount="indefinite"/></circle>
+            <!-- Star on top -->
+            <polygon points="250,60 243,80 250,75 257,80" fill="#fbbf24"/>
+            <line x1="250" y1="80" x2="250" y2="90" stroke="#fbbf24" stroke-width="2"/>
+            <!-- Gifts under tree -->
+            <rect x="195" y="275" width="30" height="25" rx="3" fill="#ef4444"/>
+            <rect x="200" y="265" width="25" height="20" rx="3" fill="#22c55e"/>
+            <rect x="270" y="270" width="20" height="30" rx="3" fill="#f59e0b"/>
+            <rect x="230" y="280" width="25" height="20" rx="3" fill="#3b82f6"/>
+            <!-- Snowflakes -->
+            <circle cx="60" cy="100" r="3" fill="white" opacity="0.6"><animate attributeName="cy" values="100;300" dur="5s" repeatCount="indefinite"/></circle>
+            <circle cx="120" cy="60" r="2" fill="white" opacity="0.4"><animate attributeName="cy" values="60;300" dur="7s" begin="1s" repeatCount="indefinite"/></circle>
+            <circle cx="400" cy="80" r="3" fill="white" opacity="0.5"><animate attributeName="cy" values="80;300" dur="6s" begin="2s" repeatCount="indefinite"/></circle>
+            <circle cx="350" cy="120" r="2" fill="white" opacity="0.4"><animate attributeName="cy" values="120;300" dur="8s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="180" cy="40" r="2" fill="white" opacity="0.5"><animate attributeName="cy" values="40;300" dur="5.5s" begin="1.5s" repeatCount="indefinite"/></circle>
+            <circle cx="300" cy="50" r="3" fill="white" opacity="0.3"><animate attributeName="cy" values="50;300" dur="6.5s" begin="3s" repeatCount="indefinite"/></circle>
+            <circle cx="440" cy="40" r="2" fill="white" opacity="0.4"><animate attributeName="cy" values="40;300" dur="7.5s" begin="2.5s" repeatCount="indefinite"/></circle>
           </svg>
         </div>
       </div>
@@ -2569,25 +2589,30 @@
     <!-- ── FULL HERO BLOCK: ONAM (single column, centered, no robot) ── -->
     <div class="hero-block theme-hero" data-theme-hero="onam" style="display:none">
       <div style="max-width:700px;margin:0 auto;text-align:center">
-        <div class="hero-visual onam-wrapper" style="margin:0 auto 32px;width:200px;height:200px">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(234,179,8,0.05)"/>
-            <circle cx="140" cy="140" r="70" fill="none" stroke="#eab308" stroke-width="1" stroke-dasharray="4 4"/>
-            <circle cx="140" cy="140" r="55" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3 6"/>
-            <circle cx="140" cy="140" r="40" fill="none" stroke="#f97316" stroke-width="1" stroke-dasharray="2 4"/>
-            <circle cx="140" cy="140" r="25" fill="none" stroke="#eab308" stroke-width="2" stroke-dasharray="2 3"/>
-            <circle cx="140" cy="140" r="10" fill="#eab308" opacity="0.3"/>
-            <g opacity="0.4">
-              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(0 140 140)"/>
-              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(45 140 140)"/>
-              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#16a34a" transform="rotate(90 140 140)"/>
-              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(135 140 140)"/>
-              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(180 140 140)"/>
-              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#16a34a" transform="rotate(225 140 140)"/>
-              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(270 140 140)"/>
-              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(315 140 140)"/>
+        <div class="hero-visual" style="margin:0 auto 32px;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="500" height="500" rx="40" fill="#1a1a00"/><rect x="20" y="20" width="460" height="460" rx="30" fill="#2a1a00"/>
+            <circle cx="250" cy="250" r="180" fill="none" stroke="#eab308" stroke-width="2" stroke-dasharray="8 8"/>
+            <circle cx="250" cy="250" r="150" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="5 10"/>
+            <circle cx="250" cy="250" r="120" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="4 6"/>
+            <circle cx="250" cy="250" r="90" fill="none" stroke="#eab308" stroke-width="3" stroke-dasharray="3 5"/>
+            <circle cx="250" cy="250" r="60" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="2 4"/>
+            <circle cx="250" cy="250" r="30" fill="none" stroke="#f97316" stroke-width="3"/>
+            <circle cx="250" cy="250" r="10" fill="#eab308" opacity="0.5"/>
+            <g opacity="0.5">
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#eab308"/>
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#f97316" transform="rotate(40 250 250)"/>
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#16a34a" transform="rotate(80 250 250)"/>
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#eab308" transform="rotate(120 250 250)"/>
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#f97316" transform="rotate(160 250 250)"/>
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#16a34a" transform="rotate(200 250 250)"/>
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#eab308" transform="rotate(240 250 250)"/>
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#f97316" transform="rotate(280 250 250)"/>
+              <ellipse cx="250" cy="100" rx="20" ry="40" fill="#16a34a" transform="rotate(320 250 250)"/>
             </g>
-            <animateTransform attributeName="transform" type="rotate" from="0 140 140" to="360 140 140" dur="60s" repeatCount="indefinite"/>
+            <path d="M80 350l10-80h-20l10 80z" fill="#eab308" opacity="0.15"/>
+            <path d="M420 350l10-80h-20l10 80z" fill="#eab308" opacity="0.15"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="120s" repeatCount="indefinite"/></svg>
           </svg>
         </div>
         <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>🌺 Happy Onam</span></div>
@@ -2612,15 +2637,36 @@
             <a href="/product-stack/" class="btn-hero btn-hero-secondary">See the Spark →</a>
           </div>
         </div>
-        <div class="hero-visual diwali-wrapper">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(245,158,11,0.06)"/>
-            <path d="M110 190h60l-10-50h-40l-10 50z" fill="#b45309" stroke="#92400e" stroke-width="2"/>
-            <path d="M120 140l-5 50h50l-5-50h-40z" fill="#d97706"/>
-            <path d="M130 100c0 0-5 20 10 30 15-10 10-30 10-30" fill="#fbbf24" opacity="0.6"/>
-            <path d="M135 95c0 0-3 12 5 18 8-6 5-18 5-18" fill="#f59e0b" opacity="0.4"/>
-            <ellipse cx="140" cy="100" rx="6" ry="3" fill="#fbbf24"><animate attributeName="ry" values="3;5;3" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/></ellipse>
-            <circle cx="140" cy="90" r="15" fill="#fbbf24" opacity="0.1"><animate attributeName="r" values="15;30;15" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0;0.1" dur="2s" repeatCount="indefinite"/></circle>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="500" height="500" rx="40" fill="#0a0a00"/>
+            <!-- Night sky glow -->
+            <circle cx="250" cy="250" r="220" fill="url(#diyaGlow)" opacity="0.08"/>
+            <defs><radialGradient id="diyaGlow"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#0a0a00"/></radialGradient></defs>
+            <!-- Ground -->
+            <rect y="380" width="500" height="120" rx="20" fill="#1a0a00"/>
+            <!-- Diya 1 (large center) -->
+            <path d="M200 380h100l-20-80h-60l-20 80z" fill="#b45309" stroke="#92400e" stroke-width="3"/>
+            <path d="M215 300l-8 80h86l-8-80h-70z" fill="#d97706"/>
+            <path d="M235 220c0 0-10 40 15 60 25-20 15-60 15-60" fill="#fbbf24" opacity="0.7"/>
+            <path d="M242 210c0 0-5 25 8 38 12-13 8-38 8-38" fill="#f59e0b" opacity="0.5"/>
+            <ellipse cx="250" cy="220" rx="10" ry="5" fill="#fbbf24"><animate attributeName="ry" values="5;8;5" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/></ellipse>
+            <circle cx="250" cy="205" r="30" fill="#fbbf24" opacity="0.06"><animate attributeName="r" values="30;50;30" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.06;0;0.06" dur="2s" repeatCount="indefinite"/></circle>
+            <!-- Diya 2 (left) -->
+            <path d="M100 390h60l-10-50h-40l-10 50z" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+            <path d="M110 340l-5 50h50l-5-50h-40z" fill="#b45309"/>
+            <ellipse cx="130" cy="340" rx="5" ry="3" fill="#fbbf24" opacity="0.6"><animate attributeName="ry" values="3;5;3" dur="2s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.9;0.6" dur="2s" begin="0.5s" repeatCount="indefinite"/></ellipse>
+            <circle cx="130" cy="330" r="20" fill="#fbbf24" opacity="0.04"><animate attributeName="r" values="20;35;20" dur="2.5s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <!-- Diya 3 (right) -->
+            <path d="M340 390h60l-10-50h-40l-10 50z" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+            <path d="M350 340l-5 50h50l-5-50h-40z" fill="#b45309"/>
+            <ellipse cx="370" cy="340" rx="5" ry="3" fill="#fbbf24" opacity="0.6"><animate attributeName="ry" values="3;5;3" dur="2.2s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.9;0.6" dur="2.2s" begin="1s" repeatCount="indefinite"/></ellipse>
+            <circle cx="370" cy="330" r="20" fill="#fbbf24" opacity="0.04"><animate attributeName="r" values="20;35;20" dur="2.7s" begin="1s" repeatCount="indefinite"/></circle>
+            <!-- Sparkles -->
+            <circle cx="80" cy="60" r="3" fill="#fbbf24"><animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/><animate attributeName="cy" values="60;40;60" dur="1.5s" repeatCount="indefinite"/></circle>
+            <circle cx="420" cy="80" r="2" fill="#fbbf24"><animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.3s" repeatCount="indefinite"/><animate attributeName="cy" values="80;50;80" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="150" cy="50" r="2" fill="#fbbf24"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="cy" values="50;30;50" dur="1.8s" repeatCount="indefinite"/></circle>
+            <circle cx="350" cy="40" r="2" fill="#fbbf24"><animate attributeName="opacity" values="0;1;0" dur="2.3s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="cy" values="40;20;40" dur="2.3s" repeatCount="indefinite"/></circle>
           </svg>
         </div>
       </div>
@@ -2638,17 +2684,39 @@
             <a href="/product-stack/" class="btn-hero btn-hero-secondary">See Our Spells →</a>
           </div>
         </div>
-        <div class="hero-visual halloween-wrapper">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(249,115,22,0.06)"/>
-            <ellipse cx="140" cy="150" rx="60" ry="55" fill="#f97316" stroke="#ea580c" stroke-width="2"/>
-            <ellipse cx="140" cy="150" rx="40" ry="55" fill="#fb923c"/>
-            <ellipse cx="140" cy="150" rx="20" ry="52" fill="#f97316" opacity="0.5"/>
-            <path d="M140 95l-10 20h20l-10-20z" fill="#16a34a"/><rect x="136" y="95" width="8" height="10" rx="2" fill="#15803d"/>
-            <circle cx="118" cy="140" r="8" fill="#1e293b"/><circle cx="162" cy="140" r="8" fill="#1e293b"/>
-            <path d="M120 160q20 20 40 0" stroke="#1e293b" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <circle cx="118" cy="140" r="3" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></circle>
-            <circle cx="162" cy="140" r="3" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="500" height="500" rx="40" fill="#0f0a0a"/>
+            <!-- Moon -->
+            <circle cx="400" cy="80" r="30" fill="#fbbf24" opacity="0.3"/>
+            <circle cx="410" cy="80" r="30" fill="#0f0a0a"/>
+            <!-- Ground -->
+            <rect y="330" width="500" height="170" rx="20" fill="#0a0a0a"/>
+            <path d="M0 340q50-20 100 0t100 0t100 0t100 0t100 0v160H0z" fill="#1a0a0a"/>
+            <!-- Pumpkin -->
+            <ellipse cx="250" cy="280" rx="90" ry="80" fill="#f97316" stroke="#ea580c" stroke-width="3"/>
+            <ellipse cx="250" cy="280" rx="60" ry="80" fill="#fb923c"/>
+            <ellipse cx="250" cy="280" rx="30" ry="75" fill="#f97316" opacity="0.4"/>
+            <!-- Stem -->
+            <path d="M245 200l-10 25h30l-10-25z" fill="#166534"/>
+            <rect x="242" y="200" width="16" height="15" rx="3" fill="#15803d"/>
+            <!-- Carved face -->
+            <circle cx="210" cy="260" r="12" fill="#1e293b"/>
+            <circle cx="290" cy="260" r="12" fill="#1e293b"/>
+            <circle cx="210" cy="260" r="4" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="290" cy="260" r="4" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+            <path d="M210 300q40 30 80 0" stroke="#1e293b" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <!-- Small pumpkins -->
+            <ellipse cx="130" cy="340" rx="30" ry="25" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
+            <ellipse cx="370" cy="350" rx="25" ry="22" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
+            <ellipse cx="110" cy="345" rx="8" ry="6" fill="#fb923c"/>
+            <ellipse cx="355" cy="355" rx="6" ry="5" fill="#fb923c"/>
+            <!-- Cobweb top-left -->
+            <path d="M40 40v80M40 40h80M40 40l55 55M40 40l25 75M40 40l75 25" stroke="white" stroke-width="0.5" opacity="0.08"/>
+            <path d="M60 60v-20M60 60h-20M60 60l14 14" stroke="white" stroke-width="0.5" opacity="0.06"/>
+            <!-- Bats -->
+            <path d="M340 120q10-10 20 0q10-10 20 0" stroke="#1e293b" stroke-width="2" fill="#1e293b" opacity="0.3"><animate attributeName="opacity" values="0.3;0.1;0.3" dur="4s" repeatCount="indefinite"/></path>
+            <path d="M360 100q6-6 12 0q6-6 12 0" stroke="#1e293b" stroke-width="1.5" fill="#1e293b" opacity="0.2"><animate attributeName="opacity" values="0.2;0.05;0.2" dur="3s" begin="1s" repeatCount="indefinite"/></path>
           </svg>
         </div>
       </div>
@@ -2666,15 +2734,40 @@
             <a href="/product-stack/" class="btn-hero btn-hero-secondary">What's New →</a>
           </div>
         </div>
-        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(251,191,36,0.06)"/>
-            <text x="140" y="155" text-anchor="middle" font-size="100" font-weight="900" fill="#fbbf24" font-family="Inter">2026</text>
-            <circle cx="80" cy="60" r="3" fill="#fbbf24"><animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/><animate attributeName="cy" values="60;40;60" dur="1.5s" repeatCount="indefinite"/></circle>
-            <circle cx="200" cy="80" r="2" fill="#fbbf24"><animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="cy" values="80;50;80" dur="2s" repeatCount="indefinite"/></circle>
-            <circle cx="100" cy="200" r="3" fill="#fbbf24"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="1s" repeatCount="indefinite"/><animate attributeName="cy" values="200;170;200" dur="1.8s" repeatCount="indefinite"/></circle>
-            <circle cx="190" cy="190" r="2" fill="#fbbf24"><animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/><animate attributeName="cy" values="190;160;190" dur="2.2s" repeatCount="indefinite"/></circle>
-            <circle cx="140" cy="50" r="2" fill="#fff"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="cy" values="50;30;50" dur="1.6s" repeatCount="indefinite"/></circle>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="500" height="500" rx="40" fill="#0a0a1a"/>
+            <!-- City skyline -->
+            <rect x="30" y="240" width="40" height="130" fill="#1a1a2e" rx="2"/>
+            <rect x="80" y="200" width="35" height="170" fill="#1a1a2e" rx="2"/>
+            <rect x="125" y="260" width="45" height="110" fill="#1a1a2e" rx="2"/>
+            <rect x="180" y="220" width="30" height="150" fill="#1a1a2e" rx="2"/>
+            <rect x="220" y="180" width="60" height="190" fill="#1a1a2e" rx="2"/>
+            <rect x="290" y="230" width="35" height="140" fill="#1a1a2e" rx="2"/>
+            <rect x="335" y="200" width="45" height="170" fill="#1a1a2e" rx="2"/>
+            <rect x="390" y="250" width="35" height="120" fill="#1a1a2e" rx="2"/>
+            <rect x="435" y="210" width="40" height="160" fill="#1a1a2e" rx="2"/>
+            <!-- Windows -->
+            <rect x="125" y="270" width="5" height="5" fill="#fbbf24" opacity="0.3"/>
+            <rect x="140" y="270" width="5" height="5" fill="#fbbf24" opacity="0.3"/>
+            <rect x="155" y="270" width="5" height="5" fill="#fbbf24" opacity="0.3"/>
+            <rect x="230" y="190" width="8" height="8" fill="#fbbf24" opacity="0.4"/>
+            <rect x="250" y="190" width="8" height="8" fill="#fbbf24" opacity="0.4"/>
+            <rect x="270" y="190" width="8" height="8" fill="#fbbf24" opacity="0.3"/>
+            <rect x="230" y="210" width="8" height="8" fill="#fbbf24" opacity="0.2"/>
+            <rect x="250" y="210" width="8" height="8" fill="#fbbf24" opacity="0.3"/>
+            <rect x="345" y="210" width="6" height="6" fill="#fbbf24" opacity="0.3"/>
+            <rect x="360" y="210" width="6" height="6" fill="#fbbf24" opacity="0.2"/>
+            <!-- Year text -->
+            <text x="250" y="170" text-anchor="middle" font-size="120" font-weight="900" fill="#fbbf24" font-family="Inter, sans-serif" opacity="0.9">2026</text>
+            <!-- Fireworks -->
+            <circle cx="100" cy="50" r="3" fill="#ef4444"><animate attributeName="r" values="3;15;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="100" cy="50" r="2" fill="#fbbf24"><animate attributeName="cx" values="100;70;100" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="100" cy="50" r="2" fill="#fbbf24"><animate attributeName="cx" values="100;130;100" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="420" cy="40" r="3" fill="#3b82f6"><animate attributeName="r" values="3;12;3" dur="2.5s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.5s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="420" cy="40" r="2" fill="#93c5fd"><animate attributeName="cy" values="40;20;40" dur="2.5s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.5s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="420" cy="40" r="2" fill="#93c5fd"><animate attributeName="cy" values="40;60;40" dur="2.5s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2.5s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="280" cy="30" r="2" fill="#22c55e"><animate attributeName="r" values="2;10;2" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
           </svg>
         </div>
       </div>
@@ -2683,20 +2776,37 @@
     <!-- ── VISHU: golden bloom, Kerala new year ── -->
     <div class="hero-block theme-hero" data-theme-hero="vishu" style="display:none">
       <div style="max-width:700px;margin:0 auto;text-align:center">
-        <div class="hero-visual" style="margin:0 auto 24px;width:180px;height:180px;animation:robotFloat 6s ease-in-out infinite;">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(251,191,36,0.05)"/>
-            <circle cx="140" cy="140" r="60" fill="#fbbf24" opacity="0.08"/>
-            <circle cx="140" cy="140" r="30" fill="#fbbf24" opacity="0.15"/>
-            <circle cx="140" cy="140" r="8" fill="#fbbf24" opacity="0.4"/>
-            <g opacity="0.3">
-              <ellipse cx="140" cy="60" rx="6" ry="18" fill="#fbbf24" transform="rotate(0 140 140)"/>
-              <ellipse cx="140" cy="60" rx="6" ry="18" fill="#16a34a" transform="rotate(72 140 140)"/>
-              <ellipse cx="140" cy="60" rx="6" ry="18" fill="#fbbf24" transform="rotate(144 140 140)"/>
-              <ellipse cx="140" cy="60" rx="6" ry="18" fill="#16a34a" transform="rotate(216 140 140)"/>
-              <ellipse cx="140" cy="60" rx="6" ry="18" fill="#fbbf24" transform="rotate(288 140 140)"/>
+        <div class="hero-visual" style="margin:0 auto 24px;width:100%;max-width:400px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="400" height="400" rx="30" fill="#0a1a0a"/>
+            <!-- Sun glow -->
+            <circle cx="200" cy="200" r="160" fill="rgba(251,191,36,0.04)"/>
+            <circle cx="200" cy="200" r="120" fill="#fbbf24" opacity="0.06"/>
+            <circle cx="200" cy="200" r="60" fill="#fbbf24" opacity="0.1"/>
+            <circle cx="200" cy="200" r="20" fill="#fbbf24" opacity="0.2"/>
+            <circle cx="200" cy="200" r="6" fill="#fbbf24" opacity="0.5"/>
+            <!-- Bloom petals -->
+            <g opacity="0.35">
+              <ellipse cx="200" cy="80" rx="16" ry="40" fill="#fbbf24"/>
+              <ellipse cx="200" cy="80" rx="16" ry="40" fill="#16a34a" transform="rotate(60 200 200)"/>
+              <ellipse cx="200" cy="80" rx="16" ry="40" fill="#fbbf24" transform="rotate(120 200 200)"/>
+              <ellipse cx="200" cy="80" rx="16" ry="40" fill="#16a34a" transform="rotate(180 200 200)"/>
+              <ellipse cx="200" cy="80" rx="16" ry="40" fill="#fbbf24" transform="rotate(240 200 200)"/>
+              <ellipse cx="200" cy="80" rx="16" ry="40" fill="#16a34a" transform="rotate(300 200 200)"/>
             </g>
-            <animateTransform attributeName="transform" type="rotate" from="0 140 140" to="360 140 140" dur="40s" repeatCount="indefinite"/>
+            <!-- Outer ring -->
+            <g opacity="0.2">
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#fbbf24"/>
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#f97316" transform="rotate(40 200 200)"/>
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#fbbf24" transform="rotate(80 200 200)"/>
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#f97316" transform="rotate(120 200 200)"/>
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#fbbf24" transform="rotate(160 200 200)"/>
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#f97316" transform="rotate(200 200 200)"/>
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#fbbf24" transform="rotate(240 200 200)"/>
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#f97316" transform="rotate(280 200 200)"/>
+              <ellipse cx="200" cy="50" rx="10" ry="25" fill="#fbbf24" transform="rotate(320 200 200)"/>
+            </g>
+            <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="60s" repeatCount="indefinite"/>
           </svg>
         </div>
         <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>🌼 Vishu Ashamsakal</span></div>
@@ -2721,28 +2831,36 @@
             <a href="/product-stack/" class="btn-hero btn-hero-secondary">Explore Products →</a>
           </div>
         </div>
-        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(96,165,250,0.05)"/>
-            <circle cx="140" cy="140" r="45" fill="#fbbf24" opacity="0.15"/>
-            <circle cx="140" cy="140" r="25" fill="#fbbf24" opacity="0.3"/>
-            <circle cx="140" cy="140" r="10" fill="#fbbf24" opacity="0.6"/>
-            <line x1="140" y1="60" x2="140" y2="90" stroke="#fbbf24" stroke-width="3" stroke-linecap="round">
-              <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
-            </line>
-            <line x1="140" y1="190" x2="140" y2="220" stroke="#fbbf24" stroke-width="3" stroke-linecap="round">
-              <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="0.5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="60" y1="140" x2="90" y2="140" stroke="#fbbf24" stroke-width="3" stroke-linecap="round">
-              <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1s" repeatCount="indefinite"/>
-            </line>
-            <line x1="190" y1="140" x2="220" y2="140" stroke="#fbbf24" stroke-width="3" stroke-linecap="round">
-              <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="86" y1="86" x2="106" y2="106" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="174" y1="174" x2="194" y2="194" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="86" y1="194" x2="106" y2="174" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="174" y1="106" x2="194" y2="86" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="500" height="500" rx="40" fill="#0a1a2e"/>
+            <!-- Ocean -->
+            <rect y="280" width="500" height="220" rx="20" fill="#1e40af" opacity="0.4"/>
+            <path d="M0 290q50-10 100 0t100 0t100 0t100 0t100 0v150H0z" fill="#2563eb" opacity="0.2"/>
+            <path d="M0 310q50-15 100 0t100 0t100 0t100 0t100 0v130H0z" fill="#3b82f6" opacity="0.1"/>
+            <!-- Sky glow -->
+            <circle cx="250" cy="180" r="150" fill="url(#sunGlow)" opacity="0.15"/>
+            <defs><radialGradient id="sunGlow"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="transparent"/></radialGradient></defs>
+            <!-- Sun -->
+            <circle cx="250" cy="180" r="40" fill="#fbbf24" opacity="0.3"/>
+            <circle cx="250" cy="180" r="25" fill="#fbbf24" opacity="0.5"/>
+            <circle cx="250" cy="180" r="12" fill="#fbbf24" opacity="0.8"/>
+            <!-- Sun rays -->
+            <line x1="250" y1="100" x2="250" y2="130" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"><animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></line>
+            <line x1="250" y1="230" x2="250" y2="260" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"><animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="0.5s" repeatCount="indefinite"/></line>
+            <line x1="170" y1="180" x2="140" y2="180" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"><animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1s" repeatCount="indefinite"/></line>
+            <line x1="360" y1="180" x2="330" y2="180" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"><animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/></line>
+            <line x1="195" y1="125" x2="175" y2="105" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+            <line x1="305" y1="125" x2="325" y2="105" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+            <line x1="195" y1="235" x2="175" y2="255" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+            <line x1="305" y1="235" x2="325" y2="255" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+            <!-- Clouds -->
+            <ellipse cx="120" cy="100" rx="40" ry="15" fill="white" opacity="0.06"/>
+            <ellipse cx="140" cy="95" rx="25" ry="12" fill="white" opacity="0.05"/>
+            <ellipse cx="380" cy="120" rx="35" ry="12" fill="white" opacity="0.05"/>
+            <ellipse cx="400" cy="115" rx="20" ry="10" fill="white" opacity="0.04"/>
+            <!-- Beach -->
+            <path d="M0 350q50-20 100 0t100 0t100 0t100 0t100 0v50H0z" fill="#fbbf24" opacity="0.06"/>
           </svg>
         </div>
       </div>
@@ -2760,14 +2878,30 @@
             <a href="/product-stack/" class="btn-hero btn-hero-secondary">Explore →</a>
           </div>
         </div>
-        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(249,115,22,0.05)"/>
-            <ellipse cx="100" cy="120" rx="20" ry="25" fill="#f97316" opacity="0.3" transform="rotate(-15 100 120)"/>
-            <ellipse cx="170" cy="100" rx="18" ry="22" fill="#d97706" opacity="0.25" transform="rotate(10 170 100)"/>
-            <ellipse cx="140" cy="170" rx="22" ry="28" fill="#ea580c" opacity="0.2" transform="rotate(-5 140 170)"/>
-            <ellipse cx="120" cy="150" rx="15" ry="18" fill="#fbbf24" opacity="0.2" transform="rotate(20 120 150)"/>
-            <ellipse cx="160" cy="140" rx="16" ry="20" fill="#f97316" opacity="0.15" transform="rotate(-10 160 140)"/>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="500" height="500" rx="40" fill="#0f0a00"/>
+            <!-- Forest floor -->
+            <rect y="320" width="500" height="180" rx="20" fill="#1a0a00"/>
+            <path d="M0 330q50-15 100 0t100 0t100 0t100 0t100 0v170H0z" fill="#2a0a00"/>
+            <!-- Tree trunk -->
+            <rect x="235" y="120" width="30" height="200" rx="5" fill="#451a03"/>
+            <!-- Tree canopy -->
+            <ellipse cx="250" cy="100" rx="70" ry="50" fill="#b45309" opacity="0.3"/>
+            <ellipse cx="250" cy="80" rx="55" ry="40" fill="#92400e" opacity="0.25"/>
+            <ellipse cx="250" cy="60" rx="40" ry="30" fill="#78350f" opacity="0.2"/>
+            <!-- Falling leaves -->
+            <ellipse cx="100" cy="150" rx="12" ry="8" fill="#f97316" opacity="0.4" transform="rotate(-15 100 150)"><animate attributeName="cy" values="150;350" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0" dur="6s" repeatCount="indefinite"/></ellipse>
+            <ellipse cx="350" cy="100" rx="10" ry="6" fill="#d97706" opacity="0.35" transform="rotate(20 350 100)"><animate attributeName="cy" values="100;350" dur="8s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.35;0" dur="8s" begin="2s" repeatCount="indefinite"/></ellipse>
+            <ellipse cx="150" cy="120" rx="10" ry="6" fill="#ea580c" opacity="0.3" transform="rotate(-10 150 120)"><animate attributeName="cy" values="120;350" dur="7s" begin="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0" dur="7s" begin="4s" repeatCount="indefinite"/></ellipse>
+            <ellipse cx="400" cy="140" rx="11" ry="7" fill="#fbbf24" opacity="0.3" transform="rotate(25 400 140)"><animate attributeName="cy" values="140;350" dur="5.5s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0" dur="5.5s" begin="1s" repeatCount="indefinite"/></ellipse>
+            <ellipse cx="180" cy="80" rx="9" ry="5" fill="#f97316" opacity="0.35" transform="rotate(-5 180 80)"><animate attributeName="cy" values="80;350" dur="9s" begin="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.35;0" dur="9s" begin="3s" repeatCount="indefinite"/></ellipse>
+            <ellipse cx="320" cy="90" rx="8" ry="5" fill="#ea580c" opacity="0.3" transform="rotate(15 320 90)"><animate attributeName="cy" values="90;350" dur="6.5s" begin="5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0" dur="6.5s" begin="5s" repeatCount="indefinite"/></ellipse>
+            <!-- Ground leaves -->
+            <ellipse cx="80" cy="360" rx="15" ry="6" fill="#f97316" opacity="0.2" transform="rotate(30 80 360)"/>
+            <ellipse cx="160" cy="375" rx="12" ry="5" fill="#d97706" opacity="0.2" transform="rotate(-20 160 375)"/>
+            <ellipse cx="320" cy="365" rx="14" ry="5" fill="#ea580c" opacity="0.2" transform="rotate(10 320 365)"/>
+            <ellipse cx="400" cy="370" rx="10" ry="4" fill="#fbbf24" opacity="0.15" transform="rotate(-30 400 370)"/>
           </svg>
         </div>
       </div>
@@ -2785,32 +2919,40 @@
             <a href="/product-stack/" class="btn-hero btn-hero-secondary">Explore →</a>
           </div>
         </div>
-        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(244,114,182,0.04)"/>
-            <g opacity="0.3">
-              <circle cx="120" cy="120" r="12" fill="#f472b6"/>
-              <circle cx="120" cy="108" r="6" fill="#f472b6"/>
-              <circle cx="108" cy="120" r="6" fill="#f472b6"/>
-              <circle cx="132" cy="120" r="6" fill="#f472b6"/>
-              <circle cx="120" cy="132" r="6" fill="#f472b6"/>
-            </g>
-            <g opacity="0.25">
-              <circle cx="165" cy="100" r="10" fill="#a78bfa"/>
-              <circle cx="165" cy="90" r="5" fill="#a78bfa"/>
-              <circle cx="155" cy="100" r="5" fill="#a78bfa"/>
-              <circle cx="175" cy="100" r="5" fill="#a78bfa"/>
-              <circle cx="165" cy="110" r="5" fill="#a78bfa"/>
-            </g>
-            <g opacity="0.2">
-              <circle cx="100" cy="170" r="10" fill="#fb923c"/>
-              <circle cx="100" cy="160" r="5" fill="#fb923c"/>
-              <circle cx="90" cy="170" r="5" fill="#fb923c"/>
-              <circle cx="110" cy="170" r="5" fill="#fb923c"/>
-            </g>
-            <line x1="120" y1="145" x2="120" y2="180" stroke="#16a34a" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
-            <line x1="165" y1="125" x2="165" y2="160" stroke="#16a34a" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
-            <line x1="100" y1="190" x2="100" y2="210" stroke="#16a34a" stroke-width="2" stroke-linecap="round" opacity="0.2"/>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="500" height="500" rx="40" fill="#1a0a1a"/>
+            <!-- Green hills -->
+            <path d="M0 350q100-40 200 0t200 0t100 0v150H0z" fill="#16a34a" opacity="0.15"/>
+            <path d="M0 380q100-30 200 0t200 0t100 0v120H0z" fill="#22c55e" opacity="0.1"/>
+            <!-- Cherry blossom tree trunk -->
+            <rect x="240" y="200" width="20" height="150" rx="5" fill="#451a03"/>
+            <path d="M250 280q-30-20-20-50" stroke="#451a03" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M250 260q30-30 20-60" stroke="#451a03" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <!-- Pink blossoms -->
+            <circle cx="210" cy="180" r="18" fill="#f472b6" opacity="0.25"/>
+            <circle cx="290" cy="170" r="16" fill="#ec4899" opacity="0.2"/>
+            <circle cx="250" cy="150" r="20" fill="#f472b6" opacity="0.2"/>
+            <circle cx="230" cy="200" r="14" fill="#f472b6" opacity="0.2"/>
+            <circle cx="270" cy="210" r="12" fill="#ec4899" opacity="0.2"/>
+            <circle cx="195" cy="210" r="10" fill="#f472b6" opacity="0.15"/>
+            <circle cx="310" cy="190" r="10" fill="#ec4899" opacity="0.15"/>
+            <!-- Blossom petals -->
+            <circle cx="190" cy="170" r="5" fill="#f472b6" opacity="0.3"/>
+            <circle cx="220" cy="160" r="4" fill="#f472b6" opacity="0.25"/>
+            <circle cx="280" cy="160" r="4" fill="#ec4899" opacity="0.25"/>
+            <circle cx="310" cy="175" r="5" fill="#ec4899" opacity="0.2"/>
+            <!-- Falling petals -->
+            <circle cx="160" cy="100" r="3" fill="#f472b6" opacity="0.4"><animate attributeName="cy" values="100;350" dur="6s" repeatCount="indefinite"/><animate attributeName="cx" values="160;180" dur="6s" repeatCount="indefinite"/></circle>
+            <circle cx="340" cy="80" r="3" fill="#ec4899" opacity="0.35"><animate attributeName="cy" values="80;350" dur="7s" begin="2s" repeatCount="indefinite"/><animate attributeName="cx" values="340;320" dur="7s" begin="2s" repeatCount="indefinite"/></circle>
+            <circle cx="130" cy="120" r="2" fill="#f472b6" opacity="0.3"><animate attributeName="cy" values="120;350" dur="8s" begin="4s" repeatCount="indefinite"/><animate attributeName="cx" values="130;150" dur="8s" begin="4s" repeatCount="indefinite"/></circle>
+            <circle cx="370" cy="60" r="2" fill="#ec4899" opacity="0.3"><animate attributeName="cy" values="60;350" dur="5.5s" begin="1s" repeatCount="indefinite"/><animate attributeName="cx" values="370;350" dur="5.5s" begin="1s" repeatCount="indefinite"/></circle>
+            <!-- Grass -->
+            <line x1="100" y1="350" x2="105" y2="330" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.2"/>
+            <line x1="200" y1="360" x2="205" y2="340" stroke="#16a34a" stroke-width="2" stroke-linecap="round" opacity="0.2"/>
+            <line x1="350" y1="355" x2="355" y2="335" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.2"/>
+            <line x1="420" y1="365" x2="425" y2="345" stroke="#16a34a" stroke-width="2" stroke-linecap="round" opacity="0.15"/>
+            <line x1="60" y1="365" x2="65" y2="345" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.15"/>
           </svg>
         </div>
       </div>
@@ -2828,15 +2970,36 @@
             <a href="/product-stack/" class="btn-hero btn-hero-secondary">Explore →</a>
           </div>
         </div>
-        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;">
-          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="140" cy="140" r="110" fill="rgba(147,197,253,0.05)"/>
-            <path d="M140 60l5 15 15-5-5 15 15 5-15 5 5 15-15-5-5 15-5-15-15 5 5-15-15-5 15-5-5-15 15 5 5-15z" fill="#93c5fd" opacity="0.2"/>
-            <circle cx="80" cy="90" r="2" fill="#93c5fd" opacity="0.4"><animate attributeName="cy" values="90;110;90" dur="4s" repeatCount="indefinite"/></circle>
-            <circle cx="190" cy="70" r="1.5" fill="#93c5fd" opacity="0.3"><animate attributeName="cy" values="70;95;70" dur="5s" begin="1s" repeatCount="indefinite"/></circle>
-            <circle cx="100" cy="180" r="2" fill="#93c5fd" opacity="0.35"><animate attributeName="cy" values="180;200;180" dur="3.5s" begin="0.5s" repeatCount="indefinite"/></circle>
-            <circle cx="180" cy="150" r="1.5" fill="#93c5fd" opacity="0.3"><animate attributeName="cy" values="150;175;150" dur="4.5s" begin="2s" repeatCount="indefinite"/></circle>
-            <circle cx="120" cy="100" r="1.5" fill="#93c5fd" opacity="0.25"><animate attributeName="cy" values="100;125;100" dur="3.8s" begin="1.5s" repeatCount="indefinite"/></circle>
+        <div class="hero-visual" style="animation:robotFloat 6s ease-in-out infinite;width:100%;max-width:500px;height:auto;aspect-ratio:1/1">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+            <rect width="500" height="500" rx="40" fill="#0a0a1a"/>
+            <!-- Snow ground -->
+            <rect y="330" width="500" height="170" rx="20" fill="#e0f2fe" opacity="0.1"/>
+            <path d="M0 340q50-10 100 0t100 0t100 0t100 0t100 0v160H0z" fill="#f0f9ff" opacity="0.05"/>
+            <!-- Pine tree 1 -->
+            <rect x="130" y="250" width="12" height="80" rx="3" fill="#451a03" opacity="0.5"/>
+            <polygon points="136,140 100,250 172,250" fill="#064e3b" opacity="0.3" stroke="#065f46" stroke-width="1"/>
+            <polygon points="136,170 104,250 168,250" fill="#065f46" opacity="0.25" stroke="#065f46" stroke-width="1"/>
+            <polygon points="136,200 108,250 164,250" fill="#047857" opacity="0.2" stroke="#065f46" stroke-width="1"/>
+            <!-- Pine tree 2 -->
+            <rect x="345" y="230" width="14" height="100" rx="3" fill="#451a03" opacity="0.5"/>
+            <polygon points="352,110 310,230 394,230" fill="#064e3b" opacity="0.3" stroke="#065f46" stroke-width="1"/>
+            <polygon points="352,145 315,230 389,230" fill="#065f46" opacity="0.25" stroke="#065f46" stroke-width="1"/>
+            <polygon points="352,180 320,230 384,230" fill="#047857" opacity="0.2" stroke="#065f46" stroke-width="1"/>
+            <!-- Snowflakes -->
+            <circle cx="60" cy="60" r="3" fill="white" opacity="0.4"><animate attributeName="cy" values="60;400" dur="6s" repeatCount="indefinite"/></circle>
+            <circle cx="150" cy="40" r="2" fill="white" opacity="0.3"><animate attributeName="cy" values="40;400" dur="8s" begin="1s" repeatCount="indefinite"/></circle>
+            <circle cx="250" cy="80" r="3" fill="white" opacity="0.35"><animate attributeName="cy" values="80;400" dur="7s" begin="2s" repeatCount="indefinite"/></circle>
+            <circle cx="350" cy="50" r="2" fill="white" opacity="0.3"><animate attributeName="cy" values="50;400" dur="9s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="430" cy="70" r="3" fill="white" opacity="0.35"><animate attributeName="cy" values="70;400" dur="5.5s" begin="3s" repeatCount="indefinite"/></circle>
+            <circle cx="100" cy="100" r="2" fill="white" opacity="0.25"><animate attributeName="cy" values="100;400" dur="7.5s" begin="4s" repeatCount="indefinite"/></circle>
+            <circle cx="300" cy="30" r="2" fill="white" opacity="0.3"><animate attributeName="cy" values="30;400" dur="6.5s" begin="1.5s" repeatCount="indefinite"/></circle>
+            <circle cx="200" cy="90" r="2" fill="white" opacity="0.25"><animate attributeName="cy" values="90;400" dur="8.5s" begin="2.5s" repeatCount="indefinite"/></circle>
+            <circle cx="400" cy="40" r="2" fill="white" opacity="0.3"><animate attributeName="cy" values="40;400" dur="6s" begin="5s" repeatCount="indefinite"/></circle>
+            <!-- Snow on ground -->
+            <ellipse cx="250" cy="335" rx="200" ry="8" fill="white" opacity="0.06"/>
+            <ellipse cx="100" cy="345" rx="60" ry="5" fill="white" opacity="0.04"/>
+            <ellipse cx="400" cy="350" rx="50" ry="4" fill="white" opacity="0.04"/>
           </svg>
         </div>
       </div>
@@ -3774,8 +3937,7 @@
         setInterval(rotate, interval);
       });
     })();
-
-    {% include theme.html %}
   </script>
+  {% include theme.html %}
 </body>
 </html>
