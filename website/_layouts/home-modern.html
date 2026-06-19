@@ -20,6 +20,40 @@
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
   <link rel="stylesheet" href="/assets/css/site.css?v={{ site.time | date: '%s' }}">
   <!-- Bookly Widget Script loaded lazily below -->
+  <script>
+    // ── Seasonal theme: set data-theme on <html> based on current date ──
+    (function() {
+      var now = new Date();
+      var m = now.getMonth() + 1;
+      var d = now.getDate();
+      var theme = 'default';
+      // Christmas: Dec 1-26
+      if (m === 12 && d <= 26) theme = 'xmas';
+      // New Year: Dec 27 - Jan 5
+      else if ((m === 12 && d >= 27) || (m === 1 && d <= 5)) theme = 'newyear';
+      // Valentine's: Feb 10-16
+      else if (m === 2 && d >= 10 && d <= 16) theme = 'valentine';
+      // Spring: Mar 20 - Apr 15
+      else if ((m === 3 && d >= 20) || (m === 4 && d <= 15)) theme = 'spring';
+      // Summer: Jun 1 - Aug 31
+      else if (m >= 6 && m <= 8) theme = 'summer';
+      // Halloween: Oct 20 - Nov 2
+      else if ((m === 10 && d >= 20) || (m === 11 && d <= 2)) theme = 'halloween';
+      // Thanksgiving / Fall: Nov 15-28
+      else if (m === 11 && d >= 15 && d <= 28) theme = 'thanksgiving';
+      document.documentElement.setAttribute('data-theme', theme);
+      // Also update theme-color meta tag
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) {
+        var colors = {
+          xmas: '#1a3a1a', newyear: '#1a1a2e', valentine: '#3a1a2e',
+          spring: '#1a2e1a', summer: '#1a2e3a', halloween: '#2e1a0a',
+          thanksgiving: '#3a2e1a'
+        };
+        meta.content = colors[theme] || '#0f172a';
+      }
+    })();
+  </script>
   <style>
     /* ============================================================
        Modern Premium Design System — Advanced Effects
@@ -28,6 +62,105 @@
     /* Smooth scroll */
     html {
       scroll-behavior: smooth;
+    }
+    
+    /* ── CSS Custom Properties for theming ── */
+    :root {
+      --theme-primary-gradient: linear-gradient(135deg, #a78bfa, #ec4899);
+      --theme-primary-hover: linear-gradient(135deg, #8b5cf6, #db2777);
+      --theme-shadow: rgba(167, 139, 250, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #0f172a 60%, #1c1917 100%);
+      --theme-hero-aurora-1: rgba(244, 114, 182, 0.2);
+      --theme-hero-aurora-2: rgba(96, 165, 250, 0.2);
+      --theme-hero-aurora-3: rgba(52, 211, 153, 0.12);
+      --theme-hero-aurora-4: rgba(167, 139, 250, 0.15);
+      --theme-hero-aurora-5: rgba(251, 191, 36, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24);
+      --theme-shape-1: radial-gradient(circle, #60a5fa, transparent);
+      --theme-shape-2: radial-gradient(circle, #a78bfa, transparent);
+      --theme-shape-3: radial-gradient(circle, #ec4899, transparent);
+      --theme-shape-4: radial-gradient(circle, #f59e0b, transparent);
+      --theme-shimmer: linear-gradient(135deg, #f472b6 0%, #a78bfa 20%, #60a5fa 40%, #34d399 60%, #fbbf24 80%, #f472b6 100%);
+      --theme-divider: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24, #f472b6);
+      --theme-badge-bg: linear-gradient(135deg, #fdf2f8, #ede9fe, #dbeafe);
+      --theme-badge-color: #6d28d9;
+      --theme-process-bar: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24);
+      --theme-cta-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #312e81 60%, #1c1917 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #a78bfa, #ec4899, #f472b6);
+    }
+    
+    /* ── Seasonal theme overrides ── */
+    /* Christmas */
+    [data-theme="xmas"] {
+      --theme-primary-gradient: linear-gradient(135deg, #ef4444, #16a34a);
+      --theme-primary-hover: linear-gradient(135deg, #dc2626, #15803d);
+      --theme-shadow: rgba(239, 68, 68, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0a1f0a 0%, #1a3a1a 30%, #0f172a 60%, #2a1a1a 100%);
+      --theme-hero-aurora-1: rgba(239, 68, 68, 0.25);
+      --theme-hero-aurora-2: rgba(34, 197, 94, 0.2);
+      --theme-hero-aurora-3: rgba(250, 204, 21, 0.15);
+      --theme-hero-aurora-4: rgba(239, 68, 68, 0.15);
+      --theme-hero-aurora-5: rgba(34, 197, 94, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #ef4444, #16a34a, #fbbf24, #16a34a, #ef4444);
+      --theme-shape-1: radial-gradient(circle, #ef4444, transparent);
+      --theme-shape-2: radial-gradient(circle, #16a34a, transparent);
+      --theme-shape-3: radial-gradient(circle, #fbbf24, transparent);
+      --theme-shape-4: radial-gradient(circle, #dc2626, transparent);
+      --theme-shimmer: linear-gradient(135deg, #ef4444 0%, #16a34a 25%, #fbbf24 50%, #16a34a 75%, #ef4444 100%);
+      --theme-divider: linear-gradient(90deg, #ef4444, #16a34a, #fbbf24, #16a34a, #ef4444);
+      --theme-badge-bg: linear-gradient(135deg, #fef2f2, #f0fdf4, #fefce8);
+      --theme-badge-color: #dc2626;
+      --theme-process-bar: linear-gradient(90deg, #ef4444, #16a34a, #fbbf24);
+      --theme-cta-bg: linear-gradient(135deg, #0a1f0a 0%, #1a3a1a 30%, #2a1a1a 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #ef4444, #16a34a, #fbbf24);
+    }
+    /* New Year */
+    [data-theme="newyear"] {
+      --theme-primary-gradient: linear-gradient(135deg, #fbbf24, #f59e0b);
+      --theme-primary-hover: linear-gradient(135deg, #f59e0b, #d97706);
+      --theme-shadow: rgba(251, 191, 36, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0f172a 0%, #1a1a2e 30%, #0f172a 60%, #1c1917 100%);
+      --theme-hero-aurora-1: rgba(251, 191, 36, 0.25);
+      --theme-hero-aurora-2: rgba(255, 255, 255, 0.15);
+      --theme-hero-aurora-3: rgba(251, 191, 36, 0.12);
+      --theme-hero-aurora-4: rgba(168, 162, 158, 0.1);
+      --theme-hero-aurora-5: rgba(251, 191, 36, 0.15);
+      --theme-header-accent: linear-gradient(90deg, #fbbf24, #fff, #fbbf24, #fff, #fbbf24);
+      --theme-shape-1: radial-gradient(circle, #fbbf24, transparent);
+      --theme-shape-2: radial-gradient(circle, #fff, transparent);
+      --theme-shape-3: radial-gradient(circle, #f59e0b, transparent);
+      --theme-shape-4: radial-gradient(circle, #fbbf24, transparent);
+      --theme-shimmer: linear-gradient(135deg, #fbbf24 0%, #fff 25%, #f59e0b 50%, #fff 75%, #fbbf24 100%);
+      --theme-divider: linear-gradient(90deg, #fbbf24, #fff, #f59e0b, #fff, #fbbf24);
+      --theme-badge-bg: linear-gradient(135deg, #fefce8, #fff, #fffbeb);
+      --theme-badge-color: #d97706;
+      --theme-process-bar: linear-gradient(90deg, #fbbf24, #fff, #f59e0b);
+      --theme-cta-bg: linear-gradient(135deg, #0f172a 0%, #1a1a2e 30%, #1c1917 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #fbbf24, #fff, #f59e0b);
+    }
+    /* Halloween */
+    [data-theme="halloween"] {
+      --theme-primary-gradient: linear-gradient(135deg, #f97316, #7c3aed);
+      --theme-primary-hover: linear-gradient(135deg, #ea580c, #6d28d9);
+      --theme-shadow: rgba(249, 115, 22, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a1a 30%, #0f172a 60%, #1a0f0a 100%);
+      --theme-hero-aurora-1: rgba(249, 115, 22, 0.25);
+      --theme-hero-aurora-2: rgba(124, 58, 237, 0.2);
+      --theme-hero-aurora-3: rgba(249, 115, 22, 0.12);
+      --theme-hero-aurora-4: rgba(124, 58, 237, 0.15);
+      --theme-hero-aurora-5: rgba(234, 88, 12, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #f97316, #7c3aed, #f97316, #7c3aed, #f97316);
+      --theme-shape-1: radial-gradient(circle, #f97316, transparent);
+      --theme-shape-2: radial-gradient(circle, #7c3aed, transparent);
+      --theme-shape-3: radial-gradient(circle, #f97316, transparent);
+      --theme-shape-4: radial-gradient(circle, #7c3aed, transparent);
+      --theme-shimmer: linear-gradient(135deg, #f97316 0%, #7c3aed 30%, #f97316 60%, #7c3aed 100%);
+      --theme-divider: linear-gradient(90deg, #f97316, #7c3aed, #f97316, #7c3aed, #f97316);
+      --theme-badge-bg: linear-gradient(135deg, #fff7ed, #f5f3ff, #fef2f2);
+      --theme-badge-color: #ea580c;
+      --theme-process-bar: linear-gradient(90deg, #f97316, #7c3aed, #f97316);
+      --theme-cta-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a1a 30%, #1a0f0a 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #f97316, #7c3aed, #f97316);
     }
     
     * {
@@ -41,6 +174,7 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     
     /* ── Scroll-triggered reveal animations ── */
@@ -119,7 +253,7 @@
     .floating-shape-1 {
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, #60a5fa, transparent);
+      background: var(--theme-shape-1);
       top: -10%;
       right: -5%;
       animation: floatA 12s ease-in-out infinite;
@@ -127,7 +261,7 @@
     .floating-shape-2 {
       width: 200px;
       height: 200px;
-      background: radial-gradient(circle, #a78bfa, transparent);
+      background: var(--theme-shape-2);
       bottom: -5%;
       left: 10%;
       animation: floatB 15s ease-in-out infinite;
@@ -135,7 +269,7 @@
     .floating-shape-3 {
       width: 150px;
       height: 150px;
-      background: radial-gradient(circle, #ec4899, transparent);
+      background: var(--theme-shape-3);
       top: 40%;
       left: -3%;
       animation: floatC 10s ease-in-out infinite;
@@ -143,7 +277,7 @@
     .floating-shape-4 {
       width: 120px;
       height: 120px;
-      background: radial-gradient(circle, #f59e0b, transparent);
+      background: var(--theme-shape-4);
       bottom: 20%;
       right: 15%;
       animation: floatA 18s ease-in-out infinite reverse;
@@ -179,15 +313,7 @@
     
     /* ── Gradient text shimmer (rainbow) ── */
     .gradient-shimmer {
-      background: linear-gradient(
-        135deg,
-        #f472b6 0%,
-        #a78bfa 20%,
-        #60a5fa 40%,
-        #34d399 60%,
-        #fbbf24 80%,
-        #f472b6 100%
-      );
+      background: var(--theme-shimmer);
       background-size: 400% 400%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -202,7 +328,7 @@
     /* ── Colorful section dividers ── */
     .section-divider {
       height: 4px;
-      background: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24, #f472b6);
+      background: var(--theme-divider);
       background-size: 300% 100%;
       animation: dividerShimmer 6s linear infinite;
     }
@@ -319,7 +445,7 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24);
+      background: var(--theme-header-accent);
       opacity: 0.5;
     }
     
@@ -331,6 +457,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
+      position: relative;
     }
     
     .logo-section {
@@ -481,15 +608,15 @@
     }
     
     .btn-primary-modern {
-      background: linear-gradient(135deg, #a78bfa, #ec4899);
+      background: var(--theme-primary-gradient);
       color: #ffffff;
       border: none;
     }
     
     .btn-primary-modern:hover {
-      background: linear-gradient(135deg, #8b5cf6, #db2777);
+      background: var(--theme-primary-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
+      box-shadow: 0 6px 20px var(--theme-shadow);
     }
     
     .btn-secondary-modern {
@@ -505,7 +632,7 @@
     
     /* Hero Section — vibrant aurora */
     .hero-modern {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #0f172a 60%, #1c1917 100%);
+      background: var(--theme-hero-bg);
       padding: 120px 24px;
       text-align: center;
       position: relative;
@@ -520,11 +647,11 @@
       right: 0;
       bottom: 0;
       background: 
-        radial-gradient(circle at 15% 30%, rgba(244, 114, 182, 0.2) 0%, transparent 45%),
-        radial-gradient(circle at 85% 20%, rgba(96, 165, 250, 0.2) 0%, transparent 45%),
-        radial-gradient(circle at 50% 80%, rgba(52, 211, 153, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 20% 70%, rgba(167, 139, 250, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 75%, rgba(251, 191, 36, 0.1) 0%, transparent 40%);
+        radial-gradient(circle at 15% 30%, var(--theme-hero-aurora-1) 0%, transparent 45%),
+        radial-gradient(circle at 85% 20%, var(--theme-hero-aurora-2) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, var(--theme-hero-aurora-3) 0%, transparent 45%),
+        radial-gradient(circle at 20% 70%, var(--theme-hero-aurora-4) 0%, transparent 40%),
+        radial-gradient(circle at 80% 75%, var(--theme-hero-aurora-5) 0%, transparent 40%);
       animation: auroraPulse 10s ease-in-out infinite alternate;
     }
     
@@ -577,7 +704,7 @@
     }
     
     .btn-hero-primary {
-      background: linear-gradient(135deg, #a78bfa, #ec4899, #f472b6);
+      background: var(--theme-btn-hero-primary);
       background-size: 200% 200%;
       animation: btnGradient 4s ease-in-out infinite;
       color: #ffffff;
@@ -590,7 +717,7 @@
     
     .btn-hero-primary:hover {
       transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 12px 32px rgba(167, 139, 250, 0.5);
+      box-shadow: 0 12px 32px var(--theme-shadow);
     }
     
     .btn-hero-secondary {
@@ -621,7 +748,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24);
+      background: var(--theme-process-bar);
     }
     
     .section-container {
@@ -636,8 +763,8 @@
     
     .section-badge {
       display: inline-block;
-      background: linear-gradient(135deg, #fdf2f8, #ede9fe, #dbeafe);
-      color: #6d28d9;
+      background: var(--theme-badge-bg);
+      color: var(--theme-badge-color);
       padding: 6px 16px;
       border-radius: 100px;
       font-size: 12px;
@@ -660,7 +787,7 @@
       display: block;
       width: 60px;
       height: 4px;
-      background: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa);
+      background: var(--theme-primary-gradient);
       border-radius: 4px;
       margin: 16px auto 0;
     }
@@ -741,75 +868,10 @@
       margin: 0;
     }
     
-    /* Products Section */
-    .products-section {
-      padding: 80px 24px;
-      background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 30%, #fffbeb 100%);
-      position: relative;
-    }
-    
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    
-    .product-card {
-      border-radius: 16px;
-      padding: 32px;
-      color: #ffffff;
-      transition: all 0.3s;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      position: relative;
-    }
-    
-    .product-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 24px 56px rgba(102, 126, 234, 0.35), 0 0 40px rgba(167, 139, 250, 0.15);
-    }
-    
-    .product-card.souldoc {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    
-    .product-card h3 {
-      font-size: 24px;
-      font-weight: 700;
-      margin: 0 0 12px 0;
-    }
-    
-    .product-card p {
-      font-size: 15px;
-      opacity: 0.95;
-      margin: 0 0 20px 0;
-      line-height: 1.6;
-    }
-    
-    .product-card .btn-product {
-      background: rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.2s;
-      position: relative;
-      z-index: 10;
-      cursor: pointer;
-    }
-    
-    .product-card .btn-product:hover {
-      background: rgba(255, 255, 255, 0.3);
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-1px);
-    }
-    
     /* CTA Section */
     .cta-section {
       padding: 80px 24px;
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #312e81 60%, #1c1917 100%);
+      background: var(--theme-cta-bg);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -870,7 +932,7 @@
     }
     
     .btn-cta-primary {
-      background: linear-gradient(135deg, #a78bfa, #ec4899, #f472b6);
+      background: var(--theme-btn-hero-primary);
       background-size: 200% 200%;
       animation: btnGradient 4s ease-in-out infinite;
       color: #ffffff;
@@ -879,7 +941,7 @@
     
     .btn-cta-primary:hover {
       transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 12px 32px rgba(167, 139, 250, 0.5);
+      box-shadow: 0 12px 32px var(--theme-shadow);
     }
     
     .btn-cta-secondary {
@@ -1086,7 +1148,6 @@
       }
       
       .features-section,
-      .products-section,
       .showcase-section,
       .process-section,
       .booking-section,
@@ -1112,14 +1173,12 @@
       }
       
       .features-grid,
-      .products-grid,
       .showcase-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
       
-      .feature-card,
-      .product-card {
+      .feature-card {
         padding: 24px;
       }
       
@@ -1294,7 +1353,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24);
+      background: var(--theme-process-bar);
     }
     .process-grid {
       display: grid;
@@ -1418,7 +1477,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, rgba(244, 114, 182, 0.2), rgba(167, 139, 250, 0.2), rgba(96, 165, 250, 0.2));
+      background: var(--theme-badge-bg);
       border: 1px solid rgba(167, 139, 250, 0.3);
       border-radius: 100px;
       padding: 6px 14px 6px 8px;
@@ -1431,10 +1490,10 @@
     .hero-status-pill .pulse-dot {
       width: 8px;
       height: 8px;
-      background: #a78bfa;
+      background: var(--theme-badge-color);
       border-radius: 50%;
       animation: pulseDot 2s ease-in-out infinite;
-      box-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
+      box-shadow: 0 0 10px var(--theme-shadow);
     }
     @keyframes pulseDot {
       0%, 100% { opacity: 1; transform: scale(1); }
@@ -1454,7 +1513,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #fbbf24, #f59e0b, #d97706);
+      background: var(--theme-process-bar);
     }
     
     .booking-widget-container {
@@ -1570,7 +1629,7 @@
       </div>
       <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
     </nav>
-    <div class="nav-progress" id="navProgress" style="position: absolute; bottom: -1px; left: 0; height: 2px; background: linear-gradient(90deg, #60a5fa, #a78bfa, #ec4899); width: 0; transition: width 0.1s linear;"></div>
+    <div class="nav-progress" id="navProgress" style="position: absolute; bottom: -1px; left: 0; height: 2px; background: var(--theme-header-accent); width: 0; transition: width 0.1s linear;"></div>
   </header>
 
   <!-- Mobile Menu Overlay -->
@@ -1949,6 +2008,10 @@
           <a href="/consulting/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#6d28d9;text-decoration:none;">Learn More →</a>
         </div>
       </div>
+      <div class="reveal" style="text-align: center; margin-top: 48px;">
+        <a href="/product-stack/" class="btn-modern btn-secondary-modern" style="padding: 12px 28px; font-size: 15px;">View all products →</a>
+        <a href="/consulting/" class="btn-modern btn-primary-modern" style="padding: 12px 28px; font-size: 15px; margin-left: 12px;">Custom solutions</a>
+      </div>
     </div>
   </section>
 
@@ -2063,75 +2126,6 @@
             RESTful APIs, webhooks, and pre-built connectors. Integrate AI capabilities into your existing stack in hours.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- (neural section removed) -->
-
-  <!-- Products Section -->
-  <section class="products-section" id="products" style="position: relative; overflow: hidden;">
-    <svg class="cartoon-float" style="top: 5%; right: 2%; width: 34px; height: 34px;" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
-    <svg class="cartoon-float" style="bottom: 5%; left: 3%; width: 28px; height: 28px; animation-duration: 26s;" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="section-badge">Products</span>
-        <h2 class="section-title">Ready-to-use solutions</h2>
-        <p class="section-description">
-          Production-ready applications that solve real business problems. Deploy in minutes, scale to millions.
-        </p>
-      </div>
-      <div class="products-grid stagger-children">
-        <div class="product-card souldoc shine-card tilt-card">
-          <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.25);">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
-            </svg>
-          </div>
-          <h3>Souldoc</h3>
-          <p>Healthcare workflow platform with appointment booking, electronic prescriptions, and patient management. HIPAA-ready with enterprise security.</p>
-          <a href="/souldoc/" class="btn-product">Learn More →</a>
-        </div>
-        <div class="product-card shine-card tilt-card" style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);">
-          <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.25);">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
-              <path d="M3 6h18" stroke="#FFF"/>
-              <path d="M16 10a4 4 0 0 1-8 0" stroke="#FFF"/>
-            </svg>
-          </div>
-          <h3>Texa</h3>
-          <p>Apparel manufacturing ERP covering order management, inventory, production planning, supplier coordination, and quality control — end to end.</p>
-          <a href="/texa/" class="btn-product">Learn More →</a>
-        </div>
-        <div class="product-card shine-card tilt-card" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
-          <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.25);">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
-              <line x1="16" y1="2" x2="16" y2="6" stroke="#FFF" stroke-linecap="round"/>
-              <line x1="8" y1="2" x2="8" y2="6" stroke="#FFF" stroke-linecap="round"/>
-              <line x1="3" y1="10" x2="21" y2="10" stroke="#FFF"/>
-              <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" stroke="#FFF" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Bookly</h3>
-          <p>Universal booking and scheduling platform for any industry — clinics, salons, gyms, studios, consultants, and more. Automated reminders and real-time availability.</p>
-          <a href="/bookly/" class="btn-product">Learn More →</a>
-        </div>
-        <div class="product-card shine-card tilt-card" style="background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);">
-          <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.25);">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(255,255,255,0.3)" stroke="#FFF"/>
-            </svg>
-          </div>
-          <h3>SoulsHS</h3>
-          <p>Health, Safety &amp; Environment (HSE) platform — digitizing compliance tracking, incident reporting, risk assessments, and safety audits for modern workplaces.</p>
-          <a href="/soulshs/" class="btn-product">Learn More →</a>
-        </div>
-      </div>
-      <div class="reveal" style="text-align: center; margin-top: 48px;">
-        <a href="/product-stack/" class="btn-modern btn-secondary-modern" style="padding: 12px 28px; font-size: 15px;">View all products →</a>
-        <a href="/consulting/" class="btn-modern btn-primary-modern" style="padding: 12px 28px; font-size: 15px; margin-left: 12px;">Custom solutions</a>
       </div>
     </div>
   </section>

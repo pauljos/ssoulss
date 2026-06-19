@@ -24,6 +24,7 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     
     /* Header */
@@ -44,6 +45,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 24px;
+      position: relative;
     }
     
     .logo-section {
@@ -601,6 +603,16 @@
       
       .card-icon {
         font-size: 28px;
+      }
+      
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      
+      .blog-card img,
+      .blog-card > div:first-child {
+        height: 160px;
       }
       
       .footer-container {
