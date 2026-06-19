@@ -19,84 +19,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
   <link rel="stylesheet" href="/assets/css/site.css?v={{ site.time | date: '%s' }}">
-  <!-- Bookly Widget Script loaded lazily below -->
-  <script>
-    // ── THEME: resolves which theme to show based on today's date ──
-    (function() {
-      try {
-        // URL override: ?theme=football
-        var params = new URLSearchParams(window.location.search);
-        if (params.get('theme')) { applyTheme(params.get('theme')); return; }
-        
-        var now = new Date();
-        var y = now.getFullYear();
-        var m = now.getMonth() + 1;
-        var d = now.getDate();
-        
-        // Helper: check if today is within [monthS, dayS] to [monthE, dayE]
-        function between(mS, dS, mE, dE) {
-          var s = new Date(y, mS-1, dS), e = new Date(y, mE-1, dE);
-          return now >= s && now <= e;
-        }
-        
-        // Helper: check specific year dates
-        function betweenYear(yS, mS, dS, yE, mE, dE) {
-          var s = new Date(yS, mS-1, dS), e = new Date(yE, mE-1, dE);
-          return now >= s && now <= e;
-        }
-        
-        var theme = 'default';
-        
-        // ═══════ ONE-TIME EVENTS (specific year) ═══════
-        // FIFA World Cup 2026: June 11 - July 19
-        if (betweenYear(2026, 6, 11, 2026, 7, 19)) theme = 'football';
-        
-        // ═══════ RECURRING EVENTS (yearly) ═══════
-        // New Year
-        else if ((m === 12 && d >= 27) || (m === 1 && d <= 5)) theme = 'newyear';
-        // Valentine's
-        else if (m === 2 && d >= 10 && d <= 16) theme = 'valentine';
-        // St. Patrick's Day
-        else if (m === 3 && d === 17) theme = 'st-patrick';
-        // Vishu
-        else if (m === 4 && d >= 14 && d <= 15) theme = 'vishu';
-        // Spring
-        else if ((m === 3 && d >= 20) || (m === 4 && d <= 15)) theme = 'spring';
-        // Summer
-        else if (between(6, 1, 8, 19)) theme = 'summer';
-        // Onam
-        else if (between(8, 20, 9, 15)) theme = 'onam';
-        // Autumn
-        else if (between(9, 16, 10, 14)) theme = 'autumn';
-        // Diwali
-        else if (between(10, 15, 11, 5)) theme = 'diwali';
-        // Halloween
-        else if (m === 10 && d === 31) theme = 'halloween';
-        // Bonfire Night
-        else if (m === 11 && d === 5) theme = 'bonfire';
-        // Remembrance Day
-        else if (m === 11 && d === 11) theme = 'remembrance';
-        // Christmas
-        else if (m === 12 && d <= 26) theme = 'xmas';
-        
-        applyTheme(theme);
-      } catch(e) {
-        applyTheme('default');
-      }
-    })();
-    
-    function applyTheme(t) {
-      document.documentElement.setAttribute('data-theme', t);
-      document.querySelectorAll('.theme-hero').forEach(function(el) { el.style.display = 'none'; });
-      var h = document.querySelector('[data-theme-hero="' + t + '"]') || document.querySelector('[data-theme-hero="default"]') || document.querySelector('[data-theme-hero="fallback"]');
-      if (h) h.style.display = '';
-      var m = document.querySelector('meta[name="theme-color"]');
-      if (m) {
-        var c = { vishu:'#1a2e0a', onam:'#1a2e00', diwali:'#1a1a00', ramadan:'#0a1a00', eid:'#1a2e0a', 'national-day':'#0a1a1a', 'st-patrick':'#0a2e0a', bonfire:'#2e1a00', remembrance:'#2e0a0a', halloween:'#1a0a00', xmas:'#1a3a1a', newyear:'#1a1a2e', valentine:'#3a1a2e', spring:'#1a2e1a', summer:'#1a2e3a', autumn:'#2e1a0a', football:'#0a1a0a' };
-        m.content = c[t] || '#0f172a';
-      }
-    }
-  </script>
   <style>
     /* ============================================================
        Modern Premium Design System — Advanced Effects
@@ -3742,6 +3664,62 @@
         setInterval(rotate, interval);
       });
     })();
+
+    // ============================================================
+    // 11. THEME — resolves & applies theme (runs after DOM is ready)
+    // ============================================================
+    (function() {
+      try {
+        // URL override: ?theme=football
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('theme')) { applyTheme(params.get('theme')); return; }
+        
+        var now = new Date();
+        var y = now.getFullYear();
+        var m = now.getMonth() + 1;
+        var d = now.getDate();
+        
+        function between(mS, dS, mE, dE) {
+          return now >= new Date(y, mS-1, dS) && now <= new Date(y, mE-1, dE);
+        }
+        function betweenYear(yS, mS, dS, yE, mE, dE) {
+          return now >= new Date(yS, mS-1, dS) && now <= new Date(yE, mE-1, dE);
+        }
+        
+        var theme = 'default';
+        // World Cup 2026: Jun 11 - Jul 19
+        if (betweenYear(2026, 6, 11, 2026, 7, 19)) theme = 'football';
+        else if ((m === 12 && d >= 27) || (m === 1 && d <= 5)) theme = 'newyear';
+        else if (m === 2 && d >= 10 && d <= 16) theme = 'valentine';
+        else if (m === 3 && d === 17) theme = 'st-patrick';
+        else if (m === 4 && d >= 14 && d <= 15) theme = 'vishu';
+        else if ((m === 3 && d >= 20) || (m === 4 && d <= 15)) theme = 'spring';
+        else if (between(6, 1, 8, 19)) theme = 'summer';
+        else if (between(8, 20, 9, 15)) theme = 'onam';
+        else if (between(9, 16, 10, 14)) theme = 'autumn';
+        else if (between(10, 15, 11, 5)) theme = 'diwali';
+        else if (m === 10 && d === 31) theme = 'halloween';
+        else if (m === 11 && d === 5) theme = 'bonfire';
+        else if (m === 11 && d === 11) theme = 'remembrance';
+        else if (m === 12 && d <= 26) theme = 'xmas';
+        
+        applyTheme(theme);
+      } catch(e) {
+        applyTheme('default');
+      }
+    })();
+    
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      document.querySelectorAll('.theme-hero').forEach(function(el) { el.style.display = 'none'; });
+      var h = document.querySelector('[data-theme-hero="' + t + '"]') || document.querySelector('[data-theme-hero="default"]') || document.querySelector('[data-theme-hero="fallback"]');
+      if (h) h.style.display = '';
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) {
+        var c = { vishu:'#1a2e0a', onam:'#1a2e00', diwali:'#1a1a00', ramadan:'#0a1a00', eid:'#1a2e0a', 'national-day':'#0a1a1a', 'st-patrick':'#0a2e0a', bonfire:'#2e1a00', remembrance:'#2e0a0a', halloween:'#1a0a00', xmas:'#1a3a1a', newyear:'#1a1a2e', valentine:'#3a1a2e', spring:'#1a2e1a', summer:'#1a2e3a', autumn:'#2e1a0a', football:'#0a1a0a' };
+        m.content = c[t] || '#0f172a';
+      }
+    }
   </script>
 </body>
 </html>
