@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781859456">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781860415">
   <!-- Bookly Widget Script loaded lazily below -->
   <script>
     // ── Seasonal theme: detects region & date to choose the right theme ──
@@ -158,13 +158,19 @@
       if (!theme) theme = 'default';
       
       document.documentElement.setAttribute('data-theme', theme);
-      // ── Swap hero content per theme ──
+      // ── Swap hero content & visual per theme ──
       document.querySelectorAll('.theme-content').forEach(function(el) {
         el.style.display = 'none';
       });
       var activeContent = document.querySelector('[data-theme-content="' + theme + '"]') ||
                           document.querySelector('[data-theme-content="default"]');
       if (activeContent) activeContent.style.display = '';
+      document.querySelectorAll('.theme-visual').forEach(function(el) {
+        el.style.display = 'none';
+      });
+      var activeVisual = document.querySelector('.theme-visual-' + theme) ||
+                         document.querySelector('.theme-visual-default');
+      if (activeVisual) activeVisual.style.display = 'flex';
       // Update theme-color meta tag
       var meta = document.querySelector('meta[name="theme-color"]');
       if (meta) {
@@ -295,6 +301,14 @@
     @keyframes themeFadeIn {
       from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+    /* ── Hero text rotator transition ── */
+    .hero-title, .hero-description {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .hero-title.rotating, .hero-description.rotating {
+      opacity: 0;
+      transform: translateY(8px);
     }
     /* Christmas */
     [data-theme="xmas"] {
@@ -489,6 +503,239 @@
       --theme-btn-hero-primary: linear-gradient(135deg, #f97316, #d97706, #fbbf24);
     }
     
+    /* ── Theme-specific section identities ──
+       Each theme gets completely different card designs, borders,
+       shadows, and hover effects so sections feel totally unique.
+    ── */
+    /* ── Default: modern, clean, purple/pink tech ── */
+    [data-theme="default"] .showcase-card {
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    [data-theme="default"] .showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.1);
+    }
+    [data-theme="default"] .feature-card {
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+    [data-theme="default"] .process-step {
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    /* ── Christmas: wrapped-gift cards, warm glow, cozy ── */
+    [data-theme="xmas"] .showcase-card {
+      border-radius: 24px 24px 24px 4px;
+      border: 2px solid rgba(239,68,68,0.25);
+      background: linear-gradient(145deg, #ffffff, #fef2f2);
+      box-shadow: 0 8px 24px rgba(239,68,68,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+    [data-theme="xmas"] .showcase-card:hover {
+      transform: translateY(-8px) rotate(-1deg);
+      box-shadow: 0 20px 48px rgba(239,68,68,0.2), 0 0 40px rgba(34,197,94,0.06);
+      border-color: rgba(34,197,94,0.3);
+    }
+    [data-theme="xmas"] .feature-card {
+      border-radius: 20px;
+      border: 1px solid rgba(239,68,68,0.15);
+      background: linear-gradient(145deg, #ffffff, #fefcfc);
+    }
+    [data-theme="xmas"] .feature-card:hover {
+      border-color: #ef4444;
+    }
+    [data-theme="xmas"] .process-step {
+      border-radius: 20px;
+      border: 1px solid rgba(34,197,94,0.2);
+      background: linear-gradient(145deg, #ffffff, #f0fdf4);
+    }
+    [data-theme="xmas"] .section-badge {
+      border-color: rgba(239,68,68,0.3) !important;
+    }
+    
+    /* ── Onam: warm gold, earthy, traditional elegance ── */
+    [data-theme="onam"] .showcase-card {
+      border-radius: 16px;
+      border: 2px solid rgba(234,179,8,0.3);
+      background: linear-gradient(145deg, #ffffff, #fefce8);
+      box-shadow: 0 8px 24px rgba(234,179,8,0.06);
+    }
+    [data-theme="onam"] .showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(234,179,8,0.15), 0 0 30px rgba(22,163,74,0.05);
+      border-color: rgba(22,163,74,0.3);
+    }
+    [data-theme="onam"] .showcase-card .showcase-tag {
+      background: #fefce8 !important;
+      color: #a16207 !important;
+    }
+    [data-theme="onam"] .feature-card {
+      border-radius: 16px;
+      border: 1px solid rgba(234,179,8,0.15);
+      background: linear-gradient(145deg, #ffffff, #fffbeb);
+    }
+    [data-theme="onam"] .feature-card:hover {
+      border-color: #eab308;
+    }
+    [data-theme="onam"] .process-step {
+      border-radius: 16px;
+      border: 1px solid rgba(22,163,74,0.15);
+      background: linear-gradient(145deg, #ffffff, #f0fdf4);
+    }
+    
+    /* ── Football: dynamic, sporty, energetic ── */
+    [data-theme="football"] .showcase-card {
+      border-radius: 12px;
+      border: 2px solid rgba(34,197,94,0.25);
+      background: linear-gradient(145deg, #ffffff, #f0fdf4);
+      box-shadow: 0 4px 12px rgba(34,197,94,0.06);
+    }
+    [data-theme="football"] .showcase-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 16px 40px rgba(34,197,94,0.2);
+      border-color: #22c55e;
+    }
+    [data-theme="football"] .feature-card {
+      border-radius: 12px;
+      border: 1px solid rgba(34,197,94,0.15);
+    }
+    [data-theme="football"] .feature-card:hover {
+      border-color: #22c55e;
+      box-shadow: 0 12px 32px rgba(34,197,94,0.1);
+    }
+    [data-theme="football"] .process-step {
+      border-radius: 12px;
+      border: 1px solid rgba(34,197,94,0.15);
+    }
+    
+    /* ── Diwali: rich maroon, gold glow, elegant ── */
+    [data-theme="diwali"] .showcase-card {
+      border-radius: 24px 8px 24px 8px;
+      border: 2px solid rgba(245,158,11,0.25);
+      background: linear-gradient(145deg, #ffffff, #fffbeb);
+      box-shadow: 0 8px 24px rgba(245,158,11,0.06), inset 0 0 40px rgba(245,158,11,0.02);
+    }
+    [data-theme="diwali"] .showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(245,158,11,0.18), 0 0 60px rgba(239,68,68,0.04);
+      border-color: rgba(239,68,68,0.2);
+    }
+    [data-theme="diwali"] .feature-card {
+      border-radius: 20px;
+      border: 1px solid rgba(245,158,11,0.15);
+      background: linear-gradient(145deg, #ffffff, #fffbeb);
+    }
+    [data-theme="diwali"] .feature-card:hover {
+      border-color: #f59e0b;
+    }
+    [data-theme="diwali"] .process-step {
+      border-radius: 20px 8px 20px 8px;
+      border: 1px solid rgba(239,68,68,0.1);
+    }
+    
+    /* ── Halloween: dark, playful spooky, orange/purple glow ── */
+    [data-theme="halloween"] .showcase-card {
+      border-radius: 16px 4px 16px 4px;
+      border: 2px solid rgba(249,115,22,0.2);
+      background: linear-gradient(145deg, #ffffff, #fff7ed);
+      box-shadow: 0 8px 24px rgba(249,115,22,0.05);
+    }
+    [data-theme="halloween"] .showcase-card:hover {
+      transform: translateY(-6px) skewX(-0.5deg);
+      box-shadow: 0 20px 48px rgba(124,58,237,0.15), 0 0 30px rgba(249,115,22,0.06);
+      border-color: rgba(124,58,237,0.2);
+    }
+    [data-theme="halloween"] .feature-card {
+      border-radius: 12px 4px 12px 4px;
+      border: 1px solid rgba(249,115,22,0.1);
+      background: linear-gradient(145deg, #ffffff, #fefcfc);
+    }
+    [data-theme="halloween"] .feature-card:hover {
+      border-color: #7c3aed;
+    }
+    [data-theme="halloween"] .process-step {
+      border-radius: 12px 4px 12px 4px;
+      border: 1px solid rgba(124,58,237,0.1);
+    }
+    
+    /* ── Summer: bright, light, airy ── */
+    [data-theme="summer"] .showcase-card {
+      border-radius: 28px;
+      border: 1px solid rgba(96,165,250,0.2);
+      background: linear-gradient(145deg, #ffffff, #f0f9ff);
+      box-shadow: 0 8px 24px rgba(96,165,250,0.04);
+    }
+    [data-theme="summer"] .showcase-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(96,165,250,0.12);
+      border-color: #60a5fa;
+    }
+    [data-theme="summer"] .feature-card {
+      border-radius: 24px;
+      border: 1px solid rgba(96,165,250,0.1);
+      background: linear-gradient(145deg, #ffffff, #f8faff);
+    }
+    [data-theme="summer"] .feature-card:hover {
+      border-color: #60a5fa;
+    }
+    
+    /* ── Spring: soft pastels, floral ── */
+    [data-theme="spring"] .showcase-card {
+      border-radius: 28px 28px 28px 4px;
+      border: 1px solid rgba(244,114,182,0.15);
+      background: linear-gradient(145deg, #ffffff, #fdf2f8);
+      box-shadow: 0 8px 24px rgba(244,114,182,0.04);
+    }
+    [data-theme="spring"] .showcase-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(244,114,182,0.1);
+      border-color: #f472b6;
+    }
+    [data-theme="spring"] .feature-card {
+      border-radius: 24px 24px 24px 4px;
+      border: 1px solid rgba(167,139,250,0.1);
+      background: linear-gradient(145deg, #ffffff, #faf5ff);
+    }
+    
+    /* ── Autumn: warm amber, harvest ── */
+    [data-theme="autumn"] .showcase-card {
+      border-radius: 12px 24px 12px 24px;
+      border: 2px solid rgba(249,115,22,0.15);
+      background: linear-gradient(145deg, #ffffff, #fff7ed);
+      box-shadow: 0 8px 24px rgba(217,119,6,0.04);
+    }
+    [data-theme="autumn"] .showcase-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(217,119,6,0.12);
+      border-color: #d97706;
+    }
+    [data-theme="autumn"] .feature-card {
+      border-radius: 12px 20px 12px 20px;
+      border: 1px solid rgba(217,119,6,0.1);
+    }
+    [data-theme="autumn"] .process-step {
+      border-radius: 12px 20px 12px 20px;
+    }
+
+    /* ── Hero layout variants per theme ── */
+    [data-theme="xmas"] .hero-content { text-align: center; }
+    [data-theme="xmas"] .hero-buttons { justify-content: center; }
+    [data-theme="xmas"] .hero-split .hero-title { font-size: 48px; }
+    [data-theme="diwali"] .hero-split .hero-title { font-size: 46px; }
+    [data-theme="football"] .hero-content { text-align: left; }
+    [data-theme="football"] .hero-split .hero-title { font-size: 44px; }
+    [data-theme="halloween"] .hero-split .hero-title { font-size: 44px; letter-spacing: -0.5px; }
+    [data-theme="halloween"] .btn-hero-primary { border-radius: 4px; }
+    [data-theme="halloween"] .btn-hero-secondary { border-radius: 4px; }
+    [data-theme="onam"] .hero-content { text-align: center; }
+    [data-theme="onam"] .hero-buttons { justify-content: center; }
+    [data-theme="onam"] .hero-split { grid-template-columns: 1fr; text-align: center; }
+    @media (max-width: 768px) {
+      [data-theme="onam"] .hero-split { grid-template-columns: 1fr; }
+    }
+
     /* ── Theme-specific hero murals (background illustrations) ── */
     .theme-mural { display: none; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.08; }
     /* Football: grass pattern */
@@ -707,6 +954,62 @@
       --theme-process-bar: linear-gradient(90deg, #dc2626, #991b1b, #dc2626);
       --theme-cta-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a0a 30%, #0f0a0a 60%, #0f172a 100%);
       --theme-btn-hero-primary: linear-gradient(135deg, #dc2626, #991b1b, #dc2626);
+    }
+
+    /* ── Theme-specific hero visuals ── */
+    .hero-visual {
+      animation: themeFadeIn 0.6s ease both;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-visual .ai-robot-wrapper {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      margin: 0 auto;
+      animation: robotFloat 6s ease-in-out infinite;
+    }
+    .hero-visual .ai-robot-wrapper svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 8px 32px rgba(167, 139, 250, 0.25));
+    }
+    @media (max-width: 1024px) {
+      .hero-visual .ai-robot-wrapper { width: 200px; height: 200px; }
+    }
+    .theme-visual { display: none; }
+    [data-theme="default"] .theme-visual-default { display: flex; }
+    [data-theme="football"] .theme-visual-football { display: flex; }
+    [data-theme="xmas"] .theme-visual-xmas { display: flex; }
+    [data-theme="onam"] .theme-visual-onam { display: flex; }
+    [data-theme="diwali"] .theme-visual-diwali { display: flex; }
+    [data-theme="halloween"] .theme-visual-halloween { display: flex; }
+    /* All other themes fall back to default robot */
+    [data-theme="newyear"] .theme-visual-default { display: flex; }
+    [data-theme="valentine"] .theme-visual-default { display: flex; }
+    [data-theme="spring"] .theme-visual-default { display: flex; }
+    [data-theme="summer"] .theme-visual-default { display: flex; }
+    [data-theme="autumn"] .theme-visual-default { display: flex; }
+    [data-theme="st-patrick"] .theme-visual-default { display: flex; }
+    [data-theme="bonfire"] .theme-visual-default { display: flex; }
+    [data-theme="remembrance"] .theme-visual-default { display: flex; }
+    [data-theme="ramadan"] .theme-visual-default { display: flex; }
+    [data-theme="eid"] .theme-visual-default { display: flex; }
+    [data-theme="national-day"] .theme-visual-default { display: flex; }
+    
+    .football-wrapper, .xmas-wrapper, .onam-wrapper, .diwali-wrapper, .halloween-wrapper {
+      width: 280px;
+      height: 280px;
+      margin: 0 auto;
+      animation: robotFloat 6s ease-in-out infinite;
+    }
+    .football-wrapper svg, .xmas-wrapper svg, .onam-wrapper svg, .diwali-wrapper svg, .halloween-wrapper svg {
+      width: 100%;
+      height: 100%;
+    }
+    @media (max-width: 1024px) {
+      .football-wrapper, .xmas-wrapper, .onam-wrapper, .diwali-wrapper, .halloween-wrapper { width: 200px; height: 200px; }
     }
 
     /* ── Theme-specific hero pill text (only one visible per theme) ── */
@@ -1558,22 +1861,10 @@
     }
 
     
-    /* ── AI Robot Character ── */
-    .ai-robot-wrapper {
-      position: relative;
-      width: 280px;
-      height: 280px;
-      margin: 0 auto;
-      animation: robotFloat 6s ease-in-out infinite;
-    }
+    /* ── AI Robot & Theme Visual floating animation ── */
     @keyframes robotFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-16px); }
-    }
-    .ai-robot-wrapper svg {
-      width: 100%;
-      height: 100%;
-      filter: drop-shadow(0 8px 32px rgba(167, 139, 250, 0.25));
     }
 
     /* ── Floating tech icons around hero ── */
@@ -2351,16 +2642,28 @@
     <canvas id="particle-canvas"></canvas>
     <div class="hero-split">
       <!-- ── THEME-SWAPPABLE HERO CONTENT ── -->
-      <!-- Default hero content -->
+      <!-- Default hero content (with dynamic text rotator) -->
       <div class="hero-content theme-content" data-theme-content="default">
         <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
           <span class="pulse-dot"></span>
           <span>Build with AI</span>
         </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;" data-rotator='[
+          "Ship enterprise products your users will love — <span class=\"gradient-shimmer\">powered by AI</span>",
+          "From concept to code — <span class=\"gradient-shimmer\">we ship what matters</span>",
+          "Transform your ideas into <span class=\"gradient-shimmer\">intelligent applications</span>",
+          "Enterprise software with a <span class=\"gradient-shimmer\">human touch</span>",
+          "Scale your business with <span class=\"gradient-shimmer\">AI-native engineering</span>"
+        ]'>
           Ship enterprise products your users will love — <span class="gradient-shimmer">powered by AI</span>
         </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+        <p class="hero-description reveal" style="transition-delay: 0.3s;" data-rotator='[
+          "We combine expert engineering with cutting-edge AI to build secure, scalable applications.",
+          "Enterprise-ready solutions that respect privacy. Built with transparency and trust.",
+          "From healthcare platforms to ERP systems — your vision, expertly delivered.",
+          "Practical AI that respects people and privacy. Transform your business today.",
+          "Scalable, secure, intelligent — enterprise software engineered for the future."
+        ]'>
           We combine expert engineering with cutting-edge AI to build secure, scalable applications. From healthcare to ERP — your vision, delivered.
         </p>
         <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
@@ -2573,71 +2876,133 @@
         </div>
       </div>
 
-      <div class="ai-robot-wrapper reveal-scale" style="transition-delay: 0.5s;">
-        <!-- AI Robot Character SVG -- kept for all themes -->
-          <!-- Glow behind robot -->
-          <circle cx="140" cy="140" r="110" fill="url(#robotGlow)" opacity="0.3"/>
-          <defs>
-            <radialGradient id="robotGlow" cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0" stop-color="#a78bfa" stop-opacity="0.5"/>
-              <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <!-- Robot Body -->
-          <rect x="90" y="120" width="100" height="70" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-          <rect x="90" y="120" width="100" height="70" rx="16" fill="url(#bodyGrad)" opacity="0.6"/>
-          <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#a78bfa" stop-opacity="0.3"/>
-            <stop offset="1" stop-color="#ec4899" stop-opacity="0.1"/>
-          </linearGradient>
-          <!-- Robot Head -->
-          <rect x="100" y="70" width="80" height="56" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-          <!-- Eyes -->
-          <circle cx="125" cy="96" r="8" fill="#a78bfa" opacity="0.9">
-            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="155" cy="96" r="8" fill="#a78bfa" opacity="0.9">
-            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" begin="0.5s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="125" cy="96" r="3" fill="#ffffff" opacity="0.8"/>
-          <circle cx="155" cy="96" r="3" fill="#ffffff" opacity="0.8"/>
-          <!-- Mouth / smile -->
-          <path d="M120 112 Q140 124 160 112" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- Antenna -->
-          <line x1="140" y1="70" x2="140" y2="52" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="140" cy="48" r="5" fill="#a78bfa" opacity="0.8">
-            <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Arms -->
-          <rect x="74" y="130" width="18" height="10" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
-          <rect x="188" y="130" width="18" height="10" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
-          <!-- Floating AI circles -->
-          <circle cx="70" cy="80" r="8" fill="#ec4899" opacity="0.3">
-            <animate attributeName="cy" values="80;70;80" dur="4s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="210" cy="90" r="6" fill="#60a5fa" opacity="0.3">
-            <animate attributeName="cy" values="90;78;90" dur="5s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="210" cy="160" r="5" fill="#34d399" opacity="0.25">
-            <animate attributeName="cy" values="160;148;160" dur="3.5s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="70" cy="170" r="6" fill="#fbbf24" opacity="0.25">
-            <animate attributeName="cy" values="170;158;170" dur="4.5s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Legs -->
-          <rect x="105" y="190" width="12" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
-          <rect x="163" y="190" width="12" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
-          <!-- Chest screen -->
-          <rect x="108" y="136" width="64" height="24" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
-          <line x1="114" y1="144" x2="130" y2="144" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-          <line x1="114" y1="150" x2="140" y2="150" stroke="#34d399" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-          <line x1="138" y1="144" x2="166" y2="144" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
-          <!-- Ear panels -->
-          <rect x="95" y="85" width="6" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-          <rect x="179" y="85" width="6" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-        </svg>
+      <!-- ── THEME-SPECIFIC HERO VISUALS ── -->
+      <!-- Default: AI Robot -->
+      <div class="hero-visual theme-visual theme-visual-default">
+        <div class="ai-robot-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="url(#robotGlow)" opacity="0.3"/>
+            <defs><radialGradient id="robotGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.5"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient></defs>
+            <rect x="90" y="120" width="100" height="70" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+            <rect x="90" y="120" width="100" height="70" rx="16" fill="url(#bodyGrad)" opacity="0.6"/>
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.3"/><stop offset="1" stop-color="#ec4899" stop-opacity="0.1"/></linearGradient>
+            <rect x="100" y="70" width="80" height="56" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+            <circle cx="125" cy="96" r="8" fill="#a78bfa" opacity="0.9"><animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="155" cy="96" r="8" fill="#a78bfa" opacity="0.9"><animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="125" cy="96" r="3" fill="#ffffff" opacity="0.8"/><circle cx="155" cy="96" r="3" fill="#ffffff" opacity="0.8"/>
+            <path d="M120 112 Q140 124 160 112" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <line x1="140" y1="70" x2="140" y2="52" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="140" cy="48" r="5" fill="#a78bfa" opacity="0.8"><animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/></circle>
+            <rect x="74" y="130" width="18" height="10" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+            <rect x="188" y="130" width="18" height="10" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+            <circle cx="70" cy="80" r="8" fill="#ec4899" opacity="0.3"><animate attributeName="cy" values="80;70;80" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/></circle>
+            <circle cx="210" cy="90" r="6" fill="#60a5fa" opacity="0.3"><animate attributeName="cy" values="90;78;90" dur="5s" repeatCount="indefinite"/></circle>
+            <circle cx="210" cy="160" r="5" fill="#34d399" opacity="0.25"><animate attributeName="cy" values="160;148;160" dur="3.5s" repeatCount="indefinite"/></circle>
+            <circle cx="70" cy="170" r="6" fill="#fbbf24" opacity="0.25"><animate attributeName="cy" values="170;158;170" dur="4.5s" repeatCount="indefinite"/></circle>
+            <rect x="105" y="190" width="12" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+            <rect x="163" y="190" width="12" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+            <rect x="108" y="136" width="64" height="24" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+            <line x1="114" y1="144" x2="130" y2="144" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <line x1="114" y1="150" x2="140" y2="150" stroke="#34d399" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+            <line x1="138" y1="144" x2="166" y2="144" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+            <rect x="95" y="85" width="6" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+            <rect x="179" y="85" width="6" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Football: Soccer ball -->
+      <div class="hero-visual theme-visual theme-visual-football" style="display:none">
+        <div class="football-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(34,197,94,0.08)"/>
+            <circle cx="140" cy="140" r="95" fill="white" stroke="#22c55e" stroke-width="3"/>
+            <path d="M140 45l30 55 55 0-45 35 17 55-47-30-47 30 17-55-45-35 55 0 30-55z" fill="#1e293b"/>
+            <circle cx="140" cy="140" r="15" fill="#1e293b"/>
+            <path d="M100 85l30 20M180 85l-30 20M80 150l35-10M200 150l-35-10M110 200l25-30M170 200l-25-30" stroke="#1e293b" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Christmas: Tree -->
+      <div class="hero-visual theme-visual theme-visual-xmas" style="display:none">
+        <div class="xmas-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(239,68,68,0.06)"/>
+            <rect x="130" y="190" width="20" height="30" rx="3" fill="#92400e"/>
+            <polygon points="140,40 80,130 200,130" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
+            <polygon points="140,65 90,145 190,145" fill="#22c55e" stroke="#16a34a" stroke-width="2"/>
+            <polygon points="140,90 100,160 180,160" fill="#4ade80" stroke="#22c55e" stroke-width="2"/>
+            <circle cx="110" cy="110" r="5" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/></circle>
+            <circle cx="170" cy="120" r="4" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="130" cy="135" r="5" fill="#3b82f6"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" begin="1s" repeatCount="indefinite"/></circle>
+            <circle cx="160" cy="140" r="4" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></circle>
+            <circle cx="125" cy="80" r="4" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" begin="0.8s" repeatCount="indefinite"/></circle>
+            <circle cx="155" cy="75" r="3" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="2.5s" begin="1.5s" repeatCount="indefinite"/></circle>
+            <polygon points="140,30 135,45 145,45" fill="#fbbf24"/>
+            <line x1="140" y1="45" x2="140" y2="55" stroke="#fbbf24" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Onam: Pookalam flower mandala -->
+      <div class="hero-visual theme-visual theme-visual-onam" style="display:none">
+        <div class="onam-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(234,179,8,0.05)"/>
+            <circle cx="140" cy="140" r="70" fill="none" stroke="#eab308" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="140" cy="140" r="55" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3 6"/>
+            <circle cx="140" cy="140" r="40" fill="none" stroke="#f97316" stroke-width="1" stroke-dasharray="2 4"/>
+            <circle cx="140" cy="140" r="25" fill="none" stroke="#eab308" stroke-width="2" stroke-dasharray="2 3"/>
+            <circle cx="140" cy="140" r="10" fill="#eab308" opacity="0.3"/>
+            <g opacity="0.4">
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(0 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(45 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#16a34a" transform="rotate(90 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(135 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(180 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#16a34a" transform="rotate(225 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(270 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(315 140 140)"/>
+            </g>
+            <animateTransform attributeName="transform" type="rotate" from="0 140 140" to="360 140 140" dur="60s" repeatCount="indefinite"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Diwali: Diya (lamp) -->
+      <div class="hero-visual theme-visual theme-visual-diwali" style="display:none">
+        <div class="diwali-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(245,158,11,0.06)"/>
+            <path d="M110 190h60l-10-50h-40l-10 50z" fill="#b45309" stroke="#92400e" stroke-width="2"/>
+            <path d="M120 140l-5 50h50l-5-50h-40z" fill="#d97706"/>
+            <path d="M130 100c0 0-5 20 10 30 15-10 10-30 10-30" fill="#fbbf24" opacity="0.6"/>
+            <path d="M135 95c0 0-3 12 5 18 8-6 5-18 5-18" fill="#f59e0b" opacity="0.4"/>
+            <ellipse cx="140" cy="100" rx="6" ry="3" fill="#fbbf24">
+              <animate attributeName="ry" values="3;5;3" dur="1.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
+            </ellipse>
+            <circle cx="140" cy="90" r="15" fill="#fbbf24" opacity="0.1">
+              <animate attributeName="r" values="15;30;15" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.1;0;0.1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+      </div>
+      <!-- Halloween: Pumpkin -->
+      <div class="hero-visual theme-visual theme-visual-halloween" style="display:none">
+        <div class="halloween-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(249,115,22,0.06)"/>
+            <ellipse cx="140" cy="150" rx="60" ry="55" fill="#f97316" stroke="#ea580c" stroke-width="2"/>
+            <ellipse cx="140" cy="150" rx="40" ry="55" fill="#fb923c"/>
+            <ellipse cx="140" cy="150" rx="20" ry="52" fill="#f97316" opacity="0.5"/>
+            <path d="M140 95l-10 20h20l-10-20z" fill="#16a34a"/>
+            <rect x="136" y="95" width="8" height="10" rx="2" fill="#15803d"/>
+            <circle cx="118" cy="140" r="8" fill="#1e293b"/>
+            <circle cx="162" cy="140" r="8" fill="#1e293b"/>
+            <path d="M120 160q20 20 40 0" stroke="#1e293b" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="118" cy="140" r="3" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="162" cy="140" r="3" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -3538,6 +3903,36 @@
       } else {
         setTimeout(loadWidget, 3000);
       }
+    })();
+
+    // ============================================================
+    // 10. Hero Text Rotator — cycles headlines every 5 seconds
+    // ============================================================
+    (function initHeroRotator() {
+      var titles = document.querySelectorAll('[data-rotator]');
+      if (!titles.length) return;
+      
+      titles.forEach(function(el) {
+        var phrases;
+        try { phrases = JSON.parse(el.getAttribute('data-rotator')); } catch(e) { return; }
+        if (!phrases || phrases.length < 2) return;
+        
+        var index = 0;
+        var interval = 5000; // 5 seconds per message
+        
+        function rotate() {
+          index = (index + 1) % phrases.length;
+          // Fade out
+          el.classList.add('rotating');
+          setTimeout(function() {
+            // Swap content
+            el.innerHTML = phrases[index];
+            // Fade in
+            el.classList.remove('rotating');
+          }, 400);
+        }
+        setInterval(rotate, interval);
+      });
     })();
   </script>
 </body>
