@@ -23,6 +23,16 @@
   <script>
     // ── Seasonal theme: set data-theme on <html> based on current date ──
     (function() {
+      // Allow URL override: ?theme=football or ?theme=onam etc.
+      var params = new URLSearchParams(window.location.search);
+      var forced = params.get('theme');
+      if (forced) {
+        document.documentElement.setAttribute('data-theme', forced);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.content = '#0f172a';
+        return;
+      }
+      
       var now = new Date();
       var m = now.getMonth() + 1;
       var d = now.getDate();
@@ -33,12 +43,16 @@
       else if (m === 4 && d >= 14 && d <= 15) theme = 'vishu';
       // Spring: Apr 16-30
       else if (m === 4 && d >= 16) theme = 'spring';
-      // Summer: May 1 - Aug 19
-      else if ((m >= 5 && m <= 7) || (m === 8 && d <= 19)) theme = 'summer';
+      // Summer: May 1 - Aug 14
+      else if ((m >= 5 && m <= 7) || (m === 8 && d <= 14)) theme = 'summer';
+      // Football season kickoff: Aug 15-19 (before Onam)
+      else if (m === 8 && d >= 15 && d <= 19) theme = 'football';
       // Onam (Kerala harvest festival): Aug 20 - Sep 15
       else if ((m === 8 && d >= 20) || (m === 9 && d <= 15)) theme = 'onam';
       // Early Autumn: Sep 16 - Oct 14
       else if ((m === 9 && d >= 16) || (m === 10 && d <= 14)) theme = 'autumn';
+      // Halloween: Oct 31
+      else if (m === 10 && d === 31) theme = 'halloween';
       // Diwali (festival of lights): Oct 15 - Nov 5
       else if ((m === 10 && d >= 15) || (m === 11 && d <= 5)) theme = 'diwali';
       // Late Autumn: Nov 6-30
@@ -53,8 +67,9 @@
       if (meta) {
         var colors = {
           vishu: '#1a2e0a', onam: '#1a2e00', diwali: '#1a1a00',
-          xmas: '#1a3a1a', newyear: '#1a1a2e', valentine: '#3a1a2e',
-          spring: '#1a2e1a', summer: '#1a2e3a', autumn: '#2e1a0a'
+          halloween: '#1a0a00', xmas: '#1a3a1a', newyear: '#1a1a2e',
+          valentine: '#3a1a2e', spring: '#1a2e1a', summer: '#1a2e3a',
+          autumn: '#2e1a0a', football: '#0a1a0a'
         };
         meta.content = colors[theme] || '#0f172a';
       }
@@ -144,6 +159,30 @@
       --theme-cta-bg: linear-gradient(135deg, #0f172a 0%, #1a1a2e 30%, #1c1917 60%, #0f172a 100%);
       --theme-btn-hero-primary: linear-gradient(135deg, #fbbf24, #fff, #f59e0b);
     }
+    /* Football Season — grass green, pitch, white */
+    [data-theme="football"] {
+      --theme-primary-gradient: linear-gradient(135deg, #22c55e, #15803d);
+      --theme-primary-hover: linear-gradient(135deg, #16a34a, #166534);
+      --theme-shadow: rgba(34, 197, 94, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0a1a0a 0%, #0a2a0a 30%, #0f172a 60%, #0a1a0a 100%);
+      --theme-hero-aurora-1: rgba(34, 197, 94, 0.25);
+      --theme-hero-aurora-2: rgba(21, 128, 61, 0.2);
+      --theme-hero-aurora-3: rgba(255, 255, 255, 0.12);
+      --theme-hero-aurora-4: rgba(34, 197, 94, 0.15);
+      --theme-hero-aurora-5: rgba(21, 128, 61, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #22c55e, #fff, #22c55e, #fff, #22c55e);
+      --theme-shape-1: radial-gradient(circle, #22c55e, transparent);
+      --theme-shape-2: radial-gradient(circle, #15803d, transparent);
+      --theme-shape-3: radial-gradient(circle, #4ade80, transparent);
+      --theme-shape-4: radial-gradient(circle, #22c55e, transparent);
+      --theme-shimmer: linear-gradient(135deg, #22c55e 0%, #fff 25%, #4ade80 50%, #fff 75%, #22c55e 100%);
+      --theme-divider: linear-gradient(90deg, #22c55e, #15803d, #fff, #15803d, #22c55e);
+      --theme-badge-bg: linear-gradient(135deg, #f0fdf4, #dcfce7, #fff);
+      --theme-badge-color: #16a34a;
+      --theme-process-bar: linear-gradient(90deg, #22c55e, #15803d, #fff);
+      --theme-cta-bg: linear-gradient(135deg, #0a1a0a 0%, #0a2a0a 30%, #0a1a0a 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #22c55e, #15803d, #4ade80);
+    }
     /* Vishu (Malayalam New Year) — gold, green, white */
     [data-theme="vishu"] {
       --theme-primary-gradient: linear-gradient(135deg, #fbbf24, #16a34a);
@@ -191,6 +230,30 @@
       --theme-process-bar: linear-gradient(90deg, #eab308, #16a34a, #fff);
       --theme-cta-bg: linear-gradient(135deg, #0a1a0a 0%, #1a2e0a 30%, #1a1a00 60%, #0f172a 100%);
       --theme-btn-hero-primary: linear-gradient(135deg, #eab308, #16a34a, #fff);
+    }
+    /* Halloween — orange, purple, dark */
+    [data-theme="halloween"] {
+      --theme-primary-gradient: linear-gradient(135deg, #f97316, #7c3aed);
+      --theme-primary-hover: linear-gradient(135deg, #ea580c, #6d28d9);
+      --theme-shadow: rgba(249, 115, 22, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a1a 30%, #0f172a 60%, #1a0f0a 100%);
+      --theme-hero-aurora-1: rgba(249, 115, 22, 0.25);
+      --theme-hero-aurora-2: rgba(124, 58, 237, 0.2);
+      --theme-hero-aurora-3: rgba(249, 115, 22, 0.12);
+      --theme-hero-aurora-4: rgba(124, 58, 237, 0.15);
+      --theme-hero-aurora-5: rgba(234, 88, 12, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #f97316, #7c3aed, #f97316, #7c3aed, #f97316);
+      --theme-shape-1: radial-gradient(circle, #f97316, transparent);
+      --theme-shape-2: radial-gradient(circle, #7c3aed, transparent);
+      --theme-shape-3: radial-gradient(circle, #f97316, transparent);
+      --theme-shape-4: radial-gradient(circle, #7c3aed, transparent);
+      --theme-shimmer: linear-gradient(135deg, #f97316 0%, #7c3aed 30%, #f97316 60%, #7c3aed 100%);
+      --theme-divider: linear-gradient(90deg, #f97316, #7c3aed, #f97316, #7c3aed, #f97316);
+      --theme-badge-bg: linear-gradient(135deg, #fff7ed, #f5f3ff, #fef2f2);
+      --theme-badge-color: #ea580c;
+      --theme-process-bar: linear-gradient(90deg, #f97316, #7c3aed, #f97316);
+      --theme-cta-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a1a 30%, #1a0f0a 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #f97316, #7c3aed, #f97316);
     }
     /* Diwali (festival of lights) — gold, warm orange, red, yellow */
     [data-theme="diwali"] {
