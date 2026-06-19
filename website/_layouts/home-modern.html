@@ -142,19 +142,14 @@
       if (!theme) theme = 'default';
       
       document.documentElement.setAttribute('data-theme', theme);
-      // ── Swap hero content & visual per theme ──
-      document.querySelectorAll('.theme-content').forEach(function(el) {
+      // ── Swap entire hero block per theme ──
+      document.querySelectorAll('.theme-hero').forEach(function(el) {
         el.style.display = 'none';
       });
-      var activeContent = document.querySelector('[data-theme-content="' + theme + '"]') ||
-                          document.querySelector('[data-theme-content="default"]');
-      if (activeContent) activeContent.style.display = '';
-      document.querySelectorAll('.theme-visual').forEach(function(el) {
-        el.style.display = 'none';
-      });
-      var activeVisual = document.querySelector('.theme-visual-' + theme) ||
-                         document.querySelector('.theme-visual-default');
-      if (activeVisual) activeVisual.style.display = 'flex';
+      var activeHero = document.querySelector('[data-theme-hero="' + theme + '"]') ||
+                       document.querySelector('[data-theme-hero="default"]') ||
+                       document.querySelector('[data-theme-hero="fallback"]');
+      if (activeHero) activeHero.style.display = '';
       // Update theme-color meta tag
       var meta = document.querySelector('meta[name="theme-color"]');
       if (meta) {
@@ -278,13 +273,13 @@
       --theme-cta-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a0a 30%, #0a1a0a 60%, #0f172a 100%);
       --theme-btn-hero-primary: linear-gradient(135deg, #dc2626, #16a34a, #fff);
     }
-    /* ── Theme-swappable hero content blocks ── */
-    .theme-content {
-      animation: themeFadeIn 0.6s ease both;
+    /* ── Hero block swap animation ── */
+    .theme-hero {
+      animation: heroFadeIn 0.5s ease both;
     }
-    @keyframes themeFadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @keyframes heroFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
     /* ── Hero text rotator transition ── */
     .hero-title, .hero-description {
@@ -703,23 +698,6 @@
       border-radius: 12px 20px 12px 20px;
     }
 
-    /* ── Hero layout variants per theme ── */
-    [data-theme="xmas"] .hero-content { text-align: center; }
-    [data-theme="xmas"] .hero-buttons { justify-content: center; }
-    [data-theme="xmas"] .hero-split .hero-title { font-size: 48px; }
-    [data-theme="diwali"] .hero-split .hero-title { font-size: 46px; }
-    [data-theme="football"] .hero-content { text-align: left; }
-    [data-theme="football"] .hero-split .hero-title { font-size: 44px; }
-    [data-theme="halloween"] .hero-split .hero-title { font-size: 44px; letter-spacing: -0.5px; }
-    [data-theme="halloween"] .btn-hero-primary { border-radius: 4px; }
-    [data-theme="halloween"] .btn-hero-secondary { border-radius: 4px; }
-    [data-theme="onam"] .hero-content { text-align: center; }
-    [data-theme="onam"] .hero-buttons { justify-content: center; }
-    [data-theme="onam"] .hero-split { grid-template-columns: 1fr; text-align: center; }
-    @media (max-width: 768px) {
-      [data-theme="onam"] .hero-split { grid-template-columns: 1fr; }
-    }
-
     /* ── Theme-specific hero murals (background illustrations) ── */
     .theme-mural { display: none; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.08; }
     /* Football: grass pattern */
@@ -962,38 +940,25 @@
     @media (max-width: 1024px) {
       .hero-visual .ai-robot-wrapper { width: 200px; height: 200px; }
     }
-    .theme-visual { display: none; }
-    [data-theme="default"] .theme-visual-default { display: flex; }
-    [data-theme="football"] .theme-visual-football { display: flex; }
-    [data-theme="xmas"] .theme-visual-xmas { display: flex; }
-    [data-theme="onam"] .theme-visual-onam { display: flex; }
-    [data-theme="diwali"] .theme-visual-diwali { display: flex; }
-    [data-theme="halloween"] .theme-visual-halloween { display: flex; }
-    /* All other themes fall back to default robot */
-    [data-theme="newyear"] .theme-visual-default { display: flex; }
-    [data-theme="valentine"] .theme-visual-default { display: flex; }
-    [data-theme="spring"] .theme-visual-default { display: flex; }
-    [data-theme="summer"] .theme-visual-default { display: flex; }
-    [data-theme="autumn"] .theme-visual-default { display: flex; }
-    [data-theme="st-patrick"] .theme-visual-default { display: flex; }
-    [data-theme="bonfire"] .theme-visual-default { display: flex; }
-    [data-theme="remembrance"] .theme-visual-default { display: flex; }
-    [data-theme="ramadan"] .theme-visual-default { display: flex; }
-    [data-theme="eid"] .theme-visual-default { display: flex; }
-    [data-theme="national-day"] .theme-visual-default { display: flex; }
-    
-    .football-wrapper, .xmas-wrapper, .onam-wrapper, .diwali-wrapper, .halloween-wrapper {
+    /* ── Hero visual sizing shared across all themes ── */
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 280px;
       height: 280px;
       margin: 0 auto;
       animation: robotFloat 6s ease-in-out infinite;
     }
-    .football-wrapper svg, .xmas-wrapper svg, .onam-wrapper svg, .diwali-wrapper svg, .halloween-wrapper svg {
-      width: 100%;
-      height: 100%;
+    .hero-visual svg { width: 100%; height: 100%; }
+    .hero-split .hero-visual.ai-robot-wrapper svg {
+      filter: drop-shadow(0 8px 32px rgba(167, 139, 250, 0.25));
     }
     @media (max-width: 1024px) {
-      .football-wrapper, .xmas-wrapper, .onam-wrapper, .diwali-wrapper, .halloween-wrapper { width: 200px; height: 200px; }
+      .hero-visual { width: 200px; height: 200px; }
+    }
+    @media (max-width: 768px) {
+      .hero-block[data-theme-hero="onam"] .hero-visual { width: 150px; height: 150px; }
     }
 
     /* ── Theme-specific hero pill text (only one visible per theme) ── */
@@ -2624,244 +2589,212 @@
     </div>
     <!-- Particle network canvas -->
     <canvas id="particle-canvas"></canvas>
-    <div class="hero-split">
-      <!-- ── THEME-SWAPPABLE HERO CONTENT ── -->
-      <!-- Default hero content (with dynamic text rotator) -->
-      <div class="hero-content theme-content" data-theme-content="default">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>Build with AI</span>
+    
+    <!-- ── FULL HERO BLOCK: DEFAULT ── -->
+    <div class="hero-block theme-hero" data-theme-hero="default">
+      <div class="hero-split">
+        <div class="hero-content">
+          <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+            <span class="pulse-dot"></span>
+            <span>Build with AI</span>
+          </div>
+          <h1 class="hero-title reveal" style="transition-delay: 0.2s;" data-rotator='["Ship enterprise products your users will love — <span class=\"gradient-shimmer\">powered by AI</span>","From concept to code — <span class=\"gradient-shimmer\">we ship what matters</span>","Transform your ideas into <span class=\"gradient-shimmer\">intelligent applications</span>","Enterprise software with a <span class=\"gradient-shimmer\">human touch</span>","Scale your business with <span class=\"gradient-shimmer\">AI-native engineering</span>"]'>
+            Ship enterprise products your users will love — <span class="gradient-shimmer">powered by AI</span>
+          </h1>
+          <p class="hero-description reveal" style="transition-delay: 0.3s;" data-rotator='["We combine expert engineering with cutting-edge AI to build secure, scalable applications.","Enterprise-ready solutions that respect privacy. Built with transparency and trust.","From healthcare platforms to ERP systems — your vision, expertly delivered.","Practical AI that respects people and privacy. Transform your business today.","Scalable, secure, intelligent — enterprise software engineered for the future."]'>
+            We combine expert engineering with cutting-edge AI to build secure, scalable applications. From healthcare to ERP — your vision, delivered.
+          </p>
+          <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+            <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>Start Your Project</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="/product-stack/" class="btn-hero btn-hero-secondary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Explore Products</a>
+          </div>
         </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;" data-rotator='[
-          "Ship enterprise products your users will love — <span class=\"gradient-shimmer\">powered by AI</span>",
-          "From concept to code — <span class=\"gradient-shimmer\">we ship what matters</span>",
-          "Transform your ideas into <span class=\"gradient-shimmer\">intelligent applications</span>",
-          "Enterprise software with a <span class=\"gradient-shimmer\">human touch</span>",
-          "Scale your business with <span class=\"gradient-shimmer\">AI-native engineering</span>"
-        ]'>
-          Ship enterprise products your users will love — <span class="gradient-shimmer">powered by AI</span>
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;" data-rotator='[
-          "We combine expert engineering with cutting-edge AI to build secure, scalable applications.",
-          "Enterprise-ready solutions that respect privacy. Built with transparency and trust.",
-          "From healthcare platforms to ERP systems — your vision, expertly delivered.",
-          "Practical AI that respects people and privacy. Transform your business today.",
-          "Scalable, secure, intelligent — enterprise software engineered for the future."
-        ]'>
-          We combine expert engineering with cutting-edge AI to build secure, scalable applications. From healthcare to ERP — your vision, delivered.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>Start Your Project</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Explore Products
-          </a>
-        </div>
-      </div>
-
-      <!-- Football season hero -->
-      <div class="hero-content theme-content" data-theme-content="football" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>⚽ Football Season</span>
-        </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          Game on. Build your <span class="gradient-shimmer">winning team</span> with AI.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          Like a great football squad, every business needs the right players. Let us build your enterprise software dream team — powered by AI, driven by results.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>⚽ Kick Off</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            View the Lineup →
-          </a>
+        <div class="hero-visual ai-robot-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="url(#robotGlow)" opacity="0.3"/>
+            <defs><radialGradient id="robotGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.5"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient></defs>
+            <rect x="90" y="120" width="100" height="70" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+            <rect x="90" y="120" width="100" height="70" rx="16" fill="url(#bodyGrad)" opacity="0.6"/>
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.3"/><stop offset="1" stop-color="#ec4899" stop-opacity="0.1"/></linearGradient>
+            <rect x="100" y="70" width="80" height="56" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+            <circle cx="125" cy="96" r="8" fill="#a78bfa" opacity="0.9"><animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="155" cy="96" r="8" fill="#a78bfa" opacity="0.9"><animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="125" cy="96" r="3" fill="#ffffff" opacity="0.8"/><circle cx="155" cy="96" r="3" fill="#ffffff" opacity="0.8"/>
+            <path d="M120 112 Q140 124 160 112" stroke="#a78bfa" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <line x1="140" y1="70" x2="140" y2="52" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="140" cy="48" r="5" fill="#a78bfa" opacity="0.8"><animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/></circle>
+            <rect x="74" y="130" width="18" height="10" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1.5"/><rect x="188" y="130" width="18" height="10" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+            <circle cx="70" cy="80" r="8" fill="#ec4899" opacity="0.3"><animate attributeName="cy" values="80;70;80" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/></circle>
+            <circle cx="210" cy="90" r="6" fill="#60a5fa" opacity="0.3"><animate attributeName="cy" values="90;78;90" dur="5s" repeatCount="indefinite"/></circle>
+            <circle cx="210" cy="160" r="5" fill="#34d399" opacity="0.25"><animate attributeName="cy" values="160;148;160" dur="3.5s" repeatCount="indefinite"/></circle>
+            <circle cx="70" cy="170" r="6" fill="#fbbf24" opacity="0.25"><animate attributeName="cy" values="170;158;170" dur="4.5s" repeatCount="indefinite"/></circle>
+            <rect x="105" y="190" width="12" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5"/><rect x="163" y="190" width="12" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+            <rect x="108" y="136" width="64" height="24" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+            <line x1="114" y1="144" x2="130" y2="144" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <line x1="114" y1="150" x2="140" y2="150" stroke="#34d399" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+            <line x1="138" y1="144" x2="166" y2="144" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+            <rect x="95" y="85" width="6" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/><rect x="179" y="85" width="6" height="20" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+          </svg>
         </div>
       </div>
+    </div>
 
-      <!-- Christmas hero -->
-      <div class="hero-content theme-content" data-theme-content="xmas" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>🎄 Merry Christmas</span>
+    <!-- ── FULL HERO BLOCK: FOOTBALL ── -->
+    <div class="hero-block theme-hero" data-theme-hero="football" style="display:none">
+      <div class="hero-split">
+        <div class="hero-content" style="text-align:left">
+          <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>⚽ Football Season</span></div>
+          <h1 class="hero-title reveal" style="transition-delay: 0.2s;">Game on. Build your <span class="gradient-shimmer">winning team</span> with AI.</h1>
+          <p class="hero-description reveal" style="transition-delay: 0.3s;">Like a great football squad, every business needs the right players. Let us build your enterprise software dream team — powered by AI, driven by results.</p>
+          <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+            <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>⚽ Kick Off</span></a>
+            <a href="/product-stack/" class="btn-hero btn-hero-secondary">View the Lineup →</a>
+          </div>
         </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          The best gift? A product that <span class="gradient-shimmer">delights your users</span>.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          This season, give your customers the enterprise software they deserve. Secure, scalable, and built with care — just like Christmas morning.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>🎁 Get Started</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            View Products →
-          </a>
+        <div class="hero-visual football-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(34,197,94,0.08)"/>
+            <circle cx="140" cy="140" r="95" fill="white" stroke="#22c55e" stroke-width="3"/>
+            <path d="M140 45l30 55 55 0-45 35 17 55-47-30-47 30 17-55-45-35 55 0 30-55z" fill="#1e293b"/>
+            <circle cx="140" cy="140" r="15" fill="#1e293b"/>
+            <path d="M100 85l30 20M180 85l-30 20M80 150l35-10M200 150l-35-10M110 200l25-30M170 200l-25-30" stroke="#1e293b" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+          </svg>
         </div>
       </div>
+    </div>
 
-      <!-- Onam hero -->
-      <div class="hero-content theme-content" data-theme-content="onam" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>🌺 Happy Onam</span>
+    <!-- ── FULL HERO BLOCK: CHRISTMAS ── -->
+    <div class="hero-block theme-hero" data-theme-hero="xmas" style="display:none">
+      <div class="hero-split">
+        <div class="hero-content" style="text-align:center">
+          <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>🎄 Merry Christmas</span></div>
+          <h1 class="hero-title reveal" style="transition-delay: 0.2s;">The best gift? A product that <span class="gradient-shimmer">delights your users</span>.</h1>
+          <p class="hero-description reveal" style="transition-delay: 0.3s;">This season, give your customers the enterprise software they deserve. Secure, scalable, and built with care — just like Christmas morning.</p>
+          <div class="hero-buttons reveal" style="transition-delay: 0.4s;justify-content:center">
+            <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>🎁 Get Started</span></a>
+            <a href="/product-stack/" class="btn-hero btn-hero-secondary">View Products →</a>
+          </div>
         </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          A harvest of <span class="gradient-shimmer">great ideas</span> awaits.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          Just as Onam brings abundance, we bring a rich harvest of enterprise solutions — from healthcare to ERP, all nurtured with care and powered by AI.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>🌾 Explore More</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            Our Products →
-          </a>
+        <div class="hero-visual xmas-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(239,68,68,0.06)"/>
+            <rect x="130" y="190" width="20" height="30" rx="3" fill="#92400e"/>
+            <polygon points="140,40 80,130 200,130" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
+            <polygon points="140,65 90,145 190,145" fill="#22c55e" stroke="#16a34a" stroke-width="2"/>
+            <polygon points="140,90 100,160 180,160" fill="#4ade80" stroke="#22c55e" stroke-width="2"/>
+            <circle cx="110" cy="110" r="5" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/></circle>
+            <circle cx="170" cy="120" r="4" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+            <circle cx="130" cy="135" r="5" fill="#3b82f6"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" begin="1s" repeatCount="indefinite"/></circle>
+            <circle cx="160" cy="140" r="4" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></circle>
+            <circle cx="125" cy="80" r="4" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" begin="0.8s" repeatCount="indefinite"/></circle>
+            <circle cx="155" cy="75" r="3" fill="#ef4444"><animate attributeName="opacity" values="1;0.3;1" dur="2.5s" begin="1.5s" repeatCount="indefinite"/></circle>
+            <polygon points="140,30 135,45 145,45" fill="#fbbf24"/><line x1="140" y1="45" x2="140" y2="55" stroke="#fbbf24" stroke-width="1.5"/>
+          </svg>
         </div>
       </div>
+    </div>
 
-      <!-- Diwali hero -->
-      <div class="hero-content theme-content" data-theme-content="diwali" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>🪔 Happy Diwali</span>
+    <!-- ── FULL HERO BLOCK: ONAM (single column, centered, no robot) ── -->
+    <div class="hero-block theme-hero" data-theme-hero="onam" style="display:none">
+      <div style="max-width:700px;margin:0 auto;text-align:center">
+        <div class="hero-visual onam-wrapper" style="margin:0 auto 32px;width:200px;height:200px">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(234,179,8,0.05)"/>
+            <circle cx="140" cy="140" r="70" fill="none" stroke="#eab308" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="140" cy="140" r="55" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3 6"/>
+            <circle cx="140" cy="140" r="40" fill="none" stroke="#f97316" stroke-width="1" stroke-dasharray="2 4"/>
+            <circle cx="140" cy="140" r="25" fill="none" stroke="#eab308" stroke-width="2" stroke-dasharray="2 3"/>
+            <circle cx="140" cy="140" r="10" fill="#eab308" opacity="0.3"/>
+            <g opacity="0.4">
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(0 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(45 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#16a34a" transform="rotate(90 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(135 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(180 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#16a34a" transform="rotate(225 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#eab308" transform="rotate(270 140 140)"/>
+              <ellipse cx="140" cy="80" rx="8" ry="14" fill="#f97316" transform="rotate(315 140 140)"/>
+            </g>
+            <animateTransform attributeName="transform" type="rotate" from="0 140 140" to="360 140 140" dur="60s" repeatCount="indefinite"/>
+          </svg>
         </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          Light up your business with <span class="gradient-shimmer">brilliant solutions</span>.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          This festival of lights, illuminate your enterprise with AI-powered products that shine. From scheduling to safety — we bring the spark.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>🪔 Light It Up</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            See the Spark →
-          </a>
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>🌺 Happy Onam</span></div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">A harvest of <span class="gradient-shimmer">great ideas</span> awaits.</h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">Just as Onam brings abundance, we bring a rich harvest of enterprise solutions — from healthcare to ERP, all nurtured with care and powered by AI.</p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;justify-content:center">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>🌾 Explore More</span></a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">Our Products →</a>
         </div>
       </div>
+    </div>
 
-      <!-- New Year hero -->
-      <div class="hero-content theme-content" data-theme-content="newyear" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>🎉 Happy New Year</span>
+    <!-- ── FULL HERO BLOCK: DIWALI ── -->
+    <div class="hero-block theme-hero" data-theme-hero="diwali" style="display:none">
+      <div class="hero-split">
+        <div class="hero-content">
+          <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>🪔 Happy Diwali</span></div>
+          <h1 class="hero-title reveal" style="transition-delay: 0.2s;">Light up your business with <span class="gradient-shimmer">brilliant solutions</span>.</h1>
+          <p class="hero-description reveal" style="transition-delay: 0.3s;">This festival of lights, illuminate your enterprise with AI-powered products that shine. From scheduling to safety — we bring the spark.</p>
+          <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+            <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>🪔 Light It Up</span></a>
+            <a href="/product-stack/" class="btn-hero btn-hero-secondary">See the Spark →</a>
+          </div>
         </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          New year, <span class="gradient-shimmer">new possibilities</span>.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          Start the year fresh with enterprise software that sets resolutions in motion. Let's build something great together in the year ahead.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>✨ Start Fresh</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            What's New →
-          </a>
+        <div class="hero-visual diwali-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(245,158,11,0.06)"/>
+            <path d="M110 190h60l-10-50h-40l-10 50z" fill="#b45309" stroke="#92400e" stroke-width="2"/>
+            <path d="M120 140l-5 50h50l-5-50h-40z" fill="#d97706"/>
+            <path d="M130 100c0 0-5 20 10 30 15-10 10-30 10-30" fill="#fbbf24" opacity="0.6"/>
+            <path d="M135 95c0 0-3 12 5 18 8-6 5-18 5-18" fill="#f59e0b" opacity="0.4"/>
+            <ellipse cx="140" cy="100" rx="6" ry="3" fill="#fbbf24"><animate attributeName="ry" values="3;5;3" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/></ellipse>
+            <circle cx="140" cy="90" r="15" fill="#fbbf24" opacity="0.1"><animate attributeName="r" values="15;30;15" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0;0.1" dur="2s" repeatCount="indefinite"/></circle>
+          </svg>
         </div>
       </div>
+    </div>
 
-      <!-- Ramadan hero -->
-      <div class="hero-content theme-content" data-theme-content="ramadan" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>🌙 Ramadan Mubarak</span>
+    <!-- ── FULL HERO BLOCK: HALLOWEEN ── -->
+    <div class="hero-block theme-hero" data-theme-hero="halloween" style="display:none">
+      <div class="hero-split">
+        <div class="hero-content">
+          <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span>🎃 Spooky Season</span></div>
+          <h1 class="hero-title reveal" style="transition-delay: 0.2s;">Transform your business — <span class="gradient-shimmer">no tricks, just treats</span>.</h1>
+          <p class="hero-description reveal" style="transition-delay: 0.3s;">Scary good enterprise solutions that work like magic. No tricks, just powerful technology that treats your business right.</p>
+          <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+            <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>🎃 Get Started</span></a>
+            <a href="/product-stack/" class="btn-hero btn-hero-secondary">See Our Spells →</a>
+          </div>
         </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          Reflect, renew, and <span class="gradient-shimmer">build with purpose</span>.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          This holy month, let us help you build technology that serves your community with integrity. Enterprise solutions crafted with care and respect.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>🌙 Begin the Journey</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            Our Services →
-          </a>
+        <div class="hero-visual halloween-wrapper">
+          <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="140" cy="140" r="110" fill="rgba(249,115,22,0.06)"/>
+            <ellipse cx="140" cy="150" rx="60" ry="55" fill="#f97316" stroke="#ea580c" stroke-width="2"/>
+            <ellipse cx="140" cy="150" rx="40" ry="55" fill="#fb923c"/>
+            <ellipse cx="140" cy="150" rx="20" ry="52" fill="#f97316" opacity="0.5"/>
+            <path d="M140 95l-10 20h20l-10-20z" fill="#16a34a"/><rect x="136" y="95" width="8" height="10" rx="2" fill="#15803d"/>
+            <circle cx="118" cy="140" r="8" fill="#1e293b"/><circle cx="162" cy="140" r="8" fill="#1e293b"/>
+            <path d="M120 160q20 20 40 0" stroke="#1e293b" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="118" cy="140" r="3" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="162" cy="140" r="3" fill="#fbbf24"><animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+          </svg>
         </div>
       </div>
+    </div>
 
-      <!-- Eid hero -->
-      <div class="hero-content theme-content" data-theme-content="eid" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>✨ Eid Mubarak</span>
-        </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          Celebrate success with <span class="gradient-shimmer">technology that delivers</span>.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          Eid is about joy, family, and achievement. Let us help you deliver enterprise solutions that bring the same sense of accomplishment.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>✨ Celebrate</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            Explore →
-          </a>
+    <!-- ── FALLBACK: remaining themes use default block (shown via JS) ── -->
+    <div class="hero-block theme-hero" data-theme-hero="fallback" style="display:none">
+      <div class="hero-content" style="text-align:center;max-width:700px;margin:0 auto">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;"><span class="pulse-dot"></span><span class="pill-text pill-default">✨ Welcome</span></div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">Building the future with <span class="gradient-shimmer">AI-driven engineering</span>.</h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">Enterprise-ready solutions that respect privacy. Transform your ideas into scalable, intelligent applications.</p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;justify-content:center">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary"><span>Get Started</span></a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">Explore →</a>
         </div>
       </div>
-
-      <!-- Halloween hero -->
-      <div class="hero-content theme-content" data-theme-content="halloween" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>🎃 Spooky Season</span>
-        </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          Transform your business — <span class="gradient-shimmer">no tricks, just treats</span>.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          Scary good enterprise solutions that work like magic. No tricks, just powerful technology that treats your business right.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>🎃 Get Started</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            See Our Spells →
-          </a>
-        </div>
-      </div>
-
-      <!-- Valentine's hero -->
-      <div class="hero-content theme-content" data-theme-content="valentine" style="display:none">
-        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
-          <span class="pulse-dot"></span>
-          <span>💙 Valentine's Special</span>
-        </div>
-        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
-          Fall in love with <span class="gradient-shimmer">software that cares</span>.
-        </h1>
-        <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          Build products your users will fall in love with. Enterprise solutions designed with empathy, built with passion, delivered with love.
-        </p>
-        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
-          <a href="/request-demo/" class="btn-hero btn-hero-primary">
-            <span>💙 Start the Romance</span>
-          </a>
-          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
-            Browse Products →
-          </a>
-        </div>
-      </div>
-
-      <!-- ── THEME-SPECIFIC HERO VISUALS ── -->
-      <!-- Default: AI Robot -->
+    </div>
+    <!-- ── END THEME-SPECIFIC HERO BLOCKS ── -->
       <div class="hero-visual theme-visual theme-visual-default">
         <div class="ai-robot-wrapper">
           <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
