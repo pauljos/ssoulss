@@ -1,23 +1,17 @@
 [
-  {
-    "title": "Home",
-    "url": "/",
-    "excerpt": "Practical AI and engineering that respects people and privacy"
-  },
-  {
-    "title": "The New GitHub Actions Pricing: What You Need to Know",
-    "url": "/2025/12/16/the-new-github-actions-pricing-what-you-need-to-know.html",
-    "excerpt": "Recent changes GitHub announced for Actions pricing and platform fees."
-  }
-  ,
-  {
-    "title": "Souldoc",
-    "url": "/souldoc/",
-    "excerpt": "Souldoc — Secure appointment & clinic workflow platform with compliance-first design."
-  },
-  {
-    "title": "Consulting",
-    "url": "/consulting/",
-    "excerpt": "Consulting services: product development, AI and cloud engineering."
-  }
+  {"title":"Home","url":"/","excerpt":"Enterprise software products and AI engineering consulting."},
+  {"title":"Souldoc","url":"/souldoc/","excerpt":"Healthcare workflow platform with appointment booking, e-prescriptions, and patient management."},
+  {"title":"Texa","url":"/texa/","excerpt":"Apparel manufacturing ERP — order management, inventory, production planning, and quality control."},
+  {"title":"Bookly","url":"/bookly/","excerpt":"Universal scheduling platform for clinics, salons, gyms, and consultants."},
+  {"title":"SoulsHS","url":"/soulshs/","excerpt":"Health, Safety & Environment platform — compliance tracking, incident reporting, risk assessments."},
+  {"title":"Products","url":"/product-stack/","excerpt":"Explore all SSoulSS products and solutions."},
+  {"title":"Consulting","url":"/consulting/","excerpt":"Data, AI & cloud engineering consulting services."},
+  {"title":"About","url":"/about/","excerpt":"About SSoulSS — building practical AI products that respect privacy."},
+  {"title":"Contact","url":"/contact/","excerpt":"Get in touch with SSoulSS for inquiries, demos, and partnerships."},
+  {"title":"Locations","url":"/locations/","excerpt":"SSoulSS office locations across APAC and EMEA."},
+  {"title":"Request a Demo","url":"/request-demo/","excerpt":"Request a demo of SSoulSS products and services."},
+  {"title":"Blog","url":"/blogs/","excerpt":"Insights and updates from the SSoulSS team."},
+  {"title":"Privacy Policy","url":"/policies/privacy/","excerpt":"SSoulSS privacy policy and data handling practices."},
+  {"title":"Terms of Service","url":"/policies/terms/","excerpt":"SSoulSS terms of service and conditions."},
+  {"title":"Cookie Policy","url":"/policies/cookies/","excerpt":"SSoulSS cookie policy."}
 ]
