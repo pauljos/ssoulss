@@ -8,7 +8,7 @@
   <meta property="og:title" content="Request a Demo — SSoulSS" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="icon" type="image/svg+xml" href="/assets/images/emblem-ssoulss-refined-white.svg">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#0f172a" data-theme-color>
   <title>Request a Demo — SSoulSS</title>
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Request a Demo | SSoulSS</title>
@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781866778">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781869416">
   <style>
 /* ── Theme CSS Variables (shared across all layouts) ── */
 :root {
@@ -108,11 +108,10 @@ function applyTheme(t) {
   document.querySelectorAll('.theme-hero').forEach(function(el) { el.style.display = 'none'; });
   var h = document.querySelector('[data-theme-hero="'+t+'"]') || document.querySelector('[data-theme-hero="default"]') || document.querySelector('[data-theme-hero="fallback"]');
   if (h) h.style.display = '';
-  var m = document.querySelector('meta[name="theme-color"]');
-  if (m) {
+  document.querySelectorAll('meta[data-theme-color]').forEach(function(m) {
     var c = {vishu:'#1a2e0a',onam:'#1a2e00',diwali:'#1a1a00',ramadan:'#0a1a00',eid:'#1a2e0a','national-day':'#0a1a1a','st-patrick':'#0a2e0a',bonfire:'#2e1a00',remembrance:'#2e0a0a',halloween:'#1a0a00',xmas:'#1a3a1a',newyear:'#1a1a2e',valentine:'#3a1a2e',spring:'#1a2e1a',summer:'#1a2e3a',autumn:'#2e1a0a',football:'#0a1a0a',winter:'#0a0a2e'};
     m.content = c[t] || '#0f172a';
-  }
+  });
 }
 </script>
 
@@ -129,12 +128,24 @@ function applyTheme(t) {
     
     /* Header */
     .modern-header {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .modern-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--theme-header-accent);
+      opacity: 0.5;
     }
     
     .modern-nav {
@@ -159,7 +170,7 @@ function applyTheme(t) {
       font-weight: 900;
       text-decoration: none;
       letter-spacing: -0.3px;
-      background: linear-gradient(135deg, #a78bfa, #ec4899);
+      background: var(--theme-primary-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -299,15 +310,15 @@ function applyTheme(t) {
     }
     
     .btn-primary-modern {
-      background: #2563eb;
+      background: var(--theme-primary-gradient);
       color: #ffffff;
       border: none;
     }
     
     .btn-primary-modern:hover {
-      background: #1d4ed8;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      background: var(--theme-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--theme-shadow);
     }
     
     .btn-secondary-modern {
@@ -323,15 +334,12 @@ function applyTheme(t) {
     
     /* Page Hero */
     .page-hero {
-      background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('/assets/images/hero-bg.png');
-      background-size: cover;
-      background-position: center;
+      background: var(--theme-hero-bg);
       padding: 80px 24px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-    
     .page-hero::before {
       content: '';
       position: absolute;
@@ -340,14 +348,17 @@ function applyTheme(t) {
       right: 0;
       bottom: 0;
       background: 
-        radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
-      animation: pulse 8s ease-in-out infinite;
+        radial-gradient(circle at 15% 30%, var(--theme-hero-aurora-1) 0%, transparent 45%),
+        radial-gradient(circle at 85% 20%, var(--theme-hero-aurora-2) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, var(--theme-hero-aurora-3) 0%, transparent 40%),
+        radial-gradient(circle at 20% 70%, var(--theme-hero-aurora-4) 0%, transparent 40%),
+        radial-gradient(circle at 80% 75%, var(--theme-hero-aurora-5) 0%, transparent 40%);
+      animation: auroraPulse 10s ease-in-out infinite alternate;
     }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
+    @keyframes auroraPulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+      100% { opacity: 0.7; transform: scale(0.98); }
     }
     
     .page-hero-content {
@@ -386,6 +397,21 @@ function applyTheme(t) {
     
     .content-section:last-child {
       margin-bottom: 0;
+    }
+    
+    /* Section badge uses theme colors */
+    .section-badge {
+      display: inline-block;
+      background: var(--theme-badge-bg);
+      color: var(--theme-badge-color);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border: 1px solid rgba(167, 139, 250, 0.2);
     }
     
     .section-title {

@@ -8,6 +8,7 @@
   <meta property="og:title" content="Souldoc — SSoulSS" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="icon" type="image/svg+xml" href="/assets/images/emblem-ssoulss-refined-white.svg">
+  <meta name="theme-color" content="#0f172a" data-theme-color>
   <title>Souldoc — SSoulSS</title>
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Souldoc | SSoulSS</title>
@@ -30,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781866778">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781869416">
   <style>
 /* ── Theme CSS Variables (shared across all layouts) ── */
 :root {
@@ -107,11 +108,10 @@ function applyTheme(t) {
   document.querySelectorAll('.theme-hero').forEach(function(el) { el.style.display = 'none'; });
   var h = document.querySelector('[data-theme-hero="'+t+'"]') || document.querySelector('[data-theme-hero="default"]') || document.querySelector('[data-theme-hero="fallback"]');
   if (h) h.style.display = '';
-  var m = document.querySelector('meta[name="theme-color"]');
-  if (m) {
+  document.querySelectorAll('meta[data-theme-color]').forEach(function(m) {
     var c = {vishu:'#1a2e0a',onam:'#1a2e00',diwali:'#1a1a00',ramadan:'#0a1a00',eid:'#1a2e0a','national-day':'#0a1a1a','st-patrick':'#0a2e0a',bonfire:'#2e1a00',remembrance:'#2e0a0a',halloween:'#1a0a00',xmas:'#1a3a1a',newyear:'#1a1a2e',valentine:'#3a1a2e',spring:'#1a2e1a',summer:'#1a2e3a',autumn:'#2e1a0a',football:'#0a1a0a',winter:'#0a0a2e'};
     m.content = c[t] || '#0f172a';
-  }
+  });
 }
 </script>
 
@@ -128,12 +128,24 @@ function applyTheme(t) {
     
     /* Header */
     .product-header {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    .product-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--theme-header-accent);
+      opacity: 0.5;
     }
     
     .product-nav {
@@ -150,7 +162,7 @@ function applyTheme(t) {
       font-weight: 900;
       text-decoration: none;
       letter-spacing: -0.3px;
-      background: linear-gradient(135deg, #a78bfa, #ec4899);
+      background: var(--theme-primary-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -177,14 +189,14 @@ function applyTheme(t) {
     }
     
     .btn-primary {
-      background: #2563eb;
+      background: var(--theme-primary-gradient);
       color: #ffffff;
     }
     
     .btn-primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      background: var(--theme-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--theme-shadow);
     }
     
     .btn-secondary {
@@ -578,11 +590,29 @@ function applyTheme(t) {
     /* CTA Section */
     .cta-section {
       padding: 80px 24px;
-      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      background: var(--theme-cta-bg);
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 40%, var(--theme-hero-aurora-1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 60%, var(--theme-hero-aurora-2) 0%, transparent 50%);
+      animation: auroraPulse 8s ease-in-out infinite alternate;
+    }
+    @keyframes auroraPulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+      100% { opacity: 0.7; transform: scale(0.98); }
+    }
     .cta-container {
+      position: relative;
+      z-index: 1;
+    }
       max-width: 800px;
       margin: 0 auto;
     }

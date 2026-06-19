@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0f172a" data-theme-color>
     <title>The New GitHub Actions Pricing: What You Need to Know — SSoulSS</title>
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>The New GitHub Actions Pricing: What You Need to Know | SSoulSS</title>
@@ -132,11 +133,10 @@ function applyTheme(t) {
   document.querySelectorAll('.theme-hero').forEach(function(el) { el.style.display = 'none'; });
   var h = document.querySelector('[data-theme-hero="'+t+'"]') || document.querySelector('[data-theme-hero="default"]') || document.querySelector('[data-theme-hero="fallback"]');
   if (h) h.style.display = '';
-  var m = document.querySelector('meta[name="theme-color"]');
-  if (m) {
+  document.querySelectorAll('meta[data-theme-color]').forEach(function(m) {
     var c = {vishu:'#1a2e0a',onam:'#1a2e00',diwali:'#1a1a00',ramadan:'#0a1a00',eid:'#1a2e0a','national-day':'#0a1a1a','st-patrick':'#0a2e0a',bonfire:'#2e1a00',remembrance:'#2e0a0a',halloween:'#1a0a00',xmas:'#1a3a1a',newyear:'#1a1a2e',valentine:'#3a1a2e',spring:'#1a2e1a',summer:'#1a2e3a',autumn:'#2e1a0a',football:'#0a1a0a',winter:'#0a0a2e'};
     m.content = c[t] || '#0f172a';
-  }
+  });
 }
 </script>
 
