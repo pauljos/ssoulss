@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781858134">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781859456">
   <style>
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -63,9 +63,19 @@
     
     .logo-text {
       font-size: 24px;
-      font-weight: 800;
-      color: #0f172a;
+      font-weight: 900;
       text-decoration: none;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #a78bfa, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: logoShimmer 4s ease-in-out infinite;
+    }
+    @keyframes logoShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
     
     .nav-actions {
@@ -284,10 +294,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      min-width: 0;
+      overflow: hidden;
     }
     
     .hero-image img {
       max-width: 100%;
+      width: 100%;
       height: auto;
       border-radius: 16px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -533,7 +546,7 @@
       
       .hero-container {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 24px;
       }
       
       .hero-content h1 {
@@ -576,13 +589,14 @@
       
       .section-subtitle {
         font-size: 16px;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
       }
       
       .features-grid,
       .gallery-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+        overflow: hidden;
       }
       
       .feature-box {
@@ -609,46 +623,96 @@
         height: 28px !important;
       }
       
+      .product-hero {
+        padding: 32px 12px;
+      }
+      
       .hero-content h1 {
-        font-size: 28px;
+        font-size: 24px;
+        margin-bottom: 16px;
       }
       
       .hero-content p {
-        font-size: 15px;
+        font-size: 14px;
+        margin-bottom: 24px;
       }
       
       .hero-badges {
         justify-content: center;
-        gap: 8px;
+        gap: 6px;
       }
       
       .hero-badge {
-        font-size: 11px;
-        padding: 4px 10px;
+        font-size: 10px;
+        padding: 4px 8px;
       }
       
-      .section-title {
-        font-size: 24px;
+      .hero-badge svg {
+        width: 12px;
+        height: 12px;
       }
       
-      .section-subtitle {
-        font-size: 15px;
+      .hero-container {
+        gap: 20px;
       }
       
-      .feature-box h3 {
-        font-size: 18px;
+      .hero-buttons {
+        gap: 12px;
       }
       
-      .feature-box p {
+      .btn-hero {
+        padding: 10px 20px;
         font-size: 14px;
       }
       
+      .section-title {
+        font-size: 22px;
+      }
+      
+      .section-subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+      
+      .features-section,
+      .gallery-section,
+      .faq-section,
+      .cta-section {
+        padding: 32px 12px;
+      }
+      
+      .feature-box {
+        padding: 20px;
+      }
+      
+      .feature-box h3 {
+        font-size: 17px;
+      }
+      
+      .feature-box p {
+        font-size: 13px;
+      }
+      
       .feature-icon {
-        font-size: 32px;
+        font-size: 28px;
+      }
+      
+      .feature-icon svg {
+        width: 32px;
+        height: 32px;
       }
       
       .gallery-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .cta-container h2 {
+        font-size: 22px;
+      }
+      
+      .cta-container p {
+        font-size: 14px;
       }
       
       .faq-question {

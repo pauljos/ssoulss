@@ -34,10 +34,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781858134">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781859456">
   <!-- Bookly Widget Script loaded lazily below -->
   <script>
-    // ── Seasonal theme: set data-theme on <html> based on current date ──
+    // ── Seasonal theme: detects region & date to choose the right theme ──
     (function() {
       // ── Allow URL override: ?theme=football or ?theme=onam etc. ──
       var params = new URLSearchParams(window.location.search);
@@ -49,73 +49,129 @@
         return;
       }
       
+      // ── Detect region from browser locale ──
+      var locale = (navigator.language || navigator.userLanguage || 'en-GB').toLowerCase();
+      var isIndia = locale.indexOf('in') >= 0 || locale.indexOf('en-in') >= 0;
+      var isMiddleEast = locale.indexOf('ar') >= 0 || locale.indexOf('sa') >= 0 || locale.indexOf('ae') >= 0 ||
+                         locale.indexOf('eg') >= 0 || locale.indexOf('iq') >= 0 || locale.indexOf('qa') >= 0 ||
+                         locale.indexOf('om') >= 0 || locale.indexOf('kw') >= 0 || locale.indexOf('bh') >= 0;
+      
       var now = new Date();
       var y = now.getFullYear();
       var m = now.getMonth() + 1;
       var d = now.getDate();
-      // Day of year for range comparisons
-      var dayOfYear = Math.floor((now - new Date(y, 0, 0)) / 86400000);
       
-      // ── FOOTBALL EVENTS (like Google Doodles) ──
+      // ── FOOTBALL EVENTS (global, like Google Doodles) ──
+      function between(mS, dS, mE, dE) {
+        return now >= new Date(y, mS-1, dS) && now <= new Date(y, mE-1, dE);
+      }
       function isFootballEvent() {
-        // Helper: check if current date is within [monthS, dayS] to [monthE, dayE]
-        function between(mS, dS, mE, dE) {
-          var start = new Date(y, mS-1, dS);
-          var end = new Date(y, mE-1, dE);
-          return now >= start && now <= end;
-        }
-        // FIFA World Cup (every 4 years: 2022, 2026, 2030...)
-        if (y % 4 === 2 && between(11, 14, 12, 18)) return true;  // Nov 14 - Dec 18
-        // UEFA European Championship (every 4 years: 2024, 2028, 2032...)
-        if (y % 4 === 0 && between(6, 14, 7, 14)) return true;   // Jun 14 - Jul 14
-        // Copa America (every 4 years: 2024, 2028...)
-        if (y % 4 === 0 && between(6, 20, 7, 14)) return true;
-        // AFC Asian Cup (every 4 years: 2023, 2027...)
-        if (y % 4 === 3 && between(1, 5, 2, 10)) return true;
-        // UEFA Champions League Final: 1st weekend June
-        if (between(5, 28, 6, 5)) return true;
-        // UEFA Europa League Final: 3rd week May
-        if (between(5, 18, 5, 25)) return true;
-        // Premier League / European season kickoff: Aug 10-20
-        if (between(8, 10, 8, 22)) return true;
-        // FA Cup Final: 3rd Saturday May (approx May 15-20)
-        if (between(5, 14, 5, 22)) return true;
+        if (y % 4 === 2 && between(11, 14, 12, 18)) return true;  // World Cup
+        if (y % 4 === 0 && between(6, 14, 7, 14)) return true;   // Euros
+        if (y % 4 === 0 && between(6, 20, 7, 14)) return true;   // Copa America
+        if (y % 4 === 3 && between(1, 5, 2, 10)) return true;    // AFC Asian Cup
+        if (between(5, 28, 6, 5)) return true;                    // UCL Final
+        if (between(5, 18, 5, 25)) return true;                   // Europa Final
+        if (between(8, 10, 8, 22)) return true;                   // Season kickoff
+        if (between(5, 14, 5, 22)) return true;                   // FA Cup Final
         return false;
       }
       
-      // ── Determine theme ──
-      var theme = 'default';
-      // Football events take priority when active
-      if (isFootballEvent()) theme = 'football';
-      // Valentine's: Feb 10-16
-      else if (m === 2 && d >= 10 && d <= 16) theme = 'valentine';
-      // Vishu (Malayalam New Year): Apr 14-15
-      else if (m === 4 && d >= 14 && d <= 15) theme = 'vishu';
-      // Spring: Apr 16-30
-      else if (m === 4 && d >= 16) theme = 'spring';
-      // Summer: May 1 - Aug 14
-      else if ((m >= 5 && m <= 7) || (m === 8 && d <= 14)) theme = 'summer';
-      // Onam (Kerala harvest festival): Aug 20 - Sep 15
-      else if ((m === 8 && d >= 20) || (m === 9 && d <= 15)) theme = 'onam';
-      // Early Autumn: Sep 16 - Oct 14
-      else if ((m === 9 && d >= 16) || (m === 10 && d <= 14)) theme = 'autumn';
-      // Halloween: Oct 31
-      else if (m === 10 && d === 31) theme = 'halloween';
-      // Diwali (festival of lights): Oct 15 - Nov 5
-      else if ((m === 10 && d >= 15) || (m === 11 && d <= 5)) theme = 'diwali';
-      // Late Autumn: Nov 6-30
-      else if (m === 11 && d >= 6) theme = 'autumn';
-      // Christmas: Dec 1-26
-      else if (m === 12 && d <= 26) theme = 'xmas';
-      // New Year: Dec 27 - Jan 5
-      else if ((m === 12 && d >= 27) || (m === 1 && d <= 5)) theme = 'newyear';
+      // ── Shared festivals (visible everywhere) ──
+      function getSharedTheme() {
+        if (isFootballEvent()) return 'football';
+        if (m === 2 && d >= 10 && d <= 16) return 'valentine';
+        if (m === 10 && d === 31) return 'halloween';
+        if (m === 12 && d <= 26) return 'xmas';
+        if ((m === 12 && d >= 27) || (m === 1 && d <= 5)) return 'newyear';
+        return null;
+      }
+      
+      // ── Approximate Islamic date calculator ──
+      function getIslamicDates() {
+        // Rough approximation of Ramadan & Eid based on Gregorian year
+        // Islamic year is ~11 days shorter; these shift each year
+        var ramadanStart, ramadanEnd, eidFit, eidAdha;
+        // Base: Ramadan 2026 starts ~Feb 18
+        var base = new Date(2026, 1, 18);
+        var diff = y - 2026;
+        var shift = diff * 11 + Math.floor(diff * 0.03);
+        ramadanStart = new Date(base.getTime() + shift * 86400000);
+        ramadanEnd = new Date(ramadanStart.getTime() + 28 * 86400000);
+        eidFit = new Date(ramadanEnd.getTime() + 1 * 86400000);
+        eidAdha = new Date(ramadanEnd.getTime() + 70 * 86400000);
+        return { ramadanStart: ramadanStart, ramadanEnd: ramadanEnd, eidFit: eidFit, eidAdha: eidAdha };
+      }
+      
+      // ── India-specific festivals ──
+      function getIndiaTheme() {
+        if (m === 4 && d >= 14 && d <= 15) return 'vishu';
+        if ((m >= 5 && m <= 7) || (m === 8 && d <= 19)) return 'summer';
+        if ((m === 8 && d >= 20) || (m === 9 && d <= 15)) return 'onam';
+        if ((m === 9 && d >= 16) || m === 10) return 'autumn';
+        if ((m === 10 && d >= 15) || (m === 11 && d <= 5)) return 'diwali';
+        if (m === 11 && d >= 6) return 'autumn';
+        return null;
+      }
+      
+      // ── Middle East festivals ──
+      function getMiddleEastTheme() {
+        var islamic = getIslamicDates();
+        // Ramadan month
+        if (now >= islamic.ramadanStart && now <= islamic.ramadanEnd) return 'ramadan';
+        // Eid al-Fitr (3 days)
+        if (now >= islamic.eidFit && now <= new Date(islamic.eidFit.getTime() + 3*86400000)) return 'eid';
+        // Eid al-Adha (4 days)
+        if (now >= islamic.eidAdha && now <= new Date(islamic.eidAdha.getTime() + 4*86400000)) return 'eid';
+        // UAE National Day: Dec 2
+        if (m === 12 && d === 2) return 'national-day';
+        // Saudi National Day: Sep 23
+        if (m === 9 && d === 23) return 'national-day';
+        // Generic seasons
+        if ((m === 3 && d >= 20) || (m === 4 && d <= 15)) return 'spring';
+        if (m >= 5 && m <= 8) return 'summer';
+        if (m >= 9 && m <= 11) return 'autumn';
+        return null;
+      }
+      
+      // ── UK / Global-default festivals ──
+      function getUKTheme() {
+        if (m === 3 && d === 17) return 'st-patrick';             // St. Patrick's Day
+        if ((m === 3 && d >= 20) || (m === 4 && d <= 15)) return 'spring';
+        if (m === 5 && d >= 25 && d <= 31) return 'spring';      // Spring Bank Holiday
+        if (m === 6 && d >= 1 && m <= 8) return 'summer';
+        if (m === 8 && d >= 24 && d <= 31) return 'summer';      // Summer Bank Holiday
+        if ((m === 9 || m === 10) && !(m === 10 && d >= 15)) return 'autumn';
+        if (m === 11 && d === 5) return 'bonfire';               // Bonfire Night
+        if (m === 11 && d === 11) return 'remembrance';          // Remembrance Day
+        if (m === 11 && d >= 6) return 'autumn';
+        return null;
+      }
+      
+      // ── Resolve theme ──
+      var theme = getSharedTheme();
+      if (!theme) {
+        if (isIndia) theme = getIndiaTheme();
+        else if (isMiddleEast) theme = getMiddleEastTheme();
+        else theme = getUKTheme();
+      }
+      if (!theme) theme = 'default';
       
       document.documentElement.setAttribute('data-theme', theme);
+      // ── Swap hero content per theme ──
+      document.querySelectorAll('.theme-content').forEach(function(el) {
+        el.style.display = 'none';
+      });
+      var activeContent = document.querySelector('[data-theme-content="' + theme + '"]') ||
+                          document.querySelector('[data-theme-content="default"]');
+      if (activeContent) activeContent.style.display = '';
       // Update theme-color meta tag
       var meta = document.querySelector('meta[name="theme-color"]');
       if (meta) {
         var colors = {
           vishu: '#1a2e0a', onam: '#1a2e00', diwali: '#1a1a00',
+          ramadan: '#0a1a00', eid: '#1a2e0a', 'national-day': '#0a1a1a',
+          'st-patrick': '#0a2e0a', bonfire: '#2e1a00', remembrance: '#2e0a0a',
           halloween: '#1a0a00', xmas: '#1a3a1a', newyear: '#1a1a2e',
           valentine: '#3a1a2e', spring: '#1a2e1a', summer: '#1a2e3a',
           autumn: '#2e1a0a', football: '#0a1a0a'
@@ -160,6 +216,86 @@
     }
     
     /* ── Seasonal theme overrides ── */
+    /* Ramadan — crescent moon, serene green, gold */
+    [data-theme="ramadan"] {
+      --theme-primary-gradient: linear-gradient(135deg, #16a34a, #ca8a04);
+      --theme-primary-hover: linear-gradient(135deg, #15803d, #a16207);
+      --theme-shadow: rgba(22, 163, 74, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0a1a0a 0%, #0a2a0a 30%, #0f172a 60%, #0a1a0a 100%);
+      --theme-hero-aurora-1: rgba(22, 163, 74, 0.2);
+      --theme-hero-aurora-2: rgba(202, 138, 4, 0.15);
+      --theme-hero-aurora-3: rgba(255, 255, 255, 0.1);
+      --theme-hero-aurora-4: rgba(22, 163, 74, 0.12);
+      --theme-hero-aurora-5: rgba(202, 138, 4, 0.08);
+      --theme-header-accent: linear-gradient(90deg, #16a34a, #ca8a04, #fff, #ca8a04, #16a34a);
+      --theme-shape-1: radial-gradient(circle, #16a34a, transparent);
+      --theme-shape-2: radial-gradient(circle, #ca8a04, transparent);
+      --theme-shape-3: radial-gradient(circle, #22c55e, transparent);
+      --theme-shape-4: radial-gradient(circle, #16a34a, transparent);
+      --theme-shimmer: linear-gradient(135deg, #16a34a 0%, #ca8a04 30%, #fff 60%, #16a34a 100%);
+      --theme-divider: linear-gradient(90deg, #16a34a, #ca8a04, #fff, #ca8a04, #16a34a);
+      --theme-badge-bg: linear-gradient(135deg, #f0fdf4, #fefce8, #fff);
+      --theme-badge-color: #15803d;
+      --theme-process-bar: linear-gradient(90deg, #16a34a, #ca8a04, #fff);
+      --theme-cta-bg: linear-gradient(135deg, #0a1a0a 0%, #0a2a0a 30%, #0a1a0a 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #16a34a, #ca8a04, #22c55e);
+    }
+    /* Eid — celebratory gold, green, white */
+    [data-theme="eid"] {
+      --theme-primary-gradient: linear-gradient(135deg, #ca8a04, #16a34a);
+      --theme-primary-hover: linear-gradient(135deg, #a16207, #15803d);
+      --theme-shadow: rgba(202, 138, 4, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0a1a0a 0%, #1a2e0a 30%, #0f172a 60%, #0a1a00 100%);
+      --theme-hero-aurora-1: rgba(202, 138, 4, 0.25);
+      --theme-hero-aurora-2: rgba(22, 163, 74, 0.2);
+      --theme-hero-aurora-3: rgba(255, 255, 255, 0.12);
+      --theme-hero-aurora-4: rgba(202, 138, 4, 0.15);
+      --theme-hero-aurora-5: rgba(22, 163, 74, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #ca8a04, #16a34a, #fff, #16a34a, #ca8a04);
+      --theme-shape-1: radial-gradient(circle, #ca8a04, transparent);
+      --theme-shape-2: radial-gradient(circle, #16a34a, transparent);
+      --theme-shape-3: radial-gradient(circle, #fbbf24, transparent);
+      --theme-shape-4: radial-gradient(circle, #ca8a04, transparent);
+      --theme-shimmer: linear-gradient(135deg, #ca8a04 0%, #16a34a 30%, #fff 60%, #ca8a04 100%);
+      --theme-divider: linear-gradient(90deg, #ca8a04, #16a34a, #fff, #16a34a, #ca8a04);
+      --theme-badge-bg: linear-gradient(135deg, #fefce8, #f0fdf4, #fff);
+      --theme-badge-color: #a16207;
+      --theme-process-bar: linear-gradient(90deg, #ca8a04, #16a34a, #fff);
+      --theme-cta-bg: linear-gradient(135deg, #0a1a0a 0%, #1a2e0a 30%, #0a1a00 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #ca8a04, #16a34a, #fbbf24);
+    }
+    /* National Day — flag-inspired colours */
+    [data-theme="national-day"] {
+      --theme-primary-gradient: linear-gradient(135deg, #dc2626, #16a34a);
+      --theme-primary-hover: linear-gradient(135deg, #b91c1c, #15803d);
+      --theme-shadow: rgba(220, 38, 38, 0.35);
+      --theme-hero-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a0a 30%, #0f172a 60%, #0a1a0a 100%);
+      --theme-hero-aurora-1: rgba(220, 38, 38, 0.2);
+      --theme-hero-aurora-2: rgba(22, 163, 74, 0.2);
+      --theme-hero-aurora-3: rgba(255, 255, 255, 0.1);
+      --theme-hero-aurora-4: rgba(220, 38, 38, 0.15);
+      --theme-hero-aurora-5: rgba(22, 163, 74, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #dc2626, #16a34a, #fff, #16a34a, #dc2626);
+      --theme-shape-1: radial-gradient(circle, #dc2626, transparent);
+      --theme-shape-2: radial-gradient(circle, #16a34a, transparent);
+      --theme-shape-3: radial-gradient(circle, #fff, transparent);
+      --theme-shape-4: radial-gradient(circle, #dc2626, transparent);
+      --theme-shimmer: linear-gradient(135deg, #dc2626 0%, #16a34a 30%, #fff 60%, #dc2626 100%);
+      --theme-divider: linear-gradient(90deg, #dc2626, #16a34a, #fff, #16a34a, #dc2626);
+      --theme-badge-bg: linear-gradient(135deg, #fef2f2, #f0fdf4, #fff);
+      --theme-badge-color: #b91c1c;
+      --theme-process-bar: linear-gradient(90deg, #dc2626, #16a34a, #fff);
+      --theme-cta-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a0a 30%, #0a1a0a 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #dc2626, #16a34a, #fff);
+    }
+    /* ── Theme-swappable hero content blocks ── */
+    .theme-content {
+      animation: themeFadeIn 0.6s ease both;
+    }
+    @keyframes themeFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
     /* Christmas */
     [data-theme="xmas"] {
       --theme-primary-gradient: linear-gradient(135deg, #ef4444, #16a34a);
@@ -405,6 +541,52 @@
         radial-gradient(circle at 70% 35%, rgba(34,197,94,0.06) 0%, transparent 20%),
         radial-gradient(circle at 50% 70%, rgba(251,191,36,0.06) 0%, transparent 18%);
     }
+    /* Ramadan: crescent glow */
+    [data-theme="ramadan"] .theme-mural-onam {
+      display: block;
+      background: 
+        radial-gradient(circle at 30% 20%, rgba(22,163,74,0.06) 0%, transparent 25%),
+        radial-gradient(circle at 70% 30%, rgba(202,138,4,0.05) 0%, transparent 20%);
+    }
+    /* Eid: celebratory sparkle */
+    [data-theme="eid"] .theme-mural-diwali {
+      display: block;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(202,138,4,0.08) 0%, transparent 15%),
+        radial-gradient(circle at 80% 50%, rgba(22,163,74,0.06) 0%, transparent 15%),
+        radial-gradient(circle at 50% 80%, rgba(202,138,4,0.05) 0%, transparent 12%);
+    }
+    /* National Day: flag stripes */
+    [data-theme="national-day"] .theme-mural-xmas {
+      display: block;
+      background: 
+        repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(220,38,38,0.04) 30px, rgba(220,38,38,0.04) 32px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(22,163,74,0.03) 40px, rgba(22,163,74,0.03) 42px);
+    }
+    /* St. Patrick's Day: clover shimmer */
+    [data-theme="st-patrick"] .theme-mural-football {
+      display: block;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(34,197,94,0.08) 0%, transparent 25%),
+        radial-gradient(circle at 80% 50%, rgba(251,191,36,0.06) 0%, transparent 20%);
+    }
+    /* Bonfire Night: sparkles */
+    [data-theme="bonfire"] .theme-mural-diwali {
+      display: block;
+      background: 
+        radial-gradient(circle at 30% 20%, rgba(249,115,22,0.1) 0%, transparent 12%),
+        radial-gradient(circle at 60% 50%, rgba(251,191,36,0.08) 0%, transparent 10%),
+        radial-gradient(circle at 80% 30%, rgba(249,115,22,0.06) 0%, transparent 8%),
+        radial-gradient(circle at 40% 70%, rgba(251,191,36,0.06) 0%, transparent 10%),
+        radial-gradient(circle at 70% 80%, rgba(249,115,22,0.05) 0%, transparent 8%);
+    }
+    /* Remembrance Day: poppy red glow */
+    [data-theme="remembrance"] .theme-mural-xmas {
+      display: block;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(220,38,38,0.06) 0%, transparent 20%),
+        radial-gradient(circle at 70% 60%, rgba(220,38,38,0.04) 0%, transparent 20%);
+    }
 
     /* ── Theme-specific floating icons ── */
     .theme-icons { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
@@ -428,6 +610,104 @@
     .theme-icon-halloween:nth-child(12) { top: 8%; left: 5%; width: 36px; height: 36px; animation: floatA 9s linear infinite; }
     .theme-icon-halloween:nth-child(13) { top: 80%; right: 10%; width: 28px; height: 28px; animation: floatC 11s linear infinite; }
     .theme-icon-halloween:nth-child(14) { top: 40%; left: 70%; width: 24px; height: 24px; animation: floatB 15s linear infinite; }
+    [data-theme="st-patrick"] .theme-icon-st-patrick { opacity: 0.2; }
+    .theme-icon-st-patrick:nth-child(15) { top: 15%; left: 8%; width: 34px; height: 34px; animation: floatA 12s linear infinite; }
+    .theme-icon-st-patrick:nth-child(16) { top: 70%; left: 5%; width: 26px; height: 26px; animation: floatB 14s linear infinite; }
+    .theme-icon-st-patrick:nth-child(17) { top: 25%; right: 6%; width: 30px; height: 30px; animation: floatC 10s linear infinite; }
+    [data-theme="bonfire"] .theme-icon-bonfire { opacity: 0.2; }
+    .theme-icon-bonfire:nth-child(18) { top: 10%; left: 4%; width: 36px; height: 36px; animation: floatA 8s linear infinite; }
+    .theme-icon-bonfire:nth-child(19) { top: 75%; right: 8%; width: 28px; height: 28px; animation: floatB 12s linear infinite; }
+    .theme-icon-bonfire:nth-child(20) { top: 35%; left: 75%; width: 24px; height: 24px; animation: floatC 15s linear infinite; }
+    [data-theme="remembrance"] .theme-icon-remembrance { opacity: 0.2; }
+    .theme-icon-remembrance:nth-child(21) { top: 20%; left: 6%; width: 32px; height: 32px; animation: floatA 14s linear infinite; }
+    .theme-icon-remembrance:nth-child(22) { top: 65%; right: 5%; width: 28px; height: 28px; animation: floatB 11s linear infinite; }
+    .theme-icon-remembrance:nth-child(23) { top: 30%; left: 80%; width: 26px; height: 26px; animation: floatC 13s linear infinite; }
+    [data-theme="ramadan"] .theme-icon-ramadan { opacity: 0.2; }
+    .theme-icon-ramadan:nth-child(24) { top: 12%; left: 7%; width: 34px; height: 34px; animation: floatA 13s linear infinite; }
+    .theme-icon-ramadan:nth-child(25) { top: 70%; left: 4%; width: 28px; height: 28px; animation: floatB 11s linear infinite; }
+    .theme-icon-ramadan:nth-child(26) { top: 22%; right: 5%; width: 30px; height: 30px; animation: floatC 14s linear infinite; }
+    [data-theme="eid"] .theme-icon-eid { opacity: 0.2; }
+    .theme-icon-eid:nth-child(27) { top: 15%; left: 5%; width: 36px; height: 36px; animation: floatA 10s linear infinite; }
+    .theme-icon-eid:nth-child(28) { top: 75%; right: 8%; width: 26px; height: 26px; animation: floatB 12s linear infinite; }
+    .theme-icon-eid:nth-child(29) { top: 28%; left: 75%; width: 32px; height: 32px; animation: floatC 15s linear infinite; }
+    [data-theme="national-day"] .theme-icon-national-day { opacity: 0.2; }
+    .theme-icon-national-day:nth-child(30) { top: 10%; left: 8%; width: 32px; height: 32px; animation: floatA 12s linear infinite; }
+    .theme-icon-national-day:nth-child(31) { top: 68%; right: 6%; width: 28px; height: 28px; animation: floatB 14s linear infinite; }
+    .theme-icon-national-day:nth-child(32) { top: 35%; left: 72%; width: 24px; height: 24px; animation: floatC 11s linear infinite; }
+
+    /* ── UK Festival Themes ── */
+    /* St. Patrick's Day — green, gold */
+    [data-theme="st-patrick"] {
+      --theme-primary-gradient: linear-gradient(135deg, #22c55e, #16a34a);
+      --theme-primary-hover: linear-gradient(135deg, #16a34a, #15803d);
+      --theme-shadow: rgba(34, 197, 94, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0a1a0a 0%, #0a2e0a 30%, #0f172a 60%, #0a1a0a 100%);
+      --theme-hero-aurora-1: rgba(34, 197, 94, 0.25);
+      --theme-hero-aurora-2: rgba(251, 191, 36, 0.2);
+      --theme-hero-aurora-3: rgba(255, 255, 255, 0.12);
+      --theme-hero-aurora-4: rgba(34, 197, 94, 0.15);
+      --theme-hero-aurora-5: rgba(251, 191, 36, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #22c55e, #fbbf24, #fff, #fbbf24, #22c55e);
+      --theme-shape-1: radial-gradient(circle, #22c55e, transparent);
+      --theme-shape-2: radial-gradient(circle, #fbbf24, transparent);
+      --theme-shape-3: radial-gradient(circle, #4ade80, transparent);
+      --theme-shape-4: radial-gradient(circle, #22c55e, transparent);
+      --theme-shimmer: linear-gradient(135deg, #22c55e 0%, #fbbf24 30%, #fff 60%, #22c55e 100%);
+      --theme-divider: linear-gradient(90deg, #22c55e, #fbbf24, #fff, #fbbf24, #22c55e);
+      --theme-badge-bg: linear-gradient(135deg, #f0fdf4, #fefce8, #fff);
+      --theme-badge-color: #16a34a;
+      --theme-process-bar: linear-gradient(90deg, #22c55e, #fbbf24, #fff);
+      --theme-cta-bg: linear-gradient(135deg, #0a1a0a 0%, #0a2e0a 30%, #0a1a0a 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #22c55e, #fbbf24, #4ade80);
+    }
+    /* Bonfire Night — orange, amber, dark */
+    [data-theme="bonfire"] {
+      --theme-primary-gradient: linear-gradient(135deg, #f97316, #ea580c);
+      --theme-primary-hover: linear-gradient(135deg, #ea580c, #c2410c);
+      --theme-shadow: rgba(249, 115, 22, 0.4);
+      --theme-hero-bg: linear-gradient(135deg, #0f0a00 0%, #1a0a00 30%, #0f172a 60%, #1a0a00 100%);
+      --theme-hero-aurora-1: rgba(249, 115, 22, 0.25);
+      --theme-hero-aurora-2: rgba(251, 191, 36, 0.2);
+      --theme-hero-aurora-3: rgba(255, 255, 255, 0.1);
+      --theme-hero-aurora-4: rgba(249, 115, 22, 0.15);
+      --theme-hero-aurora-5: rgba(251, 191, 36, 0.1);
+      --theme-header-accent: linear-gradient(90deg, #f97316, #fbbf24, #ea580c, #fbbf24, #f97316);
+      --theme-shape-1: radial-gradient(circle, #f97316, transparent);
+      --theme-shape-2: radial-gradient(circle, #fbbf24, transparent);
+      --theme-shape-3: radial-gradient(circle, #ea580c, transparent);
+      --theme-shape-4: radial-gradient(circle, #f97316, transparent);
+      --theme-shimmer: linear-gradient(135deg, #f97316 0%, #fbbf24 30%, #fff 60%, #f97316 100%);
+      --theme-divider: linear-gradient(90deg, #f97316, #fbbf24, #ea580c, #fbbf24, #f97316);
+      --theme-badge-bg: linear-gradient(135deg, #fff7ed, #fefce8, #fff);
+      --theme-badge-color: #ea580c;
+      --theme-process-bar: linear-gradient(90deg, #f97316, #fbbf24, #ea580c);
+      --theme-cta-bg: linear-gradient(135deg, #0f0a00 0%, #1a0a00 30%, #1a0a00 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #f97316, #fbbf24, #ea580c);
+    }
+    /* Remembrance Day — poppy red, solemn */
+    [data-theme="remembrance"] {
+      --theme-primary-gradient: linear-gradient(135deg, #dc2626, #991b1b);
+      --theme-primary-hover: linear-gradient(135deg, #b91c1c, #7f1d1d);
+      --theme-shadow: rgba(220, 38, 38, 0.35);
+      --theme-hero-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a0a 30%, #0f172a 60%, #0f0a0a 100%);
+      --theme-hero-aurora-1: rgba(220, 38, 38, 0.2);
+      --theme-hero-aurora-2: rgba(255, 255, 255, 0.08);
+      --theme-hero-aurora-3: rgba(220, 38, 38, 0.1);
+      --theme-hero-aurora-4: rgba(153, 27, 27, 0.15);
+      --theme-hero-aurora-5: rgba(220, 38, 38, 0.08);
+      --theme-header-accent: linear-gradient(90deg, #dc2626, #991b1b, #dc2626, #991b1b, #dc2626);
+      --theme-shape-1: radial-gradient(circle, #dc2626, transparent);
+      --theme-shape-2: radial-gradient(circle, #991b1b, transparent);
+      --theme-shape-3: radial-gradient(circle, #dc2626, transparent);
+      --theme-shape-4: radial-gradient(circle, #991b1b, transparent);
+      --theme-shimmer: linear-gradient(135deg, #dc2626 0%, #991b1b 30%, #fff 50%, #991b1b 70%, #dc2626 100%);
+      --theme-divider: linear-gradient(90deg, #dc2626, #991b1b, #dc2626, #991b1b, #dc2626);
+      --theme-badge-bg: linear-gradient(135deg, #fef2f2, #fee2e2, #fff);
+      --theme-badge-color: #991b1b;
+      --theme-process-bar: linear-gradient(90deg, #dc2626, #991b1b, #dc2626);
+      --theme-cta-bg: linear-gradient(135deg, #0f0a0a 0%, #1a0a0a 30%, #0f0a0a 60%, #0f172a 100%);
+      --theme-btn-hero-primary: linear-gradient(135deg, #dc2626, #991b1b, #dc2626);
+    }
 
     /* ── Theme-specific hero pill text (only one visible per theme) ── */
     .pill-text { display: none; }
@@ -442,6 +722,12 @@
     [data-theme="diwali"] .pill-diwali { display: inline; }
     [data-theme="halloween"] .pill-default { display: none; }
     [data-theme="halloween"] .pill-halloween { display: inline; }
+    [data-theme="ramadan"] .pill-default { display: none; }
+    [data-theme="ramadan"] .pill-ramadan { display: inline; }
+    [data-theme="eid"] .pill-default { display: none; }
+    [data-theme="eid"] .pill-eid { display: inline; }
+    [data-theme="national-day"] .pill-default { display: none; }
+    [data-theme="national-day"] .pill-national-day { display: inline; }
     [data-theme="vishu"] .pill-default { display: none; }
     [data-theme="vishu"] .pill-vishu { display: inline; }
     [data-theme="newyear"] .pill-default { display: none; }
@@ -454,6 +740,12 @@
     [data-theme="spring"] .pill-spring { display: inline; }
     [data-theme="autumn"] .pill-default { display: none; }
     [data-theme="autumn"] .pill-autumn { display: inline; }
+    [data-theme="st-patrick"] .pill-default { display: none; }
+    [data-theme="st-patrick"] .pill-st-patrick { display: inline; }
+    [data-theme="bonfire"] .pill-default { display: none; }
+    [data-theme="bonfire"] .pill-bonfire { display: inline; }
+    [data-theme="remembrance"] .pill-default { display: none; }
+    [data-theme="remembrance"] .pill-remembrance { display: inline; }
 
     * {
       box-sizing: border-box;
@@ -760,16 +1052,23 @@
     
     .logo-text {
       font-size: 24px;
-      font-weight: 800;
-      color: #0f172a;
+      font-weight: 900;
       text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-    .logo-text:hover {
-      background: linear-gradient(135deg, #a78bfa, #ec4899, #60a5fa);
+      letter-spacing: -0.3px;
+      background: var(--theme-primary-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      background-size: 200% 200%;
+      animation: logoShimmer 4s ease-in-out infinite;
+      transition: opacity 0.3s;
+    }
+    .logo-text:hover {
+      opacity: 0.8;
+    }
+    @keyframes logoShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
     
     .nav-links {
@@ -1461,7 +1760,15 @@
       
       .process-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 12px;
+      }
+      .process-step {
+        padding: 24px 16px;
+      }
+      .process-step-number {
+        font-size: 36px;
+        top: 12px;
+        right: 14px;
       }
       
       .features-grid,
@@ -1501,6 +1808,25 @@
     @media (max-width: 480px) {
       .process-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .process-step {
+        padding: 24px 16px;
+      }
+      .process-step-number {
+        font-size: 32px;
+        top: 10px;
+        right: 12px;
+      }
+      .process-illustration {
+        width: 64px;
+        height: 64px;
+      }
+      .process-step-title {
+        font-size: 16px;
+      }
+      .process-step-desc {
+        font-size: 13px;
       }
       .footer-container {
         grid-template-columns: 1fr;
@@ -1996,31 +2322,46 @@
       <svg class="theme-icon theme-icon-halloween" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-2 0-5 3-5 7 0 3 2 6 5 9 3-3 5-6 5-9 0-4-3-7-5-7z"/><circle cx="9" cy="8" r="1.5" fill="currentColor"/><circle cx="15" cy="8" r="1.5" fill="currentColor"/></svg>
       <svg class="theme-icon theme-icon-halloween" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
       <svg class="theme-icon theme-icon-halloween" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20L20 4"/></svg>
+      <!-- St. Patrick's Day -->
+      <svg class="theme-icon theme-icon-st-patrick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-1 2-3 4-3 7 0 3 2 5 3 7 1-2 3-4 3-7 0-3-2-5-3-7z"/><path d="M9 12h6"/><path d="M12 9v3"/></svg>
+      <svg class="theme-icon theme-icon-st-patrick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+      <svg class="theme-icon theme-icon-st-patrick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      <!-- Bonfire Night -->
+      <svg class="theme-icon theme-icon-bonfire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-2 3-5 5-5 9 0 3 2 5 5 5s5-2 5-5c0-4-3-6-5-9z"/><path d="M8 16l-2 4M16 16l2 4M12 16v4"/></svg>
+      <svg class="theme-icon theme-icon-bonfire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+      <svg class="theme-icon theme-icon-bonfire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20L20 4"/><path d="M4 4l16 16"/></svg>
+      <!-- Remembrance Day -->
+      <svg class="theme-icon theme-icon-remembrance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 13v2"/><path d="M9 15h6"/><path d="M7 18h10"/></svg>
+      <svg class="theme-icon theme-icon-remembrance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-1 1-3 2-4 4-2 3 0 6 4 8 4-2 6-5 4-8-1-2-3-3-4-4z"/></svg>
+      <svg class="theme-icon theme-icon-remembrance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke-dasharray="2 2"/></svg>
+      <!-- Ramadan -->
+      <svg class="theme-icon theme-icon-ramadan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-4 2-7 6-7 11 0 4 3 7 7 9 4-2 7-5 7-9 0-5-3-9-7-11z"/><path d="M10 8l2-2 2 2"/><path d="M10 14l2 2 2-2"/></svg>
+      <svg class="theme-icon theme-icon-ramadan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg>
+      <svg class="theme-icon theme-icon-ramadan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3c-2 3-3 6-3 10 0 4 2 7 5 9"/><path d="M17 3c2 3 3 6 3 10 0 4-2 7-5 9"/></svg>
+      <!-- Eid -->
+      <svg class="theme-icon theme-icon-eid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2 4 4-2-2 4 4 2-4 2 2 4-4-2-2 4-2-4-4 2 2-4-4-2 4-2-2-4 4 2 2-4z"/></svg>
+      <svg class="theme-icon theme-icon-eid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+      <svg class="theme-icon theme-icon-eid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6v12M6 12h12"/></svg>
+      <!-- National Day -->
+      <svg class="theme-icon theme-icon-national-day" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 6h18L12 18 3 6z"/></svg>
+      <svg class="theme-icon theme-icon-national-day" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+      <svg class="theme-icon theme-icon-national-day" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg>
     </div>
     <!-- Particle network canvas -->
     <canvas id="particle-canvas"></canvas>
     <div class="hero-split">
-      <div class="hero-content">
+      <!-- ── THEME-SWAPPABLE HERO CONTENT ── -->
+      <!-- Default hero content -->
+      <div class="hero-content theme-content" data-theme-content="default">
         <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
           <span class="pulse-dot"></span>
-          <span class="pill-text pill-default">AI-powered engineering platform</span>
-          <span class="pill-text pill-football">⚽ Football season is here!</span>
-          <span class="pill-text pill-onam">🌺 Happy Onam!</span>
-          <span class="pill-text pill-xmas">🎄 Merry Christmas!</span>
-          <span class="pill-text pill-diwali">🪔 Happy Diwali!</span>
-          <span class="pill-text pill-halloween">🎃 Happy Halloween!</span>
-          <span class="pill-text pill-vishu">🌼 Vishu Ashamsakal!</span>
-          <span class="pill-text pill-newyear">🎉 Happy New Year!</span>
-          <span class="pill-text pill-valentine">💙 Valentine's Special</span>
-          <span class="pill-text pill-summer">☀️ Summer Vibes</span>
-          <span class="pill-text pill-spring">🌸 Spring Forward</span>
-          <span class="pill-text pill-autumn">🍂 Autumn Glow</span>
+          <span>Build with AI</span>
         </div>
         <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
           Ship enterprise products your users will love — <span class="gradient-shimmer">powered by AI</span>
         </h1>
         <p class="hero-description reveal" style="transition-delay: 0.3s;">
-          Enterprise-ready solutions that respect privacy. Transform your ideas into scalable, intelligent applications with expert engineering and cutting-edge AI.
+          We combine expert engineering with cutting-edge AI to build secure, scalable applications. From healthcare to ERP — your vision, delivered.
         </p>
         <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
           <a href="/request-demo/" class="btn-hero btn-hero-primary">
@@ -2033,9 +2374,207 @@
           </a>
         </div>
       </div>
+
+      <!-- Football season hero -->
+      <div class="hero-content theme-content" data-theme-content="football" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>⚽ Football Season</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          Game on. Build your <span class="gradient-shimmer">winning team</span> with AI.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          Like a great football squad, every business needs the right players. Let us build your enterprise software dream team — powered by AI, driven by results.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>⚽ Kick Off</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            View the Lineup →
+          </a>
+        </div>
+      </div>
+
+      <!-- Christmas hero -->
+      <div class="hero-content theme-content" data-theme-content="xmas" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>🎄 Merry Christmas</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          The best gift? A product that <span class="gradient-shimmer">delights your users</span>.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          This season, give your customers the enterprise software they deserve. Secure, scalable, and built with care — just like Christmas morning.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>🎁 Get Started</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            View Products →
+          </a>
+        </div>
+      </div>
+
+      <!-- Onam hero -->
+      <div class="hero-content theme-content" data-theme-content="onam" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>🌺 Happy Onam</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          A harvest of <span class="gradient-shimmer">great ideas</span> awaits.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          Just as Onam brings abundance, we bring a rich harvest of enterprise solutions — from healthcare to ERP, all nurtured with care and powered by AI.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>🌾 Explore More</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            Our Products →
+          </a>
+        </div>
+      </div>
+
+      <!-- Diwali hero -->
+      <div class="hero-content theme-content" data-theme-content="diwali" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>🪔 Happy Diwali</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          Light up your business with <span class="gradient-shimmer">brilliant solutions</span>.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          This festival of lights, illuminate your enterprise with AI-powered products that shine. From scheduling to safety — we bring the spark.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>🪔 Light It Up</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            See the Spark →
+          </a>
+        </div>
+      </div>
+
+      <!-- New Year hero -->
+      <div class="hero-content theme-content" data-theme-content="newyear" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>🎉 Happy New Year</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          New year, <span class="gradient-shimmer">new possibilities</span>.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          Start the year fresh with enterprise software that sets resolutions in motion. Let's build something great together in the year ahead.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>✨ Start Fresh</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            What's New →
+          </a>
+        </div>
+      </div>
+
+      <!-- Ramadan hero -->
+      <div class="hero-content theme-content" data-theme-content="ramadan" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>🌙 Ramadan Mubarak</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          Reflect, renew, and <span class="gradient-shimmer">build with purpose</span>.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          This holy month, let us help you build technology that serves your community with integrity. Enterprise solutions crafted with care and respect.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>🌙 Begin the Journey</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            Our Services →
+          </a>
+        </div>
+      </div>
+
+      <!-- Eid hero -->
+      <div class="hero-content theme-content" data-theme-content="eid" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>✨ Eid Mubarak</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          Celebrate success with <span class="gradient-shimmer">technology that delivers</span>.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          Eid is about joy, family, and achievement. Let us help you deliver enterprise solutions that bring the same sense of accomplishment.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>✨ Celebrate</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            Explore →
+          </a>
+        </div>
+      </div>
+
+      <!-- Halloween hero -->
+      <div class="hero-content theme-content" data-theme-content="halloween" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>🎃 Spooky Season</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          Transform your business — <span class="gradient-shimmer">no tricks, just treats</span>.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          Scary good enterprise solutions that work like magic. No tricks, just powerful technology that treats your business right.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>🎃 Get Started</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            See Our Spells →
+          </a>
+        </div>
+      </div>
+
+      <!-- Valentine's hero -->
+      <div class="hero-content theme-content" data-theme-content="valentine" style="display:none">
+        <div class="hero-status-pill reveal" style="transition-delay: 0.1s;">
+          <span class="pulse-dot"></span>
+          <span>💙 Valentine's Special</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay: 0.2s;">
+          Fall in love with <span class="gradient-shimmer">software that cares</span>.
+        </h1>
+        <p class="hero-description reveal" style="transition-delay: 0.3s;">
+          Build products your users will fall in love with. Enterprise solutions designed with empathy, built with passion, delivered with love.
+        </p>
+        <div class="hero-buttons reveal" style="transition-delay: 0.4s;">
+          <a href="/request-demo/" class="btn-hero btn-hero-primary">
+            <span>💙 Start the Romance</span>
+          </a>
+          <a href="/product-stack/" class="btn-hero btn-hero-secondary">
+            Browse Products →
+          </a>
+        </div>
+      </div>
+
       <div class="ai-robot-wrapper reveal-scale" style="transition-delay: 0.5s;">
-        <!-- AI Robot Character SVG -->
-        <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- AI Robot Character SVG -- kept for all themes -->
           <!-- Glow behind robot -->
           <circle cx="140" cy="140" r="110" fill="url(#robotGlow)" opacity="0.3"/>
           <defs>

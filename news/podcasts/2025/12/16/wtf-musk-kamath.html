@@ -57,11 +57,15 @@
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
     <link rel="stylesheet" href="/assets/css/site.css">
     <style>
-      body{background:#fafafa}
+      body{background:#fafafa;margin:0;padding:0}
       .wrap{max-width:680px;margin:0 auto;padding:20px}
-      nav{margin-bottom:20px;font-size:14px}
-      nav a{color:#0095f6;text-decoration:none}
-      nav a:hover{text-decoration:underline}
+      
+      /* Breadcrumb nav */
+      .post-nav{margin-bottom:20px;font-size:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+      .post-nav a{color:#0095f6;text-decoration:none;font-weight:500}
+      .post-nav a:hover{text-decoration:underline}
+      .post-nav .home-link{color:#262626;padding:6px 12px;border:1px solid #dbdbdb;border-radius:8px;font-size:13px;font-weight:600}
+      .post-nav .home-link:hover{background:#fafafa;text-decoration:none}
       
       .post{
         background:#fff;
@@ -71,29 +75,47 @@
         box-shadow:0 1px 3px rgba(0,0,0,0.12);
       }
       
-      footer{
-        margin-top:24px;
+      .post-footer{
+        margin-top:32px;
         text-align:center;
         padding:16px 0;
+        border-top:1px solid #dbdbdb;
       }
-      footer a{
+      .post-footer a{
         color:#0095f6;
         text-decoration:none;
         font-size:14px;
         font-weight:600;
+        margin:0 12px;
       }
+      .post-footer a:hover{text-decoration:underline}
+      
+      /* Site footer */
+      .site-footer{
+        margin-top:48px;
+        padding:24px 0;
+        text-align:center;
+        border-top:1px solid #dbdbdb;
+        background:#fff;
+      }
+      .site-footer a{color:#8e8e8e;text-decoration:none;font-size:12px;margin:0 8px}
+      .site-footer a:hover{color:#262626}
+      .site-footer p{color:#8e8e8e;font-size:11px;margin:12px 0 0}
       
       @media (max-width:735px){
         .wrap{padding:12px 16px}
         .post{padding:16px;border-radius:0;border-left:none;border-right:none}
-        nav{margin-bottom:12px;font-size:13px}
+        .post-nav{margin-bottom:12px;font-size:13px}
       }
     </style>
   </head>
   <body>
     <div class="wrap">
-      <nav>
-        <a href="/">Home</a> › <a href="/blogs/">Blog</a>
+      <nav class="post-nav">
+        <a href="/" class="home-link">← Home</a>
+        <a href="/blogs/">Blog</a>
+        <span style="color:#8e8e8e">›</span>
+        <span style="color:#262626;font-weight:500">The "WTF" Moment: When India's Broker...</span>
       </nav>
 
       <article class="post">
@@ -146,10 +168,23 @@
 <p>This write-up is intentionally cautious. Public conversation often gets condensed into headlines and clips that lack context. If you plan to share or republish, I recommend linking to the full episode and avoiding paraphrases that turn back-of-the-envelope remarks into firm predictions.</p>
 
         </section>
+
+        <div class="post-footer">
+          <a href="/blogs/">← Back to Blog</a>
+          <a href="/">Home</a>
+          <a href="/contact/">Contact</a>
+        </div>
       </article>
 
-      <footer>
-        <a href="/blogs/">← Back to blog</a>
+      <footer class="site-footer">
+        <a href="/">Home</a>
+        <a href="/product-stack/">Products</a>
+        <a href="/consulting/">Consulting</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/policies/privacy/">Privacy</a>
+        <a href="/policies/terms/">Terms</a>
+        <p>&copy; 2026 SSoulSS. All rights reserved.</p>
       </footer>
     </div>
   </body>
