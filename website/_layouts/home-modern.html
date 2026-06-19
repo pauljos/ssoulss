@@ -37,24 +37,34 @@
       var now = new Date(), y = now.getFullYear();
       
       // ── Check schedule for matching themes ──
+      // First pass: only match specific-year entries (YYYY-MM-DD)
+      // Second pass: match recurring entries (MM-DD)
       function findMatch() {
         var sched = THEME_SCHEDULE.schedule || [];
-        for (var i = 0; i < sched.length; i++) {
-          var entry = sched[i];
-          if (!entry.date) continue;
-          var p = entry.date.split('-'), start, end;
-          if (p.length === 3) {
-            start = new Date(+p[0], +p[1]-1, +p[2]);
-            if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
-            else end = new Date(start);
-          } else {
-            start = new Date(y, +p[0]-1, +p[1]);
-            if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
-            else end = new Date(start);
+        function matchPass(onlySpecific) {
+          for (var i = 0; i < sched.length; i++) {
+            var entry = sched[i];
+            if (!entry.date) continue;
+            var p = entry.date.split('-');
+            var isSpecific = p.length === 3;
+            if (onlySpecific && !isSpecific) continue;
+            if (!onlySpecific && isSpecific) continue;
+            var start, end;
+            if (isSpecific) {
+              start = new Date(+p[0], +p[1]-1, +p[2]);
+              if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
+              else end = new Date(start);
+            } else {
+              start = new Date(y, +p[0]-1, +p[1]);
+              if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
+              else end = new Date(start);
+            }
+            if (now >= start && now <= end) return entry.theme;
           }
-          if (now >= start && now <= end) return entry.theme;
+          return null;
         }
-        return null;
+        // Check specific-year entries first, then recurring
+        return matchPass(true) || matchPass(false);
       }
       
       // ── Detect region for fallback ──

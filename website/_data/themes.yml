@@ -16,8 +16,29 @@ regional_defaults:
   global: summer
 
 # Scheduled themes — list of dates and themes
-# Use YYYY-MM-DD for one-time events, MM-DD for yearly recurring
+# IMPORTANT: one-time events (YYYY-MM-DD) are checked FIRST,
+# then recurring yearly events (MM-DD). Within each group,
+# the first match wins, so put specific events before generic seasons.
 schedule:
+  # ═══════════════════════════════════════════════════════════
+  # ONE-TIME EVENTS (specific year) — checked first
+  # ═══════════════════════════════════════════════════════════
+
+  # ⚽ FIFA World Cup 2026
+  - date: "2026-06-11"
+    theme: football
+    end: "2026-07-19"
+    note: "FIFA World Cup 2026"
+
+  # Add other one-time events here:
+  # - date: "2027-01-01"
+  #   theme: newyear
+  #   end: "2027-01-05"
+
+  # ═══════════════════════════════════════════════════════════
+  # RECURRING EVENTS (yearly, MM-DD) — checked second
+  # ═══════════════════════════════════════════════════════════
+
   # ── New Year ──
   - date: "12-27"
     theme: newyear
@@ -63,12 +84,6 @@ schedule:
   - date: "10-15"
     theme: diwali
     end: "11-05"
-
-  # ⚽ Football Events (add manually per event)
-  - date: "2026-06-11"
-    theme: football
-    end: "2026-07-19"
-    note: "FIFA World Cup 2026"
 
   # ── Halloween ──
   - date: "10-31"
