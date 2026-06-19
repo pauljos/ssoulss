@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="SSoulSS builds enterprise software products and provides expert data &amp; AI consulting. Healthcare (Souldoc), Apparel ERP (Texa), HSE (SoulsHS), Scheduling (Bookly) — plus custom engineering and digital transformation." />
+  <meta name="description" content="SSoulSS builds enterprise software products and provides expert data &amp; AI consulting. Healthcare (Souldoc), Apparel ERP (Texa), HSE (SoulsHS), Scheduling (Bookly), Data Modelling (SoulModel) — plus custom engineering and digital transformation." />
   <meta property="og:title" content="{{ page.title }} — {{ site.title }}" />
   <meta property="og:description" content="Enterprise software products and data &amp; AI consulting. Healthcare platforms, apparel ERP, HSE management, scheduling solutions, and expert technology consulting." />
   <meta property="og:image" content="/assets/images/hero-illustration.svg" />
@@ -1954,7 +1954,8 @@
     .showcase-card:nth-child(2)::before { background: linear-gradient(90deg, #60a5fa, #a78bfa); }
     .showcase-card:nth-child(3)::before { background: linear-gradient(90deg, #34d399, #10b981); }
     .showcase-card:nth-child(4)::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-    .showcase-card:nth-child(5)::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+    .showcase-card:nth-child(5)::before { background: linear-gradient(90deg, #6366f1, #4338ca); }
+    .showcase-card:nth-child(6)::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
     .showcase-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 24px 56px rgba(0, 0, 0, 0.1);
@@ -2008,7 +2009,8 @@
     .showcase-card:nth-child(2) .showcase-tag { background: #dbeafe; color: #1d4ed8; }
     .showcase-card:nth-child(3) .showcase-tag { background: #d1fae5; color: #059669; }
     .showcase-card:nth-child(4) .showcase-tag { background: #fef3c7; color: #d97706; }
-    .showcase-card:nth-child(5) .showcase-tag { background: #f5f3ff; color: #6d28d9; }
+    .showcase-card:nth-child(5) .showcase-tag { background: #eef2ff; color: #4338ca; }
+    .showcase-card:nth-child(6) .showcase-tag { background: #f5f3ff; color: #6d28d9; }
     .showcase-visual-bg {
       position: absolute;
       inset: 0;
@@ -2018,9 +2020,11 @@
     .showcase-card:nth-child(2) .showcase-visual-bg { background: linear-gradient(135deg, #60a5fa, #a78bfa); }
     .showcase-card:nth-child(3) .showcase-visual-bg { background: linear-gradient(135deg, #34d399, #10b981); }
     .showcase-card:nth-child(4) .showcase-visual-bg { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
-    .showcase-card:nth-child(5) .showcase-visual-bg { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+    .showcase-card:nth-child(5) .showcase-visual-bg { background: linear-gradient(135deg, #6366f1, #4338ca); }
+    .showcase-card:nth-child(6) .showcase-visual-bg { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
     .showcase-card:nth-child(4) .showcase-visual { background: #fffbeb; border-color: #fde68a; }
-    .showcase-card:nth-child(5) .showcase-visual { background: #f5f3ff; border-color: #ddd6fe; }
+    .showcase-card:nth-child(5) .showcase-visual { background: #eef2ff; border-color: #c7d2fe; }
+    .showcase-card:nth-child(6) .showcase-visual { background: #f5f3ff; border-color: #ddd6fe; }
     @media (max-width: 1024px) {
       .showcase-grid { grid-template-columns: repeat(3, 1fr); }
     }
@@ -3015,7 +3019,7 @@
         <span class="section-badge">Our Products</span>
         <h2 class="section-title">See our platforms in motion</h2>
         <p class="section-description">
-          From healthcare to manufacturing, scheduling to safety — animated previews of what we build and the consulting expertise behind them.
+          From healthcare to manufacturing, scheduling to safety to data modelling — animated previews of what we build and the consulting expertise behind them.
         </p>
       </div>
       <div class="showcase-grid stagger-children">
@@ -3193,7 +3197,48 @@
           <a href="/bookly/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#d97706;text-decoration:none;">Learn More →</a>
         </div>
 
-        <!-- Card 5: Data & AI Consulting -->
+        <!-- Card 5: SoulModel -->
+        <div class="showcase-card tilt-card">
+          <span class="showcase-tag" style="background:#eef2ff;color:#4338ca;">Data Modelling</span>
+          <div class="showcase-visual" style="background:#eef2ff;border-color:#c7d2fe;">
+            <div class="showcase-visual-bg" style="background:linear-gradient(135deg,#6366f1,#4338ca);"></div>
+            <svg viewBox="0 0 300 180" fill="none">
+              <!-- Flow diagram -->
+              <rect x="40" y="40" width="70" height="30" rx="6" fill="white" stroke="#6366f1" stroke-width="1.5"/>
+              <text x="48" y="60" fill="#4338ca" font-size="7" font-weight="700" font-family="Inter" opacity="0.8">SOURCES</text>
+              <path d="M115 55h15" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <polygon points="132,51 132,59 138,55" fill="#6366f1"/>
+              <rect x="140" y="40" width="70" height="30" rx="6" fill="white" stroke="#a78bfa" stroke-width="1.5"/>
+              <text x="145" y="60" fill="#7c3aed" font-size="7" font-weight="700" font-family="Inter" opacity="0.8">🤖 AI</text>
+              <path d="M215 55h15" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <polygon points="232,51 232,59 238,55" fill="#6366f1"/>
+              <rect x="40" y="85" width="210" height="30" rx="6" fill="white" stroke="#22c55e" stroke-width="1.5"/>
+              <text x="48" y="105" fill="#059669" font-size="7" font-weight="700" font-family="Inter" opacity="0.8">MODEL · Data Vault · DDL · ERD</text>
+              <!-- Model blocks -->
+              <rect x="40" y="128" width="60" height="28" rx="3" fill="white" stroke="#6366f1" stroke-width="0.5"/>
+              <text x="44" y="142" fill="#4338ca" font-size="6" font-weight="700" font-family="Inter">Hub</text>
+              <text x="44" y="152" fill="#94a3b8" font-size="6" font-family="Inter">PK: id</text>
+              <rect x="110" y="128" width="60" height="28" rx="3" fill="white" stroke="#6366f1" stroke-width="0.5"/>
+              <text x="114" y="142" fill="#4338ca" font-size="6" font-weight="700" font-family="Inter">Sat</text>
+              <text x="114" y="152" fill="#94a3b8" font-size="6" font-family="Inter">FK: id</text>
+              <rect x="180" y="128" width="70" height="28" rx="3" fill="white" stroke="#6366f1" stroke-width="0.5"/>
+              <text x="184" y="142" fill="#4338ca" font-size="6" font-weight="700" font-family="Inter">Link</text>
+              <text x="184" y="152" fill="#94a3b8" font-size="6" font-family="Inter">FK: id</text>
+              <line x1="100" y1="142" x2="110" y2="142" stroke="#6366f1" stroke-width="0.5"/>
+              <line x1="170" y1="142" x2="180" y2="142" stroke="#6366f1" stroke-width="0.5"/>
+              <!-- Bottom bar -->
+              <rect x="20" y="165" width="260" height="4" rx="2" fill="#e2e8f0"/>
+              <rect x="20" y="165" width="200" height="4" rx="2" fill="#6366f1">
+                <animate attributeName="width" values="80;240;80" dur="3s" repeatCount="indefinite"/>
+              </rect>
+            </svg>
+          </div>
+          <h3 class="showcase-title">SoulModel</h3>
+          <p class="showcase-desc">AI-powered data modelling platform — merge multiple source systems into unified Data Vault or Dimensional models. Intelligent and enterprise-grade.</p>
+          <a href="/soulmodel/" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:#4338ca;text-decoration:none;">Learn More →</a>
+        </div>
+
+        <!-- Card 6: Data & AI Consulting -->
         <div class="showcase-card tilt-card">
           <span class="showcase-tag">Consulting</span>
           <div class="showcase-visual">

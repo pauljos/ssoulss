@@ -55,6 +55,7 @@ permalink: /product-stack/
   .ps-row:nth-of-type(2) .ps-content::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
   .ps-row:nth-of-type(3) .ps-content::before { background: linear-gradient(90deg, #3b82f6, #2563eb); }
   .ps-row:nth-of-type(4) .ps-content::before { background: linear-gradient(90deg, #10b981, #34d399); }
+  .ps-row:nth-of-type(5) .ps-content::before { background: linear-gradient(90deg, #6366f1, #4338ca); }
   .ps-content:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.1); border-color: transparent; }
 
   .ps-visual {
@@ -75,6 +76,7 @@ permalink: /product-stack/
   .ps-row:nth-of-type(2) .ps-badge { background: #fef3c7; color: #d97706; }
   .ps-row:nth-of-type(3) .ps-badge { background: #dbeafe; color: #1d4ed8; }
   .ps-row:nth-of-type(4) .ps-badge { background: #d1fae5; color: #059669; }
+  .ps-row:nth-of-type(5) .ps-badge { background: #eef2ff; color: #4338ca; }
 
   .ps-title { font-size: 34px; font-weight: 900; color: #0f172a; margin: 0 0 6px; letter-spacing: -1.2px; }
   .ps-desc { font-size: 16px; color: #475569; line-height: 1.6; margin: 0 0 24px; }
@@ -91,6 +93,7 @@ permalink: /product-stack/
   .ps-visual-bookly { background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid #fde68a; }
   .ps-visual-texa { background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1px solid #bfdbfe; }
   .ps-visual-soulshs { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1px solid #a7f3d0; }
+  .ps-visual-soulmodel { background: linear-gradient(135deg, #eef2ff, #e0e7ff); border: 1px solid #c7d2fe; }
 
   .ps-tech { padding: 100px 0; background: #f8fafc; margin: 40px -24px -80px; border-radius: 60px 60px 0 0; position: relative; }
   .ps-tech::before { content: ''; position: absolute; top: 0; left: 24px; right: 24px; height: 4px; background: linear-gradient(90deg, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24); border-radius: 2px; }
@@ -220,6 +223,53 @@ permalink: /product-stack/
           <rect x="150" y="118" width="16" height="42" rx="2" fill="#3b82f6" opacity="0.5"><animate attributeName="height" values="42;52;42" dur="2.7s" repeatCount="indefinite" y="118"/></rect>
         </svg>
         <div style="margin-top:8px;font-size:13px;font-weight:600;color:#2563eb;">texa erp</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ps-row">
+    <div class="ps-content">
+      <span class="ps-badge">Data Modelling</span>
+      <h2 class="ps-title">SoulModel</h2>
+      <p class="ps-desc">AI-powered data modelling platform that merges multiple source systems into unified Data Vault or Dimensional models. Enterprise-grade, lightning-fast, intelligent.</p>
+      <div class="ps-tags">
+        <span class="ps-tag">AI-Powered</span>
+        <span class="ps-tag">Data Vault</span>
+        <span class="ps-tag">Multi-Source</span>
+      </div>
+      <div class="ps-actions">
+        <a href="/soulmodel/" class="ps-btn ps-btn-primary">Learn More →</a>
+        <a href="https://soulmodel-frontend.onrender.com/upload" target="_blank" class="ps-btn ps-btn-secondary">Open App ↗</a>
+      </div>
+    </div>
+    <div class="ps-visual ps-visual-soulmodel">
+      <div style="text-align:center;padding:20px;width:100%;">
+        <svg viewBox="0 0 300 200" fill="none" style="width:100%;max-width:300px;">
+          <rect x="30" y="40" width="100" height="36" rx="6" fill="white" stroke="#6366f1" stroke-width="1.5"/>
+          <text x="40" y="62" fill="#4338ca" font-size="9" font-weight="700" font-family="Inter" opacity="0.8">SOURCE SYSTEMS</text>
+          <path d="M138 58h16" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <polygon points="156,54 156,62 162,58" fill="#6366f1"/>
+          <rect x="168" y="40" width="100" height="36" rx="6" fill="white" stroke="#a78bfa" stroke-width="1.5"/>
+          <text x="178" y="62" fill="#7c3aed" font-size="9" font-weight="700" font-family="Inter" opacity="0.8">AI ENGINE</text>
+          <path d="M138 100h16" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <polygon points="156,96 156,104 162,100" fill="#6366f1"/>
+          <rect x="30" y="82" width="240" height="36" rx="6" fill="white" stroke="#22c55e" stroke-width="1.5"/>
+          <text x="40" y="104" fill="#059669" font-size="9" font-weight="700" font-family="Inter" opacity="0.8">GENERATED MODEL · Data Vault · DDL · ERD</text>
+          <rect x="30" y="134" width="72" height="36" rx="4" fill="#eef2ff" stroke="#6366f1" stroke-width="0.5"/>
+          <text x="36" y="150" fill="#4338ca" font-size="7" font-weight="700" font-family="Inter">Hub_Customer</text>
+          <text x="36" y="162" fill="#94a3b8" font-size="7" font-family="Inter">PK: c_id</text>
+          <rect x="114" y="134" width="72" height="36" rx="4" fill="#eef2ff" stroke="#6366f1" stroke-width="0.5"/>
+          <text x="120" y="150" fill="#4338ca" font-size="7" font-weight="700" font-family="Inter">Sat_Customer</text>
+          <text x="120" y="162" fill="#94a3b8" font-size="7" font-family="Inter">FK: c_id</text>
+          <rect x="198" y="134" width="72" height="36" rx="4" fill="#eef2ff" stroke="#6366f1" stroke-width="0.5"/>
+          <text x="204" y="150" fill="#4338ca" font-size="7" font-weight="700" font-family="Inter">Link_Order</text>
+          <text x="204" y="162" fill="#94a3b8" font-size="7" font-family="Inter">FK: c_id</text>
+          <line x1="102" y1="152" x2="114" y2="152" stroke="#6366f1" stroke-width="0.5"/>
+          <line x1="186" y1="152" x2="198" y2="152" stroke="#6366f1" stroke-width="0.5"/>
+          <rect x="30" y="180" width="240" height="16" rx="4" fill="#f0fdf4"/>
+          <text x="40" y="192" fill="#22c55e" font-size="8" font-weight="600" font-family="Inter">● Model ready</text>
+        </svg>
+        <div style="margin-top:8px;font-size:13px;font-weight:600;color:#4338ca;">soulmodel</div>
       </div>
     </div>
   </div>

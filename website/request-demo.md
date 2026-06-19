@@ -220,6 +220,7 @@ permalink: /request-demo/
             <option value="souldoc">Souldoc — Clinic Management</option>
             <option value="texa">Texa — Apparel ERP</option>
             <option value="soulshs">SoulsHS — HSE Platform</option>
+            <option value="soulmodel">SoulModel — Data Modelling</option>
             <option value="bookly">Bookly — Scheduling</option>
             <option value="other">Other / Not sure</option>
           </select>
