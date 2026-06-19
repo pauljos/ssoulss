@@ -13,7 +13,7 @@
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/emblem-ssoulss-refined-white.svg">
   <link rel="shortcut icon" href="/favicon.ico">
-  <meta name="theme-color" content="#2b6fd6">
+  <meta name="theme-color" content="#0f172a" data-theme-color>
     <title>{{ page.title }} — {{ site.title }}</title>
     {% seo %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -263,6 +263,13 @@
   .hero-landing p.lead{font-size:16px;margin:0 0 16px 0;color:rgba(255,255,255,0.95) !important;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,0.15) !important;}
   .hero-landing .hero-ctas{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
   .hero-landing .hero-search{display:flex;gap:8px;align-items:stretch;position:relative}
+  .hero-landing .hero-ctas .btn-primary {
+      background: var(--theme-primary-gradient);
+      border: none;
+    }
+    .hero-landing .hero-ctas .btn-primary:hover {
+      background: var(--theme-primary-hover);
+    }
   .hero-landing .hero-search::before{
     content:'';
     position:absolute;

@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0f172a" data-theme-color>
     <title>{{ page.title }} — {{ site.title }}</title>
     <meta name="description" content="SSoulSS — Enterprise software products and data &amp; AI consulting. {{ page.title }}." />
     {% seo %}
     {% include head.html %}
+    {% include theme.html %}
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
     <link rel="stylesheet" href="/assets/css/site.css">
     {% include theme.html %}
@@ -65,7 +67,6 @@
         justify-content:space-between;
         align-items:center;
         padding:16px 20px;
-        border-bottom:1px solid #dbdbdb;
         margin-bottom:20px;
         background:rgba(255,255,255,0.95);
         backdrop-filter:blur(10px);
@@ -75,6 +76,18 @@
         z-index:1000;
         transition:all 0.3s ease;
         box-shadow:0 2px 8px rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      }
+      header::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 12px;
+        right: 12px;
+        height: 2px;
+        background: var(--theme-header-accent);
+        opacity: 0.4;
+        border-radius: 1px;
       }
       
       header.scrolled{
@@ -84,7 +97,7 @@
       }
       
       .brand{display:flex;align-items:center;gap:12px}
-      .brand-title{font-weight:700;color:#262626;font-size:20px;letter-spacing:-0.5px}
+      .brand-title{font-weight:700;font-size:20px;letter-spacing:-0.5px;background:var(--theme-primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
       .brand-tagline{font-size:11px;color:#8e8e8e;margin-top:2px}
       
       .nav-toggle{
