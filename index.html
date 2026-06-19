@@ -34,11 +34,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=1781861066">
+  <link rel="stylesheet" href="/assets/css/site.css?v=1781861576">
   <!-- Bookly Widget Script loaded lazily below -->
   <script>
     // ── Theme schedule loaded from _data/themes.yml ──
-    var THEME_SCHEDULE = {"manual_override":"","regional_defaults":{"india":"summer","middle_east":"summer","global":"summer"},"schedule":[{"date":"12-27","theme":"newyear"},{"date":"01-01","theme":"newyear","end":"01-05"},{"date":"02-14","theme":"valentine","end":"02-16"},{"date":"03-17","theme":"st-patrick"},{"date":"04-14","theme":"vishu","end":"04-15"},{"date":"03-20","theme":"spring","end":"04-15"},{"date":"06-01","theme":"summer","end":"08-19"},{"date":"08-20","theme":"onam","end":"09-15"},{"date":"09-16","theme":"autumn","end":"10-14"},{"date":"10-15","theme":"diwali","end":"11-05"},{"date":"2026-06-11","theme":"football","end":"2026-07-19","note":"FIFA World Cup 2026"},{"date":"10-31","theme":"halloween"},{"date":"11-05","theme":"bonfire"},{"date":"11-11","theme":"remembrance"},{"date":"12-01","theme":"xmas","end":"12-26"}]};
+    var THEME_SCHEDULE = {"manual_override":"","regional_defaults":{"india":"summer","middle_east":"summer","global":"summer"},"schedule":[{"date":"2026-06-11","theme":"football","end":"2026-07-19","note":"FIFA World Cup 2026"},{"date":"12-27","theme":"newyear"},{"date":"01-01","theme":"newyear","end":"01-05"},{"date":"02-14","theme":"valentine","end":"02-16"},{"date":"03-17","theme":"st-patrick"},{"date":"04-14","theme":"vishu","end":"04-15"},{"date":"03-20","theme":"spring","end":"04-15"},{"date":"06-01","theme":"summer","end":"08-19"},{"date":"08-20","theme":"onam","end":"09-15"},{"date":"09-16","theme":"autumn","end":"10-14"},{"date":"10-15","theme":"diwali","end":"11-05"},{"date":"10-31","theme":"halloween"},{"date":"11-05","theme":"bonfire"},{"date":"11-11","theme":"remembrance"},{"date":"12-01","theme":"xmas","end":"12-26"}]};
   </script>
   <script>
     // ── Resolves theme from schedule + date (Google Doodle-style) ──
@@ -53,24 +53,34 @@
       var now = new Date(), y = now.getFullYear();
       
       // ── Check schedule for matching themes ──
+      // First pass: only match specific-year entries (YYYY-MM-DD)
+      // Second pass: match recurring entries (MM-DD)
       function findMatch() {
         var sched = THEME_SCHEDULE.schedule || [];
-        for (var i = 0; i < sched.length; i++) {
-          var entry = sched[i];
-          if (!entry.date) continue;
-          var p = entry.date.split('-'), start, end;
-          if (p.length === 3) {
-            start = new Date(+p[0], +p[1]-1, +p[2]);
-            if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
-            else end = new Date(start);
-          } else {
-            start = new Date(y, +p[0]-1, +p[1]);
-            if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
-            else end = new Date(start);
+        function matchPass(onlySpecific) {
+          for (var i = 0; i < sched.length; i++) {
+            var entry = sched[i];
+            if (!entry.date) continue;
+            var p = entry.date.split('-');
+            var isSpecific = p.length === 3;
+            if (onlySpecific && !isSpecific) continue;
+            if (!onlySpecific && isSpecific) continue;
+            var start, end;
+            if (isSpecific) {
+              start = new Date(+p[0], +p[1]-1, +p[2]);
+              if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
+              else end = new Date(start);
+            } else {
+              start = new Date(y, +p[0]-1, +p[1]);
+              if (entry.end) { var e = entry.end.split('-'); end = e.length === 3 ? new Date(+e[0], +e[1]-1, +e[2]) : new Date(y, +e[0]-1, +e[1]); }
+              else end = new Date(start);
+            }
+            if (now >= start && now <= end) return entry.theme;
           }
-          if (now >= start && now <= end) return entry.theme;
+          return null;
         }
-        return null;
+        // Check specific-year entries first, then recurring
+        return matchPass(true) || matchPass(false);
       }
       
       // ── Detect region for fallback ──
